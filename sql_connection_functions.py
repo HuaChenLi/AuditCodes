@@ -47,9 +47,14 @@ def execute_query(connection, query):
     except Error as err:
         print(f"Error: '{err}'")
 
+def read_query(connection, query):
+    cursor = connection.cursor()
+    result = None
+    try:
+        cursor.execute(query)
+        result = cursor.fetchall()
+        return result
+    except Error as err:
+        print(f"Error: '{err}'")
 
-pw = "Bdvej746Js$2jd"
-db = "MyDataBase"
 
-connection = create_server_connection("localhost", "root", pw)
-connection = create_db_connection("localhost", "root", pw, db)

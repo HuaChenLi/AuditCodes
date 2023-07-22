@@ -2,9 +2,9 @@
 import os
 import sys
 import pandas as pd
-import openpyxl as xl
 from lxml import etree
 from lib_jank import *
+from sql_connection_functions import *
 
 sys.path.append(os.path.abspath('lib_jank_folder'))
 
@@ -25,9 +25,22 @@ quarters_list = [month_period(1), month_period(2), month_period(3), month_period
 
 csv_column_names = ['Date', 'Amount', 'Description', 'Balance']
 
+auditID = 1
+
 replacements_values = {
     'Description': {
         r'\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b': '',  # dates
+        r'\*': '',  # remove asterisks
+        'Value Date:': '',
+        'xx3002': '',
+        'xx0453': '',
+        r'(AU|VI)*(\s)*AUS CARD': '',
+        'PAYPAL': '',
+        r'(\s){2,}': '',  # multiple white spaces
+        r'^\s': '', # white space at start of description
+
+
+
         r'(.*)(Hero Sushi)(.*)*': 'Hero Sushi',
         r'(.*)(Top Notch)(.*)*': 'Top Notch',
         r'(.*)(EG GROUP)(.*)*': 'EG Group',
@@ -76,16 +89,31 @@ replacements_values = {
         r'(.*)(Fast Transfer From Everkeen)': 'Everkeen',
         r'(.*)(CBA CR CARD AUTOPAY)(.*)*': 'Mastercard Autopay',
         r'(.*)(AUTO PAYMENT - THANK YOU)(.*)*': 'Mastercard Autopay',
-        r'(.*)(Uniqlo)(.*)*': 'Uniqlo',
-        r'\*': '',  # remove asterisks
-        'Value Date:': '',
-        'xx3002': '',
-        'xx0453': '',
-        r'(AU|VI)*(\s)*AUS CARD': '',
-        'PAYPAL': '',
-        r'(\s){2,}': '',  # multiple white spaces
-        r'^\s': ''}  # white space at start of description
-}
+        r'(.*)(Uniqlo)(.*)*': 'Uniqlo'
+        }
+    } 
+
+
+
+password = "Bdvej746Js$2jd"
+database = "MyDataBase"
+
+connection = create_server_connection("localhost", "root", password)
+connection = create_db_connection("localhost", "root", password, database)
+
+query = """
+SELECT map_from,map_to FROM mapping_table 
+INNER JOIN mapping_selection ON AuditID = MappingTableID 
+WHERE AuditID = 1 AND (IncomeExpense = 'E' OR IncomeExpense = 'B')
+"""
+
+data_sql_1 = read_query(connection,query)
+
+print(data_sql_1[1][1])
+print(type(data_sql_1))
+
+
+
 
 root = etree.parse('C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml')
 income_col_names = root.findall('.//IncomeColumns//Column')
