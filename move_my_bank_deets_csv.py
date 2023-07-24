@@ -4,7 +4,8 @@ import sys
 import pandas as pd
 from lxml import etree
 from lib_jank import *
-from sql_connection_functions import *
+from SQLFunctions.sql_connection_functions import *
+from  SQLFunctions.select_mappings import *
 
 sys.path.append(os.path.abspath('lib_jank_folder'))
 
@@ -37,59 +38,7 @@ replacements_values = {
         r'(AU|VI)*(\s)*AUS CARD': '',
         'PAYPAL': '',
         r'(\s){2,}': '',  # multiple white spaces
-        r'^\s': '', # white space at start of description
-
-
-
-        r'(.*)(Hero Sushi)(.*)*': 'Hero Sushi',
-        r'(.*)(Top Notch)(.*)*': 'Top Notch',
-        r'(.*)(EG GROUP)(.*)*': 'EG Group',
-        r'(.*)(BELONG)(.*)*': 'Belong',
-        r'(.*)(Belong)(.*)*': 'Belong',
-        r'(.*)(MCDONALDS)(.*)*': 'McDonalds',
-        r'(.*)(GOLD LEAF)(.*)*': 'Gold Leaf',
-        r'(.*)(CRUNCHYROLL)(.*)*': 'Crunchyroll',
-        r'(.*)(UBER)(.*)*': 'Uber',
-        r'(.*)(SPOTIFY)(.*)*': 'Spotify',
-        r'(.*)(NoodleBox)(.*)*': 'Noodlebox',
-        r'(.*)(Mighty Moonee Ponds)(.*)*': 'Mighty Moonee Ponds',
-        r'(.*)(Zeus Street Greek)(.*)*': 'Zeus Street Greek',
-        r'(.*)(SUPA IGA)(.*)*': 'IGA',
-        r'(.*)(COLES EXPRESS)(.*)*': 'Coles Express',
-        r'(.*)(OPTUS)(.*)*': 'Optus',
-        r'(.*)(EASTLINK)(.*)*': 'Eastlink',
-        r'(.*)(ENERGYAUSTRALIA)(.*)*': 'EnergyAustralia',
-        r'(.*)(TANGO)(.*)*': 'Tango Energy',
-        r'(.*)(JB HI(-|\s)*FI)(.*)*': 'JB Hi-Fi',
-        r'(.*)(WOOLWORTHS)(.*)*': 'Woolworths',
-        r'(.*)(MYKI)(.*)*': 'Myki',
-        r'(.*)(Sir Duke)(.*)*': 'Sir Duke',
-        r'(.*)(7-ELEVEN)(.*)*': '7-Eleven',
-        r'(.*)(HUNKY DORY)(.*)*': 'Hunky Dory',
-        r'(.*)(KMART)(.*)*': 'Kmart',
-        r'(.*)(CHEM WAREHS)(.*)*': 'Chemist Warehouse',
-        r'(.*)(CHEMIST WAREHOUSE)(.*)*': 'Chemist Warehouse',
-        r'(.*)(HEALTHY PETS)(.*)*': 'Healthy Pets',
-        r'(.*)(ALLISON BROWNING)(.*)*': 'Allison Browning',
-        r'(.*)(COMMONWEALTH INSURANCE)(.*)*': 'Commonwealth Insurance',
-        r'(.*)(BUNNINGS)(.*)*': 'Bunnings',
-        r'(.*)(Yarra Valley Water)(.*)*': 'Yarra Valley Water',
-        r'(.*)(KFC)(.*)*': 'KFC',
-        r'(.*)(XERO)(.*)*': 'Xero',
-        r'(.*)(DR BILGE)(.*)*': 'Dr Bilge',
-        r'(.*)(SPOTLIGHT)(.*)*': 'Spotlight',
-        r'(.*)(ALLIANZ)(.*)*': 'Allianz',
-        r'(.*)(MasterCardPayment)(.*)*': 'Mastercard Payment',
-        r'(.*)(RACV)(.*)*': 'RACV',
-        r'(.*)(ALDI)(.*)*': 'ALDI',
-        r'(.*)(Hungry Jacks)(.*)*': 'Hungry Jacks',
-        r'(.*)(Home Loan)(.*)*': 'Home Loan',
-        r'(Loan Repayment)(.*)*': 'Home Loan',
-        r'(.*)(AIA AUSTRALIA)(.*)*': 'AIA Australia',
-        r'(.*)(Fast Transfer From Everkeen)': 'Everkeen',
-        r'(.*)(CBA CR CARD AUTOPAY)(.*)*': 'Mastercard Autopay',
-        r'(.*)(AUTO PAYMENT - THANK YOU)(.*)*': 'Mastercard Autopay',
-        r'(.*)(Uniqlo)(.*)*': 'Uniqlo'
+        r'^\s': '' # white space at start of description
         }
     } 
 
@@ -101,18 +50,20 @@ database = "MyDataBase"
 connection = create_server_connection("localhost", "root", password)
 connection = create_db_connection("localhost", "root", password, database)
 
-query = """
-SELECT map_from,map_to FROM mapping_table 
-INNER JOIN mapping_selection ON AuditID = MappingTableID 
-WHERE AuditID = 1 AND (IncomeExpense = 'E' OR IncomeExpense = 'B')
-"""
+query = select_mapping_query(auditID,'E')
+
 
 data_sql_1 = read_query(connection,query)
 
-print(data_sql_1[1][1])
-print(type(data_sql_1))
+for row in data_sql_1:
+    mappedFromValue = row[0]
+    mappedToValue = row[1]
+    
+    keyValue = r'(.*)' + mappedFromValue + '(.*)*'
 
+    newMapping = {keyValue:mappedToValue}
 
+    replacements_values['Description'].update(newMapping)
 
 
 root = etree.parse('C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml')
