@@ -23,7 +23,7 @@ replacements_values = {
         r'(.*)(EG GROUP)(.*)*': 'EG Group',
         r'(.*)(BELONG)(.*)*': 'Belong',
         r'(.*)(Belong)(.*)*': 'Belong',
-        r'(.*)(MCDONALDS)(.*)*': 'McDonalds',
+        r'(.*)(MCDONALDS)(.*)*': 'McDonalds',~
         r'(.*)(GOLD LEAF)(.*)*': 'Gold Leaf',
         r'(.*)(CRUNCHYROLL)(.*)*': 'Crunchyroll',
         r'(.*)(UBER)(.*)*': 'Uber',
