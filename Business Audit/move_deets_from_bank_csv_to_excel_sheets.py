@@ -4,6 +4,7 @@ from lxml import etree
 # from lib_jank_folder.lib_jank import *
 from lib_jank_folder.lib_jank import *
 
+# I should add a ReadMe for me so I know what to do
 
 # Set the quarter and financial year
 quarter = 4
@@ -23,7 +24,7 @@ replacements_values = {
         r'(.*)(EG GROUP)(.*)*': 'EG Group',
         r'(.*)(BELONG)(.*)*': 'Belong',
         r'(.*)(Belong)(.*)*': 'Belong',
-        r'(.*)(MCDONALDS)(.*)*': 'McDonalds',~
+        r'(.*)(MCDONALDS)(.*)*': 'McDonalds',
         r'(.*)(GOLD LEAF)(.*)*': 'Gold Leaf',
         r'(.*)(CRUNCHYROLL)(.*)*': 'Crunchyroll',
         r'(.*)(UBER)(.*)*': 'Uber',
