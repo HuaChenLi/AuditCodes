@@ -4,7 +4,6 @@ from lxml import etree
 # from lib_jank_folder.lib_jank import *
 from lib_jank_folder.lib_jank import *
 
-# more rands
 # Set the quarter and financial year
 quarter = 4
 
