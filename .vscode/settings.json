@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./path-to-your-code",
+        "./lib_jank_folder"
+    ]
+}
