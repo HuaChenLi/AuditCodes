@@ -7,7 +7,7 @@ import time
 from lib_jank import *
 from SQLFunctions.select_mappings import *
 
-sys.path.append(os.path.abspath("lib_jank_folder"))
+sys.path.append(os.path.abspath("commonLibrary"))
 
 financial_year = "2022 - 2023"
 
