@@ -20,10 +20,23 @@ def select_mapping_query(auditID, incomeExpenseChar):
 
 def insert_mapping_selection(auditID, mappingTableID, incomeExpenseChar):
     query = f"""
-    INSERT INTO test_mapping_selection (AuditID, MappingTableID, IncomeExpense)
+    INSERT INTO mapping_selection (AuditID, MappingTableID, IncomeExpense)
     VALUES ({auditID}, {mappingTableID}, '{incomeExpenseChar}')    
     """
+    execute_query(connection, query)
 
-    return execute_query(connection, query)
 
-# def insert_mapping_table()
+def insert_mapping_table_and_mapping_selection(mapFrom, mapTo, auditID, incomeExpenseChar):
+    query = f"""
+    INSERT INTO mapping_table (map_from, map_to)
+    VALUES ('{mapFrom}', '{mapTo}')
+    """
+    execute_query(connection, query)
+
+    last_id_value_query = f"""
+    SELECT MAX(id) FROM mapping_table 
+    """
+    last_id = read_query(connection, last_id_value_query)
+    insert_mapping_selection(auditID, last_id[0][0], incomeExpenseChar)
+
+
