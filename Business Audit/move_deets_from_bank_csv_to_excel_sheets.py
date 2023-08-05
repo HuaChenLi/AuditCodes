@@ -16,76 +16,30 @@ financial_year_folder = financial_year[:4] + " Jul - " + financial_year[7:] + " 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
-
-
-# Going to need a for loop later all 3 instances
-
-auditID = 2
-
-
-
-
-
-
-
-
-auditIDList = [2,3,4]
+auditIDList = [2, 3, 4]
 
 # Month Directory
 quarter_folder = os.path.join("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
-for spreadsheet_index, auditID in enumerate(auditIDList, start=1):
+for auditID in auditIDList:
 
     if auditID == 2:
         spreadsheet_name = "Business Transaction Account"
     elif auditID == 3:
         spreadsheet_name = "Everyday Offset"
-    elif auditID ==4:
+    elif auditID == 4:
         spreadsheet_name = "Mastercard"
 
-
-
-
-
-
-
-    replacements_values = {
-        "Description": {
-            r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
-            r"\*": "",  # remove asterisks
-            "Value Date:": "",
-            "xx3002": "",
-            "xx0453": "",
-            r"(AU|VI)*(\s)*AUS CARD": "",
-            "PAYPAL": "",
-            r"(\s){2,}": "",  # multiple white spaces
-            r"^\s": ""}  # white space at start of description
-    }
-
-    incomeExpenseChar = "E"
-
-    data_sql_1 = select_mapping_query(auditID, incomeExpenseChar)
-
-    for index, row in data_sql_1.iterrows():
-        mappedFromValue = row["map_from"]
-        mappedToValue = row["map_to"]
-
-        keyValue = r"(.*)" + mappedFromValue + "(.*)*"
-
-        newMapping = {keyValue: mappedToValue}
-
-        replacements_values["Description"].update(newMapping)
-
-
-
-
-
+    # The csv_data is where the information is getting replaced. This is technically a bug I think, at least with my code
+    # because the code shouldn't be replacing all the values with the Expense mappings
+    # The code would need to differentiate the 2 before starting the regex values.
+    # There is a question of how costly it is. I think it's feasible to build up the data first, and then
+    # do the mappings afterwards.
 
     csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + " CSV\CSVData.csv")
     csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
-    csv_data = csv_data.replace(replacements_values, regex=True)
     csv_data = csv_data[::-1]
 
     excel_directory = os.path.join(quarter_folder, spreadsheet_name + " " + month_period(quarter) + " " + year(quarter,
@@ -109,8 +63,39 @@ for spreadsheet_index, auditID in enumerate(auditIDList, start=1):
     for sheet_title in ["Income", "Expenditure"]:
         if sheet_title == "Income":
             col_names = income_col_names
+            incomeExpenseChar = "I"
         else:
             col_names = expense_col_names
+            incomeExpenseChar = "E"
+
+        # ////////////////////////////////////
+
+        replacements_values = {
+            "Description": {
+                r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
+                r"\*": "",  # remove asterisks
+                "Value Date:": "",
+                "xx3002": "",
+                "xx0453": "",
+                r"(AU|VI)*(\s)*AUS CARD": "",
+                "PAYPAL": "",
+                r"(\s){2,}": "",  # multiple white spaces
+                r"^\s": ""}  # white space at start of description
+        }
+
+        data_sql_1 = select_mapping_query(auditID, incomeExpenseChar)
+
+        for index, row in data_sql_1.iterrows():
+            mappedFromValue = row["map_from"]
+            mappedToValue = row["map_to"]
+
+            keyValue = r"(.*)" + mappedFromValue + "(.*)*"
+
+            newMapping = {keyValue: mappedToValue}
+
+            replacements_values["Description"].update(newMapping)
+
+        #     ////////////////////////////////////////////////
 
         associated_values_dictionary = dict()
 
@@ -138,7 +123,7 @@ for spreadsheet_index, auditID in enumerate(auditIDList, start=1):
 
             # creating the Income data frame 
             if sheet_title == "Income" and csv_data.at[index, "Amount"] > 0 or sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
-                # if the date is the same, don"t print the values
+                # if the date is the same, don't print the values
                 temp_date = csv_data.at[index, "Date"]
 
                 if temp_date == temp_date_2:
@@ -154,7 +139,7 @@ for spreadsheet_index, auditID in enumerate(auditIDList, start=1):
                 if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
                     csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
 
-                # smooth brain couldn"t think of another way to do it with the break command
+                # smooth brain couldn't think of another way to do it with the break command
                 # essentially I"m pre-populating in Misc. then removing it if I find a match
                 if "Misc. without GST" in column_name_list:
                     excel_sheet.at[index, "Misc. without GST"] = csv_data.at[index, "Amount"]
@@ -169,6 +154,8 @@ for spreadsheet_index, auditID in enumerate(auditIDList, start=1):
                         if any(value.casefold() in row[2].casefold() for value in category_values):
                             excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                             excel_sheet.at[index, "Misc."] = ""
+
+        excel_sheet = excel_sheet.replace(replacements_values, regex=True)
 
         output_filepath = os.path.join("./", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter), spreadsheet_name + " CSV", sheet_title + ".csv")
 
