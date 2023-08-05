@@ -2,11 +2,9 @@
 import os
 import shutil
 import sys
-import pandas as pd
 from lxml import etree
 import time
 from lib_jank import *
-from SQLFunctions.sql_connection_functions import *
 from SQLFunctions.select_mappings import *
 
 sys.path.append(os.path.abspath("lib_jank_folder"))
@@ -29,32 +27,6 @@ quarters_list = [month_period(1), month_period(2), month_period(3), month_period
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
 auditID = 1
-
-replacements_values = {
-    "Description": {
-        r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
-        r"\*": "",  # remove asterisks
-        "Value Date:": "",
-        "xx3002": "",
-        "xx0453": "",
-        r"(AU|VI)*(\s)*AUS CARD": "",
-        "PAYPAL": "",
-        r"(\s){2,}": "",  # multiple white spaces
-        r"^\s": ""  # white space at start of description
-    }
-}
-
-data_sql_1 = select_mapping_query(auditID, "E")
-
-for index, row in data_sql_1.iterrows():
-    mappedFromValue = row["map_from"]
-    mappedToValue = row["map_to"]
-
-    keyValue = r"(.*)" + mappedFromValue + "(.*)*"
-
-    newMapping = {keyValue: mappedToValue}
-
-    replacements_values["Description"].update(newMapping)
 
 root = etree.parse("C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml")
 income_col_names = root.findall(".//IncomeColumns//Column")
@@ -94,7 +66,6 @@ except:
 for account in bank_accounts:
     csv_data_folder_path = os.path.join(root_excel_directory, account, "CSVData.csv")
     collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
-    collected_data = collected_data.replace(replacements_values, regex=True)
     csv_data = csv_data.merge(collected_data, how="outer")
 
 csv_data["Date"] = pd.to_datetime(csv_data["Date"], format="%d/%m/%Y")
@@ -103,8 +74,40 @@ csv_data.sort_values(by="Date", inplace=True)
 for sheet_title in ["Income", "Expenditure"]:
     if sheet_title == "Income":
         col_names = income_col_names
+        incomeExpenseChar = "I"
     else:
         col_names = expense_col_names
+        incomeExpenseChar = "E"
+
+    # //////////////////////////////////////
+
+    replacements_values = {
+        "Description": {
+            r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
+            r"\*": "",  # remove asterisks
+            "Value Date:": "",
+            "xx3002": "",
+            "xx0453": "",
+            r"(AU|VI)*(\s)*AUS CARD": "",
+            "PAYPAL": "",
+            r"(\s){2,}": "",  # multiple white spaces
+            r"^\s": ""  # white space at start of description
+        }
+    }
+
+    data_sql_1 = select_mapping_query(auditID, "E")
+
+    for index, row in data_sql_1.iterrows():
+        mappedFromValue = row["map_from"]
+        mappedToValue = row["map_to"]
+
+        keyValue = r"(.*)" + mappedFromValue + "(.*)*"
+
+        newMapping = {keyValue: mappedToValue}
+
+        replacements_values["Description"].update(newMapping)
+
+    # //////////////////////////////////////////
 
     associated_values_dictionary = dict()
 
@@ -152,6 +155,8 @@ for sheet_title in ["Income", "Expenditure"]:
                     if any(value.casefold() in row[2].casefold() for value in category_values):
                         excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                         excel_sheet.at[index, "Misc."] = ""
+
+    excel_sheet = excel_sheet.replace(replacements_values, regex=True)
 
     output_filepath = os.path.join(root_excel_directory, sheet_title + ".csv")
 
