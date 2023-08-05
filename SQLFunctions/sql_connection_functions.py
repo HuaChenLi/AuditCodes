@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
+
 def create_server_connection(host_name, user_name, user_password):
     connection = None
     try:
@@ -12,8 +13,9 @@ def create_server_connection(host_name, user_name, user_password):
         print("MySQL Database connection successful")
     except Error as err:
         print(f"Error: '{err}'")
-    
+
     return connection
+
 
 def create_database(connection, query):
     cursor = connection.cursor()
@@ -22,6 +24,7 @@ def create_database(connection, query):
         print("Database created successfully")
     except Error as err:
         print(f"Error: '{err}'")
+
 
 def create_db_connection(host_name, user_name, user_password, db_name):
     connection = None
@@ -38,6 +41,7 @@ def create_db_connection(host_name, user_name, user_password, db_name):
 
     return connection
 
+
 def execute_query(connection, query):
     cursor = connection.cursor()
     try:
@@ -46,6 +50,7 @@ def execute_query(connection, query):
         print("Query successful")
     except Error as err:
         print(f"Error: '{err}'")
+
 
 def read_query(connection, query):
     cursor = connection.cursor()
@@ -56,5 +61,3 @@ def read_query(connection, query):
         return result
     except Error as err:
         print(f"Error: '{err}'")
-
-

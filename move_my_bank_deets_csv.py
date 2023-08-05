@@ -7,7 +7,7 @@ from lxml import etree
 import time
 from lib_jank import *
 from SQLFunctions.sql_connection_functions import *
-from  SQLFunctions.select_mappings import *
+from SQLFunctions.select_mappings import *
 
 sys.path.append(os.path.abspath("lib_jank_folder"))
 
@@ -41,33 +41,20 @@ replacements_values = {
         "PAYPAL": "",
         r"(\s){2,}": "",  # multiple white spaces
         r"^\s": ""  # white space at start of description
-        }
-    } 
+    }
+}
 
-password = "Bdvej746Js$2jd"
-database = "MyDataBase"
-
-connection = create_server_connection("localhost", "root", password)
-connection = create_db_connection("localhost", "root", password, database)
-
-query = select_mapping_query(auditID,"E")
-
-data_sql_1 = pd.DataFrame.from_records(read_query(connection,query), columns=["id","map_from", "map_to"])
-
-# print(data_sql_1)
-
-print(type(data_sql_1))
+data_sql_1 = select_mapping_query(auditID, "E")
 
 for index, row in data_sql_1.iterrows():
     mappedFromValue = row["map_from"]
     mappedToValue = row["map_to"]
-    
+
     keyValue = r"(.*)" + mappedFromValue + "(.*)*"
 
-    newMapping = {keyValue:mappedToValue}
+    newMapping = {keyValue: mappedToValue}
 
     replacements_values["Description"].update(newMapping)
-
 
 root = etree.parse("C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml")
 income_col_names = root.findall(".//IncomeColumns//Column")
@@ -102,8 +89,6 @@ try:
     shutil.move("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\Expenditure.csv", archive_folder + "\Expenditure.csv")
 except:
     print("No Income file")
-
-
 
 # merge Mastercard and Smart Access transactions csv into 1 file
 for account in bank_accounts:
