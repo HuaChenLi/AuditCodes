@@ -40,7 +40,7 @@ replacements_values = {
         r"(AU|VI)*(\s)*AUS CARD": "",
         "PAYPAL": "",
         r"(\s){2,}": "",  # multiple white spaces
-        r"^\s": "" # white space at start of description
+        r"^\s": ""  # white space at start of description
         }
     } 
 
@@ -52,11 +52,15 @@ connection = create_db_connection("localhost", "root", password, database)
 
 query = select_mapping_query(auditID,"E")
 
-data_sql_1 = read_query(connection,query)
+data_sql_1 = pd.DataFrame.from_records(read_query(connection,query), columns=["id","map_from", "map_to"])
 
-for row in data_sql_1:
-    mappedFromValue = row[0]
-    mappedToValue = row[1]
+# print(data_sql_1)
+
+print(type(data_sql_1))
+
+for index, row in data_sql_1.iterrows():
+    mappedFromValue = row["map_from"]
+    mappedToValue = row["map_to"]
     
     keyValue = r"(.*)" + mappedFromValue + "(.*)*"
 
@@ -76,13 +80,12 @@ bank_accounts = ["Mastercard", "Smart Access"]
 csv_data = pd.DataFrame(columns=csv_column_names)
 
 # archive process
-# actually, do I even want to archive the csv. I feel like the csv isn"t necessary
+# actually, do I even want to archive the csv. I feel like the csv isn't necessary
 # just need to archive the Income.csv
 
-archive_root = os.path.join("My_Audit_2022\Archive")
+archive_root = os.path.join("C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022\\Archive")
 
 timestr = time.strftime("%Y%m%d-%H%M%S")
-print(timestr) 
 archive_folder = os.path.join(archive_root + "\\" + timestr)
 
 try:
@@ -91,12 +94,12 @@ except:
     print("Can't create archive folder")
 
 try:
-    shutil.move("My_Audit_2022\Income.csv", archive_folder + "\Income.csv")
+    shutil.move("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\Income.csv", archive_folder + "\Income.csv")
 except:
     print("No Income file")
 
 try:
-    shutil.move("My_Audit_2022\Expenditure.csv", archive_folder + "\Expenditure.csv")
+    shutil.move("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\Expenditure.csv", archive_folder + "\Expenditure.csv")
 except:
     print("No Income file")
 
