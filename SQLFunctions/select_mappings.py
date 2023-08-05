@@ -17,3 +17,13 @@ def select_mapping_query(auditID, incomeExpenseChar):
 
     return pd.DataFrame.from_records(read_query(connection, query), columns=["id", "map_from", "map_to"])
 
+
+def insert_mapping_selection(auditID, mappingTableID, incomeExpenseChar):
+    query = f"""
+    INSERT INTO test_mapping_selection (AuditID, MappingTableID, IncomeExpense)
+    VALUES ({auditID}, {mappingTableID}, '{incomeExpenseChar}')    
+    """
+
+    return execute_query(connection, query)
+
+# def insert_mapping_table()
