@@ -1,4 +1,4 @@
-from SQLFunctions.select_mappings import select_mapping_query, insert_mapping_selection
+from SQLFunctions.select_mappings import select_mapping_query, insert_mapping_selection, insert_mapping_table_and_mapping_selection
 from SQLFunctions.sql_connection_functions import *
 
 password = "Bdvej746Js$2jd"
@@ -56,25 +56,24 @@ business_list = [
     ["Fast Transfer From Everkeen", "Everkeen"]
 ]
 
-# insert_mapping_selection(2,4,'E')
 
-print(" break ")
+# This is interesting, so turns out my thing had the same list, but with more stuff, so only the first set of SQLs did anything
+# I can still use this chunk I think, since for the function that adds the mapping, I would need to do this check
+# Because I don't want duplicate values
+
 sql_df = select_mapping_query(1, "E")
 
-# print(sql_df)
-
 for business_row in business_list:
-    mappingAlreadyExists = False;
+    mappingAlreadyExists = False
     for index, mapping_row in sql_df.iterrows():
         if business_row[0] == mapping_row["map_from"] and business_row[1] == mapping_row["map_to"]:
             insert_mapping_selection(auditID=2, mappingTableID=index + 1, incomeExpenseChar="E")
             insert_mapping_selection(auditID=3, mappingTableID=index + 1, incomeExpenseChar="E")
             insert_mapping_selection(auditID=4, mappingTableID=index + 1, incomeExpenseChar="E")
-            mappingAlreadyExists = True;
+            mappingAlreadyExists = True
 
     if not mappingAlreadyExists:
-        insert_mapping_selection()
+        insert_mapping_table_and_mapping_selection(business_row[0], business_row[1], 2, "E")
+        insert_mapping_table_and_mapping_selection(business_row[0], business_row[1], 3, "E")
+        insert_mapping_table_and_mapping_selection(business_row[0], business_row[1], 4, "E")
 
-
-# I need a flow chart
-# Excalidraw
