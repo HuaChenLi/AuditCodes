@@ -11,7 +11,7 @@ financial_year = '2022 - 2023'
 
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
-# the number of rows the excel has. Can edit this in case for some reason, 1000 is not enough
+# the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
 replacements_values = {
@@ -76,8 +76,7 @@ replacements_values = {
 bank_account_list = ['Business Transaction Account', 'Everyday Offset', 'Mastercard']
 
 # Month Directory
-quarter_folder = os.path.join('C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit', financial_year_folder,
-                              'Q' + str(quarter) + ' ' + month_period(quarter))
+quarter_folder = os.path.join('C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit', financial_year_folder,'Q' + str(quarter) + ' ' + month_period(quarter))
 
 csv_column_names = ['Date', 'Amount', 'Description', 'Balance']
 
@@ -136,8 +135,7 @@ for spreadsheet_index, spreadsheet in enumerate(bank_account_list, start=1):
         for index, row in csv_data.iterrows():
 
             # creating the Income data frame 
-            if sheet_title == 'Income' and csv_data.at[index, 'Amount'] > 0 or sheet_title != 'Income' and csv_data.at[
-                index, 'Amount'] < 0:
+            if sheet_title == 'Income' and csv_data.at[index, 'Amount'] > 0 or sheet_title != 'Income' and csv_data.at[index, 'Amount'] < 0:
                 # if the date is the same, don't print the values
                 temp_date = csv_data.at[index, 'Date']
 
