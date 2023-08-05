@@ -3,7 +3,9 @@ import openpyxl as xl
 from openpyxl.styles import Alignment, Font
 from lxml import etree
 import xlwings as xw
-from lib_jank_folder.lib_jank import *
+
+from commonLibrary.csv_excel_conversions import set_borders_all_cells, set_borders_outer_cells, set_number_format, set_arial_font, sum_value_formula_excel, convert_rows_and_columns_to_excel
+from commonLibrary.date_libraries import *
 
 # exec("Python Coding/lib_jank")
 
@@ -64,13 +66,13 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         if spreadsheet == 'Business Transaction Account':
             root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/business_transaction_account_col_rules.xml')
+                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/business_transaction_account_col_rules.xml')
         elif spreadsheet == 'Everyday Offset':
             root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/everyday_offset_col_rules.xml')
+                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/everyday_offset_col_rules.xml')
         elif spreadsheet == 'Mastercard':
             root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/mastercard_col_rules.xml')
+                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/mastercard_col_rules.xml')
         else:
             print(spreadsheet)
             print('Have the Column Rules file names been changed or moved?')

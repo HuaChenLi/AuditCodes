@@ -3,8 +3,8 @@ import os
 from lxml import etree
 
 from SQLFunctions.select_mappings import select_mapping_query
-# from lib_jank_folder.lib_jank import *
-from lib_jank_folder.lib_jank import *
+# from commonLibrary.lib_jank import *
+from commonLibrary.date_libraries import *
 
 # Set the quarter and financial year
 quarter = 4
