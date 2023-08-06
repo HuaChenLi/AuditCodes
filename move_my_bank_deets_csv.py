@@ -4,8 +4,8 @@ import shutil
 import sys
 from lxml import etree
 import time
-from lib_jank import *
 from SQLFunctions.select_mappings import *
+from commonLibrary.date_libraries import month_period
 
 sys.path.append(os.path.abspath("commonLibrary"))
 
