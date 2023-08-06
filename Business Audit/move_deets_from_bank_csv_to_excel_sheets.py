@@ -2,9 +2,9 @@ import pandas as pd
 import os
 from lxml import etree
 
-from SQLFunctions.select_mappings import select_mapping_query
-# from commonLibrary.lib_jank import *
-from commonLibrary.date_libraries import *
+# from CommonLibrary.lib_jank import *
+from CommonLibrary.date_libraries import *
+from CommonLibrary.getting_replacement_values import replacement_values
 
 # Set the quarter and financial year
 quarter = 4
@@ -68,34 +68,7 @@ for auditID in auditIDList:
             col_names = expense_col_names
             incomeExpenseChar = "E"
 
-        # ////////////////////////////////////
-
-        replacements_values = {
-            "Description": {
-                r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
-                r"\*": "",  # remove asterisks
-                "Value Date:": "",
-                "xx3002": "",
-                "xx0453": "",
-                r"(AU|VI)*(\s)*AUS CARD": "",
-                "PAYPAL": "",
-                r"(\s){2,}": "",  # multiple white spaces
-                r"^\s": ""}  # white space at start of description
-        }
-
-        data_sql_1 = select_mapping_query(auditID, incomeExpenseChar)
-
-        for index, row in data_sql_1.iterrows():
-            mappedFromValue = row["map_from"]
-            mappedToValue = row["map_to"]
-
-            keyValue = r"(.*)" + mappedFromValue + "(.*)*"
-
-            newMapping = {keyValue: mappedToValue}
-
-            replacements_values["Description"].update(newMapping)
-
-        #     ////////////////////////////////////////////////
+        replacement_values = replacement_values(auditID, incomeExpenseChar)
 
         associated_values_dictionary = dict()
 
@@ -155,7 +128,7 @@ for auditID in auditIDList:
                             excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                             excel_sheet.at[index, "Misc."] = ""
 
-        excel_sheet = excel_sheet.replace(replacements_values, regex=True)
+        excel_sheet = excel_sheet.replace(replacement_values, regex=True)
 
         output_filepath = os.path.join("./", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter), spreadsheet_name + " CSV", sheet_title + ".csv")
 
