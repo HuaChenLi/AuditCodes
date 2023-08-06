@@ -5,16 +5,17 @@ import sys
 from lxml import etree
 import time
 from SQLFunctions.select_mappings import *
-from commonLibrary.date_libraries import month_period
+from CommonLibrary.date_libraries import month_period
+from CommonLibrary.getting_replacement_values import replacement_values
 
-sys.path.append(os.path.abspath("commonLibrary"))
+sys.path.append(os.path.abspath("CommonLibrary"))
 
 financial_year = "2022 - 2023"
 
 financial_year_folder = financial_year[:4] + " Jul - " + financial_year[7:] + " Jun"
 
 # feels like a mess whenever I open up the scripts. I usually have no idea what to actually do to run the reports, and I"m scrambling all the time. I want to add an archive feature. Basically, it will save and store the files in an archive folder.
-# My bank account being gone from Commbank is a little annoying. I"m questioning why an extra 3.8K was deducted from my bank account. Even if they closed my Credit Card account, they should have still kept the bank account visible with my past statements.
+# My bank account being gone from Commbank is a little annoying. I'm questioning why an extra 3.8K was deducted from my bank account. Even if they closed my Credit Card account, they should have still kept the bank account visible with my past statements.
 # Also I want to make the process easier for me. It"s pretty annoying not knowing which library to run
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
@@ -79,35 +80,7 @@ for sheet_title in ["Income", "Expenditure"]:
         col_names = expense_col_names
         incomeExpenseChar = "E"
 
-    # //////////////////////////////////////
-
-    replacements_values = {
-        "Description": {
-            r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
-            r"\*": "",  # remove asterisks
-            "Value Date:": "",
-            "xx3002": "",
-            "xx0453": "",
-            r"(AU|VI)*(\s)*AUS CARD": "",
-            "PAYPAL": "",
-            r"(\s){2,}": "",  # multiple white spaces
-            r"^\s": ""  # white space at start of description
-        }
-    }
-
-    data_sql_1 = select_mapping_query(auditID, "E")
-
-    for index, row in data_sql_1.iterrows():
-        mappedFromValue = row["map_from"]
-        mappedToValue = row["map_to"]
-
-        keyValue = r"(.*)" + mappedFromValue + "(.*)*"
-
-        newMapping = {keyValue: mappedToValue}
-
-        replacements_values["Description"].update(newMapping)
-
-    # //////////////////////////////////////////
+    replacement_values = replacement_values(auditID, incomeExpenseChar)
 
     associated_values_dictionary = dict()
 
@@ -136,11 +109,11 @@ for sheet_title in ["Income", "Expenditure"]:
             excel_sheet.at[index, "Date"] = csv_data.at[index, "Date"]
             excel_sheet.at[index, "Description"] = csv_data.at[index, "Description"]
 
-            # convert negative to posistive for expense
+            # convert negative to positive for expense
             if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
                 csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
 
-            # smooth brain couldn"t think of another way to do it with the break command
+            # smooth brain couldn't think of another way to do it with the break command
             # essentially I"m prepopulating in Misc. then removing it if I find a match
             if "Misc. without GST" in column_name_list:
                 excel_sheet.at[index, "Misc. without GST"] = csv_data.at[index, "Amount"]
@@ -156,7 +129,7 @@ for sheet_title in ["Income", "Expenditure"]:
                         excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                         excel_sheet.at[index, "Misc."] = ""
 
-    excel_sheet = excel_sheet.replace(replacements_values, regex=True)
+    excel_sheet = excel_sheet.replace(replacement_values, regex=True)
 
     output_filepath = os.path.join(root_excel_directory, sheet_title + ".csv")
 
