@@ -4,8 +4,8 @@ from openpyxl.styles import Alignment, Font
 from lxml import etree
 import xlwings as xw
 
-from commonLibrary.csv_excel_conversions import set_borders_all_cells, set_borders_outer_cells, set_number_format, set_arial_font, sum_value_formula_excel, convert_rows_and_columns_to_excel
-from commonLibrary.date_libraries import *
+from CommonLibrary.csv_excel_conversions import set_borders_all_cells, set_borders_outer_cells, set_number_format, set_arial_font, sum_value_formula_excel, convert_rows_and_columns_to_excel
+from CommonLibrary.date_libraries import *
 
 # exec("Python Coding/lib_jank")
 
