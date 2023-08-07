@@ -8,10 +8,10 @@ import xlwings as xw
 from datetime import datetime, timedelta
 import openpyxl as xl
 
-from commonLibrary.csv_excel_conversions import *
-from commonLibrary.date_libraries import *
+from CommonLibrary.csv_excel_conversions import *
+from CommonLibrary.date_libraries import *
 
-sys.path.append(os.path.abspath("commonLibrary"))
+sys.path.append(os.path.abspath("CommonLibrary"))
 
 
 financial_year = '2022 - 2023'

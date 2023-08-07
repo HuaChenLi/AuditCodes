@@ -2,6 +2,10 @@ import mysql.connector
 from mysql.connector import Error
 
 
+password = "Bdvej746Js$2jd"
+database = "MyDataBase"
+
+
 def create_server_connection(host_name, user_name, user_password):
     connection = None
     try:
@@ -61,3 +65,18 @@ def read_query(connection, query):
         return result
     except Error as err:
         print(f"Error: '{err}'")
+
+
+connection = create_db_connection("localhost", "root", password, database)
+
+
+def get_password():
+    return password
+
+
+def get_database():
+    return database
+
+
+def get_connection():
+    return connection
