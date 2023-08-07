@@ -2,10 +2,9 @@ import pandas as pd
 
 from SQLFunctions.sql_connection_functions import *
 
-password = "Bdvej746Js$2jd"
-database = "MyDataBase"
-
-connection = create_db_connection("localhost", "root", password, database)
+password = get_password()
+database = get_database()
+connection = get_connection()
 
 
 def select_mapping_query(auditID, incomeExpenseChar):
@@ -18,18 +17,18 @@ def select_mapping_query(auditID, incomeExpenseChar):
     return pd.DataFrame.from_records(read_query(connection, query), columns=["id", "map_from", "map_to"])
 
 
-def insert_mapping_selection(auditID, mappingTableID, incomeExpenseChar):
+def insert_mapping_selection(audit_id, mapping_table_id, income_expense_char):
     query = f"""
     INSERT INTO mapping_selection (AuditID, MappingTableID, IncomeExpense)
-    VALUES ({auditID}, {mappingTableID}, '{incomeExpenseChar}')    
+    VALUES ({audit_id}, {mapping_table_id}, '{income_expense_char}')    
     """
     execute_query(connection, query)
 
 
-def insert_mapping_table_and_mapping_selection(mapFrom, mapTo, auditID, incomeExpenseChar):
+def insert_mapping_table_and_mapping_selection(map_from, map_to, audit_id, income_expense_char):
     query = f"""
     INSERT INTO mapping_table (map_from, map_to)
-    VALUES ('{mapFrom}', '{mapTo}')
+    VALUES ('{map_from}', '{map_to}')
     """
     execute_query(connection, query)
 
@@ -37,6 +36,6 @@ def insert_mapping_table_and_mapping_selection(mapFrom, mapTo, auditID, incomeEx
     SELECT MAX(id) FROM mapping_table 
     """
     last_id = read_query(connection, last_id_value_query)
-    insert_mapping_selection(auditID, last_id[0][0], incomeExpenseChar)
+    insert_mapping_selection(audit_id, last_id[0][0], income_expense_char)
 
 

@@ -1,11 +1,9 @@
 from SQLFunctions.select_mappings import select_mapping_query, insert_mapping_selection, insert_mapping_table_and_mapping_selection
 from SQLFunctions.sql_connection_functions import *
 
-password = "Bdvej746Js$2jd"
-database = "MyDataBase"
-
-connection = create_server_connection("localhost", "root", password)
-connection = create_db_connection("localhost", "root", password, database)
+password = get_password()
+database = get_database()
+connection = get_connection()
 
 business_list = [
     ["Hero Sushi", "Hero Sushi"],
@@ -67,9 +65,9 @@ for business_row in business_list:
     mappingAlreadyExists = False
     for index, mapping_row in sql_df.iterrows():
         if business_row[0] == mapping_row["map_from"] and business_row[1] == mapping_row["map_to"]:
-            insert_mapping_selection(auditID=2, mappingTableID=index + 1, incomeExpenseChar="E")
-            insert_mapping_selection(auditID=3, mappingTableID=index + 1, incomeExpenseChar="E")
-            insert_mapping_selection(auditID=4, mappingTableID=index + 1, incomeExpenseChar="E")
+            insert_mapping_selection(audit_id=2, mapping_table_id=index + 1, income_expense_char="E")
+            insert_mapping_selection(audit_id=3, mapping_table_id=index + 1, income_expense_char="E")
+            insert_mapping_selection(audit_id=4, mapping_table_id=index + 1, income_expense_char="E")
             mappingAlreadyExists = True
 
     if not mappingAlreadyExists:
