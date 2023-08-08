@@ -42,8 +42,8 @@ csv_data = pd.DataFrame(columns=csv_column_names)
 
 archive_root = os.path.join("C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022\\Archive")
 
-timestr = time.strftime("%Y%m%d-%H%M%S")
-archive_folder = os.path.join(archive_root + "\\" + timestr)
+timestring = time.strftime("%Y%m%d-%H%M%S")
+archive_folder = os.path.join(archive_root + "\\" + timestring)
 
 try:
     os.mkdir(archive_folder)
