@@ -43,4 +43,3 @@ for direction in ["I", "E"]:
                 print("here")
             else:
                 SQLFunctions.excel_columns.insert_excel_category_mapping(last_column_id, value.text)
-
