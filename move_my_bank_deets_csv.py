@@ -4,6 +4,8 @@ import shutil
 import sys
 from lxml import etree
 import time
+
+import SQLFunctions.excel_columns
 from SQLFunctions.select_mappings import *
 from CommonLibrary.date_libraries import month_period
 from CommonLibrary.getting_replacement_values import replacement_values
@@ -29,11 +31,18 @@ csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
 auditID = 1
 
+
+# ///////////////////////////////////////////////////////////////////
+# Start ripping out the XML logic here.
+
+
 root = etree.parse("C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml")
 income_col_names = root.findall(".//IncomeColumns//Column")
 expense_col_names = root.findall(".//ExpenseColumns//Column")
 
 root_excel_directory = "C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022"
+
+
 
 bank_accounts = ["Mastercard", "Smart Access"]
 
@@ -75,20 +84,23 @@ csv_data.sort_values(by="Date", inplace=True)
 for sheet_title in ["Income", "Expenditure"]:
     if sheet_title == "Income":
         col_names = income_col_names
+        is_income = True
         incomeExpenseChar = "I"
     else:
         col_names = expense_col_names
+        is_income = False
         incomeExpenseChar = "E"
 
-    replacement_values = replacement_values(auditID, incomeExpenseChar)
+    column_dataframe = SQLFunctions.excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
+
+    column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
+
+    replacement_value = replacement_values(auditID, incomeExpenseChar)
 
     associated_values_dictionary = dict()
 
-    column_name_list = ["Date", "Description"]
-
-    for index, col_name in enumerate(col_names, 1):
-        column_name = col_name.find(".//ColumnName").text
-        column_name_list.append(column_name)
+    for index, col_name in enumerate(list(column_dataframe["ColumnName"]), 1):
+        column_name = col_name
 
         values_list = []
         associated_values = col_name.findall(".//Values//Value")
@@ -129,7 +141,7 @@ for sheet_title in ["Income", "Expenditure"]:
                         excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                         excel_sheet.at[index, "Misc."] = ""
 
-    excel_sheet = excel_sheet.replace(replacement_values, regex=True)
+    excel_sheet = excel_sheet.replace(replacement_value, regex=True)
 
     output_filepath = os.path.join(root_excel_directory, sheet_title + ".csv")
 

@@ -10,7 +10,7 @@ connection = get_connection()
 def select_mapping_query(auditID, incomeExpenseChar):
     query = f"""
     SELECT id,map_from,map_to FROM mapping_table 
-    INNER JOIN mapping_selection ON AuditID = MappingTableID 
+    INNER JOIN mapping_selection ON id = MappingTableID 
     WHERE AuditID = {auditID} AND (IncomeExpense = '{incomeExpenseChar}' OR IncomeExpense = 'B')
     """
 

@@ -15,6 +15,15 @@ def insert_excel_column(audit_id, column_name, is_default, gst_included, is_inco
     execute_query(connection, query)
 
 
+def select_excel_column(audit_id, is_income):
+    query = f"""
+    SELECT ExcelColumnID, ColumnName FROM ExcelColumns
+    WHERE AuditID = {audit_id} AND IsIncome = {is_income}
+    """
+    return pd.DataFrame.from_records(read_query(connection, query),
+                                     columns=["ExcelColumnID", "ColumnName"])
+
+
 def select_all_excel_category_mapping():
     query = f"""
     SELECT ExcelCategoryMappingID, CategoryValues FROM ExcelCategoryMapping
@@ -24,14 +33,16 @@ def select_all_excel_category_mapping():
                                      columns=["ExcelCategoryMappingID", "CategoryValues"])
 
 
-def select_excel_category_mapping_id(category_values):
+def select_excel_category_mapping_values(excel_column_id):
     query = f"""
-    SELECT ExcelCategoryMappingID FROM ExcelCategoryMapping
-    WHERE ExcelCategoryMappingID = '{category_values}' 
+    SELECT ExcelColumnID, CategoryValues FROM ExcelCategoryMapping
+    INNER JOIN ExcelColumnSelection on ID = ExcelCategoryMappingID
+    WHERE ExcelColumnID = {excel_column_id} 
     """
 
     return pd.DataFrame.from_records(read_query(connection, query))
 
+print(select_excel_category_mapping_values(5))
 
 def insert_excel_columns_selection(excel_column_id, excel_category_mapping_id):
     query = f"""
@@ -41,7 +52,6 @@ def insert_excel_columns_selection(excel_column_id, excel_category_mapping_id):
     execute_query(connection, query)
 
 
-# This function is wrong. I need to think through how to update it to be correct
 def insert_excel_category_mapping(excel_column_id, category_value):
     query = f"""
     INSERT INTO ExcelCategoryMapping (CategoryValues)
@@ -58,7 +68,7 @@ def insert_excel_category_mapping(excel_column_id, category_value):
 
 def select_last_column_id():
     query = f"""
-    SELECT Max(ExpenseColumnID) FROM ExcelColumns 
+    SELECT Max(ExcelColumnID) FROM ExcelColumns 
     """
     last_id = read_query(connection, query)
     return last_id[0][0]

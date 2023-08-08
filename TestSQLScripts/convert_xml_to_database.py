@@ -39,7 +39,6 @@ for direction in ["I", "E"]:
                     value_exists_in_mapping = True
 
             if value_exists_in_mapping:
-                temp_table = SQLFunctions.excel_columns.select_excel_category_mapping_id(existing_category_mapping_id)
                 SQLFunctions.excel_columns.insert_excel_columns_selection(last_column_id, existing_category_mapping_id)
                 print("here")
             else:
