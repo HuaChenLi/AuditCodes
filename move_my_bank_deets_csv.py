@@ -2,7 +2,6 @@
 import os
 import shutil
 import sys
-from lxml import etree
 import time
 
 import SQLFunctions.excel_columns
@@ -31,18 +30,7 @@ csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
 auditID = 1
 
-
-# ///////////////////////////////////////////////////////////////////
-# Start ripping out the XML logic here.
-
-
-root = etree.parse("C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml")
-income_col_names = root.findall(".//IncomeColumns//Column")
-expense_col_names = root.findall(".//ExpenseColumns//Column")
-
 root_excel_directory = "C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022"
-
-
 
 bank_accounts = ["Mastercard", "Smart Access"]
 
@@ -83,31 +71,24 @@ csv_data.sort_values(by="Date", inplace=True)
 
 for sheet_title in ["Income", "Expenditure"]:
     if sheet_title == "Income":
-        col_names = income_col_names
         is_income = True
         incomeExpenseChar = "I"
     else:
-        col_names = expense_col_names
         is_income = False
         incomeExpenseChar = "E"
 
-    column_dataframe = SQLFunctions.excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
-
-    column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
-
     replacement_value = replacement_values(auditID, incomeExpenseChar)
-
     associated_values_dictionary = dict()
 
-    for index, col_name in enumerate(list(column_dataframe["ColumnName"]), 1):
-        column_name = col_name
+    column_dataframe = SQLFunctions.excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
+    column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
 
-        values_list = []
-        associated_values = col_name.findall(".//Values//Value")
-        temp_values_list = list(col_name.iter("Value"))
+    for index, row in column_dataframe.iterrows():
+        column_name = row["ColumnName"]
+        excel_column_id = row["ExcelColumnID"]
+        temp_df = SQLFunctions.excel_columns.select_excel_category_mapping_values(excel_column_id)
 
-        for value in temp_values_list:
-            values_list.append(value.text)
+        values_list = list(temp_df["CategoryValues"])
 
         associated_values_dictionary.setdefault(column_name, values_list)
 
