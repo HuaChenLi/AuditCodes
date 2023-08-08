@@ -43,6 +43,7 @@ def select_excel_category_mapping_values(excel_column_id):
     return pd.DataFrame.from_records(read_query(connection, query),
                                      columns=["ExcelColumnID", "CategoryValues"])
 
+
 def insert_excel_columns_selection(excel_column_id, excel_category_mapping_id):
     query = f"""
     INSERT INTO ExcelColumnSelection (ExcelColumnID, ExcelCategoryMappingID)
