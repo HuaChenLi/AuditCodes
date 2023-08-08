@@ -1,4 +1,4 @@
-import SQLFunctions.excel_columns
+import SQLFunctions.sql_excel_columns
 from lxml import etree
 
 root = etree.parse("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\Column Rules\my_account_rules.xml")
