@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
         "./path-to-your-code",
-        "./lib_jank_folder"
+        "./lib_jank_folder",
+        "./My Audit/SQLFunctions"
     ]
 }
