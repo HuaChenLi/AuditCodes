@@ -4,7 +4,8 @@ import shutil
 import sys
 import time
 
-import SQLFunctions.excel_columns
+import SQLFunctions.sql_excel_columns
+
 from SQLFunctions.select_mappings import *
 from CommonLibrary.date_libraries import month_period
 from CommonLibrary.getting_replacement_values import replacement_values
@@ -62,7 +63,8 @@ except:
 
 # merge Mastercard and Smart Access transactions csv into 1 file
 for account in bank_accounts:
-    csv_data_folder_path = os.path.join(root_excel_directory, account, "../../../../Downloads/CSVData.csv")
+    csv_data_folder_path = os.path.join(root_excel_directory, account, "CSVData.csv")
+    print(csv_data_folder_path)
     collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     csv_data = csv_data.merge(collected_data, how="outer")
 
@@ -80,13 +82,13 @@ for sheet_title in ["Income", "Expenditure"]:
     replacement_value = replacement_values(auditID, incomeExpenseChar)
     associated_values_dictionary = dict()
 
-    column_dataframe = SQLFunctions.excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
+    column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
     column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
 
     for index, row in column_dataframe.iterrows():
         column_name = row["ColumnName"]
         excel_column_id = row["ExcelColumnID"]
-        temp_df = SQLFunctions.excel_columns.select_excel_category_mapping_values(excel_column_id)
+        temp_df = SQLFunctions.sql_excel_columns.select_excel_category_mapping_values(excel_column_id)
 
         values_list = list(temp_df["CategoryValues"])
 
