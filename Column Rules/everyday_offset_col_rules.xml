@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Columns xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="column_rules.xsd">
+    <IncomeColumns>
+        <Column>
+            <ColumnName>Misc.</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Invoices</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Tax Refund</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>PAYMENT RECEIVED</Value>
+                <Value>Mastercard Payment</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Transfers</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Netbank Saver</Value>
+                <Value>Business Transacti</Value>
+                <Value>Everyday Offset</Value>
+            </Values>
+        </Column>
+    </IncomeColumns>
+    <ExpenseColumns>
+        <Column>
+            <ColumnName>Misc.</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Home Loan</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Home Loan</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Transfers</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Mastercard</Value>
+                <Value>Business Trans</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Withdrawals</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>ATM CBA ATM</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Insurance</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>AIA Australia</Value>
+            </Values>
+        </Column>
+    </ExpenseColumns>
+</Columns>

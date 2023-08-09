@@ -3,7 +3,9 @@ import openpyxl as xl
 from openpyxl.styles import Alignment, Font
 from lxml import etree
 import xlwings as xw
-from lib_jank_folder.lib_jank import *
+
+from CommonLibrary.csv_excel_conversions import *
+from CommonLibrary.date_libraries import *
 
 # exec("Python Coding/lib_jank")
 
