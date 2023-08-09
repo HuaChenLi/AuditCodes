@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/My Audit.iml" filepath="$PROJECT_DIR$/.idea/My Audit.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/.idea/Python Coding.iml" filepath="$PROJECT_DIR$/.idea/Python Coding.iml" />
->>>>>>> 5c85a2e (This is my commit with all of the files.)
     </modules>
   </component>
 </project>
