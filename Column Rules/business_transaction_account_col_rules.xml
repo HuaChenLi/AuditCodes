@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Columns xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="column_rules.xsd">
+    <IncomeColumns>
+        <Column>
+            <ColumnName>Misc.</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Invoices</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+            <Values>
+                <Value>Everkeen</Value>
+                <Value>DONG LENG</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Tax Refund</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>ATO</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Transfers</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Netbank Everyday Offset</Value>
+            </Values>
+        </Column>
+    </IncomeColumns>
+    <ExpenseColumns>
+        <Column>
+            <ColumnName>Misc. without GST</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Subcontract</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Wages</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Qi Qiong</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>New Home</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Insurance</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+        </Column>
+        <Column>
+            <ColumnName>Taxes and Super</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>REF108124249</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Accounting Fees</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+            <Values>
+                <Value>FinTax Solutions</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Transfers</ColumnName>
+            <GSTIncluded>N</GSTIncluded>
+            <Values>
+                <Value>Mastercard</Value>
+                <Value>Everyday Offset</Value>
+            </Values>
+        </Column>
+        <Column>
+            <ColumnName>Misc. with GST</ColumnName>
+            <GSTIncluded>Y</GSTIncluded>
+            <Values>
+                <Value>Optus</Value>
+            </Values>
+        </Column>
+    </ExpenseColumns>
+</Columns>
