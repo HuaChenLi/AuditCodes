@@ -49,9 +49,7 @@ for auditID in auditIDList:
         associated_values_dictionary = dict()
 
         column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
-        print(column_dataframe)
         column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
-        print(column_name_list)
 
         for index, row in column_dataframe.iterrows():
             column_name = row["ColumnName"]
