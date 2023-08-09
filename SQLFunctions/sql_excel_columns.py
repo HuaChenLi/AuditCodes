@@ -24,6 +24,14 @@ def select_excel_column(audit_id, is_income):
                                      columns=["ExcelColumnID", "ColumnName"])
 
 
+def select_default_excel_column(audit_id, is_income):
+    query = f"""
+    SELECT ExcelColumnID, ColumnName FROM ExcelColumns
+    WHERE AuditID = {audit_id} AND IsIncome = {is_income} AND IsDefault = 1
+    """
+    return read_query(connection, query)
+
+
 def select_all_excel_category_mapping():
     query = f"""
     SELECT ID, CategoryValues FROM ExcelCategoryMapping
@@ -72,3 +80,5 @@ def select_last_column_id():
     """
     last_id = read_query(connection, query)
     return last_id[0][0]
+
+

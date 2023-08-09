@@ -67,7 +67,7 @@ for auditID in auditIDList:
 
         for index, row in csv_data.iterrows():
 
-            # creating the Income data frame 
+            # creating the Income and Expense data frame
             if sheet_title == "Income" and csv_data.at[index, "Amount"] > 0 or sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
                 # if the date is the same, don't print the values
                 temp_date = csv_data.at[index, "Date"]
@@ -81,25 +81,26 @@ for auditID in auditIDList:
                 excel_sheet.at[index, "Date"] = date_inserted
                 excel_sheet.at[index, "Description"] = csv_data.at[index, "Description"]
 
-                # convert negative to positive for expense
-                if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
-                    csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
+                try:
+                    default_column_df = SQLFunctions.sql_excel_columns.select_default_excel_column(auditID, is_income)
+                    default_column_id = default_column_df[0][0]
+                    default_column_name = default_column_df[0][1]
+                except Exception:
+                    default_column_name = column_name_list[2]
 
-                # smooth brain couldn't think of another way to do it with the break command
-                # essentially I"m pre-populating in Misc. then removing it if I find a match
-                if "Misc. without GST" in column_name_list:
-                    excel_sheet.at[index, "Misc. without GST"] = csv_data.at[index, "Amount"]
-                    for category_name, category_values in associated_values_dictionary.items():
-                        if any(value.casefold() in row[2].casefold() for value in category_values):
-                            excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
-                            excel_sheet.at[index, "Misc. without GST"] = ""
+                is_categorised = False
+                for category_name, category_values in associated_values_dictionary.items():
+                    # convert negative to positive for expense
+                    if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
+                        csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
 
-                else:
-                    excel_sheet.at[index, "Misc."] = csv_data.at[index, "Amount"]
-                    for category_name, category_values in associated_values_dictionary.items():
-                        if any(value.casefold() in row[2].casefold() for value in category_values):
-                            excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
-                            excel_sheet.at[index, "Misc."] = ""
+                    if any(value.casefold() in row[2].casefold() for value in category_values):
+                        excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
+                        is_categorised = True
+                        break
+
+                if not is_categorised:
+                    excel_sheet.at[index, default_column_name] = csv_data.at[index, "Amount"]
 
         excel_sheet = excel_sheet.replace(rv, regex=True)
 
