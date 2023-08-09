@@ -1,6 +1,5 @@
 import pandas as pd
 import os
-from lxml import etree
 
 import SQLFunctions.sql_excel_columns
 from CommonLibrary.date_libraries import *
@@ -38,23 +37,6 @@ for auditID in auditIDList:
 
     excel_directory = os.path.join(quarter_folder, spreadsheet_name + " " + month_period(quarter) + " " + year(quarter, financial_year) + ".xlsx")
 
-
-
-    if spreadsheet_name == "Business Transaction Account":
-        root = etree.parse(
-            "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/business_transaction_account_col_rules.xml")
-    elif spreadsheet_name == "Everyday Offset":
-        root = etree.parse(
-            "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/everyday_offset_col_rules.xml")
-    elif spreadsheet_name == "Mastercard":
-        root = etree.parse("C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/mastercard_col_rules.xml")
-    else:
-        print(spreadsheet_name)
-        print("Have the Column Rules file names been changed or moved?")
-
-    expense_col_names = root.findall(".//ExpenseColumns//Column")
-
-
     for sheet_title in ["Income", "Expenditure"]:
         if sheet_title == "Income":
             is_income = True
@@ -67,7 +49,9 @@ for auditID in auditIDList:
         associated_values_dictionary = dict()
 
         column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
+        print(column_dataframe)
         column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
+        print(column_name_list)
 
         for index, row in column_dataframe.iterrows():
             column_name = row["ColumnName"]
