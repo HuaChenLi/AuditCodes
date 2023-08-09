@@ -117,4 +117,3 @@ for auditID in auditIDList:
             else:
                 excel_sheet.to_excel(excel_writer, sheet_name=sheet_title, index=False, startcol=0, startrow=3,
                                      header=False)
-
