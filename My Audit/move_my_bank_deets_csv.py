@@ -23,25 +23,19 @@ financial_year_folder = financial_year[:4] + " Jul - " + financial_year[7:] + " 
 number_of_cells = 1000
 
 months_list = ["Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-
 quarters_list = [month_period(1), month_period(2), month_period(3), month_period(4)]
-
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
+bank_accounts = ["Mastercard", "Smart Access"]
+root_excel_directory = "C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022"
+csv_data = pd.DataFrame(columns=csv_column_names)
 
 auditID = 1
-
-root_excel_directory = "C:\\Users\\hua-c\\Desktop\\Coding Stuff\\Python Coding\\My Audit\\My_Audit_2022"
-
-bank_accounts = ["Mastercard", "Smart Access"]
-
-csv_data = pd.DataFrame(columns=csv_column_names)
 
 # archive process
 # actually, do I even want to archive the csv. I feel like the csv isn't necessary
 # just need to archive the Income.csv
 
 archive_root = os.path.join("/My Audit/My_Audit_2022/Archive")
-
 timestring = time.strftime("%Y%m%d-%H%M%S")
 archive_folder = os.path.join(archive_root + "\\" + timestring)
 

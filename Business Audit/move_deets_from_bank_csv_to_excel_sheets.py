@@ -2,7 +2,7 @@ import pandas as pd
 import os
 from lxml import etree
 
-# from CommonLibrary.lib_jank import *
+import SQLFunctions.sql_excel_columns
 from CommonLibrary.date_libraries import *
 from CommonLibrary.getting_replacement_values import replacement_values
 
@@ -32,18 +32,13 @@ for auditID in auditIDList:
     elif auditID == 4:
         spreadsheet_name = "Mastercard"
 
-    # The csv_data is where the information is getting replaced. This is technically a bug I think, at least with my code
-    # because the code shouldn't be replacing all the values with the Expense mappings
-    # The code would need to differentiate the 2 before starting the regex values.
-    # There is a question of how costly it is. I think it's feasible to build up the data first, and then
-    # do the mappings afterwards.
-
     csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + " CSV\CSVData.csv")
     csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     csv_data = csv_data[::-1]
 
-    excel_directory = os.path.join(quarter_folder, spreadsheet_name + " " + month_period(quarter) + " " + year(quarter,
-                                                                                                               financial_year) + ".xlsx")
+    excel_directory = os.path.join(quarter_folder, spreadsheet_name + " " + month_period(quarter) + " " + year(quarter, financial_year) + ".xlsx")
+
+
 
     if spreadsheet_name == "Business Transaction Account":
         root = etree.parse(
@@ -57,33 +52,29 @@ for auditID in auditIDList:
         print(spreadsheet_name)
         print("Have the Column Rules file names been changed or moved?")
 
-    income_col_names = root.findall(".//IncomeColumns//Column")
     expense_col_names = root.findall(".//ExpenseColumns//Column")
+
 
     for sheet_title in ["Income", "Expenditure"]:
         if sheet_title == "Income":
-            col_names = income_col_names
+            is_income = True
             incomeExpenseChar = "I"
         else:
-            col_names = expense_col_names
+            is_income = False
             incomeExpenseChar = "E"
 
         rv = replacement_values(auditID, incomeExpenseChar)
-
         associated_values_dictionary = dict()
 
-        column_name_list = ["Date", "Description"]
+        column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
+        column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
 
-        for index, col_name in enumerate(col_names, 1):
-            column_name = col_name.find(".//ColumnName").text
-            column_name_list.append(column_name)
+        for index, row in column_dataframe.iterrows():
+            column_name = row["ColumnName"]
+            excel_column_id = row["ExcelColumnID"]
+            temp_df = SQLFunctions.sql_excel_columns.select_excel_category_mapping_values(excel_column_id)
 
-            values_list = []
-            associated_values = col_name.findall(".//Values//Value")
-            temp_values_list = list(col_name.iter("Value"))
-
-            for value in temp_values_list:
-                values_list.append(value.text)
+            values_list = list(temp_df["CategoryValues"])
 
             associated_values_dictionary.setdefault(column_name, values_list)
 
