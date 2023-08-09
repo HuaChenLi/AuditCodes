@@ -124,4 +124,3 @@ for sheet_title in ["Income", "Expenditure"]:
     print(output_filepath)
     excel_sheet.to_csv(output_filepath, index=False)
 
-
