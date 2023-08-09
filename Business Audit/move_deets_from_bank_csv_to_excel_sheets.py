@@ -40,6 +40,9 @@ for auditID in auditIDList:
 
 
 
+
+
+
     if spreadsheet_name == "Business Transaction Account":
         root = etree.parse(
             "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Business Audit/Column Rules/business_transaction_account_col_rules.xml")
