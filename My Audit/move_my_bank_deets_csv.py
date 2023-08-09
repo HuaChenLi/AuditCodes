@@ -5,7 +5,6 @@ import sys
 import time
 
 import SQLFunctions.sql_excel_columns
-
 from SQLFunctions.select_mappings import *
 from CommonLibrary.date_libraries import month_period
 from CommonLibrary.getting_replacement_values import replacement_values
