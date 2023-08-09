@@ -26,7 +26,7 @@ def select_excel_column(audit_id, is_income):
 
 def select_all_excel_category_mapping():
     query = f"""
-    SELECT ExcelCategoryMappingID, CategoryValues FROM ExcelCategoryMapping
+    SELECT ID, CategoryValues FROM ExcelCategoryMapping
     """
 
     return pd.DataFrame.from_records(read_query(connection, query),
@@ -60,7 +60,7 @@ def insert_excel_category_mapping(excel_column_id, category_value):
     execute_query(connection, query)
 
     last_id_value_query = f"""
-        SELECT MAX(ExcelCategoryMappingID) FROM ExcelCategoryMapping 
+        SELECT MAX(ID) FROM ExcelCategoryMapping 
         """
     last_id = read_query(connection, last_id_value_query)
     insert_excel_columns_selection(excel_column_id, last_id[0][0])
