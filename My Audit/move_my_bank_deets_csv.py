@@ -101,21 +101,26 @@ for sheet_title in ["Income", "Expenditure"]:
             if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
                 csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
 
-            # smooth brain couldn't think of another way to do it with the break command
-            # essentially I"m prepopulating in Misc. then removing it if I find a match
-            if "Misc. without GST" in column_name_list:
-                excel_sheet.at[index, "Misc. without GST"] = csv_data.at[index, "Amount"]
-                for category_name, category_values in associated_values_dictionary.items():
-                    if any(value.casefold() in row[2].casefold() for value in category_values):
-                        excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
-                        excel_sheet.at[index, "Misc. without GST"] = ""
+            try:
+                default_column_df = SQLFunctions.sql_excel_columns.select_default_excel_column(auditID, is_income)
+                default_column_id = default_column_df[0][0]
+                default_column_name = default_column_df[0][1]
+            except Exception:
+                default_column_name = column_name_list[2]
 
-            else:
-                excel_sheet.at[index, "Misc."] = csv_data.at[index, "Amount"]
-                for category_name, category_values in associated_values_dictionary.items():
-                    if any(value.casefold() in row[2].casefold() for value in category_values):
-                        excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
-                        excel_sheet.at[index, "Misc."] = ""
+            is_categorised = False
+            for category_name, category_values in associated_values_dictionary.items():
+                # convert negative to positive for expense
+                if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
+                    csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
+
+                if any(value.casefold() in row[2].casefold() for value in category_values):
+                    excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
+                    is_categorised = True
+                    break
+
+            if not is_categorised:
+                excel_sheet.at[index, default_column_name] = csv_data.at[index, "Amount"]
 
     excel_sheet = excel_sheet.replace(replacement_value, regex=True)
 

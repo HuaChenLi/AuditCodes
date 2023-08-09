@@ -7,9 +7,9 @@ database = "MyDataBase"
 
 
 def create_server_connection(host_name, user_name, user_password):
-    connection = None
+    connection_1 = None
     try:
-        connection = mysql.connector.connect(
+        connection_1 = mysql.connector.connect(
             host=host_name,
             user=user_name,
             passwd=user_password
@@ -18,11 +18,11 @@ def create_server_connection(host_name, user_name, user_password):
     except Error as err:
         print(f"Error: '{err}'")
 
-    return connection
+    return connection_1
 
 
-def create_database(connection, query):
-    cursor = connection.cursor()
+def create_database(connection_1, query):
+    cursor = connection_1.cursor()
     try:
         cursor.execute(query)
         print("Database created successfully")
@@ -31,9 +31,9 @@ def create_database(connection, query):
 
 
 def create_db_connection(host_name, user_name, user_password, db_name):
-    connection = None
+    connection_1 = None
     try:
-        connection = mysql.connector.connect(
+        connection_1 = mysql.connector.connect(
             host=host_name,
             user=user_name,
             passwd=user_password,
@@ -43,21 +43,21 @@ def create_db_connection(host_name, user_name, user_password, db_name):
     except Error as err:
         print(f"Error: '{err}'")
 
-    return connection
+    return connection_1
 
 
-def execute_query(connection, query):
-    cursor = connection.cursor()
+def execute_query(connection_1, query):
+    cursor = connection_1.cursor()
     try:
         cursor.execute(query)
-        connection.commit()
+        connection_1.commit()
         print("Query successful")
     except Error as err:
         print(f"Error: '{err}'")
 
 
-def read_query(connection, query):
-    cursor = connection.cursor()
+def read_query(connection_1, query):
+    cursor = connection_1.cursor()
     result = None
     try:
         cursor.execute(query)
