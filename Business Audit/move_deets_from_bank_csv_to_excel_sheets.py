@@ -46,15 +46,12 @@ for auditID in auditIDList:
 
         output_filepath = os.path.join("./", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter), spreadsheet_name + " CSV", sheet_title + ".csv")
         excel_sheet.to_csv(output_filepath, index=False)
-
         print(output_filepath)
 
         # Inserting the Data into the Income and Expense sheets
         with pd.ExcelWriter(excel_directory, mode="a", engine="openpyxl", if_sheet_exists="overlay") as excel_writer:
             if sheet_title == "Income":
-                excel_sheet.to_excel(excel_writer, sheet_name=sheet_title, index=False, startcol=0, startrow=3,
-                                     header=False)
+                excel_sheet.to_excel(excel_writer, sheet_name=sheet_title, index=False, startcol=0, startrow=3, header=False)
             else:
-                excel_sheet.to_excel(excel_writer, sheet_name=sheet_title, index=False, startcol=0, startrow=3,
-                                     header=False)
+                excel_sheet.to_excel(excel_writer, sheet_name=sheet_title, index=False, startcol=0, startrow=3, header=False)
 
