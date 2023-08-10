@@ -110,10 +110,6 @@ for sheet_title in ["Income", "Expenditure"]:
 
             is_categorised = False
             for category_name, category_values in associated_values_dictionary.items():
-                # convert negative to positive for expense
-                if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
-                    csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
-
                 if any(value.casefold() in row[2].casefold() for value in category_values):
                     excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                     is_categorised = True
