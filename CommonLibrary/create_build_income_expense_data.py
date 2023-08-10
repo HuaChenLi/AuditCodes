@@ -57,5 +57,3 @@ def build(audit_id, is_income, data_frame):
     return excel_sheet
 
 
-
-# build(1, True)
