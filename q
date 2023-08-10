@@ -1,0 +1,35 @@
+[1mdiff --git a/CommonLibrary/__pycache__/csv_excel_conversions.cpython-310.pyc b/CommonLibrary/__pycache__/csv_excel_conversions.cpython-310.pyc[m
+[1mindex 63a35a6..03e2ac6 100644[m
+Binary files a/CommonLibrary/__pycache__/csv_excel_conversions.cpython-310.pyc and b/CommonLibrary/__pycache__/csv_excel_conversions.cpython-310.pyc differ
+[1mdiff --git a/My Audit/move_my_bank_deets_csv.py b/My Audit/move_my_bank_deets_csv.py[m
+[1mindex d8c5efa..eea3821 100644[m
+[1m--- a/My Audit/move_my_bank_deets_csv.py[m	
+[1m+++ b/My Audit/move_my_bank_deets_csv.py[m	
+[36m@@ -97,19 +97,20 @@[m [mfor sheet_title in ["Income", "Expenditure"]:[m
+             excel_sheet.at[index, "Date"] = csv_data.at[index, "Date"][m
+             excel_sheet.at[index, "Description"] = csv_data.at[index, "Description"][m
+ [m
+[31m-            # convert negative to positive for expense[m
+[31m-            if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:[m
+[31m-                csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)[m
+[31m-[m
+             try:[m
+                 default_column_df = SQLFunctions.sql_excel_columns.select_default_excel_column(auditID, is_income)[m
+                 default_column_id = default_column_df[0][0][m
+                 default_column_name = default_column_df[0][1][m
+             except Exception:[m
+                 default_column_name = column_name_list[2][m
+[32m+[m[32m            # convert negative to positive for expense[m
+[32m+[m[32m            if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:[m
+[32m+[m[32m                csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)[m
+ [m
+             is_categorised = False[m
+             for category_name, category_values in associated_values_dictionary.items():[m
+[32m+[m
+[32m+[m
+                 if any(value.casefold() in row[2].casefold() for value in category_values):[m
+                     excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"][m
+                     is_categorised = True[m
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 8459e1f..a4cce11 100644[m
+Binary files a/README.md and b/README.md differ

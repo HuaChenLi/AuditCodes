@@ -109,8 +109,6 @@ for sheet_title in ["Income", "Expenditure"]:
 
             is_categorised = False
             for category_name, category_values in associated_values_dictionary.items():
-
-
                 if any(value.casefold() in row[2].casefold() for value in category_values):
                     excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                     is_categorised = True
