@@ -2,7 +2,7 @@ from SQLFunctions.select_mappings import select_mapping_query
 
 
 def replacement_values(audit_id, income_expense_char):
-    replacements_values = {
+    rep_values = {
         "Description": {
             r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
             r"\*": "",  # remove asterisks
@@ -25,6 +25,6 @@ def replacement_values(audit_id, income_expense_char):
 
         newMapping = {keyValue: mappedToValue}
 
-        replacements_values["Description"].update(newMapping)
+        rep_values["Description"].update(newMapping)
 
-    return replacements_values
+    return rep_values

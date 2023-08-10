@@ -1,9 +1,8 @@
 import pandas as pd
 import os
 
-import SQLFunctions.sql_excel_columns
 from CommonLibrary.date_libraries import *
-from CommonLibrary.getting_replacement_values import replacement_values
+import CommonLibrary.create_build_income_expense_data
 
 # Set the quarter and financial year
 quarter = 4
@@ -40,74 +39,15 @@ for auditID in auditIDList:
     for sheet_title in ["Income", "Expenditure"]:
         if sheet_title == "Income":
             is_income = True
-            incomeExpenseChar = "I"
         else:
             is_income = False
-            incomeExpenseChar = "E"
 
-        rv = replacement_values(auditID, incomeExpenseChar)
-        associated_values_dictionary = dict()
-
-        column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=auditID, is_income=is_income)
-        column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
-
-        for index, row in column_dataframe.iterrows():
-            column_name = row["ColumnName"]
-            excel_column_id = row["ExcelColumnID"]
-            temp_df = SQLFunctions.sql_excel_columns.select_excel_category_mapping_values(excel_column_id)
-
-            values_list = list(temp_df["CategoryValues"])
-
-            associated_values_dictionary.setdefault(column_name, values_list)
-
-        excel_sheet = pd.DataFrame(columns=column_name_list)
-
-        # setting the temporary date 2 to be a null string so they guarantee the first row is printed
-        temp_date_2 = ""
-
-        for index, row in csv_data.iterrows():
-
-            # creating the Income and Expense data frame
-            if sheet_title == "Income" and csv_data.at[index, "Amount"] > 0 or sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
-                # if the date is the same, don't print the values
-                temp_date = csv_data.at[index, "Date"]
-
-                if temp_date == temp_date_2:
-                    date_inserted = ""
-                else:
-                    date_inserted = csv_data.at[index, "Date"]
-                temp_date_2 = csv_data.at[index, "Date"]
-
-                excel_sheet.at[index, "Date"] = date_inserted
-                excel_sheet.at[index, "Description"] = csv_data.at[index, "Description"]
-
-                try:
-                    default_column_df = SQLFunctions.sql_excel_columns.select_default_excel_column(auditID, is_income)
-                    default_column_id = default_column_df[0][0]
-                    default_column_name = default_column_df[0][1]
-                except Exception:
-                    default_column_name = column_name_list[2]
-                # convert negative to positive for expense
-                if sheet_title != "Income" and csv_data.at[index, "Amount"] < 0:
-                    csv_data.at[index, "Amount"] = csv_data.at[index, "Amount"] * (-1)
-
-                is_categorised = False
-                for category_name, category_values in associated_values_dictionary.items():
-
-                    if any(value.casefold() in row[2].casefold() for value in category_values):
-                        excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
-                        is_categorised = True
-                        break
-
-                if not is_categorised:
-                    excel_sheet.at[index, default_column_name] = csv_data.at[index, "Amount"]
-
-        excel_sheet = excel_sheet.replace(rv, regex=True)
+        excel_sheet = CommonLibrary.create_build_income_expense_data.build(auditID, is_income, csv_data)
 
         output_filepath = os.path.join("./", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter), spreadsheet_name + " CSV", sheet_title + ".csv")
+        excel_sheet.to_csv(output_filepath, index=False)
 
         print(output_filepath)
-        excel_sheet.to_csv(output_filepath, index=False)
 
         # Inserting the Data into the Income and Expense sheets
         with pd.ExcelWriter(excel_directory, mode="a", engine="openpyxl", if_sheet_exists="overlay") as excel_writer:
