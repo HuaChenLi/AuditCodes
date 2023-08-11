@@ -1,0 +1,2060 @@
+Index: My Audit/My_Audit_2022/My Rules.txt
+===================================================================
+diff --git a/My Audit/My_Audit_2022/My Rules.txt b/My Audit/My_Audit_2022/My Rules.txt
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/My Rules.txt	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,5 +0,0 @@
+-My Rules
+-
+-Income Sheet
+-
+-Column 2 > 0
+Index: My Audit/My_Audit_2022/Smart Access/CSVData.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Smart Access/CSVData.csv b/My Audit/My_Audit_2022/Smart Access/CSVData.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Smart Access/CSVData.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,287 +0,0 @@
+-15/07/2023,"-92.00","VEC NetBank BPAY 120279 3003680111555520","+2386.58"
+-15/07/2023,"-290.00","ASIC NetBank BPAY 17301 2296264698145 ASIC Annual Review","+2478.58"
+-15/07/2023,"-37.96","SMP*Sir Duke Moonee Ponds03 AU","+2768.58"
+-14/07/2023,"-19.90","YOMG Moonee Ponds Moonee Ponds AU","+2806.54"
+-14/07/2023,"-8.13","SMP*Lai Bakery Cafe Mo Moonee Ponds03 AU","+2826.44"
+-13/07/2023,"-11.99","Spotify Sydney AU AUS Card xx0453 Value Date: 11/07/2023","+2834.57"
+-12/07/2023,"-43.30","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+2846.56"
+-12/07/2023,"-13.63","LS ZSG MOONEE PONDS Moonee Ponds AU","+2889.86"
+-12/07/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/07/2023","+2903.49"
+-12/07/2023,"-220.00","ALLISON BROWNING BRUNSWICK VI AUS Card xx0453 Value Date: 08/07/2023","+2914.48"
+-11/07/2023,"-3898.96","CBA CR CARD AUTOPAY PMNT 5353161405989221","+3134.48"
+-10/07/2023,"-2680.59","Transfer To Everyday Offset CommBank App Transfer","+7033.44"
+-07/07/2023,"-16.21","SMP*NoodleBox MooneePo Moonee Ponds03 AU","+9714.03"
+-06/07/2023,"-86.02","PAYPAL *CENTRECOMSU Sydney AU","+9730.24"
+-05/07/2023,"-13.63","LS ZSG MOONEE PONDS Moonee Ponds AU","+9816.26"
+-04/07/2023,"-24.50","OPTUS BILLING SERVICES MACQUARIE PAR NS AUS Card xx0453 Value Date: 30/06/2023","+9829.89"
+-04/07/2023,"-75.59","Nintendo CA1012037785 Scoresby AU AUS Card xx0453 Value Date: 01/07/2023","+9854.39"
+-01/07/2023,"-11.98","PlaystationNetwork LONDON GB GBR Card xx0453 AUD 11.98 Value Date: 29/06/2023","+9929.98"
+-01/07/2023,"-86.00","TurnTheCornerMedical Northcote VI AUS Card xx0453 Value Date: 29/06/2023","+9941.96"
+-30/06/2023,"-30.00","PAYPAL *BELONG Sydney AU","+10027.96"
+-30/06/2023,"-1.00","PAYPAL *BELONG Sydney AU","+10057.96"
+-28/06/2023,"+5409.01","Salary GAVIN MILLMAN & 133088 52","+10058.96"
+-27/06/2023,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx0453 Value Date: 25/06/2023","+4649.95"
+-27/06/2023,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx0453 Value Date: 25/06/2023","+4659.95"
+-25/06/2023,"-13.00","Transfer To Viv Zou CommBank App Zj's card - Hua","+4669.95"
+-25/06/2023,"-26.00","Transfer To Liam Kelly CommBank App Hua - Spodermun ticket","+4682.95"
+-25/06/2023,"-30.70","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+4708.95"
+-25/06/2023,"-17.58","LAKSA HUT BURNSIDE HEIGAU Card xx0453","+4739.65"
+-24/06/2023,"-30.00","Transfer To Zhijie Cao CommBank App Birthday Meal - Hua","+4757.23"
+-23/06/2023,"-15.50","YOMG Moonee Ponds Moonee Ponds AU","+4787.23"
+-21/06/2023,"-14.82","XING FU TANG MELB MELBOURNE VI AUS Card xx0453 Value Date: 17/06/2023","+4802.73"
+-20/06/2023,"-39.36","ROTI BAR AUSTRALIA VI AUS Card xx0453 Value Date: 17/06/2023","+4817.55"
+-20/06/2023,"-145.27","ENERGYAUSTRALIA PTY LT MELBOURNE AUS Card xx0453 Value Date: 17/06/2023","+4856.91"
+-19/06/2023,"-8.63","SMP*Top Notch Coffee Moonee Ponds03 AU","+5002.18"
+-18/06/2023,"-22.40","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+5010.81"
+-14/06/2023,"-18.98","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 11/06/2023","+5033.21"
+-13/06/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/06/2023","+5052.19"
+-07/06/2023,"-1771.51","CBA CR CARD AUTOPAY PMNT 5353161405989221","+5063.18"
+-28/05/2023,"-36.00","Transfer To Vanessa Lin CommBank App Amy's Graduation Flowers...","+6834.69"
+-26/05/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+6870.69"
+-23/05/2023,"-89.99","AMAZON AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 21/05/2023","+2463.35"
+-16/05/2023,"-87.14","Nintendo CA982305466 Scoresby AU AUS Card xx0453 Value Date: 12/05/2023","+2553.34"
+-12/05/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/05/2023","+2640.48"
+-10/05/2023,"-3006.01","CBA CR CARD AUTOPAY PMNT 5353161405989221","+2651.47"
+-04/05/2023,"-83.11","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/05/2023","+5657.48"
+-30/04/2023,"-5000.00","Transfer to xx6079 CommBank app","+5740.59"
+-28/04/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+10740.59"
+-13/04/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/04/2023","+6333.25"
+-12/04/2023,"-1211.56","CBA CR CARD AUTOPAY PMNT 5353161405989221","+6344.24"
+-28/03/2023,"-2000.00","Transfer to xx6079 CommBank app","+7555.80"
+-28/03/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+9555.80"
+-14/03/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/03/2023","+5148.46"
+-10/03/2023,"-29.36","Transfer To Zhijie Cao CommBank App Hua - Damo's Monitor","+5159.45"
+-04/03/2023,"-135.75","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/03/2023","+5188.81"
+-28/02/2023,"-56.01","Nintendo CA932153331 Scoresby AU AUS Card xx0453 Value Date: 24/02/2023","+5324.56"
+-28/02/2023,"-2000.00","Transfer to xx6079 CommBank app","+5380.57"
+-28/02/2023,"-2000.00","Transfer to xx9221 CommBank app","+7380.57"
+-28/02/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+9380.57"
+-14/02/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/02/2023","+4973.23"
+-08/02/2023,"-820.89","CBA CR CARD AUTOPAY PMNT 5353161405989221","+4984.22"
+-05/02/2023,"-43.57","Transfer To Zhijie Cao CommBank App Hua - Karaoke and Pizza","+5805.11"
+-28/01/2023,"-106.22","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 19/01/2023","+5848.68"
+-28/01/2023,"-5.95","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 26/01/2023","+5954.90"
+-27/01/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+5960.85"
+-15/01/2023,"+900.00","Transfer from xx6079 CommBank app","+1553.51"
+-12/01/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/01/2023","+653.51"
+-07/01/2023,"+51.70","Fast Transfer From WU WEI LI CREDIT TO ACCOUNT","+664.50"
+-05/01/2023,"-5.95","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 02/01/2023","+612.80"
+-05/01/2023,"-102.53","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 31/12/2022","+618.75"
+-04/01/2023,"-49.70","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 29/12/2022","+721.28"
+-04/01/2023,"-903.99","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 30/12/2022","+770.98"
+-04/01/2023,"-15.00","SQ *HAPPY EATS MOONEE Moonee Ponds AU AUS Card xx0453 Value Date: 30/12/2022","+1674.97"
+-04/01/2023,"-78.69","Nintendo CA895260282 Scoresby AU AUS Card xx0453 Value Date: 31/12/2022","+1689.97"
+-04/01/2023,"-25.11","Nintendo CA895257048 Scoresby AU AUS Card xx0453 Value Date: 31/12/2022","+1768.66"
+-31/12/2022,"-9000.00","Transfer to xx6079 NetBank","+1793.77"
+-31/12/2022,"-10000.00","Transfer To Everyday Offset NetBank Hua Chen Li","+10793.77"
+-31/12/2022,"-16.21","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 29/12/2022","+20793.77"
+-31/12/2022,"-308.72","CAMPION EDUCATION NUNAWADING AUS Card xx0453 Value Date: 28/12/2022","+20809.98"
+-29/12/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/12/2022","+21118.70"
+-29/12/2022,"-76.21","BP PENLNK OB 7655 BAXTER VI AUS Card xx0453 Value Date: 25/12/2022","+21143.20"
+-29/12/2022,"-602.91","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx0453 Value Date: 26/12/2022","+21219.41"
+-29/12/2022,"+20000.00","Direct Credit 128594 Zhi Kang Li Repayment","+21822.32"
+-28/12/2022,"-7000.00","Transfer to xx6079 NetBank","+1822.32"
+-28/12/2022,"-17000.00","Transfer to xx6079 NetBank","+8822.32"
+-28/12/2022,"+20000.00","Direct Credit 128594 Zhi Kang Li Hua Chen Li","+25822.32"
+-28/12/2022,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+5822.32"
+-27/12/2022,"+112.80","Transfer from xx4309 NetBank","+1414.98"
+-26/12/2022,"+500.00","Transfer from xx6079 CommBank app","+1302.18"
+-26/12/2022,"+600.00","Transfer from xx6079 CommBank app","+802.18"
+-24/12/2022,"-58.40","PHOENICIA RCEPTNS PL MOONEE PONDS VI AUS Card xx0453 Value Date: 22/12/2022","+202.18"
+-22/12/2022,"-16.21","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 20/12/2022","+260.58"
+-21/12/2022,"-52.52","ZLR*La La Land CBD Melbourne AU AUS Card xx0453 Value Date: 18/12/2022","+276.79"
+-21/12/2022,"-40.60","MCLI PTY LTD MELBOURNE AUS Card xx0453 Value Date: 18/12/2022","+329.31"
+-21/12/2022,"-57.86","MCLI PTY LTD MELBOURNE AUS Card xx0453 Value Date: 18/12/2022","+369.91"
+-17/12/2022,"-9500.00","Transfer to xx6079 CommBank app","+427.77"
+-17/12/2022,"-341.00","Audit Shield NetBank BPAY 253575 404251257763888 Audit Shield","+9927.77"
+-17/12/2022,"-17.90","YOMG Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 15/12/2022","+10268.77"
+-15/12/2022,"+10000.00","Direct Credit 128594 Chen Zhi Kang","+10286.67"
+-15/12/2022,"-13.00","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 13/12/2022","+286.67"
+-13/12/2022,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/12/2022","+299.67"
+-13/12/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/12/2022","+310.66"
+-08/12/2022,"-13.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 06/12/2022","+329.65"
+-08/12/2022,"-3200.00","Transfer to xx6079 CommBank app","+343.15"
+-01/12/2022,"-35.28","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 29/11/2022","+3543.15"
+-01/12/2022,"-425.25","ENERGYAUSTRALIA PTY LT MELBOURNE AUS Card xx0453 Value Date: 29/11/2022","+3578.43"
+-29/11/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/11/2022","+4003.68"
+-28/11/2022,"+3962.33","Salary GAVIN MILLMAN & 133088 52","+4028.18"
+-15/11/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/11/2022","+65.85"
+-15/11/2022,"-45.00","LOST (AUSTRALIA STAT CARLTON VI AUS Card xx0453 Value Date: 12/11/2022","+84.84"
+-13/11/2022,"-24.70","Transfer To Dmitri NetBank Schnitzel and Lemon Lime and ...","+129.84"
+-12/11/2022,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/11/2022","+154.54"
+-12/11/2022,"-34.00","MALVERN VALE HOTEL MALVERN VI AUS Card xx0453 Value Date: 10/11/2022","+165.53"
+-10/11/2022,"-92.19","7-ELEVEN 1026 BRUNSWICK WES VI AUS Card xx0453 Value Date: 08/11/2022","+199.53"
+-10/11/2022,"-97.67","Nintendo CA854157371 Scoresby AU AUS Card xx0453 Value Date: 08/11/2022","+291.72"
+-08/11/2022,"+200.00","Transfer from xx6079 CommBank app","+389.39"
+-05/11/2022,"-62.93","SMP*Sir Duke Moonee Ponds AU AUS Card xx0453 Value Date: 03/11/2022","+189.39"
+-03/11/2022,"-186.94","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 01/11/2022","+252.32"
+-02/11/2022,"-10.30","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 31/10/2022","+439.26"
+-01/11/2022,"-37.47","Nintendo CA849399981 Scoresby AU AUS Card xx0453 Value Date: 30/10/2022","+449.56"
+-31/10/2022,"-10000.00","Transfer to other Bank NetBank Bang Chen","+487.03"
+-31/10/2022,"+6500.00","Transfer from xx6079 NetBank","+10487.03"
+-29/10/2022,"-55.00","EASTLINK RINGWOOD AUS Card xx0453 Value Date: 27/10/2022","+3987.03"
+-28/10/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/10/2022","+4042.03"
+-28/10/2022,"+3962.33","Salary GAVIN MILLMAN & 133088 52","+4066.53"
+-25/10/2022,"-23.33","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 21/10/2022","+104.20"
+-21/10/2022,"-20.19","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 19/10/2022","+127.53"
+-19/10/2022,"-3.40","HUNKY DORY MOONEE PONDS VI AUS Card xx0453 Value Date: 17/10/2022","+147.72"
+-18/10/2022,"-13.50","SMP*Hero Sushi Moonee Mooneeponds AU AUS Card xx0453 Value Date: 14/10/2022","+151.12"
+-14/10/2022,"-15.30","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 12/10/2022","+164.62"
+-14/10/2022,"-80.35","COLES EXPRESS 6712 NUNAWADING AU AUS Card xx0453 Value Date: 11/10/2022","+179.92"
+-13/10/2022,"-13.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 11/10/2022","+260.27"
+-12/10/2022,"-8.00","KMART 1085 BRUNSWICK AU AUS Card xx0453 Value Date: 10/10/2022","+273.77"
+-12/10/2022,"-150.34","EB *River of Wishes MJ 801-413-7200 VI AUS Card xx0453 Value Date: 08/10/2022","+281.77"
+-12/10/2022,"-7.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 7.99 Value Date: 09/10/2022","+432.11"
+-12/10/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/10/2022","+440.10"
+-11/10/2022,"-14.16","Transfer To Huang W CommBank App Vanessa's flowers - Hua","+459.09"
+-08/10/2022,"-5.58","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx0453 Value Date: 06/10/2022","+473.25"
+-06/10/2022,"-23.80","SMP*Hero Sushi Moonee Mooneeponds AU AUS Card xx0453 Value Date: 04/10/2022","+478.83"
+-05/10/2022,"-13.72","SMP*Rooster Delight C Moonee Ponds AU AUS Card xx0453 Value Date: 03/10/2022","+502.63"
+-04/10/2022,"-92.00","PAYPAL *SCORPIONTEC Sydney AU","+516.35"
+-04/10/2022,"-52.20","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 01/10/2022","+608.35"
+-04/10/2022,"-12.85","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 01/10/2022","+660.55"
+-04/10/2022,"-31.00","REPCO BRUNSWICK VI AUS Card xx0453 Value Date: 02/10/2022","+673.40"
+-03/10/2022,"-275.00","ASIC NetBank BPAY 17301 2296264698145 Business Late Paym","+704.40"
+-03/10/2022,"+800.00","Transfer from xx6079 NetBank","+979.40"
+-02/10/2022,"-400.00","Cardless Cash for collection For Noodles and Ha","+179.40"
+-01/10/2022,"-3500.00","Transfer to xx6079 CommBank app","+579.40"
+-29/09/2022,"-24.50","OPTUS BILLING SERVICES MACQUARIE PAR NS AUS Card xx0453 Value Date: 27/09/2022","+4079.40"
+-28/09/2022,"-12.18","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx0453 Value Date: 26/09/2022","+4103.90"
+-28/09/2022,"-15.15","Melbourne Airport Melbourne Air VI AUS Card xx0453 Value Date: 24/09/2022","+4116.08"
+-28/09/2022,"+3962.34","Salary GAVIN MILLMAN & 133088 52","+4131.23"
+-27/09/2022,"-7.90","BP MALVERN 0559 MALVERN VI AUS Card xx0453 Value Date: 22/09/2022","+168.89"
+-27/09/2022,"-111.07","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 24/09/2022","+176.79"
+-27/09/2022,"-22.00","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 24/09/2022","+287.86"
+-22/09/2022,"-15.71","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 20/09/2022","+309.86"
+-20/09/2022,"-12.00","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 16/09/2022","+325.57"
+-18/09/2022,"-864.40","VICROADS NetBank BPAY 216291 527171084060737 Car Rego Renew","+337.57"
+-18/09/2022,"+1000.00","Transfer from xx6079 NetBank Netbank Saver","+1201.97"
+-13/09/2022,"-26.39","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 09/09/2022","+201.97"
+-13/09/2022,"-8.12","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 09/09/2022","+228.36"
+-13/09/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx0453 Value Date: 09/09/2022","+236.48"
+-13/09/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/09/2022","+244.47"
+-11/09/2022,"-2700.00","Transfer to xx6079 CommBank app","+263.46"
+-11/09/2022,"-200.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+2963.46"
+-11/09/2022,"+3000.00","Transfer from xx6079 CommBank app","+3163.46"
+-10/09/2022,"-8.00","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx0453 Value Date: 08/09/2022","+163.46"
+-06/09/2022,"-23.04","Universal Restaurant Carlton VI AUS Card xx0453 Value Date: 03/09/2022","+171.46"
+-06/09/2022,"-10.08","HUNG FONG VIC PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/09/2022","+194.50"
+-06/09/2022,"-9.99","PAYPAL *SMARTCASES 0416449766 AU AUS Card xx0453 Value Date: 04/09/2022","+204.58"
+-05/09/2022,"-217.08","CENTRELINK NetBank BPAY 21915 30622023606","+214.57"
+-05/09/2022,"+200.00","Transfer from xx6079 NetBank Netbank Saver","+431.65"
+-04/09/2022,"-174.23","Yarra Valley Water CommBank app BPAY 344366 33790800002","+231.65"
+-04/09/2022,"+200.00","Transfer from xx6079 CommBank app","+405.88"
+-02/09/2022,"-300.00","Transfer To Zhijie Cao CommBank App Super Cool GPU","+205.88"
+-02/09/2022,"+500.00","Transfer from xx6079 CommBank app","+505.88"
+-31/08/2022,"-17.00","MALVERN VALE HOTEL MALVERN VI AUS Card xx0453 Value Date: 28/08/2022","+5.88"
+-31/08/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/08/2022","+22.88"
+-31/08/2022,"-11.50","HUNKY DORY MOONEE PONDS VI AUS Card xx0453 Value Date: 26/08/2022","+47.38"
+-30/08/2022,"-300.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+58.88"
+-30/08/2022,"-5.30","STONNINGTON PAY & DISP MALVERN AUS Card xx0453 Value Date: 28/08/2022","+358.88"
+-29/08/2022,"-3500.00","Transfer to xx6079 CommBank app","+364.18"
+-29/08/2022,"-100.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+3864.18"
+-29/08/2022,"-10.60","Transfer To Zhijie Cao CommBank App Hua - HSP","+3964.18"
+-29/08/2022,"-35.00","Transfer To Truman Wang CommBank App Hua - Karaoke","+3974.78"
+-27/08/2022,"-60.00","Transfer To Everyday Offset CommBank App Everyday Offset","+4009.78"
+-26/08/2022,"+3962.34","Salary GAVIN MILLMAN & 133088 52","+4069.78"
+-24/08/2022,"-300.00","Transfer to CBA A/c NetBank Everyday Offset","+107.44"
+-24/08/2022,"-11.84","PAYSTAY MELBOURNE AUS Card xx3002 Value Date: 22/08/2022","+407.44"
+-24/08/2022,"-10.00","PAYSTAY MELBOURNE AUS Card xx3002 Value Date: 20/08/2022","+419.28"
+-23/08/2022,"-14.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx3002 Value Date: 19/08/2022","+429.28"
+-23/08/2022,"-29.95","JB HI FI BRUNSWICK BRUNSWICK VI AUS Card xx3002 Value Date: 18/08/2022","+443.78"
+-23/08/2022,"-20.00","AUST ELECTORAL COMM SYDNEY NS AUS Card xx3002 Value Date: 20/08/2022","+473.73"
+-23/08/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 21/08/2022","+493.73"
+-20/08/2022,"-15.76","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx3002 Value Date: 18/08/2022","+503.73"
+-20/08/2022,"-20.95","PAYPAL *JB HI-FI 4029357733 AU AUS Card xx3002 Value Date: 18/08/2022","+519.49"
+-20/08/2022,"-509.00","PAYPAL *DICKSMITH 4029357733 AU AUS Card xx3002 Value Date: 18/08/2022","+540.44"
+-19/08/2022,"-32.72","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx3002 Value Date: 17/08/2022","+1049.44"
+-19/08/2022,"-16.78","CHEM WAREHS BRUNSW BRUNSWICK VI AUS Card xx3002 Value Date: 16/08/2022","+1082.16"
+-19/08/2022,"-12.18","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 17/08/2022","+1098.94"
+-18/08/2022,"-79.95","Nintendo CA806030817 Scoresby AU AUS Card xx3002 Value Date: 16/08/2022","+1111.12"
+-18/08/2022,"-44.80","BRUNSWICK FAMILY DNTL BRUNSWICK VI AUS Card xx3002 Value Date: 16/08/2022","+1191.07"
+-18/08/2022,"-8.80","MCDONALDS EUROA EUROA AUS Card xx3002 Value Date: 15/08/2022","+1235.87"
+-17/08/2022,"-137.95","VANTAGE FUELS MANSFIEL MANSFIELD VI AUS Card xx3002 Value Date: 12/08/2022","+1244.67"
+-17/08/2022,"-58.87","SMP*Mustafas Kebabs Euroa AU AUS Card xx3002 Value Date: 15/08/2022","+1382.62"
+-17/08/2022,"-58.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 15/08/2022","+1441.49"
+-17/08/2022,"-409.50","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 15/08/2022","+1499.49"
+-17/08/2022,"-4.90","OLIVERS EUROA PTY LIMI EUROA AUS Card xx3002 Value Date: 15/08/2022","+1908.99"
+-16/08/2022,"-2047.00","BULLER SKI LIFTS MT BULLER AU AUS Card xx3002 Value Date: 12/08/2022","+1913.89"
+-16/08/2022,"-343.30","MBMSARMB MOUNT BULLER VI AUS Card xx3002 Value Date: 12/08/2022","+3960.89"
+-16/08/2022,"-49.99","ARLBERG SKI HIRE PTY L MOUNT BULLER VI AUS Card xx3002 Value Date: 12/08/2022","+4304.19"
+-16/08/2022,"-499.00","BULLER SKI LIFTS MT BULLER AU AUS Card xx3002 Value Date: 13/08/2022","+4354.18"
+-16/08/2022,"-84.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 13/08/2022","+4853.18"
+-16/08/2022,"-14.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 13/08/2022","+4937.18"
+-16/08/2022,"-9.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+4951.18"
+-16/08/2022,"-58.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+4960.18"
+-16/08/2022,"-36.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+5018.18"
+-13/08/2022,"-18.25","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx3002 Value Date: 11/08/2022","+5054.18"
+-13/08/2022,"-15.20","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx3002 Value Date: 11/08/2022","+5072.43"
+-12/08/2022,"-1000.00","Transfer to xx6079 CommBank app","+5087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+6087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+4087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+2087.63"
+-12/08/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx3002 AUD 18.99 Value Date: 10/08/2022","+87.63"
+-12/08/2022,"-150.00","EASTLINK RINGWOOD AUS Card xx3002 Value Date: 11/08/2022","+106.62"
+-11/08/2022,"-10.30","ISTANBUL HALAL MEATS BRUNSWICK AU AUS Card xx3002 Value Date: 09/08/2022","+256.62"
+-11/08/2022,"-195.00","COBURG TOYOTA COBURG NORTH VI AUS Card xx3002 Value Date: 09/08/2022","+266.92"
+-11/08/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx3002 Value Date: 09/08/2022","+461.92"
+-10/08/2022,"-54.00","WOOLWORTHS 3384 COBURG AU AUS Card xx3002 Value Date: 08/08/2022","+469.91"
+-10/08/2022,"-7.00","WOOLWORTHS 3384 COBURG AU AUS Card xx3002 Value Date: 08/08/2022","+523.91"
+-10/08/2022,"-61.45","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 05/08/2022","+530.91"
+-09/08/2022,"+300.00","Transfer from xx6079 CommBank app","+592.36"
+-09/08/2022,"-45.50","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 07/08/2022","+292.36"
+-06/08/2022,"-20.30","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx3002 Value Date: 04/08/2022","+337.86"
+-06/08/2022,"-8.12","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx3002 Value Date: 04/08/2022","+358.16"
+-05/08/2022,"-65.00","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 03/08/2022","+366.28"
+-05/08/2022,"-14.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx3002 Value Date: 03/08/2022","+431.28"
+-03/08/2022,"-285.82","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx3002 Value Date: 30/07/2022","+445.78"
+-03/08/2022,"-60.60","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 31/07/2022","+731.60"
+-02/08/2022,"-36.40","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 30/07/2022","+792.20"
+-30/07/2022,"+300.00","Transfer from xx6079 CommBank app","+828.60"
+-29/07/2022,"-12.00","Transfer To Huang W CommBank App Zj Bday Gift - Hua","+528.60"
+-29/07/2022,"-25.00","PAYPAL *BELONG 4029357733 AU AUS Card xx3002 Value Date: 27/07/2022","+540.60"
+-28/07/2022,"-3700.00","Transfer to xx6079 CommBank app","+565.60"
+-28/07/2022,"+4217.34","Salary GAVIN MILLMAN & 133088 52","+4265.60"
+-27/07/2022,"-31.45","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 25/07/2022","+48.26"
+-27/07/2022,"-35.60","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 24/07/2022","+79.71"
+-26/07/2022,"-14.80","Imperial Hotel Melbourne VI AUS Card xx3002 Value Date: 22/07/2022","+115.31"
+-26/07/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 23/07/2022","+130.11"
+-26/07/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 22/07/2022","+140.11"
+-23/07/2022,"-33.80","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 21/07/2022","+150.11"
+-23/07/2022,"-85.09","EG GROUP 3484 PASCOE VALE AU AUS Card xx3002 Value Date: 21/07/2022","+183.91"
+-22/07/2022,"-13.50","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx3002 Value Date: 20/07/2022","+269.00"
+-21/07/2022,"-25.00","PAYPAL *BELONG 4029357733 AU AUS Card xx3002 Value Date: 19/07/2022","+282.50"
+-20/07/2022,"-300.00","Transfer To Everyday Offset CommBank App Everyday Offset","+307.50"
+-20/07/2022,"-116.80","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 18/07/2022","+607.50"
+-20/07/2022,"-470.45","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx3002 Value Date: 15/07/2022","+724.30"
+-20/07/2022,"-38.35","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 16/07/2022","+1194.75"
+-20/07/2022,"-50.30","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 16/07/2022","+1233.10"
+-18/07/2022,"+33.00","Fast Transfer From DAMIEN AMBEGODA Refund for ZJs bday present","+1283.40"
+-15/07/2022,"-200.00","Transfer To Everyday Offset CommBank App Everyday Offset","+1250.40"
+-15/07/2022,"-12.20","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 13/07/2022","+1450.40"
+-14/07/2022,"-3.50","COLES 0667 MOONEE PONDS AU AUS Card xx3002 Value Date: 12/07/2022","+1462.60"
+-14/07/2022,"+1103.90","Direct Credit 012721 ATO ATO002000016569579","+1466.10"
+-13/07/2022,"-1000.00","Transfer To Business Transaction Account CommBank App Hua Chen Li","+362.20"
+-13/07/2022,"+1000.00","Transfer from xx6079 CommBank app","+1362.20"
+-12/07/2022,"-13.21","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 08/07/2022","+362.20"
+-12/07/2022,"-116.50","PARADISE OF LINDOS ESSENDON NORT AU AUS Card xx3002 Value Date: 08/07/2022","+375.41"
+-12/07/2022,"-87.05","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 10/07/2022","+491.91"
+-12/07/2022,"-617.97","MACPAC PRESTON PRESTON VI AUS Card xx3002 Value Date: 09/07/2022","+578.96"
+-12/07/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx3002 Value Date: 09/07/2022","+1196.93"
+-12/07/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx3002 AUD 18.99 Value Date: 10/07/2022","+1204.92"
+-09/07/2022,"+400.00","Transfer from xx6079 CommBank app","+1223.91"
+-09/07/2022,"-3500.00","Transfer to xx6079 CommBank app","+823.91"
+-09/07/2022,"-30.49","PAYPAL *KOGAN.COM 4029357733 AU AUS Card xx3002 Value Date: 07/07/2022","+4323.91"
+-09/07/2022,"-110.00","EASTLINK RINGWOOD AUS Card xx3002 Value Date: 07/07/2022","+4354.40"
+-07/07/2022,"+4000.00","Transfer from CBA NetBank Return","+4464.40"
+-07/07/2022,"+158.00","Transfer From QIQIONG ZHENG Oodie","+464.40"
+-07/07/2022,"+300.00","Transfer from xx6079 CommBank app","+306.40"
+-06/07/2022,"-65.00","MANGO LOUNGE BAR MOONEE PONDS AUS Card xx3002 Value Date: 02/07/2022","+6.40"
+-06/07/2022,"-17.50","SALCHA MOONEE PONDS VI AUS Card xx3002 Value Date: 02/07/2022","+71.40"
+-05/07/2022,"-26.50","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 03/07/2022","+88.90"
+-05/07/2022,"-21.78","UBER *TRIP Sydney AU AUS Card xx3002 Value Date: 03/07/2022","+115.40"
+-05/07/2022,"-158.00","PAYPAL *DAVIECLOTHI 4029357733 AU AUS Card xx3002 Value Date: 03/07/2022","+137.18"
+-05/07/2022,"-36.91","PAYPAL *OFFICEWORKS 4029357733 AU AUS Card xx3002 Value Date: 03/07/2022","+295.18"
+-02/07/2022,"-9.50","VUF INVESTMENTS PTY LT RESERVOIR AUS Card xx3002 Value Date: 30/06/2022","+332.09"
+-01/07/2022,"-33.70","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 29/06/2022","+341.59"
+-01/07/2022,"-15.60","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx3002 Value Date: 29/06/2022","+375.29"
+Index: My Audit/.idea/inspectionProfiles/Project_Default.xml
+===================================================================
+diff --git a/My Audit/.idea/inspectionProfiles/Project_Default.xml b/My Audit/.idea/inspectionProfiles/Project_Default.xml
+deleted file mode 100644
+--- a/My Audit/.idea/inspectionProfiles/Project_Default.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,12 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <profile version="1.0">
+-    <option name="myName" value="Project Default" />
+-    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+-      <option name="ignoredErrors">
+-        <list>
+-          <option value="E501" />
+-        </list>
+-      </option>
+-    </inspection_tool>
+-  </profile>
+-</component>
+\ No newline at end of file
+Index: My Audit/.idea/misc.xml
+===================================================================
+diff --git a/My Audit/.idea/misc.xml b/My Audit/.idea/misc.xml
+deleted file mode 100644
+--- a/My Audit/.idea/misc.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,4 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10" project-jdk-type="Python SDK" />
+-</project>
+\ No newline at end of file
+Index: My Audit/.idea/codeStyles/codeStyleConfig.xml
+===================================================================
+diff --git a/My Audit/.idea/codeStyles/codeStyleConfig.xml b/My Audit/.idea/codeStyles/codeStyleConfig.xml
+deleted file mode 100644
+--- a/My Audit/.idea/codeStyles/codeStyleConfig.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,5 +0,0 @@
+-<component name="ProjectCodeStyleConfiguration">
+-  <state>
+-    <option name="PREFERRED_PROJECT_CODE_STYLE" value="Default" />
+-  </state>
+-</component>
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/Income.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Income.csv b/My Audit/My_Audit_2022/Income.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Income.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,43 +0,0 @@
+-Date,Description,Misc.,Wages,Pay me Back,Tax Refund,Transfers,Transfers from Family
+-2022-07-07 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-07-07 00:00:00,Transfer From QIQIONG ZHENG Oodie,,,,,,158.0
+-2022-07-07 00:00:00,Transfer from CBA NetBank Return,4000.0,,,,,
+-2022-07-09 00:00:00,Transfer from xx6079 CommBank app,,,,,400.0,
+-2022-07-13 00:00:00,Transfer from xx6079 CommBank app,,,,,1000.0,
+-2022-07-14 00:00:00,Direct Credit 012721 ATO ATO002000016569579,,,,1103.9,,
+-2022-07-18 00:00:00,Fast Transfer From DAMIEN AMBEGODA Refund for ZJs bday present,,,33.0,,,
+-2022-07-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4217.34,,,,
+-2022-07-30 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-09 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-09-02 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-09-04 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-09-05 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,200.0,
+-2022-09-11 00:00:00,Transfer from xx6079 CommBank app,,,,,3000.0,
+-2022-09-18 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,1000.0,
+-2022-09-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-10-03 00:00:00,Transfer from xx6079 NetBank,,,,,800.0,
+-2022-10-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-10-31 00:00:00,Transfer from xx6079 NetBank,,,,,6500.0,
+-2022-11-08 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-11-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-12-15 00:00:00,Direct Credit 128594 Chen Zhi Kang,,,,,,10000.0
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,600.0,
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-12-27 00:00:00,Transfer from xx4309 NetBank,112.8,,,,,
+-2022-12-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2022-12-28 00:00:00,Direct Credit 128594 Zhi Kang Li Hua Chen Li,,,,,,20000.0
+-2022-12-29 00:00:00,Direct Credit 128594 Zhi Kang Li Repayment,,,,,,20000.0
+-2023-01-07 00:00:00,Fast Transfer From WU WEI LI CREDIT TO ACCOUNT,51.7,,,,,
+-2023-01-15 00:00:00,Transfer from xx6079 CommBank app,,,,,900.0,
+-2023-01-21 00:00:00,CASHBACK $200,200.0,,,,,
+-2023-01-27 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-02-07 00:00:00,AUTO PAYMENT - THANK YOU,820.89,,,,,
+-2023-02-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-03-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-04-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-05-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-06-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,5409.01,,,,
+Index: My Audit/Column Rules/column_rules.xsd
+===================================================================
+diff --git a/My Audit/Column Rules/column_rules.xsd b/My Audit/Column Rules/column_rules.xsd
+deleted file mode 100644
+--- a/My Audit/Column Rules/column_rules.xsd	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,67 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+-    <xs:element name="Columns">
+-        <xs:complexType>
+-            <xs:sequence>
+-                <xs:element name="IncomeColumns">
+-                    <xs:complexType>
+-                        <xs:sequence>
+-                            <xs:element name="Column" maxOccurs="unbounded">
+-                                <xs:complexType>
+-                                    <xs:sequence minOccurs="0">
+-                                        <xs:element name="ColumnName" type="xs:string"/>
+-                                        <xs:element name="GSTIncluded">
+-                                            <xs:simpleType>
+-                                                <xs:restriction base="xs:string">
+-                                                    <xs:enumeration value="Y"/>
+-                                                    <xs:enumeration value="N"/>
+-                                                </xs:restriction>
+-                                            </xs:simpleType>
+-                                        </xs:element>
+-                                        <xs:element name="Values" minOccurs="0">
+-                                            <xs:complexType>
+-                                                <xs:sequence>
+-                                                    <xs:element name="Value" maxOccurs="unbounded"
+-                                                        type="xs:string"/>
+-                                                </xs:sequence>
+-                                            </xs:complexType>
+-                                        </xs:element>
+-                                    </xs:sequence>
+-                                </xs:complexType>
+-                            </xs:element>
+-                        </xs:sequence>
+-                    </xs:complexType>
+-                </xs:element>
+-                <xs:element name="ExpenseColumns">
+-                    <xs:complexType>
+-                        <xs:sequence>
+-                            <xs:element name="Column" maxOccurs="unbounded">
+-                                <xs:complexType>
+-                                    <xs:sequence>
+-                                        <xs:element name="ColumnName" type="xs:string"/>
+-                                        <xs:element name="GSTIncluded">
+-                                            <xs:simpleType>
+-                                                <xs:restriction base="xs:string">
+-                                                    <xs:enumeration value="Y"/>
+-                                                    <xs:enumeration value="N"/>
+-                                                </xs:restriction>
+-                                            </xs:simpleType>
+-                                        </xs:element>
+-                                        <xs:element name="Values" minOccurs="0">
+-                                            <xs:complexType>
+-                                                <xs:sequence>
+-                                                    <xs:element name="Value" maxOccurs="unbounded"
+-                                                        type="xs:string"/>
+-                                                </xs:sequence>
+-                                            </xs:complexType>
+-                                        </xs:element>
+-                                    </xs:sequence>
+-                                </xs:complexType>
+-                            </xs:element>
+-                        </xs:sequence>
+-                    </xs:complexType>
+-                </xs:element>
+-            </xs:sequence>
+-        </xs:complexType>
+-    </xs:element>
+-</xs:schema>
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/Archive/20230808-233642/Income.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Archive/20230808-233642/Income.csv b/My Audit/My_Audit_2022/Archive/20230808-233642/Income.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Archive/20230808-233642/Income.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,43 +0,0 @@
+-Date,Description,Misc.,Wages,Pay me Back,Tax Refund,Transfers,Transfers from Family
+-2022-07-07 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-07-07 00:00:00,Transfer From QIQIONG ZHENG Oodie,,,,,,158.0
+-2022-07-07 00:00:00,Transfer from CBA NetBank Return,4000.0,,,,,
+-2022-07-09 00:00:00,Transfer from xx6079 CommBank app,,,,,400.0,
+-2022-07-13 00:00:00,Transfer from xx6079 CommBank app,,,,,1000.0,
+-2022-07-14 00:00:00,Direct Credit 012721 ATO ATO002000016569579,,,,1103.9,,
+-2022-07-18 00:00:00,Fast Transfer From DAMIEN AMBEGODA Refund for ZJs bday present,,,33.0,,,
+-2022-07-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4217.34,,,,
+-2022-07-30 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-09 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-09-02 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-09-04 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-09-05 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,200.0,
+-2022-09-11 00:00:00,Transfer from xx6079 CommBank app,,,,,3000.0,
+-2022-09-18 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,1000.0,
+-2022-09-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-10-03 00:00:00,Transfer from xx6079 NetBank,,,,,800.0,
+-2022-10-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-10-31 00:00:00,Transfer from xx6079 NetBank,,,,,6500.0,
+-2022-11-08 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-11-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-12-15 00:00:00,Direct Credit 128594 Chen Zhi Kang,,,,,,10000.0
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,600.0,
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-12-27 00:00:00,Transfer from xx4309 NetBank,112.8,,,,,
+-2022-12-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2022-12-28 00:00:00,Direct Credit 128594 Zhi Kang Li Hua Chen Li,,,,,,20000.0
+-2022-12-29 00:00:00,Direct Credit 128594 Zhi Kang Li Repayment,,,,,,20000.0
+-2023-01-07 00:00:00,Fast Transfer From WU WEI LI CREDIT TO ACCOUNT,51.7,,,,,
+-2023-01-15 00:00:00,Transfer from xx6079 CommBank app,,,,,900.0,
+-2023-01-21 00:00:00,CASHBACK $200,200.0,,,,,
+-2023-01-27 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-02-07 00:00:00,Mastercard Autopay,,,,,,820.89
+-2023-02-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-03-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-04-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-05-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-06-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,5409.01,,,,
+Index: My Audit/.idea/Python Coding.iml
+===================================================================
+diff --git a/My Audit/.idea/Python Coding.iml b/My Audit/.idea/Python Coding.iml
+deleted file mode 100644
+--- a/My Audit/.idea/Python Coding.iml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,12 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="PYTHON_MODULE" version="4">
+-  <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/Business Audit" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/My Audit" isTestSource="false" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: My Audit/.idea/inspectionProfiles/profiles_settings.xml
+===================================================================
+diff --git a/My Audit/.idea/inspectionProfiles/profiles_settings.xml b/My Audit/.idea/inspectionProfiles/profiles_settings.xml
+deleted file mode 100644
+--- a/My Audit/.idea/inspectionProfiles/profiles_settings.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,6 +0,0 @@
+-<component name="InspectionProjectProfileManager">
+-  <settings>
+-    <option name="USE_PROJECT_PROFILE" value="false" />
+-    <version value="1.0" />
+-  </settings>
+-</component>
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/Archive/20230808-234345/Expenditure.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Archive/20230808-234345/Expenditure.csv b/My Audit/My_Audit_2022/Archive/20230808-234345/Expenditure.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Archive/20230808-234345/Expenditure.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,276 +0,0 @@
+-Date,Description,With Friends,Takeaway for Work,Groceries,Subscriptions,Transport,Games,Merch,Clothes,Tech,Transfers,Transfers to Family,Business Expenditure,Education,Family,Utilities,Misc.
+-2022-07-01 00:00:00,Hero Sushi,,15.6,,,,,,,,,,,,,,
+-2022-07-01 00:00:00,Woolworths,,,33.7,,,,,,,,,,,,,
+-2022-07-02 00:00:00,VUF INVESTMENTS PTY LT RESERVOIR AUS Card   ,,,,,,,,,,,,,,,,9.5
+-2022-07-05 00:00:00, OFFICEWORKS 4029357733 AU AUS Card   ,,,,,,,,,36.91,,,,,,,
+-2022-07-05 00:00:00, DAVIECLOTHI 4029357733 AU AUS Card   ,,,,,,,,158.0,,,,,,,,
+-2022-07-05 00:00:00,Uber,21.78,,,,,,,,,,,,,,,
+-2022-07-05 00:00:00,Woolworths,,,26.5,,,,,,,,,,,,,
+-2022-07-06 00:00:00,SALCHA MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,17.5
+-2022-07-06 00:00:00,MANGO LOUNGE BAR MOONEE PONDS AUS Card   ,65.0,,,,,,,,,,,,,,,
+-2022-07-09 00:00:00,Eastlink,,,,,110.0,,,,,,,,,,,
+-2022-07-09 00:00:00, KOGAN.COM 4029357733 AU AUS Card   ,,,,,,,,,30.49,,,,,,,
+-2022-07-09 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-07-12 00:00:00,PARADISE OF LINDOS ESSENDON NORT AU AUS Card   ,116.5,,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Woolworths,,,87.05,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Top Notch,,13.21,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,MACPAC PRESTON PRESTON VI AUS Card   ,,,,,,,,,,,,,,,,617.97
+-2022-07-13 00:00:00,Transfer To Business Transaction Account CommBank App Hua Chen Li,,,,,,,,,,,1000.0,,,,,
+-2022-07-14 00:00:00,COLES 0667 MOONEE PONDS AU AUS Card   ,,,3.5,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Top Notch,,12.2,,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-07-20 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-07-20 00:00:00,Woolworths,,,116.8,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,50.3,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,38.35,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,Gold Leaf,,,,,,,,,,,,,,470.45,,
+-2022-07-21 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-22 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-07-23 00:00:00,EG Group,,,,,85.09,,,,,,,,,,,
+-2022-07-23 00:00:00,Woolworths,,,33.8,,,,,,,,,,,,,
+-2022-07-26 00:00:00,Imperial Hotel Melbourne VI AUS Card   ,,,,,,,,,,,,,,,,14.8
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-27 00:00:00,McDonalds,,35.6,,,,,,,,,,,,,,
+-2022-07-27 00:00:00,Woolworths,,,31.45,,,,,,,,,,,,,
+-2022-07-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3700.0,,,,,,
+-2022-07-29 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-29 00:00:00,Transfer To Huang W CommBank App Zj Bday Gift - Hua,12.0,,,,,,,,,,,,,,,
+-2022-08-02 00:00:00,Woolworths,,,36.4,,,,,,,,,,,,,
+-2022-08-03 00:00:00,McDonalds,,60.6,,,,,,,,,,,,,,
+-2022-08-03 00:00:00,Gold Leaf,,,,,,,,,,,,,,285.82,,
+-2022-08-05 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-05 00:00:00,Woolworths,,,65.0,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,20.3,,,,,,,,,,,,,,
+-2022-08-09 00:00:00,Woolworths,,,45.5,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,54.0,,,,,,,,,,,,,
+-2022-08-10 00:00:00,McDonalds,,61.45,,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,7.0,,,,,,,,,,,,,
+-2022-08-11 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-08-11 00:00:00,COBURG TOYOTA COBURG NORTH VI AUS Card   ,,,,,195.0,,,,,,,,,,,
+-2022-08-11 00:00:00,ISTANBUL HALAL MEATS BRUNSWICK AU AUS Card   ,,,,,,,,,,,,,,,,10.3
+-2022-08-12 00:00:00,Eastlink,,,,,150.0,,,,,,,,,,,
+-2022-08-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-08-12 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,1000.0,,,,,,
+-2022-08-13 00:00:00,Noodlebox,,15.2,,,,,,,,,,,,,,
+-2022-08-13 00:00:00,Woolworths,,,18.25,,,,,,,,,,,,,
+-2022-08-16 00:00:00,ARLBERG SKI HIRE PTY L MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,49.99,,
+-2022-08-16 00:00:00,MBMSARMB MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,343.3,,
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,499.0
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,2047.0
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,14.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,9.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,84.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,36.0,,
+-2022-08-17 00:00:00,VANTAGE FUELS MANSFIEL MANSFIELD VI AUS Card   ,,,,,,,,,,,,,,,,137.95
+-2022-08-17 00:00:00,SMPMustafas Kebabs Euroa AU AUS Card   ,,,,,,,,,,,,,,58.87,,
+-2022-08-17 00:00:00,OLIVERS EUROA PTY LIMI EUROA AUS Card   ,,,,,,,,,,,,,,4.9,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,409.5,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-18 00:00:00,BRUNSWICK FAMILY DNTL BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,44.8,,
+-2022-08-18 00:00:00,Nintendo CA806030817 Scoresby AU AUS Card   ,,,,,,79.95,,,,,,,,,,
+-2022-08-18 00:00:00,McDonalds,,8.8,,,,,,,,,,,,8.8,,
+-2022-08-19 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-08-19 00:00:00,Chemist Warehouse,,,,,,,,,,,,,,,,16.78
+-2022-08-19 00:00:00,Woolworths,,,32.72,,,,,,,,,,,,,
+-2022-08-20 00:00:00, DICKSMITH 4029357733 AU AUS Card   ,,,,,,,,,509.0,,,,,,,
+-2022-08-20 00:00:00,JB Hi-Fi,,,,,,,,,20.95,,,,,,,
+-2022-08-20 00:00:00,Noodlebox,,15.76,,,,,,,,,,,,,,
+-2022-08-23 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-08-23 00:00:00,AUST ELECTORAL COMM SYDNEY NS AUS Card   ,,,,,,,,,,,,,,,,20.0
+-2022-08-23 00:00:00,JB HI FI BRUNSWICK BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,,,29.95
+-2022-08-23 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-24 00:00:00,Transfer to CBA A/c NetBank Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,10.0,,,,,,,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,11.84,,,,,,,,,,,
+-2022-08-27 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,60.0,,,,,
+-2022-08-29 00:00:00,Transfer To Truman Wang CommBank App Hua - Karaoke,35.0,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Zhijie Cao CommBank App Hua - HSP,10.6,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,100.0,,,,,
+-2022-08-29 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-08-30 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-30 00:00:00,STONNINGTON PAY & DISP MALVERN AUS Card   ,,,,,,,,,,,,,,,,5.3
+-2022-08-31 00:00:00,Hunky Dory,,11.5,,,,,,,,,,,,,,
+-2022-08-31 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-08-31 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,17.0
+-2022-09-02 00:00:00,Transfer To Zhijie Cao CommBank App Super Cool GPU,300.0,,,,,,,,,,,,,,,
+-2022-09-04 00:00:00,Yarra Valley Water,,,,,,,,,,,,,,,174.23,
+-2022-09-05 00:00:00,CENTRELINK NetBank BPAY 21915 30622023606,,,,,,,,,,,,,,217.08,,
+-2022-09-06 00:00:00, SMARTCASES 0416449766 AU AUS Card   ,,,,,,,,,,,,,,,,9.99
+-2022-09-06 00:00:00,HUNG FONG VIC PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,10.08
+-2022-09-06 00:00:00,Universal Restaurant Carlton VI AUS Card   ,23.04,,,,,,,,,,,,,,,
+-2022-09-10 00:00:00,Hero Sushi,,8.0,,,,,,,,,,,,,,
+-2022-09-11 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-09-11 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2700.0,,,,,,
+-2022-09-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,26.39,,,,,,,,,,,,,,
+-2022-09-18 00:00:00,VICROADS NetBank BPAY 216291 527171084060737 Car Rego Renew,,,,,864.4,,,,,,,,,,,
+-2022-09-20 00:00:00,Zeus Street Greek,,12.0,,,,,,,,,,,,,,
+-2022-09-22 00:00:00,IGA,,,,,,,,,,,,,,,,15.71
+-2022-09-27 00:00:00,IGA,,,,,,,,,,,,,,,,22.0
+-2022-09-27 00:00:00,Woolworths,,,111.07,,,,,,,,,,,,,
+-2022-09-27 00:00:00,BP MALVERN 0559 MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,7.9
+-2022-09-28 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-09-28 00:00:00,Melbourne Airport Melbourne Air VI AUS Card   ,,,,,,,,,,,,,,,,15.15
+-2022-09-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-01 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-10-02 00:00:00,Cardless Cash for collection For Noodles and Ha,,,,,,,,,,,,,,,,400.0
+-2022-10-03 00:00:00,ASIC NetBank BPAY 17301 2296264698145 Business Late Paym,,,,,,,,,,,,275.0,,,,
+-2022-10-04 00:00:00,REPCO BRUNSWICK VI AUS Card   ,,,,,,,,,,,,31.0,,,,
+-2022-10-04 00:00:00,IGA,,,,,,,,,,,,,,,,12.85
+-2022-10-04 00:00:00,Woolworths,,,52.2,,,,,,,,,,,,,
+-2022-10-04 00:00:00, SCORPIONTEC Sydney AU,,,,,,,,,92.0,,,,,,,
+-2022-10-05 00:00:00,SMPRooster Delight C Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,13.72
+-2022-10-06 00:00:00,Hero Sushi,,23.8,,,,,,,,,,,,,,
+-2022-10-08 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2022-10-11 00:00:00,Transfer To Huang W CommBank App Vanessa's flowers - Hua,,,,,,,,,,,,,,,,14.16
+-2022-10-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,EB River of Wishes MJ 801-413-7200 VI AUS Card   ,,,,,,,,,,,,,,,,150.34
+-2022-10-12 00:00:00,Kmart,,,8.0,,,,,,,,,,,,,
+-2022-10-13 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Coles Express,,,80.35,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Woolworths,,,15.3,,,,,,,,,,,,,
+-2022-10-18 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-10-19 00:00:00,Hunky Dory,,3.4,,,,,,,,,,,,,,
+-2022-10-21 00:00:00,Woolworths,,,20.19,,,,,,,,,,,,,
+-2022-10-25 00:00:00,Noodlebox,,23.33,,,,,,,,,,,,,,
+-2022-10-28 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-29 00:00:00,Eastlink,,,,,55.0,,,,,,,,,,,
+-2022-10-31 00:00:00,Transfer to other Bank NetBank Bang Chen,,,,,,,,,,,,,,,,10000.0
+-2022-11-01 00:00:00,Nintendo CA849399981 Scoresby AU AUS Card   ,,,,,,37.47,,,,,,,,,,
+-2022-11-02 00:00:00,IGA,,,,,,,,,,,,,,,,10.3
+-2022-11-03 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,186.94
+-2022-11-05 00:00:00,Sir Duke,,,,,,,,,,,,,,,,62.93
+-2022-11-10 00:00:00,Nintendo CA854157371 Scoresby AU AUS Card   ,,,,,,97.67,,,,,,,,,,
+-2022-11-10 00:00:00,7-Eleven,,,,,92.19,,,,,,,,,,,
+-2022-11-12 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,34.0
+-2022-11-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-11-13 00:00:00,Transfer To Dmitri NetBank Schnitzel and Lemon Lime and ...,,,,,,,,,,,,,,,,24.7
+-2022-11-15 00:00:00,LOST (AUSTRALIA STAT CARLTON VI AUS Card   ,,,,,,,,,,,,,,,,45.0
+-2022-11-15 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-11-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-01 00:00:00,Tango Energy,,,,,,,,,,,,,,,,35.28
+-2022-12-01 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,425.25
+-2022-12-08 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3200.0,,,,,,
+-2022-12-08 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-12-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-12-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-12-15 00:00:00,Zeus Street Greek,,13.0,,,,,,,,,,,,,,
+-2022-12-17 00:00:00,YOMG Moonee Ponds Moonee Ponds VI AUS Card   ,,,,,,,,,,,,,,,,17.9
+-2022-12-17 00:00:00,Audit Shield NetBank BPAY 253575 404251257763888 Audit Shield,,,,,,,,,,,,,,,,341.0
+-2022-12-17 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,9500.0,,,,,,
+-2022-12-21 00:00:00,ZLRLa La Land CBD Melbourne AU AUS Card   ,,,,,,,,,,,,,,,,52.52
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,57.86
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,40.6
+-2022-12-22 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-24 00:00:00,PHOENICIA RCEPTNS PL MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,58.4
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,17000.0,,,,,,
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,7000.0,,,,,,
+-2022-12-29 00:00:00,BP PENLNK OB 7655 BAXTER VI AUS Card   ,,,,,,,,,,,,,,,,76.21
+-2022-12-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-29 00:00:00,Gold Leaf,,,,,,,,,,,,,,602.91,,
+-2022-12-31 00:00:00,CAMPION EDUCATION NUNAWADING AUS Card   ,,,,,,,,,,,,,308.72,,,
+-2022-12-31 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-31 00:00:00,Transfer To Everyday Offset NetBank Hua Chen Li,,,,,,,,,,,10000.0,,,,,
+-2022-12-31 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,9000.0,,,,,,
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,903.99
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,49.7
+-2023-01-04 00:00:00,Nintendo CA895260282 Scoresby AU AUS Card   ,,,,,,78.69,,,,,,,,,,
+-2023-01-04 00:00:00,Nintendo CA895257048 Scoresby AU AUS Card   ,,,,,,25.11,,,,,,,,,,
+-2023-01-04 00:00:00,SQ HAPPY EATS MOONEE Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,15.0
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,102.53
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-05 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,484.0
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,49.74
+-2023-01-07 00:00:00,MR. RAMEN SANMelbourneVIC,,,,,,,,,,,,,,,,51.49
+-2023-01-07 00:00:00,OFFICEWORKS 0320MELBOURNEAUS,,,,,,,,,155.19,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,25.27
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-10 00:00:00,Spotify P201946D3ESydneyAUS,,,,18.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-01-15 00:00:00,Kogan.com FPWKM3CJMelbourneAUS,,,,,,,,,19.57,,,,,,,
+-2023-01-16 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2023-01-17 00:00:00,Woolworths,,,22.0,,,,,,,,,,,,,
+-2023-01-18 00:00:00,JB Hi-Fi,,,,,,,,,284.99,,,,,,,
+-2023-01-18 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,69.0
+-2023-01-22 00:00:00,SQ ELIHATS CAKESSt KildaVI,,,,,,,,,,,,,,,,20.0
+-2023-01-22 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-23 00:00:00,BP MALVERN 0559MALVERNVIC,,,,,,,,,,,,,,,,10.0
+-2023-01-25 00:00:00,Kogan.com 2GWXA2YYMelbourneAUS,,,,,,,,,399.0,,,,,,,
+-2023-01-26 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,106.22
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-28 00:00:00,Uniqlo,,,,,,,,59.9,,,,,,,,
+-2023-01-29 00:00:00,JB Hi-Fi,,,,,,,,,294.99,,,,,,,
+-2023-01-30 00:00:00,McDonalds,,25.25,,,,,,,,,,,,,,
+-2023-02-01 00:00:00,7-Eleven,,,,,76.01,,,,,,,,,,,
+-2023-02-02 00:00:00,MARTIN AND MILLIE PTYMOONEE PONDS,,,,,,,,,,,,,,,,51.5
+-2023-02-04 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-02-04 00:00:00,YARRAVALLEYWATER WEBMITCHAM,,,,,,,,,,,,,,,,306.61
+-2023-02-05 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Karaoke and Pizza,43.57,,,,,,,,,,,,,,,
+-2023-02-06 00:00:00,McDonalds,,24.65,,,,,,,,,,,,,,
+-2023-02-08 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,820.89
+-2023-02-09 00:00:00,Eastlink,,,,,35.0,,,,,,,,,,,
+-2023-02-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-02-28 00:00:00,Transfer to xx9221 CommBank app,,,,,,,,,,,,,,,,2000.0
+-2023-02-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-02-28 00:00:00,Nintendo CA932153331 Scoresby AU AUS Card   ,,,,,,56.01,,,,,,,,,,
+-2023-03-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,135.75
+-2023-03-10 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Damo's Monitor,29.36,,,,,,,,,,,,,,,
+-2023-03-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-03-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-04-12 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,1211.56
+-2023-04-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-04-30 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,5000.0,,,,,,
+-2023-05-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,83.11
+-2023-05-10 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,3006.01
+-2023-05-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-05-16 00:00:00,Nintendo CA982305466 Scoresby AU AUS Card   ,,,,,,87.14,,,,,,,,,,
+-2023-05-23 00:00:00,AMAZON AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,89.99
+-2023-05-28 00:00:00,Transfer To Vanessa Lin CommBank App Amy's Graduation Flowers...,,,,,,,,,,,,,,,,36.0
+-2023-06-07 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,1771.51
+-2023-06-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-06-14 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,18.98
+-2023-06-18 00:00:00,McDonalds,,22.4,,,,,,,,,,,,,,
+-2023-06-19 00:00:00,Top Notch,,8.63,,,,,,,,,,,,,,
+-2023-06-20 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,145.27
+-2023-06-20 00:00:00,ROTI BAR AUSTRALIA VI AUS Card   ,,,,,,,,,,,,,,,,39.36
+-2023-06-21 00:00:00,XING FU TANG MELB MELBOURNE VI AUS Card   ,,,,,,,,,,,,,,,,14.82
+-2023-06-23 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,15.5
+-2023-06-24 00:00:00,Transfer To Zhijie Cao CommBank App Birthday Meal - Hua,30.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,McDonalds,,30.7,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,Transfer To Liam Kelly CommBank App Hua - Spodermun ticket,,,,,,,,,,,,,,,,26.0
+-2023-06-25 00:00:00,Transfer To Viv Zou CommBank App Zj's card - Hua,13.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,LAKSA HUT BURNSIDE HEIGAU Card ,,,,,,,,,,,,,,,,17.58
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,1.0
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,30.0
+-2023-07-01 00:00:00,TurnTheCornerMedical Northcote VI AUS Card   ,,,,,,,,,,,,,,,,86.0
+-2023-07-01 00:00:00,PlaystationNetwork LONDON GB GBR Card  AUD 11.98  ,,,,,,,,,,,,,,,,11.98
+-2023-07-04 00:00:00,Nintendo CA1012037785 Scoresby AU AUS Card   ,,,,,,75.59,,,,,,,,,,
+-2023-07-04 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-07-05 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-06 00:00:00, CENTRECOMSU Sydney AU,,,,,,,,,,,,,,,,86.02
+-2023-07-07 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-07-10 00:00:00,Transfer To Everyday Offset CommBank App Transfer,,,,,,,,,,,2680.59,,,,,
+-2023-07-11 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,3898.96
+-2023-07-12 00:00:00,Allison Browning,,,,,,,,,,,,,,,,220.0
+-2023-07-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-07-12 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-12 00:00:00,McDonalds,,43.3,,,,,,,,,,,,,,
+-2023-07-13 00:00:00,Spotify Sydney AU AUS Card   ,,,,11.99,,,,,,,,,,,,
+-2023-07-14 00:00:00,SMPLai Bakery Cafe Mo Moonee Ponds03 AU,,,,,,,,,,,,,,,,8.13
+-2023-07-14 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,19.9
+-2023-07-15 00:00:00,Sir Duke,,,,,,,,,,,,,,,,37.96
+-2023-07-15 00:00:00,ASIC NetBank BPAY 17301 2296264698145 ASIC Annual Review,,,,,,,,,,,,290.0,,,,
+-2023-07-15 00:00:00,VEC NetBank BPAY 120279 3003680111555520,,,,,,,,,,,,,,,,92.0
+Index: My Audit/My_Audit_2022/Expenditure.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Expenditure.csv b/My Audit/My_Audit_2022/Expenditure.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Expenditure.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,276 +0,0 @@
+-Date,Description,With Friends,Takeaway for Work,Groceries,Subscriptions,Transport,Games,Merch,Clothes,Tech,Transfers,Transfers to Family,Business Expenditure,Education,Family,Utilities,Misc.
+-2022-07-01 00:00:00,Hero Sushi,,15.6,,,,,,,,,,,,,,
+-2022-07-01 00:00:00,Woolworths,,,33.7,,,,,,,,,,,,,
+-2022-07-02 00:00:00,VUF INVESTMENTS PTY LT RESERVOIR AUS Card   ,,,,,,,,,,,,,,,,9.5
+-2022-07-05 00:00:00, OFFICEWORKS 4029357733 AU AUS Card   ,,,,,,,,,36.91,,,,,,,
+-2022-07-05 00:00:00, DAVIECLOTHI 4029357733 AU AUS Card   ,,,,,,,,158.0,,,,,,,,
+-2022-07-05 00:00:00,Uber,21.78,,,,,,,,,,,,,,,
+-2022-07-05 00:00:00,Woolworths,,,26.5,,,,,,,,,,,,,
+-2022-07-06 00:00:00,SALCHA MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,17.5
+-2022-07-06 00:00:00,MANGO LOUNGE BAR MOONEE PONDS AUS Card   ,65.0,,,,,,,,,,,,,,,
+-2022-07-09 00:00:00,Eastlink,,,,,110.0,,,,,,,,,,,
+-2022-07-09 00:00:00, KOGAN.COM 4029357733 AU AUS Card   ,,,,,,,,,30.49,,,,,,,
+-2022-07-09 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-07-12 00:00:00,PARADISE OF LINDOS ESSENDON NORT AU AUS Card   ,116.5,,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Woolworths,,,87.05,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Top Notch,,13.21,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,MACPAC PRESTON PRESTON VI AUS Card   ,,,,,,,,,,,,,,,,617.97
+-2022-07-13 00:00:00,Transfer To Business Transaction Account CommBank App Hua Chen Li,,,,,,,,,,,1000.0,,,,,
+-2022-07-14 00:00:00,COLES 0667 MOONEE PONDS AU AUS Card   ,,,3.5,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Top Notch,,12.2,,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-07-20 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-07-20 00:00:00,Woolworths,,,116.8,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,50.3,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,38.35,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,Gold Leaf,,,,,,,,,,,,,,470.45,,
+-2022-07-21 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-22 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-07-23 00:00:00,EG Group,,,,,85.09,,,,,,,,,,,
+-2022-07-23 00:00:00,Woolworths,,,33.8,,,,,,,,,,,,,
+-2022-07-26 00:00:00,Imperial Hotel Melbourne VI AUS Card   ,,,,,,,,,,,,,,,,14.8
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-27 00:00:00,McDonalds,,35.6,,,,,,,,,,,,,,
+-2022-07-27 00:00:00,Woolworths,,,31.45,,,,,,,,,,,,,
+-2022-07-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3700.0,,,,,,
+-2022-07-29 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-29 00:00:00,Transfer To Huang W CommBank App Zj Bday Gift - Hua,12.0,,,,,,,,,,,,,,,
+-2022-08-02 00:00:00,Woolworths,,,36.4,,,,,,,,,,,,,
+-2022-08-03 00:00:00,McDonalds,,60.6,,,,,,,,,,,,,,
+-2022-08-03 00:00:00,Gold Leaf,,,,,,,,,,,,,,285.82,,
+-2022-08-05 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-05 00:00:00,Woolworths,,,65.0,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,20.3,,,,,,,,,,,,,,
+-2022-08-09 00:00:00,Woolworths,,,45.5,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,54.0,,,,,,,,,,,,,
+-2022-08-10 00:00:00,McDonalds,,61.45,,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,7.0,,,,,,,,,,,,,
+-2022-08-11 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-08-11 00:00:00,COBURG TOYOTA COBURG NORTH VI AUS Card   ,,,,,195.0,,,,,,,,,,,
+-2022-08-11 00:00:00,ISTANBUL HALAL MEATS BRUNSWICK AU AUS Card   ,,,,,,,,,,,,,,,,10.3
+-2022-08-12 00:00:00,Eastlink,,,,,150.0,,,,,,,,,,,
+-2022-08-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-08-12 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,1000.0,,,,,,
+-2022-08-13 00:00:00,Noodlebox,,15.2,,,,,,,,,,,,,,
+-2022-08-13 00:00:00,Woolworths,,,18.25,,,,,,,,,,,,,
+-2022-08-16 00:00:00,ARLBERG SKI HIRE PTY L MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,49.99,,
+-2022-08-16 00:00:00,MBMSARMB MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,343.3,,
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,499.0
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,2047.0
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,14.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,9.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,84.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,36.0,,
+-2022-08-17 00:00:00,VANTAGE FUELS MANSFIEL MANSFIELD VI AUS Card   ,,,,,,,,,,,,,,,,137.95
+-2022-08-17 00:00:00,SMPMustafas Kebabs Euroa AU AUS Card   ,,,,,,,,,,,,,,58.87,,
+-2022-08-17 00:00:00,OLIVERS EUROA PTY LIMI EUROA AUS Card   ,,,,,,,,,,,,,,4.9,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,409.5,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-18 00:00:00,BRUNSWICK FAMILY DNTL BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,44.8,,
+-2022-08-18 00:00:00,Nintendo CA806030817 Scoresby AU AUS Card   ,,,,,,79.95,,,,,,,,,,
+-2022-08-18 00:00:00,McDonalds,,8.8,,,,,,,,,,,,,,
+-2022-08-19 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-08-19 00:00:00,Chemist Warehouse,,,,,,,,,,,,,,,,16.78
+-2022-08-19 00:00:00,Woolworths,,,32.72,,,,,,,,,,,,,
+-2022-08-20 00:00:00, DICKSMITH 4029357733 AU AUS Card   ,,,,,,,,,509.0,,,,,,,
+-2022-08-20 00:00:00,JB Hi-Fi,,,,,,,,,20.95,,,,,,,
+-2022-08-20 00:00:00,Noodlebox,,15.76,,,,,,,,,,,,,,
+-2022-08-23 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-08-23 00:00:00,AUST ELECTORAL COMM SYDNEY NS AUS Card   ,,,,,,,,,,,,,,,,20.0
+-2022-08-23 00:00:00,JB HI FI BRUNSWICK BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,,,29.95
+-2022-08-23 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-24 00:00:00,Transfer to CBA A/c NetBank Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,10.0,,,,,,,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,11.84,,,,,,,,,,,
+-2022-08-27 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,60.0,,,,,
+-2022-08-29 00:00:00,Transfer To Truman Wang CommBank App Hua - Karaoke,35.0,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Zhijie Cao CommBank App Hua - HSP,10.6,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,100.0,,,,,
+-2022-08-29 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-08-30 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-30 00:00:00,STONNINGTON PAY & DISP MALVERN AUS Card   ,,,,,,,,,,,,,,,,5.3
+-2022-08-31 00:00:00,Hunky Dory,,11.5,,,,,,,,,,,,,,
+-2022-08-31 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-08-31 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,17.0
+-2022-09-02 00:00:00,Transfer To Zhijie Cao CommBank App Super Cool GPU,300.0,,,,,,,,,,,,,,,
+-2022-09-04 00:00:00,Yarra Valley Water,,,,,,,,,,,,,,,174.23,
+-2022-09-05 00:00:00,CENTRELINK NetBank BPAY 21915 30622023606,,,,,,,,,,,,,,217.08,,
+-2022-09-06 00:00:00, SMARTCASES 0416449766 AU AUS Card   ,,,,,,,,,,,,,,,,9.99
+-2022-09-06 00:00:00,HUNG FONG VIC PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,10.08
+-2022-09-06 00:00:00,Universal Restaurant Carlton VI AUS Card   ,23.04,,,,,,,,,,,,,,,
+-2022-09-10 00:00:00,Hero Sushi,,8.0,,,,,,,,,,,,,,
+-2022-09-11 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-09-11 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2700.0,,,,,,
+-2022-09-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,26.39,,,,,,,,,,,,,,
+-2022-09-18 00:00:00,VICROADS NetBank BPAY 216291 527171084060737 Car Rego Renew,,,,,864.4,,,,,,,,,,,
+-2022-09-20 00:00:00,Zeus Street Greek,,12.0,,,,,,,,,,,,,,
+-2022-09-22 00:00:00,IGA,,,,,,,,,,,,,,,,15.71
+-2022-09-27 00:00:00,IGA,,,,,,,,,,,,,,,,22.0
+-2022-09-27 00:00:00,Woolworths,,,111.07,,,,,,,,,,,,,
+-2022-09-27 00:00:00,BP MALVERN 0559 MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,7.9
+-2022-09-28 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-09-28 00:00:00,Melbourne Airport Melbourne Air VI AUS Card   ,,,,,,,,,,,,,,,,15.15
+-2022-09-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-01 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-10-02 00:00:00,Cardless Cash for collection For Noodles and Ha,,,,,,,,,,,,,,,,400.0
+-2022-10-03 00:00:00,ASIC NetBank BPAY 17301 2296264698145 Business Late Paym,,,,,,,,,,,,275.0,,,,
+-2022-10-04 00:00:00,REPCO BRUNSWICK VI AUS Card   ,,,,,,,,,,,,31.0,,,,
+-2022-10-04 00:00:00,IGA,,,,,,,,,,,,,,,,12.85
+-2022-10-04 00:00:00,Woolworths,,,52.2,,,,,,,,,,,,,
+-2022-10-04 00:00:00, SCORPIONTEC Sydney AU,,,,,,,,,92.0,,,,,,,
+-2022-10-05 00:00:00,SMPRooster Delight C Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,13.72
+-2022-10-06 00:00:00,Hero Sushi,,23.8,,,,,,,,,,,,,,
+-2022-10-08 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2022-10-11 00:00:00,Transfer To Huang W CommBank App Vanessa's flowers - Hua,,,,,,,,,,,,,,,,14.16
+-2022-10-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,EB River of Wishes MJ 801-413-7200 VI AUS Card   ,,,,,,,,,,,,,,,,150.34
+-2022-10-12 00:00:00,Kmart,,,8.0,,,,,,,,,,,,,
+-2022-10-13 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Coles Express,,,80.35,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Woolworths,,,15.3,,,,,,,,,,,,,
+-2022-10-18 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-10-19 00:00:00,Hunky Dory,,3.4,,,,,,,,,,,,,,
+-2022-10-21 00:00:00,Woolworths,,,20.19,,,,,,,,,,,,,
+-2022-10-25 00:00:00,Noodlebox,,23.33,,,,,,,,,,,,,,
+-2022-10-28 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-29 00:00:00,Eastlink,,,,,55.0,,,,,,,,,,,
+-2022-10-31 00:00:00,Transfer to other Bank NetBank Bang Chen,,,,,,,,,,,,,,,,10000.0
+-2022-11-01 00:00:00,Nintendo CA849399981 Scoresby AU AUS Card   ,,,,,,37.47,,,,,,,,,,
+-2022-11-02 00:00:00,IGA,,,,,,,,,,,,,,,,10.3
+-2022-11-03 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,186.94
+-2022-11-05 00:00:00,Sir Duke,,,,,,,,,,,,,,,,62.93
+-2022-11-10 00:00:00,Nintendo CA854157371 Scoresby AU AUS Card   ,,,,,,97.67,,,,,,,,,,
+-2022-11-10 00:00:00,7-Eleven,,,,,92.19,,,,,,,,,,,
+-2022-11-12 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,34.0
+-2022-11-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-11-13 00:00:00,Transfer To Dmitri NetBank Schnitzel and Lemon Lime and ...,,,,,,,,,,,,,,,,24.7
+-2022-11-15 00:00:00,LOST (AUSTRALIA STAT CARLTON VI AUS Card   ,,,,,,,,,,,,,,,,45.0
+-2022-11-15 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-11-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-01 00:00:00,Tango Energy,,,,,,,,,,,,,,,,35.28
+-2022-12-01 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,425.25
+-2022-12-08 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3200.0,,,,,,
+-2022-12-08 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-12-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-12-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-12-15 00:00:00,Zeus Street Greek,,13.0,,,,,,,,,,,,,,
+-2022-12-17 00:00:00,YOMG Moonee Ponds Moonee Ponds VI AUS Card   ,,,,,,,,,,,,,,,,17.9
+-2022-12-17 00:00:00,Audit Shield NetBank BPAY 253575 404251257763888 Audit Shield,,,,,,,,,,,,,,,,341.0
+-2022-12-17 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,9500.0,,,,,,
+-2022-12-21 00:00:00,ZLRLa La Land CBD Melbourne AU AUS Card   ,,,,,,,,,,,,,,,,52.52
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,57.86
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,40.6
+-2022-12-22 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-24 00:00:00,PHOENICIA RCEPTNS PL MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,58.4
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,17000.0,,,,,,
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,7000.0,,,,,,
+-2022-12-29 00:00:00,BP PENLNK OB 7655 BAXTER VI AUS Card   ,,,,,,,,,,,,,,,,76.21
+-2022-12-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-29 00:00:00,Gold Leaf,,,,,,,,,,,,,,602.91,,
+-2022-12-31 00:00:00,CAMPION EDUCATION NUNAWADING AUS Card   ,,,,,,,,,,,,,308.72,,,
+-2022-12-31 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-31 00:00:00,Transfer To Everyday Offset NetBank Hua Chen Li,,,,,,,,,,,10000.0,,,,,
+-2022-12-31 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,9000.0,,,,,,
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,903.99
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,49.7
+-2023-01-04 00:00:00,Nintendo CA895260282 Scoresby AU AUS Card   ,,,,,,78.69,,,,,,,,,,
+-2023-01-04 00:00:00,Nintendo CA895257048 Scoresby AU AUS Card   ,,,,,,25.11,,,,,,,,,,
+-2023-01-04 00:00:00,SQ HAPPY EATS MOONEE Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,15.0
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,102.53
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-05 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,484.0
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,49.74
+-2023-01-07 00:00:00,MR. RAMEN SANMelbourneVIC,,,,,,,,,,,,,,,,51.49
+-2023-01-07 00:00:00,OFFICEWORKS 0320MELBOURNEAUS,,,,,,,,,155.19,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,25.27
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-10 00:00:00,Spotify P201946D3ESydneyAUS,,,,18.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-01-15 00:00:00,Kogan.com FPWKM3CJMelbourneAUS,,,,,,,,,19.57,,,,,,,
+-2023-01-16 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2023-01-17 00:00:00,Woolworths,,,22.0,,,,,,,,,,,,,
+-2023-01-18 00:00:00,JB Hi-Fi,,,,,,,,,284.99,,,,,,,
+-2023-01-18 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,69.0
+-2023-01-22 00:00:00,SQ ELIHATS CAKESSt KildaVI,,,,,,,,,,,,,,,,20.0
+-2023-01-22 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-23 00:00:00,BP MALVERN 0559MALVERNVIC,,,,,,,,,,,,,,,,10.0
+-2023-01-25 00:00:00,Kogan.com 2GWXA2YYMelbourneAUS,,,,,,,,,399.0,,,,,,,
+-2023-01-26 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,106.22
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-28 00:00:00,Uniqlo,,,,,,,,59.9,,,,,,,,
+-2023-01-29 00:00:00,JB Hi-Fi,,,,,,,,,294.99,,,,,,,
+-2023-01-30 00:00:00,McDonalds,,25.25,,,,,,,,,,,,,,
+-2023-02-01 00:00:00,7-Eleven,,,,,76.01,,,,,,,,,,,
+-2023-02-02 00:00:00,MARTIN AND MILLIE PTYMOONEE PONDS,,,,,,,,,,,,,,,,51.5
+-2023-02-04 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-02-04 00:00:00,YARRAVALLEYWATER WEBMITCHAM,,,,,,,,,,,,,,,,306.61
+-2023-02-05 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Karaoke and Pizza,43.57,,,,,,,,,,,,,,,
+-2023-02-06 00:00:00,McDonalds,,24.65,,,,,,,,,,,,,,
+-2023-02-08 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,820.89
+-2023-02-09 00:00:00,Eastlink,,,,,35.0,,,,,,,,,,,
+-2023-02-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-02-28 00:00:00,Transfer to xx9221 CommBank app,,,,,,,,,,,,,,,,2000.0
+-2023-02-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-02-28 00:00:00,Nintendo CA932153331 Scoresby AU AUS Card   ,,,,,,56.01,,,,,,,,,,
+-2023-03-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,135.75
+-2023-03-10 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Damo's Monitor,29.36,,,,,,,,,,,,,,,
+-2023-03-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-03-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-04-12 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,1211.56
+-2023-04-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-04-30 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,5000.0,,,,,,
+-2023-05-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,83.11
+-2023-05-10 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,3006.01
+-2023-05-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-05-16 00:00:00,Nintendo CA982305466 Scoresby AU AUS Card   ,,,,,,87.14,,,,,,,,,,
+-2023-05-23 00:00:00,AMAZON AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,89.99
+-2023-05-28 00:00:00,Transfer To Vanessa Lin CommBank App Amy's Graduation Flowers...,,,,,,,,,,,,,,,,36.0
+-2023-06-07 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,1771.51
+-2023-06-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-06-14 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,18.98
+-2023-06-18 00:00:00,McDonalds,,22.4,,,,,,,,,,,,,,
+-2023-06-19 00:00:00,Top Notch,,8.63,,,,,,,,,,,,,,
+-2023-06-20 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,145.27
+-2023-06-20 00:00:00,ROTI BAR AUSTRALIA VI AUS Card   ,,,,,,,,,,,,,,,,39.36
+-2023-06-21 00:00:00,XING FU TANG MELB MELBOURNE VI AUS Card   ,,,,,,,,,,,,,,,,14.82
+-2023-06-23 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,15.5
+-2023-06-24 00:00:00,Transfer To Zhijie Cao CommBank App Birthday Meal - Hua,30.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,McDonalds,,30.7,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,Transfer To Liam Kelly CommBank App Hua - Spodermun ticket,,,,,,,,,,,,,,,,26.0
+-2023-06-25 00:00:00,Transfer To Viv Zou CommBank App Zj's card - Hua,13.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,LAKSA HUT BURNSIDE HEIGAU Card ,,,,,,,,,,,,,,,,17.58
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,1.0
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,30.0
+-2023-07-01 00:00:00,TurnTheCornerMedical Northcote VI AUS Card   ,,,,,,,,,,,,,,,,86.0
+-2023-07-01 00:00:00,PlaystationNetwork LONDON GB GBR Card  AUD 11.98  ,,,,,,,,,,,,,,,,11.98
+-2023-07-04 00:00:00,Nintendo CA1012037785 Scoresby AU AUS Card   ,,,,,,75.59,,,,,,,,,,
+-2023-07-04 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-07-05 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-06 00:00:00, CENTRECOMSU Sydney AU,,,,,,,,,,,,,,,,86.02
+-2023-07-07 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-07-10 00:00:00,Transfer To Everyday Offset CommBank App Transfer,,,,,,,,,,,2680.59,,,,,
+-2023-07-11 00:00:00,Mastercard Autopay,,,,,,,,,,,,,,,,3898.96
+-2023-07-12 00:00:00,Allison Browning,,,,,,,,,,,,,,,,220.0
+-2023-07-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-07-12 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-12 00:00:00,McDonalds,,43.3,,,,,,,,,,,,,,
+-2023-07-13 00:00:00,Spotify Sydney AU AUS Card   ,,,,11.99,,,,,,,,,,,,
+-2023-07-14 00:00:00,SMPLai Bakery Cafe Mo Moonee Ponds03 AU,,,,,,,,,,,,,,,,8.13
+-2023-07-14 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,19.9
+-2023-07-15 00:00:00,Sir Duke,,,,,,,,,,,,,,,,37.96
+-2023-07-15 00:00:00,ASIC NetBank BPAY 17301 2296264698145 ASIC Annual Review,,,,,,,,,,,,290.0,,,,
+-2023-07-15 00:00:00,VEC NetBank BPAY 120279 3003680111555520,,,,,,,,,,,,,,,,92.0
+Index: My Audit/My_Audit_2022/Archive/20230808-234345/Income.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Archive/20230808-234345/Income.csv b/My Audit/My_Audit_2022/Archive/20230808-234345/Income.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Archive/20230808-234345/Income.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,43 +0,0 @@
+-Date,Description,Misc.,Wages,Pay me Back,Tax Refund,Transfers,Transfers from Family
+-2022-07-07 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-07-07 00:00:00,Transfer From QIQIONG ZHENG Oodie,,,,,,158.0
+-2022-07-07 00:00:00,Transfer from CBA NetBank Return,4000.0,,,,,
+-2022-07-09 00:00:00,Transfer from xx6079 CommBank app,,,,,400.0,
+-2022-07-13 00:00:00,Transfer from xx6079 CommBank app,,,,,1000.0,
+-2022-07-14 00:00:00,Direct Credit 012721 ATO ATO002000016569579,,,,1103.9,,
+-2022-07-18 00:00:00,Fast Transfer From DAMIEN AMBEGODA Refund for ZJs bday present,,,33.0,,,
+-2022-07-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4217.34,,,,
+-2022-07-30 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-09 00:00:00,Transfer from xx6079 CommBank app,,,,,300.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-12 00:00:00,Transfer from xx6079 CommBank app,,,,,2000.0,
+-2022-08-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-09-02 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-09-04 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-09-05 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,200.0,
+-2022-09-11 00:00:00,Transfer from xx6079 CommBank app,,,,,3000.0,
+-2022-09-18 00:00:00,Transfer from xx6079 NetBank Netbank Saver,,,,,1000.0,
+-2022-09-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.34,,,,
+-2022-10-03 00:00:00,Transfer from xx6079 NetBank,,,,,800.0,
+-2022-10-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-10-31 00:00:00,Transfer from xx6079 NetBank,,,,,6500.0,
+-2022-11-08 00:00:00,Transfer from xx6079 CommBank app,,,,,200.0,
+-2022-11-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,3962.33,,,,
+-2022-12-15 00:00:00,Direct Credit 128594 Chen Zhi Kang,,,,,,10000.0
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,600.0,
+-2022-12-26 00:00:00,Transfer from xx6079 CommBank app,,,,,500.0,
+-2022-12-27 00:00:00,Transfer from xx4309 NetBank,112.8,,,,,
+-2022-12-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2022-12-28 00:00:00,Direct Credit 128594 Zhi Kang Li Hua Chen Li,,,,,,20000.0
+-2022-12-29 00:00:00,Direct Credit 128594 Zhi Kang Li Repayment,,,,,,20000.0
+-2023-01-07 00:00:00,Fast Transfer From WU WEI LI CREDIT TO ACCOUNT,51.7,,,,,
+-2023-01-15 00:00:00,Transfer from xx6079 CommBank app,,,,,900.0,
+-2023-01-21 00:00:00,CASHBACK $200,200.0,,,,,
+-2023-01-27 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-02-07 00:00:00,AUTO PAYMENT - THANK YOU,820.89,,,,,
+-2023-02-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-03-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-04-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-05-26 00:00:00,Salary GAVIN MILLMAN & 133088 52,,4407.34,,,,
+-2023-06-28 00:00:00,Salary GAVIN MILLMAN & 133088 52,,5409.01,,,,
+Index: My Audit/.vscode/settings.json
+===================================================================
+diff --git a/My Audit/.vscode/settings.json b/My Audit/.vscode/settings.json
+deleted file mode 100644
+--- a/My Audit/.vscode/settings.json	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,7 +0,0 @@
+-{
+-    "python.analysis.extraPaths": [
+-        "./path-to-your-code",
+-        "./lib_jank_folder",
+-        "./My Audit/SQLFunctions"
+-    ]
+-}
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Smart Access/CSVData.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Smart Access/CSVData.csv b/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Smart Access/CSVData.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Smart Access/CSVData.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,287 +0,0 @@
+-15/07/2023,"-92.00","VEC NetBank BPAY 120279 3003680111555520","+2386.58"
+-15/07/2023,"-290.00","ASIC NetBank BPAY 17301 2296264698145 ASIC Annual Review","+2478.58"
+-15/07/2023,"-37.96","SMP*Sir Duke Moonee Ponds03 AU","+2768.58"
+-14/07/2023,"-19.90","YOMG Moonee Ponds Moonee Ponds AU","+2806.54"
+-14/07/2023,"-8.13","SMP*Lai Bakery Cafe Mo Moonee Ponds03 AU","+2826.44"
+-13/07/2023,"-11.99","Spotify Sydney AU AUS Card xx0453 Value Date: 11/07/2023","+2834.57"
+-12/07/2023,"-43.30","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+2846.56"
+-12/07/2023,"-13.63","LS ZSG MOONEE PONDS Moonee Ponds AU","+2889.86"
+-12/07/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/07/2023","+2903.49"
+-12/07/2023,"-220.00","ALLISON BROWNING BRUNSWICK VI AUS Card xx0453 Value Date: 08/07/2023","+2914.48"
+-11/07/2023,"-3898.96","CBA CR CARD AUTOPAY PMNT 5353161405989221","+3134.48"
+-10/07/2023,"-2680.59","Transfer To Everyday Offset CommBank App Transfer","+7033.44"
+-07/07/2023,"-16.21","SMP*NoodleBox MooneePo Moonee Ponds03 AU","+9714.03"
+-06/07/2023,"-86.02","PAYPAL *CENTRECOMSU Sydney AU","+9730.24"
+-05/07/2023,"-13.63","LS ZSG MOONEE PONDS Moonee Ponds AU","+9816.26"
+-04/07/2023,"-24.50","OPTUS BILLING SERVICES MACQUARIE PAR NS AUS Card xx0453 Value Date: 30/06/2023","+9829.89"
+-04/07/2023,"-75.59","Nintendo CA1012037785 Scoresby AU AUS Card xx0453 Value Date: 01/07/2023","+9854.39"
+-01/07/2023,"-11.98","PlaystationNetwork LONDON GB GBR Card xx0453 AUD 11.98 Value Date: 29/06/2023","+9929.98"
+-01/07/2023,"-86.00","TurnTheCornerMedical Northcote VI AUS Card xx0453 Value Date: 29/06/2023","+9941.96"
+-30/06/2023,"-30.00","PAYPAL *BELONG Sydney AU","+10027.96"
+-30/06/2023,"-1.00","PAYPAL *BELONG Sydney AU","+10057.96"
+-28/06/2023,"+5409.01","Salary GAVIN MILLMAN & 133088 52","+10058.96"
+-27/06/2023,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx0453 Value Date: 25/06/2023","+4649.95"
+-27/06/2023,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx0453 Value Date: 25/06/2023","+4659.95"
+-25/06/2023,"-13.00","Transfer To Viv Zou CommBank App Zj's card - Hua","+4669.95"
+-25/06/2023,"-26.00","Transfer To Liam Kelly CommBank App Hua - Spodermun ticket","+4682.95"
+-25/06/2023,"-30.70","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+4708.95"
+-25/06/2023,"-17.58","LAKSA HUT BURNSIDE HEIGAU Card xx0453","+4739.65"
+-24/06/2023,"-30.00","Transfer To Zhijie Cao CommBank App Birthday Meal - Hua","+4757.23"
+-23/06/2023,"-15.50","YOMG Moonee Ponds Moonee Ponds AU","+4787.23"
+-21/06/2023,"-14.82","XING FU TANG MELB MELBOURNE VI AUS Card xx0453 Value Date: 17/06/2023","+4802.73"
+-20/06/2023,"-39.36","ROTI BAR AUSTRALIA VI AUS Card xx0453 Value Date: 17/06/2023","+4817.55"
+-20/06/2023,"-145.27","ENERGYAUSTRALIA PTY LT MELBOURNE AUS Card xx0453 Value Date: 17/06/2023","+4856.91"
+-19/06/2023,"-8.63","SMP*Top Notch Coffee Moonee Ponds03 AU","+5002.18"
+-18/06/2023,"-22.40","MCDONALDS CLIFTON HIL CLIFTON HILL VICAU","+5010.81"
+-14/06/2023,"-18.98","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 11/06/2023","+5033.21"
+-13/06/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/06/2023","+5052.19"
+-07/06/2023,"-1771.51","CBA CR CARD AUTOPAY PMNT 5353161405989221","+5063.18"
+-28/05/2023,"-36.00","Transfer To Vanessa Lin CommBank App Amy's Graduation Flowers...","+6834.69"
+-26/05/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+6870.69"
+-23/05/2023,"-89.99","AMAZON AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 21/05/2023","+2463.35"
+-16/05/2023,"-87.14","Nintendo CA982305466 Scoresby AU AUS Card xx0453 Value Date: 12/05/2023","+2553.34"
+-12/05/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/05/2023","+2640.48"
+-10/05/2023,"-3006.01","CBA CR CARD AUTOPAY PMNT 5353161405989221","+2651.47"
+-04/05/2023,"-83.11","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/05/2023","+5657.48"
+-30/04/2023,"-5000.00","Transfer to xx6079 CommBank app","+5740.59"
+-28/04/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+10740.59"
+-13/04/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/04/2023","+6333.25"
+-12/04/2023,"-1211.56","CBA CR CARD AUTOPAY PMNT 5353161405989221","+6344.24"
+-28/03/2023,"-2000.00","Transfer to xx6079 CommBank app","+7555.80"
+-28/03/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+9555.80"
+-14/03/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/03/2023","+5148.46"
+-10/03/2023,"-29.36","Transfer To Zhijie Cao CommBank App Hua - Damo's Monitor","+5159.45"
+-04/03/2023,"-135.75","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/03/2023","+5188.81"
+-28/02/2023,"-56.01","Nintendo CA932153331 Scoresby AU AUS Card xx0453 Value Date: 24/02/2023","+5324.56"
+-28/02/2023,"-2000.00","Transfer to xx6079 CommBank app","+5380.57"
+-28/02/2023,"-2000.00","Transfer to xx9221 CommBank app","+7380.57"
+-28/02/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+9380.57"
+-14/02/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 10/02/2023","+4973.23"
+-08/02/2023,"-820.89","CBA CR CARD AUTOPAY PMNT 5353161405989221","+4984.22"
+-05/02/2023,"-43.57","Transfer To Zhijie Cao CommBank App Hua - Karaoke and Pizza","+5805.11"
+-28/01/2023,"-106.22","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 19/01/2023","+5848.68"
+-28/01/2023,"-5.95","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 26/01/2023","+5954.90"
+-27/01/2023,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+5960.85"
+-15/01/2023,"+900.00","Transfer from xx6079 CommBank app","+1553.51"
+-12/01/2023,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/01/2023","+653.51"
+-07/01/2023,"+51.70","Fast Transfer From WU WEI LI CREDIT TO ACCOUNT","+664.50"
+-05/01/2023,"-5.95","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 02/01/2023","+612.80"
+-05/01/2023,"-102.53","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 31/12/2022","+618.75"
+-04/01/2023,"-49.70","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 29/12/2022","+721.28"
+-04/01/2023,"-903.99","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 30/12/2022","+770.98"
+-04/01/2023,"-15.00","SQ *HAPPY EATS MOONEE Moonee Ponds AU AUS Card xx0453 Value Date: 30/12/2022","+1674.97"
+-04/01/2023,"-78.69","Nintendo CA895260282 Scoresby AU AUS Card xx0453 Value Date: 31/12/2022","+1689.97"
+-04/01/2023,"-25.11","Nintendo CA895257048 Scoresby AU AUS Card xx0453 Value Date: 31/12/2022","+1768.66"
+-31/12/2022,"-9000.00","Transfer to xx6079 NetBank","+1793.77"
+-31/12/2022,"-10000.00","Transfer To Everyday Offset NetBank Hua Chen Li","+10793.77"
+-31/12/2022,"-16.21","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 29/12/2022","+20793.77"
+-31/12/2022,"-308.72","CAMPION EDUCATION NUNAWADING AUS Card xx0453 Value Date: 28/12/2022","+20809.98"
+-29/12/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/12/2022","+21118.70"
+-29/12/2022,"-76.21","BP PENLNK OB 7655 BAXTER VI AUS Card xx0453 Value Date: 25/12/2022","+21143.20"
+-29/12/2022,"-602.91","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx0453 Value Date: 26/12/2022","+21219.41"
+-29/12/2022,"+20000.00","Direct Credit 128594 Zhi Kang Li Repayment","+21822.32"
+-28/12/2022,"-7000.00","Transfer to xx6079 NetBank","+1822.32"
+-28/12/2022,"-17000.00","Transfer to xx6079 NetBank","+8822.32"
+-28/12/2022,"+20000.00","Direct Credit 128594 Zhi Kang Li Hua Chen Li","+25822.32"
+-28/12/2022,"+4407.34","Salary GAVIN MILLMAN & 133088 52","+5822.32"
+-27/12/2022,"+112.80","Transfer from xx4309 NetBank","+1414.98"
+-26/12/2022,"+500.00","Transfer from xx6079 CommBank app","+1302.18"
+-26/12/2022,"+600.00","Transfer from xx6079 CommBank app","+802.18"
+-24/12/2022,"-58.40","PHOENICIA RCEPTNS PL MOONEE PONDS VI AUS Card xx0453 Value Date: 22/12/2022","+202.18"
+-22/12/2022,"-16.21","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 20/12/2022","+260.58"
+-21/12/2022,"-52.52","ZLR*La La Land CBD Melbourne AU AUS Card xx0453 Value Date: 18/12/2022","+276.79"
+-21/12/2022,"-40.60","MCLI PTY LTD MELBOURNE AUS Card xx0453 Value Date: 18/12/2022","+329.31"
+-21/12/2022,"-57.86","MCLI PTY LTD MELBOURNE AUS Card xx0453 Value Date: 18/12/2022","+369.91"
+-17/12/2022,"-9500.00","Transfer to xx6079 CommBank app","+427.77"
+-17/12/2022,"-341.00","Audit Shield NetBank BPAY 253575 404251257763888 Audit Shield","+9927.77"
+-17/12/2022,"-17.90","YOMG Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 15/12/2022","+10268.77"
+-15/12/2022,"+10000.00","Direct Credit 128594 Chen Zhi Kang","+10286.67"
+-15/12/2022,"-13.00","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 13/12/2022","+286.67"
+-13/12/2022,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/12/2022","+299.67"
+-13/12/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/12/2022","+310.66"
+-08/12/2022,"-13.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 06/12/2022","+329.65"
+-08/12/2022,"-3200.00","Transfer to xx6079 CommBank app","+343.15"
+-01/12/2022,"-35.28","TANGO ENERGY PTY LTD MELBOURNE AUS Card xx0453 Value Date: 29/11/2022","+3543.15"
+-01/12/2022,"-425.25","ENERGYAUSTRALIA PTY LT MELBOURNE AUS Card xx0453 Value Date: 29/11/2022","+3578.43"
+-29/11/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/11/2022","+4003.68"
+-28/11/2022,"+3962.33","Salary GAVIN MILLMAN & 133088 52","+4028.18"
+-15/11/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/11/2022","+65.85"
+-15/11/2022,"-45.00","LOST (AUSTRALIA STAT CARLTON VI AUS Card xx0453 Value Date: 12/11/2022","+84.84"
+-13/11/2022,"-24.70","Transfer To Dmitri NetBank Schnitzel and Lemon Lime and ...","+129.84"
+-12/11/2022,"-10.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 10.99 Value Date: 09/11/2022","+154.54"
+-12/11/2022,"-34.00","MALVERN VALE HOTEL MALVERN VI AUS Card xx0453 Value Date: 10/11/2022","+165.53"
+-10/11/2022,"-92.19","7-ELEVEN 1026 BRUNSWICK WES VI AUS Card xx0453 Value Date: 08/11/2022","+199.53"
+-10/11/2022,"-97.67","Nintendo CA854157371 Scoresby AU AUS Card xx0453 Value Date: 08/11/2022","+291.72"
+-08/11/2022,"+200.00","Transfer from xx6079 CommBank app","+389.39"
+-05/11/2022,"-62.93","SMP*Sir Duke Moonee Ponds AU AUS Card xx0453 Value Date: 03/11/2022","+189.39"
+-03/11/2022,"-186.94","AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card xx0453 Value Date: 01/11/2022","+252.32"
+-02/11/2022,"-10.30","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 31/10/2022","+439.26"
+-01/11/2022,"-37.47","Nintendo CA849399981 Scoresby AU AUS Card xx0453 Value Date: 30/10/2022","+449.56"
+-31/10/2022,"-10000.00","Transfer to other Bank NetBank Bang Chen","+487.03"
+-31/10/2022,"+6500.00","Transfer from xx6079 NetBank","+10487.03"
+-29/10/2022,"-55.00","EASTLINK RINGWOOD AUS Card xx0453 Value Date: 27/10/2022","+3987.03"
+-28/10/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/10/2022","+4042.03"
+-28/10/2022,"+3962.33","Salary GAVIN MILLMAN & 133088 52","+4066.53"
+-25/10/2022,"-23.33","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx0453 Value Date: 21/10/2022","+104.20"
+-21/10/2022,"-20.19","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 19/10/2022","+127.53"
+-19/10/2022,"-3.40","HUNKY DORY MOONEE PONDS VI AUS Card xx0453 Value Date: 17/10/2022","+147.72"
+-18/10/2022,"-13.50","SMP*Hero Sushi Moonee Mooneeponds AU AUS Card xx0453 Value Date: 14/10/2022","+151.12"
+-14/10/2022,"-15.30","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 12/10/2022","+164.62"
+-14/10/2022,"-80.35","COLES EXPRESS 6712 NUNAWADING AU AUS Card xx0453 Value Date: 11/10/2022","+179.92"
+-13/10/2022,"-13.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 11/10/2022","+260.27"
+-12/10/2022,"-8.00","KMART 1085 BRUNSWICK AU AUS Card xx0453 Value Date: 10/10/2022","+273.77"
+-12/10/2022,"-150.34","EB *River of Wishes MJ 801-413-7200 VI AUS Card xx0453 Value Date: 08/10/2022","+281.77"
+-12/10/2022,"-7.99","PAYPAL *CRUNCHYROLL 402-935-7733 CA USA Card xx0453 AUD 7.99 Value Date: 09/10/2022","+432.11"
+-12/10/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/10/2022","+440.10"
+-11/10/2022,"-14.16","Transfer To Huang W CommBank App Vanessa's flowers - Hua","+459.09"
+-08/10/2022,"-5.58","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx0453 Value Date: 06/10/2022","+473.25"
+-06/10/2022,"-23.80","SMP*Hero Sushi Moonee Mooneeponds AU AUS Card xx0453 Value Date: 04/10/2022","+478.83"
+-05/10/2022,"-13.72","SMP*Rooster Delight C Moonee Ponds AU AUS Card xx0453 Value Date: 03/10/2022","+502.63"
+-04/10/2022,"-92.00","PAYPAL *SCORPIONTEC Sydney AU","+516.35"
+-04/10/2022,"-52.20","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 01/10/2022","+608.35"
+-04/10/2022,"-12.85","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 01/10/2022","+660.55"
+-04/10/2022,"-31.00","REPCO BRUNSWICK VI AUS Card xx0453 Value Date: 02/10/2022","+673.40"
+-03/10/2022,"-275.00","ASIC NetBank BPAY 17301 2296264698145 Business Late Paym","+704.40"
+-03/10/2022,"+800.00","Transfer from xx6079 NetBank","+979.40"
+-02/10/2022,"-400.00","Cardless Cash for collection For Noodles and Ha","+179.40"
+-01/10/2022,"-3500.00","Transfer to xx6079 CommBank app","+579.40"
+-29/09/2022,"-24.50","OPTUS BILLING SERVICES MACQUARIE PAR NS AUS Card xx0453 Value Date: 27/09/2022","+4079.40"
+-28/09/2022,"-12.18","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx0453 Value Date: 26/09/2022","+4103.90"
+-28/09/2022,"-15.15","Melbourne Airport Melbourne Air VI AUS Card xx0453 Value Date: 24/09/2022","+4116.08"
+-28/09/2022,"+3962.34","Salary GAVIN MILLMAN & 133088 52","+4131.23"
+-27/09/2022,"-7.90","BP MALVERN 0559 MALVERN VI AUS Card xx0453 Value Date: 22/09/2022","+168.89"
+-27/09/2022,"-111.07","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx0453 Value Date: 24/09/2022","+176.79"
+-27/09/2022,"-22.00","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 24/09/2022","+287.86"
+-22/09/2022,"-15.71","BRUNSWICK SUPA IGA QPS BRUNSWICK AUS Card xx0453 Value Date: 20/09/2022","+309.86"
+-20/09/2022,"-12.00","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx0453 Value Date: 16/09/2022","+325.57"
+-18/09/2022,"-864.40","VICROADS NetBank BPAY 216291 527171084060737 Car Rego Renew","+337.57"
+-18/09/2022,"+1000.00","Transfer from xx6079 NetBank Netbank Saver","+1201.97"
+-13/09/2022,"-26.39","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 09/09/2022","+201.97"
+-13/09/2022,"-8.12","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx0453 Value Date: 09/09/2022","+228.36"
+-13/09/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx0453 Value Date: 09/09/2022","+236.48"
+-13/09/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx0453 AUD 18.99 Value Date: 10/09/2022","+244.47"
+-11/09/2022,"-2700.00","Transfer to xx6079 CommBank app","+263.46"
+-11/09/2022,"-200.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+2963.46"
+-11/09/2022,"+3000.00","Transfer from xx6079 CommBank app","+3163.46"
+-10/09/2022,"-8.00","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx0453 Value Date: 08/09/2022","+163.46"
+-06/09/2022,"-23.04","Universal Restaurant Carlton VI AUS Card xx0453 Value Date: 03/09/2022","+171.46"
+-06/09/2022,"-10.08","HUNG FONG VIC PTY LTD MELBOURNE AUS Card xx0453 Value Date: 03/09/2022","+194.50"
+-06/09/2022,"-9.99","PAYPAL *SMARTCASES 0416449766 AU AUS Card xx0453 Value Date: 04/09/2022","+204.58"
+-05/09/2022,"-217.08","CENTRELINK NetBank BPAY 21915 30622023606","+214.57"
+-05/09/2022,"+200.00","Transfer from xx6079 NetBank Netbank Saver","+431.65"
+-04/09/2022,"-174.23","Yarra Valley Water CommBank app BPAY 344366 33790800002","+231.65"
+-04/09/2022,"+200.00","Transfer from xx6079 CommBank app","+405.88"
+-02/09/2022,"-300.00","Transfer To Zhijie Cao CommBank App Super Cool GPU","+205.88"
+-02/09/2022,"+500.00","Transfer from xx6079 CommBank app","+505.88"
+-31/08/2022,"-17.00","MALVERN VALE HOTEL MALVERN VI AUS Card xx0453 Value Date: 28/08/2022","+5.88"
+-31/08/2022,"-24.50","OPTUS BILLING AUTOPAY MACQUARIE PAR NS AUS Card xx0453 Value Date: 26/08/2022","+22.88"
+-31/08/2022,"-11.50","HUNKY DORY MOONEE PONDS VI AUS Card xx0453 Value Date: 26/08/2022","+47.38"
+-30/08/2022,"-300.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+58.88"
+-30/08/2022,"-5.30","STONNINGTON PAY & DISP MALVERN AUS Card xx0453 Value Date: 28/08/2022","+358.88"
+-29/08/2022,"-3500.00","Transfer to xx6079 CommBank app","+364.18"
+-29/08/2022,"-100.00","Transfer To Everyday Offset CommBank App Eveyday Offset","+3864.18"
+-29/08/2022,"-10.60","Transfer To Zhijie Cao CommBank App Hua - HSP","+3964.18"
+-29/08/2022,"-35.00","Transfer To Truman Wang CommBank App Hua - Karaoke","+3974.78"
+-27/08/2022,"-60.00","Transfer To Everyday Offset CommBank App Everyday Offset","+4009.78"
+-26/08/2022,"+3962.34","Salary GAVIN MILLMAN & 133088 52","+4069.78"
+-24/08/2022,"-300.00","Transfer to CBA A/c NetBank Everyday Offset","+107.44"
+-24/08/2022,"-11.84","PAYSTAY MELBOURNE AUS Card xx3002 Value Date: 22/08/2022","+407.44"
+-24/08/2022,"-10.00","PAYSTAY MELBOURNE AUS Card xx3002 Value Date: 20/08/2022","+419.28"
+-23/08/2022,"-14.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx3002 Value Date: 19/08/2022","+429.28"
+-23/08/2022,"-29.95","JB HI FI BRUNSWICK BRUNSWICK VI AUS Card xx3002 Value Date: 18/08/2022","+443.78"
+-23/08/2022,"-20.00","AUST ELECTORAL COMM SYDNEY NS AUS Card xx3002 Value Date: 20/08/2022","+473.73"
+-23/08/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 21/08/2022","+493.73"
+-20/08/2022,"-15.76","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx3002 Value Date: 18/08/2022","+503.73"
+-20/08/2022,"-20.95","PAYPAL *JB HI-FI 4029357733 AU AUS Card xx3002 Value Date: 18/08/2022","+519.49"
+-20/08/2022,"-509.00","PAYPAL *DICKSMITH 4029357733 AU AUS Card xx3002 Value Date: 18/08/2022","+540.44"
+-19/08/2022,"-32.72","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx3002 Value Date: 17/08/2022","+1049.44"
+-19/08/2022,"-16.78","CHEM WAREHS BRUNSW BRUNSWICK VI AUS Card xx3002 Value Date: 16/08/2022","+1082.16"
+-19/08/2022,"-12.18","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 17/08/2022","+1098.94"
+-18/08/2022,"-79.95","Nintendo CA806030817 Scoresby AU AUS Card xx3002 Value Date: 16/08/2022","+1111.12"
+-18/08/2022,"-44.80","BRUNSWICK FAMILY DNTL BRUNSWICK VI AUS Card xx3002 Value Date: 16/08/2022","+1191.07"
+-18/08/2022,"-8.80","MCDONALDS EUROA EUROA AUS Card xx3002 Value Date: 15/08/2022","+1235.87"
+-17/08/2022,"-137.95","VANTAGE FUELS MANSFIEL MANSFIELD VI AUS Card xx3002 Value Date: 12/08/2022","+1244.67"
+-17/08/2022,"-58.87","SMP*Mustafas Kebabs Euroa AU AUS Card xx3002 Value Date: 15/08/2022","+1382.62"
+-17/08/2022,"-58.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 15/08/2022","+1441.49"
+-17/08/2022,"-409.50","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 15/08/2022","+1499.49"
+-17/08/2022,"-4.90","OLIVERS EUROA PTY LIMI EUROA AUS Card xx3002 Value Date: 15/08/2022","+1908.99"
+-16/08/2022,"-2047.00","BULLER SKI LIFTS MT BULLER AU AUS Card xx3002 Value Date: 12/08/2022","+1913.89"
+-16/08/2022,"-343.30","MBMSARMB MOUNT BULLER VI AUS Card xx3002 Value Date: 12/08/2022","+3960.89"
+-16/08/2022,"-49.99","ARLBERG SKI HIRE PTY L MOUNT BULLER VI AUS Card xx3002 Value Date: 12/08/2022","+4304.19"
+-16/08/2022,"-499.00","BULLER SKI LIFTS MT BULLER AU AUS Card xx3002 Value Date: 13/08/2022","+4354.18"
+-16/08/2022,"-84.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 13/08/2022","+4853.18"
+-16/08/2022,"-14.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 13/08/2022","+4937.18"
+-16/08/2022,"-9.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+4951.18"
+-16/08/2022,"-58.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+4960.18"
+-16/08/2022,"-36.00","ARLBERG HOTEL MOUNT BULLER VI AUS Card xx3002 Value Date: 14/08/2022","+5018.18"
+-13/08/2022,"-18.25","WOOLWORTHS 3188 BRUNSWICK AU AUS Card xx3002 Value Date: 11/08/2022","+5054.18"
+-13/08/2022,"-15.20","SMP*NoodleBox MooneeP Moonee Ponds AU AUS Card xx3002 Value Date: 11/08/2022","+5072.43"
+-12/08/2022,"-1000.00","Transfer to xx6079 CommBank app","+5087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+6087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+4087.63"
+-12/08/2022,"+2000.00","Transfer from xx6079 CommBank app","+2087.63"
+-12/08/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx3002 AUD 18.99 Value Date: 10/08/2022","+87.63"
+-12/08/2022,"-150.00","EASTLINK RINGWOOD AUS Card xx3002 Value Date: 11/08/2022","+106.62"
+-11/08/2022,"-10.30","ISTANBUL HALAL MEATS BRUNSWICK AU AUS Card xx3002 Value Date: 09/08/2022","+256.62"
+-11/08/2022,"-195.00","COBURG TOYOTA COBURG NORTH VI AUS Card xx3002 Value Date: 09/08/2022","+266.92"
+-11/08/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx3002 Value Date: 09/08/2022","+461.92"
+-10/08/2022,"-54.00","WOOLWORTHS 3384 COBURG AU AUS Card xx3002 Value Date: 08/08/2022","+469.91"
+-10/08/2022,"-7.00","WOOLWORTHS 3384 COBURG AU AUS Card xx3002 Value Date: 08/08/2022","+523.91"
+-10/08/2022,"-61.45","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 05/08/2022","+530.91"
+-09/08/2022,"+300.00","Transfer from xx6079 CommBank app","+592.36"
+-09/08/2022,"-45.50","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 07/08/2022","+292.36"
+-06/08/2022,"-20.30","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx3002 Value Date: 04/08/2022","+337.86"
+-06/08/2022,"-8.12","Mighty Moonee Ponds Moonee Ponds VI AUS Card xx3002 Value Date: 04/08/2022","+358.16"
+-05/08/2022,"-65.00","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 03/08/2022","+366.28"
+-05/08/2022,"-14.50","Zeus Street Greek Moo Moonee Ponds VI AUS Card xx3002 Value Date: 03/08/2022","+431.28"
+-03/08/2022,"-285.82","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx3002 Value Date: 30/07/2022","+445.78"
+-03/08/2022,"-60.60","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 31/07/2022","+731.60"
+-02/08/2022,"-36.40","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 30/07/2022","+792.20"
+-30/07/2022,"+300.00","Transfer from xx6079 CommBank app","+828.60"
+-29/07/2022,"-12.00","Transfer To Huang W CommBank App Zj Bday Gift - Hua","+528.60"
+-29/07/2022,"-25.00","PAYPAL *BELONG 4029357733 AU AUS Card xx3002 Value Date: 27/07/2022","+540.60"
+-28/07/2022,"-3700.00","Transfer to xx6079 CommBank app","+565.60"
+-28/07/2022,"+4217.34","Salary GAVIN MILLMAN & 133088 52","+4265.60"
+-27/07/2022,"-31.45","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 25/07/2022","+48.26"
+-27/07/2022,"-35.60","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 24/07/2022","+79.71"
+-26/07/2022,"-14.80","Imperial Hotel Melbourne VI AUS Card xx3002 Value Date: 22/07/2022","+115.31"
+-26/07/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 23/07/2022","+130.11"
+-26/07/2022,"-10.00","MYKI PAYMENTS MELBOURNE AUS Card xx3002 Value Date: 22/07/2022","+140.11"
+-23/07/2022,"-33.80","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 21/07/2022","+150.11"
+-23/07/2022,"-85.09","EG GROUP 3484 PASCOE VALE AU AUS Card xx3002 Value Date: 21/07/2022","+183.91"
+-22/07/2022,"-13.50","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx3002 Value Date: 20/07/2022","+269.00"
+-21/07/2022,"-25.00","PAYPAL *BELONG 4029357733 AU AUS Card xx3002 Value Date: 19/07/2022","+282.50"
+-20/07/2022,"-300.00","Transfer To Everyday Offset CommBank App Everyday Offset","+307.50"
+-20/07/2022,"-116.80","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 18/07/2022","+607.50"
+-20/07/2022,"-470.45","GOLD LEAF RESTAURANT PRESTON VI AUS Card xx3002 Value Date: 15/07/2022","+724.30"
+-20/07/2022,"-38.35","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 16/07/2022","+1194.75"
+-20/07/2022,"-50.30","MCDONALDS BRUNSWICK E BRUNSWICK EAS AUS Card xx3002 Value Date: 16/07/2022","+1233.10"
+-18/07/2022,"+33.00","Fast Transfer From DAMIEN AMBEGODA Refund for ZJs bday present","+1283.40"
+-15/07/2022,"-200.00","Transfer To Everyday Offset CommBank App Everyday Offset","+1250.40"
+-15/07/2022,"-12.20","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 13/07/2022","+1450.40"
+-14/07/2022,"-3.50","COLES 0667 MOONEE PONDS AU AUS Card xx3002 Value Date: 12/07/2022","+1462.60"
+-14/07/2022,"+1103.90","Direct Credit 012721 ATO ATO002000016569579","+1466.10"
+-13/07/2022,"-1000.00","Transfer To Business Transaction Account CommBank App Hua Chen Li","+362.20"
+-13/07/2022,"+1000.00","Transfer from xx6079 CommBank app","+1362.20"
+-12/07/2022,"-13.21","SMP*Top Notch Coffee Moonee Ponds AU AUS Card xx3002 Value Date: 08/07/2022","+362.20"
+-12/07/2022,"-116.50","PARADISE OF LINDOS ESSENDON NORT AU AUS Card xx3002 Value Date: 08/07/2022","+375.41"
+-12/07/2022,"-87.05","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 10/07/2022","+491.91"
+-12/07/2022,"-617.97","MACPAC PRESTON PRESTON VI AUS Card xx3002 Value Date: 09/07/2022","+578.96"
+-12/07/2022,"-7.99","PAYPAL *CRUNCHYROLL 4029357733 AU AUS Card xx3002 Value Date: 09/07/2022","+1196.93"
+-12/07/2022,"-18.99","PAYPAL *SPOTIFY 35314369001 GB GBR Card xx3002 AUD 18.99 Value Date: 10/07/2022","+1204.92"
+-09/07/2022,"+400.00","Transfer from xx6079 CommBank app","+1223.91"
+-09/07/2022,"-3500.00","Transfer to xx6079 CommBank app","+823.91"
+-09/07/2022,"-30.49","PAYPAL *KOGAN.COM 4029357733 AU AUS Card xx3002 Value Date: 07/07/2022","+4323.91"
+-09/07/2022,"-110.00","EASTLINK RINGWOOD AUS Card xx3002 Value Date: 07/07/2022","+4354.40"
+-07/07/2022,"+4000.00","Transfer from CBA NetBank Return","+4464.40"
+-07/07/2022,"+158.00","Transfer From QIQIONG ZHENG Oodie","+464.40"
+-07/07/2022,"+300.00","Transfer from xx6079 CommBank app","+306.40"
+-06/07/2022,"-65.00","MANGO LOUNGE BAR MOONEE PONDS AUS Card xx3002 Value Date: 02/07/2022","+6.40"
+-06/07/2022,"-17.50","SALCHA MOONEE PONDS VI AUS Card xx3002 Value Date: 02/07/2022","+71.40"
+-05/07/2022,"-26.50","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 03/07/2022","+88.90"
+-05/07/2022,"-21.78","UBER *TRIP Sydney AU AUS Card xx3002 Value Date: 03/07/2022","+115.40"
+-05/07/2022,"-158.00","PAYPAL *DAVIECLOTHI 4029357733 AU AUS Card xx3002 Value Date: 03/07/2022","+137.18"
+-05/07/2022,"-36.91","PAYPAL *OFFICEWORKS 4029357733 AU AUS Card xx3002 Value Date: 03/07/2022","+295.18"
+-02/07/2022,"-9.50","VUF INVESTMENTS PTY LT RESERVOIR AUS Card xx3002 Value Date: 30/06/2022","+332.09"
+-01/07/2022,"-33.70","WOOLWORTHS 3096 COBURG NORTH AU AUS Card xx3002 Value Date: 29/06/2022","+341.59"
+-01/07/2022,"-15.60","Hero Sushi MooneePond Moonee Ponds VI AUS Card xx3002 Value Date: 29/06/2022","+375.29"
+Index: My Audit/.idea/vcs.xml
+===================================================================
+diff --git a/My Audit/.idea/vcs.xml b/My Audit/.idea/vcs.xml
+deleted file mode 100644
+--- a/My Audit/.idea/vcs.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+-    <mapping directory="$PROJECT_DIR$/My Audit" vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/Archive/20230808-233642/Expenditure.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Archive/20230808-233642/Expenditure.csv b/My Audit/My_Audit_2022/Archive/20230808-233642/Expenditure.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Archive/20230808-233642/Expenditure.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,276 +0,0 @@
+-Date,Description,With Friends,Takeaway for Work,Groceries,Subscriptions,Transport,Games,Merch,Clothes,Tech,Transfers,Transfers to Family,Business Expenditure,Education,Family,Utilities,Misc.
+-2022-07-01 00:00:00,Hero Sushi,,15.6,,,,,,,,,,,,,,
+-2022-07-01 00:00:00,Woolworths,,,33.7,,,,,,,,,,,,,
+-2022-07-02 00:00:00,VUF INVESTMENTS PTY LT RESERVOIR AUS Card   ,,,,,,,,,,,,,,,,9.5
+-2022-07-05 00:00:00, OFFICEWORKS 4029357733 AU AUS Card   ,,,,,,,,,36.91,,,,,,,
+-2022-07-05 00:00:00, DAVIECLOTHI 4029357733 AU AUS Card   ,,,,,,,,158.0,,,,,,,,
+-2022-07-05 00:00:00,Uber,21.78,,,,,,,,,,,,,,,
+-2022-07-05 00:00:00,Woolworths,,,26.5,,,,,,,,,,,,,
+-2022-07-06 00:00:00,SALCHA MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,17.5
+-2022-07-06 00:00:00,MANGO LOUNGE BAR MOONEE PONDS AUS Card   ,65.0,,,,,,,,,,,,,,,
+-2022-07-09 00:00:00,Eastlink,,,,,110.0,,,,,,,,,,,
+-2022-07-09 00:00:00, KOGAN.COM 4029357733 AU AUS Card   ,,,,,,,,,30.49,,,,,,,
+-2022-07-09 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-07-12 00:00:00,PARADISE OF LINDOS ESSENDON NORT AU AUS Card   ,116.5,,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Woolworths,,,87.05,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Top Notch,,13.21,,,,,,,,,,,,,,
+-2022-07-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-07-12 00:00:00,MACPAC PRESTON PRESTON VI AUS Card   ,,,,,,,,,,,,,,,,617.97
+-2022-07-13 00:00:00,Transfer To Business Transaction Account CommBank App Hua Chen Li,,,,,,,,,,,1000.0,,,,,
+-2022-07-14 00:00:00,COLES 0667 MOONEE PONDS AU AUS Card   ,,,3.5,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Top Notch,,12.2,,,,,,,,,,,,,,
+-2022-07-15 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-07-20 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-07-20 00:00:00,Woolworths,,,116.8,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,50.3,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,McDonalds,,38.35,,,,,,,,,,,,,,
+-2022-07-20 00:00:00,Gold Leaf,,,,,,,,,,,,,,470.45,,
+-2022-07-21 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-22 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-07-23 00:00:00,EG Group,,,,,85.09,,,,,,,,,,,
+-2022-07-23 00:00:00,Woolworths,,,33.8,,,,,,,,,,,,,
+-2022-07-26 00:00:00,Imperial Hotel Melbourne VI AUS Card   ,,,,,,,,,,,,,,,,14.8
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-26 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-07-27 00:00:00,McDonalds,,35.6,,,,,,,,,,,,,,
+-2022-07-27 00:00:00,Woolworths,,,31.45,,,,,,,,,,,,,
+-2022-07-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3700.0,,,,,,
+-2022-07-29 00:00:00,Belong,,,,,,,,,,,,,,,,25.0
+-2022-07-29 00:00:00,Transfer To Huang W CommBank App Zj Bday Gift - Hua,12.0,,,,,,,,,,,,,,,
+-2022-08-02 00:00:00,Woolworths,,,36.4,,,,,,,,,,,,,
+-2022-08-03 00:00:00,McDonalds,,60.6,,,,,,,,,,,,,,
+-2022-08-03 00:00:00,Gold Leaf,,,,,,,,,,,,,,285.82,,
+-2022-08-05 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-05 00:00:00,Woolworths,,,65.0,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-08-06 00:00:00,Mighty Moonee Ponds,,20.3,,,,,,,,,,,,,,
+-2022-08-09 00:00:00,Woolworths,,,45.5,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,54.0,,,,,,,,,,,,,
+-2022-08-10 00:00:00,McDonalds,,61.45,,,,,,,,,,,,,,
+-2022-08-10 00:00:00,Woolworths,,,7.0,,,,,,,,,,,,,
+-2022-08-11 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-08-11 00:00:00,COBURG TOYOTA COBURG NORTH VI AUS Card   ,,,,,195.0,,,,,,,,,,,
+-2022-08-11 00:00:00,ISTANBUL HALAL MEATS BRUNSWICK AU AUS Card   ,,,,,,,,,,,,,,,,10.3
+-2022-08-12 00:00:00,Eastlink,,,,,150.0,,,,,,,,,,,
+-2022-08-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-08-12 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,1000.0,,,,,,
+-2022-08-13 00:00:00,Noodlebox,,15.2,,,,,,,,,,,,,,
+-2022-08-13 00:00:00,Woolworths,,,18.25,,,,,,,,,,,,,
+-2022-08-16 00:00:00,ARLBERG SKI HIRE PTY L MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,49.99,,
+-2022-08-16 00:00:00,MBMSARMB MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,343.3,,
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,499.0
+-2022-08-16 00:00:00,BULLER SKI LIFTS MT BULLER AU AUS Card   ,,,,,,,,,,,,,,,,2047.0
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,14.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,9.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,84.0,,
+-2022-08-16 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,36.0,,
+-2022-08-17 00:00:00,VANTAGE FUELS MANSFIEL MANSFIELD VI AUS Card   ,,,,,,,,,,,,,,,,137.95
+-2022-08-17 00:00:00,SMPMustafas Kebabs Euroa AU AUS Card   ,,,,,,,,,,,,,,58.87,,
+-2022-08-17 00:00:00,OLIVERS EUROA PTY LIMI EUROA AUS Card   ,,,,,,,,,,,,,,4.9,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,409.5,,
+-2022-08-17 00:00:00,ARLBERG HOTEL MOUNT BULLER VI AUS Card   ,,,,,,,,,,,,,,58.0,,
+-2022-08-18 00:00:00,BRUNSWICK FAMILY DNTL BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,44.8,,
+-2022-08-18 00:00:00,Nintendo CA806030817 Scoresby AU AUS Card   ,,,,,,79.95,,,,,,,,,,
+-2022-08-18 00:00:00,McDonalds,,8.8,,,,,,,,,,,,,,
+-2022-08-19 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-08-19 00:00:00,Chemist Warehouse,,,,,,,,,,,,,,,,16.78
+-2022-08-19 00:00:00,Woolworths,,,32.72,,,,,,,,,,,,,
+-2022-08-20 00:00:00, DICKSMITH 4029357733 AU AUS Card   ,,,,,,,,,509.0,,,,,,,
+-2022-08-20 00:00:00,JB Hi-Fi,,,,,,,,,20.95,,,,,,,
+-2022-08-20 00:00:00,Noodlebox,,15.76,,,,,,,,,,,,,,
+-2022-08-23 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2022-08-23 00:00:00,AUST ELECTORAL COMM SYDNEY NS AUS Card   ,,,,,,,,,,,,,,,,20.0
+-2022-08-23 00:00:00,JB HI FI BRUNSWICK BRUNSWICK VI AUS Card   ,,,,,,,,,,,,,,,,29.95
+-2022-08-23 00:00:00,Zeus Street Greek,,14.5,,,,,,,,,,,,,,
+-2022-08-24 00:00:00,Transfer to CBA A/c NetBank Everyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,10.0,,,,,,,,,,,
+-2022-08-24 00:00:00,PAYSTAY MELBOURNE AUS Card   ,,,,,11.84,,,,,,,,,,,
+-2022-08-27 00:00:00,Transfer To Everyday Offset CommBank App Everyday Offset,,,,,,,,,,,60.0,,,,,
+-2022-08-29 00:00:00,Transfer To Truman Wang CommBank App Hua - Karaoke,35.0,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Zhijie Cao CommBank App Hua - HSP,10.6,,,,,,,,,,,,,,,
+-2022-08-29 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,100.0,,,,,
+-2022-08-29 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-08-30 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,300.0,,,,,
+-2022-08-30 00:00:00,STONNINGTON PAY & DISP MALVERN AUS Card   ,,,,,,,,,,,,,,,,5.3
+-2022-08-31 00:00:00,Hunky Dory,,11.5,,,,,,,,,,,,,,
+-2022-08-31 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-08-31 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,17.0
+-2022-09-02 00:00:00,Transfer To Zhijie Cao CommBank App Super Cool GPU,300.0,,,,,,,,,,,,,,,
+-2022-09-04 00:00:00,Yarra Valley Water,,,,,,,,,,,,,,,174.23,
+-2022-09-05 00:00:00,CENTRELINK NetBank BPAY 21915 30622023606,,,,,,,,,,,,,,217.08,,
+-2022-09-06 00:00:00, SMARTCASES 0416449766 AU AUS Card   ,,,,,,,,,,,,,,,,9.99
+-2022-09-06 00:00:00,HUNG FONG VIC PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,10.08
+-2022-09-06 00:00:00,Universal Restaurant Carlton VI AUS Card   ,23.04,,,,,,,,,,,,,,,
+-2022-09-10 00:00:00,Hero Sushi,,8.0,,,,,,,,,,,,,,
+-2022-09-11 00:00:00,Transfer To Everyday Offset CommBank App Eveyday Offset,,,,,,,,,,,200.0,,,,,
+-2022-09-11 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2700.0,,,,,,
+-2022-09-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,8.12,,,,,,,,,,,,,,
+-2022-09-13 00:00:00,Mighty Moonee Ponds,,26.39,,,,,,,,,,,,,,
+-2022-09-18 00:00:00,VICROADS NetBank BPAY 216291 527171084060737 Car Rego Renew,,,,,864.4,,,,,,,,,,,
+-2022-09-20 00:00:00,Zeus Street Greek,,12.0,,,,,,,,,,,,,,
+-2022-09-22 00:00:00,IGA,,,,,,,,,,,,,,,,15.71
+-2022-09-27 00:00:00,IGA,,,,,,,,,,,,,,,,22.0
+-2022-09-27 00:00:00,Woolworths,,,111.07,,,,,,,,,,,,,
+-2022-09-27 00:00:00,BP MALVERN 0559 MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,7.9
+-2022-09-28 00:00:00,Top Notch,,12.18,,,,,,,,,,,,,,
+-2022-09-28 00:00:00,Melbourne Airport Melbourne Air VI AUS Card   ,,,,,,,,,,,,,,,,15.15
+-2022-09-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-01 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3500.0,,,,,,
+-2022-10-02 00:00:00,Cardless Cash for collection For Noodles and Ha,,,,,,,,,,,,,,,,400.0
+-2022-10-03 00:00:00,ASIC NetBank BPAY 17301 2296264698145 Business Late Paym,,,,,,,,,,,,275.0,,,,
+-2022-10-04 00:00:00,REPCO BRUNSWICK VI AUS Card   ,,,,,,,,,,,,31.0,,,,
+-2022-10-04 00:00:00,IGA,,,,,,,,,,,,,,,,12.85
+-2022-10-04 00:00:00,Woolworths,,,52.2,,,,,,,,,,,,,
+-2022-10-04 00:00:00, SCORPIONTEC Sydney AU,,,,,,,,,92.0,,,,,,,
+-2022-10-05 00:00:00,SMPRooster Delight C Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,13.72
+-2022-10-06 00:00:00,Hero Sushi,,23.8,,,,,,,,,,,,,,
+-2022-10-08 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2022-10-11 00:00:00,Transfer To Huang W CommBank App Vanessa's flowers - Hua,,,,,,,,,,,,,,,,14.16
+-2022-10-12 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,Crunchyroll,,,,7.99,,,,,,,,,,,,
+-2022-10-12 00:00:00,EB River of Wishes MJ 801-413-7200 VI AUS Card   ,,,,,,,,,,,,,,,,150.34
+-2022-10-12 00:00:00,Kmart,,,8.0,,,,,,,,,,,,,
+-2022-10-13 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Coles Express,,,80.35,,,,,,,,,,,,,
+-2022-10-14 00:00:00,Woolworths,,,15.3,,,,,,,,,,,,,
+-2022-10-18 00:00:00,Hero Sushi,,13.5,,,,,,,,,,,,,,
+-2022-10-19 00:00:00,Hunky Dory,,3.4,,,,,,,,,,,,,,
+-2022-10-21 00:00:00,Woolworths,,,20.19,,,,,,,,,,,,,
+-2022-10-25 00:00:00,Noodlebox,,23.33,,,,,,,,,,,,,,
+-2022-10-28 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-10-29 00:00:00,Eastlink,,,,,55.0,,,,,,,,,,,
+-2022-10-31 00:00:00,Transfer to other Bank NetBank Bang Chen,,,,,,,,,,,,,,,,10000.0
+-2022-11-01 00:00:00,Nintendo CA849399981 Scoresby AU AUS Card   ,,,,,,37.47,,,,,,,,,,
+-2022-11-02 00:00:00,IGA,,,,,,,,,,,,,,,,10.3
+-2022-11-03 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,186.94
+-2022-11-05 00:00:00,Sir Duke,,,,,,,,,,,,,,,,62.93
+-2022-11-10 00:00:00,Nintendo CA854157371 Scoresby AU AUS Card   ,,,,,,97.67,,,,,,,,,,
+-2022-11-10 00:00:00,7-Eleven,,,,,92.19,,,,,,,,,,,
+-2022-11-12 00:00:00,MALVERN VALE HOTEL MALVERN VI AUS Card   ,,,,,,,,,,,,,,,,34.0
+-2022-11-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-11-13 00:00:00,Transfer To Dmitri NetBank Schnitzel and Lemon Lime and ...,,,,,,,,,,,,,,,,24.7
+-2022-11-15 00:00:00,LOST (AUSTRALIA STAT CARLTON VI AUS Card   ,,,,,,,,,,,,,,,,45.0
+-2022-11-15 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-11-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-01 00:00:00,Tango Energy,,,,,,,,,,,,,,,,35.28
+-2022-12-01 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,425.25
+-2022-12-08 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,3200.0,,,,,,
+-2022-12-08 00:00:00,Zeus Street Greek,,13.5,,,,,,,,,,,,,,
+-2022-12-13 00:00:00,Spotify,,,,18.99,,,,,,,,,,,,
+-2022-12-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2022-12-15 00:00:00,Zeus Street Greek,,13.0,,,,,,,,,,,,,,
+-2022-12-17 00:00:00,YOMG Moonee Ponds Moonee Ponds VI AUS Card   ,,,,,,,,,,,,,,,,17.9
+-2022-12-17 00:00:00,Audit Shield NetBank BPAY 253575 404251257763888 Audit Shield,,,,,,,,,,,,,,,,341.0
+-2022-12-17 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,9500.0,,,,,,
+-2022-12-21 00:00:00,ZLRLa La Land CBD Melbourne AU AUS Card   ,,,,,,,,,,,,,,,,52.52
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,57.86
+-2022-12-21 00:00:00,MCLI PTY LTD MELBOURNE AUS Card   ,,,,,,,,,,,,,,,,40.6
+-2022-12-22 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-24 00:00:00,PHOENICIA RCEPTNS PL MOONEE PONDS VI AUS Card   ,,,,,,,,,,,,,,,,58.4
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,17000.0,,,,,,
+-2022-12-28 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,7000.0,,,,,,
+-2022-12-29 00:00:00,BP PENLNK OB 7655 BAXTER VI AUS Card   ,,,,,,,,,,,,,,,,76.21
+-2022-12-29 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2022-12-29 00:00:00,Gold Leaf,,,,,,,,,,,,,,602.91,,
+-2022-12-31 00:00:00,CAMPION EDUCATION NUNAWADING AUS Card   ,,,,,,,,,,,,,308.72,,,
+-2022-12-31 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2022-12-31 00:00:00,Transfer To Everyday Offset NetBank Hua Chen Li,,,,,,,,,,,10000.0,,,,,
+-2022-12-31 00:00:00,Transfer to xx6079 NetBank,,,,,,,,,,9000.0,,,,,,
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,903.99
+-2023-01-04 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,49.7
+-2023-01-04 00:00:00,Nintendo CA895260282 Scoresby AU AUS Card   ,,,,,,78.69,,,,,,,,,,
+-2023-01-04 00:00:00,Nintendo CA895257048 Scoresby AU AUS Card   ,,,,,,25.11,,,,,,,,,,
+-2023-01-04 00:00:00,SQ HAPPY EATS MOONEE Moonee Ponds AU AUS Card   ,,,,,,,,,,,,,,,,15.0
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,102.53
+-2023-01-05 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-05 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,484.0
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,49.74
+-2023-01-07 00:00:00,MR. RAMEN SANMelbourneVIC,,,,,,,,,,,,,,,,51.49
+-2023-01-07 00:00:00,OFFICEWORKS 0320MELBOURNEAUS,,,,,,,,,155.19,,,,,,,
+-2023-01-07 00:00:00,Butchers DinerMelbourneVIC,,,,,,,,,,,,,,,,25.27
+-2023-01-07 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-10 00:00:00,Spotify P201946D3ESydneyAUS,,,,18.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-01-12 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-01-15 00:00:00,Kogan.com FPWKM3CJMelbourneAUS,,,,,,,,,19.57,,,,,,,
+-2023-01-16 00:00:00,Top Notch,,5.58,,,,,,,,,,,,,,
+-2023-01-17 00:00:00,Woolworths,,,22.0,,,,,,,,,,,,,
+-2023-01-18 00:00:00,JB Hi-Fi,,,,,,,,,284.99,,,,,,,
+-2023-01-18 00:00:00,IKEA PTY LTDTEmpeNSW,,,,,,,,,,,,,,,,69.0
+-2023-01-22 00:00:00,SQ ELIHATS CAKESSt KildaVI,,,,,,,,,,,,,,,,20.0
+-2023-01-22 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-01-23 00:00:00,BP MALVERN 0559MALVERNVIC,,,,,,,,,,,,,,,,10.0
+-2023-01-25 00:00:00,Kogan.com 2GWXA2YYMelbourneAUS,,,,,,,,,399.0,,,,,,,
+-2023-01-26 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,106.22
+-2023-01-28 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,5.95
+-2023-01-28 00:00:00,Uniqlo,,,,,,,,59.9,,,,,,,,
+-2023-01-29 00:00:00,JB Hi-Fi,,,,,,,,,294.99,,,,,,,
+-2023-01-30 00:00:00,McDonalds,,25.25,,,,,,,,,,,,,,
+-2023-02-01 00:00:00,7-Eleven,,,,,76.01,,,,,,,,,,,
+-2023-02-02 00:00:00,MARTIN AND MILLIE PTYMOONEE PONDS,,,,,,,,,,,,,,,,51.5
+-2023-02-04 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-02-04 00:00:00,YARRAVALLEYWATER WEBMITCHAM,,,,,,,,,,,,,,,,306.61
+-2023-02-05 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Karaoke and Pizza,43.57,,,,,,,,,,,,,,,
+-2023-02-06 00:00:00,McDonalds,,24.65,,,,,,,,,,,,,,
+-2023-02-08 00:00:00,Mastercard Autopay,,,,,,,,,,820.89,,,,,,
+-2023-02-09 00:00:00,Eastlink,,,,,35.0,,,,,,,,,,,
+-2023-02-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-02-28 00:00:00,Transfer to xx9221 CommBank app,,,,,,,,,,,,,,,,2000.0
+-2023-02-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-02-28 00:00:00,Nintendo CA932153331 Scoresby AU AUS Card   ,,,,,,56.01,,,,,,,,,,
+-2023-03-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,135.75
+-2023-03-10 00:00:00,Transfer To Zhijie Cao CommBank App Hua - Damo's Monitor,29.36,,,,,,,,,,,,,,,
+-2023-03-14 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-03-28 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,2000.0,,,,,,
+-2023-04-12 00:00:00,Mastercard Autopay,,,,,,,,,,1211.56,,,,,,
+-2023-04-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-04-30 00:00:00,Transfer to xx6079 CommBank app,,,,,,,,,,5000.0,,,,,,
+-2023-05-04 00:00:00,Tango Energy,,,,,,,,,,,,,,,,83.11
+-2023-05-10 00:00:00,Mastercard Autopay,,,,,,,,,,3006.01,,,,,,
+-2023-05-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-05-16 00:00:00,Nintendo CA982305466 Scoresby AU AUS Card   ,,,,,,87.14,,,,,,,,,,
+-2023-05-23 00:00:00,AMAZON AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,89.99
+-2023-05-28 00:00:00,Transfer To Vanessa Lin CommBank App Amy's Graduation Flowers...,,,,,,,,,,,,,,,,36.0
+-2023-06-07 00:00:00,Mastercard Autopay,,,,,,,,,,1771.51,,,,,,
+-2023-06-13 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-06-14 00:00:00,AMAZON MARKETPLACE AU SYDNEY SOUTH NS AUS Card   ,,,,,,,,,,,,,,,,18.98
+-2023-06-18 00:00:00,McDonalds,,22.4,,,,,,,,,,,,,,
+-2023-06-19 00:00:00,Top Notch,,8.63,,,,,,,,,,,,,,
+-2023-06-20 00:00:00,EnergyAustralia,,,,,,,,,,,,,,,,145.27
+-2023-06-20 00:00:00,ROTI BAR AUSTRALIA VI AUS Card   ,,,,,,,,,,,,,,,,39.36
+-2023-06-21 00:00:00,XING FU TANG MELB MELBOURNE VI AUS Card   ,,,,,,,,,,,,,,,,14.82
+-2023-06-23 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,15.5
+-2023-06-24 00:00:00,Transfer To Zhijie Cao CommBank App Birthday Meal - Hua,30.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,McDonalds,,30.7,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,Transfer To Liam Kelly CommBank App Hua - Spodermun ticket,,,,,,,,,,,,,,,,26.0
+-2023-06-25 00:00:00,Transfer To Viv Zou CommBank App Zj's card - Hua,13.0,,,,,,,,,,,,,,,
+-2023-06-25 00:00:00,LAKSA HUT BURNSIDE HEIGAU Card ,,,,,,,,,,,,,,,,17.58
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-27 00:00:00,Myki,,,,,10.0,,,,,,,,,,,
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,1.0
+-2023-06-30 00:00:00,Belong,,,,,,,,,,,,,,,,30.0
+-2023-07-01 00:00:00,TurnTheCornerMedical Northcote VI AUS Card   ,,,,,,,,,,,,,,,,86.0
+-2023-07-01 00:00:00,PlaystationNetwork LONDON GB GBR Card  AUD 11.98  ,,,,,,,,,,,,,,,,11.98
+-2023-07-04 00:00:00,Nintendo CA1012037785 Scoresby AU AUS Card   ,,,,,,75.59,,,,,,,,,,
+-2023-07-04 00:00:00,Optus,,,,24.5,,,,,,,,,,,,
+-2023-07-05 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-06 00:00:00, CENTRECOMSU Sydney AU,,,,,,,,,,,,,,,,86.02
+-2023-07-07 00:00:00,Noodlebox,,16.21,,,,,,,,,,,,,,
+-2023-07-10 00:00:00,Transfer To Everyday Offset CommBank App Transfer,,,,,,,,,,,2680.59,,,,,
+-2023-07-11 00:00:00,Mastercard Autopay,,,,,,,,,,3898.96,,,,,,
+-2023-07-12 00:00:00,Allison Browning,,,,,,,,,,,,,,,,220.0
+-2023-07-12 00:00:00,Crunchyroll,,,,10.99,,,,,,,,,,,,
+-2023-07-12 00:00:00,LS ZSG MOONEE PONDS Moonee Ponds AU,,,,,,,,,,,,,,,,13.63
+-2023-07-12 00:00:00,McDonalds,,43.3,,,,,,,,,,,,,,
+-2023-07-13 00:00:00,Spotify Sydney AU AUS Card   ,,,,11.99,,,,,,,,,,,,
+-2023-07-14 00:00:00,SMPLai Bakery Cafe Mo Moonee Ponds03 AU,,,,,,,,,,,,,,,,8.13
+-2023-07-14 00:00:00,YOMG Moonee Ponds Moonee Ponds AU,,,,,,,,,,,,,,,,19.9
+-2023-07-15 00:00:00,Sir Duke,,,,,,,,,,,,,,,,37.96
+-2023-07-15 00:00:00,ASIC NetBank BPAY 17301 2296264698145 ASIC Annual Review,,,,,,,,,,,,290.0,,,,
+-2023-07-15 00:00:00,VEC NetBank BPAY 120279 3003680111555520,,,,,,,,,,,,,,,,92.0
+Index: My Audit/.idea/modules.xml
+===================================================================
+diff --git a/My Audit/.idea/modules.xml b/My Audit/.idea/modules.xml
+deleted file mode 100644
+--- a/My Audit/.idea/modules.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/Python Coding.iml" filepath="$PROJECT_DIR$/.idea/Python Coding.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: My Audit/.gitignore
+===================================================================
+diff --git a/My Audit/.gitignore b/My Audit/.gitignore
+deleted file mode 100644
+--- a/My Audit/.gitignore	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,12 +0,0 @@
+-2022 Jul - 2023 Jun/
+-
+-Column Rules/
+-
+-My_Audit_2022/
+-
+-/My_Audit_2022/
+-/My_Audit_2022/2022 Jul - 2023 Jun/Smart Access/
+-
+-.idea
+-.vscode
+-
+Index: My Audit/Column Rules/my_account_rules.xml
+===================================================================
+diff --git a/My Audit/Column Rules/my_account_rules.xml b/My Audit/Column Rules/my_account_rules.xml
+deleted file mode 100644
+--- a/My Audit/Column Rules/my_account_rules.xml	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,197 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<Columns xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-    xsi:noNamespaceSchemaLocation="column_rules.xsd">
+-    <IncomeColumns>
+-        <Column>
+-            <ColumnName>Misc.</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-        </Column>
+-        <Column>
+-            <ColumnName>Wages</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>Salary</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Pay me Back</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>Damien</Value>
+-                <Value>Zhijie</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Tax Refund</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>ATO</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Transfers</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>xx6079</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Transfers from Family</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>QiQiong</Value>
+-                <Value>Zhi Kang</Value>
+-                <Value>Mastercard Autopay</Value>
+-            </Values>
+-        </Column>
+-    </IncomeColumns>
+-    <ExpenseColumns>
+-        <Column>
+-            <ColumnName>With Friends</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>UBER</Value>
+-                <Value>MANGO</Value>
+-                <Value>LINDOS</Value>
+-                <Value>ZJ</Value>
+-                <Value>Bday</Value>
+-                <Value>Truman</Value>
+-                <Value>Zhijie</Value>
+-                <Value>Universal</Value>
+-                <Value>SIRDUKE</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Takeaway for Work</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>HERO SUSHI</Value>
+-                <Value>MIGHTY</Value>
+-                <Value>MCDONALDS</Value>
+-                <Value>ZEUS</Value>
+-                <Value>NOODLEBOX</Value>
+-                <Value>TOP NOTCH</Value>
+-                <Value>HUNKY DORY</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Groceries</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>WOOLWORTHS</Value>
+-                <Value>COLES</Value>
+-                <Value>CHEMWAREHS</Value>
+-                <Value>SUPAIGA</Value>
+-                <Value>KMART</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Subscriptions</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>Optus</Value>
+-                <Value>Crunchyroll</Value>
+-                <Value>Spotify</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Transport</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>EG GROUP</Value>
+-                <Value>MYKI</Value>
+-                <Value>TOYOTA</Value>
+-                <Value>EASTLINK</Value>
+-                <Value>PAYSTAY</Value>
+-                <Value>VICROADS</Value>
+-                <Value>7-ELEVEN</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Games</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>Nintendo</Value>
+-            </Values>
+-        </Column>        
+-        <Column>
+-            <ColumnName>Merch</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-        </Column>
+-        <Column>
+-            <ColumnName>Clothes</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>DAVIECLOTHI</Value>
+-                <Value>Uniqlo</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Tech</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>SCORPIONTEC</Value>
+-                <Value>OFFICEWORKS</Value>
+-                <Value>KOGAN</Value>
+-                <Value>DICKSMITH</Value>
+-                <Value>JB HI-FI</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Transfers</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>Mastercard Autopay</Value>
+-                <Value>xx6079</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Transfers to Family</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>BUSINESS TRANS</Value>
+-                <Value>EVERYDAY OFFSET</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Business Expenditure</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>ASIC</Value>
+-                <Value>REPCO</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Education</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>PEGS</Value>
+-                <Value>CAMPION</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Family</ColumnName>
+-            <GSTIncluded>Y</GSTIncluded>
+-            <Values>
+-                <Value>GOLD LEAF</Value>
+-                <Value>ARLBERG</Value>
+-                <Value>MOUNT BULLER</Value>
+-                <Value>SKI HIRE</Value>
+-                <Value>EUROA</Value>
+-                <Value>FAMILY DNTL</Value>
+-                <Value>CENTRELINK</Value>
+-            </Values>
+-        </Column>        
+-        <Column>
+-            <ColumnName>Utilities</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-            <Values>
+-                <Value>Yarra Valley</Value>
+-            </Values>
+-        </Column>
+-        <Column>
+-            <ColumnName>Misc.</ColumnName>
+-            <GSTIncluded>N</GSTIncluded>
+-        </Column>
+-    </ExpenseColumns>
+-</Columns>
+\ No newline at end of file
+Index: My Audit/My_Audit_2022/Mastercard/CSVData.csv
+===================================================================
+diff --git a/My Audit/My_Audit_2022/Mastercard/CSVData.csv b/My Audit/My_Audit_2022/Mastercard/CSVData.csv
+deleted file mode 100644
+--- a/My Audit/My_Audit_2022/Mastercard/CSVData.csv	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
++++ /dev/null	(revision 2946cac19711bc83c1091bf8a4ba55f6e1771205)
+@@ -1,30 +0,0 @@
+-09/02/2023,"-35.00","EASTLINK                 RINGWOOD",""
+-07/02/2023,"+820.89","AUTO PAYMENT - THANK YOU",""
+-06/02/2023,"-24.65","MCDONALDS BRUNSWICK E    BRUNSWICK EA",""
+-04/02/2023,"-306.61","YARRAVALLEYWATER WEB     MITCHAM",""
+-04/02/2023,"-10.00","MYKI PAYMENTS            MELBOURNE",""
+-02/02/2023,"-51.50","MARTIN AND MILLIE PTY    MOONEE PONDS",""
+-01/02/2023,"-76.01","7-ELEVEN 1026            BRUNSWICK WEVIC",""
+-30/01/2023,"-25.25","MCDONALDS CLIFTON HIL    CLIFTON HILL",""
+-29/01/2023,"-294.99","SP JB HI-FI ONLINE       SOUTHBANK   VIC",""
+-28/01/2023,"-59.90","Uniqlo Australia Pty L   Melbourne   AUS",""
+-26/01/2023,"-24.50","OPTUS BILLING AUTOPAY    MACQUARIE PANSW",""
+-25/01/2023,"-399.00","Kogan.com 2GWXA2YY       Melbourne   AUS",""
+-23/01/2023,"-10.00","BP MALVERN 0559          MALVERN     VIC",""
+-22/01/2023,"-20.00","SQ *ELIHATS CAKES        St Kilda    VI",""
+-22/01/2023,"-10.00","MYKI PAYMENTS            MELBOURNE",""
+-21/01/2023,"+200.00","CASHBACK $200",""
+-18/01/2023,"-69.00","IKEA PTY LTD             TEmpe       NSW",""
+-18/01/2023,"-284.99","SP JB HI-FI ONLINE       SOUTHBANK   VIC",""
+-17/01/2023,"-22.00","WOOLWORTHS      3135     MOONEE PONDSAUS",""
+-16/01/2023,"-5.58","SMP*Top Notch Coffee     Moonee PondsAUS",""
+-15/01/2023,"-19.57","Kogan.com FPWKM3CJ       Melbourne   AUS",""
+-12/01/2023,"-16.21","SMP*NoodleBox MooneeP    Moonee PondsAUS",""
+-10/01/2023,"-18.99","Spotify P201946D3E       Sydney      AUS",""
+-07/01/2023,"-25.27","Butchers Diner           Melbourne   VIC",""
+-07/01/2023,"-155.19","OFFICEWORKS 0320         MELBOURNE   AUS",""
+-07/01/2023,"-51.49","MR. RAMEN SAN            Melbourne   VIC",""
+-07/01/2023,"-49.74","Butchers Diner           Melbourne   VIC",""
+-07/01/2023,"-10.00","MYKI PAYMENTS            MELBOURNE",""
+-07/01/2023,"-10.00","MYKI PAYMENTS            MELBOURNE",""
+-05/01/2023,"-484.00","IKEA PTY LTD             TEmpe       NSW",""
