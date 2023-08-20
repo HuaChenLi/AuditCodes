@@ -9,7 +9,8 @@ My_Audit_2022/
 
 .idea/workspace.xml
 .idea
-/My Audit/.idea/
-/My Audit/.vscode/
+ArchivedPrograms
+My Audit/.idea
+My Audit/.vscode
 
 *.xml
