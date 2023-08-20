@@ -37,7 +37,7 @@ csv_data = pd.DataFrame(columns=csv_column_names)
 
 bank_accounts = ['Mastercard', 'Smart Access']
 for account in bank_accounts:
-    csv_data_folder_path = os.path.join(root_excel_directory, account, 'CSVData.csv')
+    csv_data_folder_path = os.path.join(root_excel_directory,financial_year_folder, account, 'CSVData.csv')
     collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     bank_accounts_folders = os.path.join(my_audit_folder, account)
     try:

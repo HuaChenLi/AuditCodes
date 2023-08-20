@@ -4,12 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Some minor changes">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Forgot .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My Audit/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/Python Coding.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/Column Rules/column_rules.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/Column Rules/my_account_rules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Archive/20230808-233642/Expenditure.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Archive/20230808-233642/Income.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Archive/20230808-234345/Expenditure.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Archive/20230808-234345/Income.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Expenditure.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Income.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Mastercard/CSVData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/My Account Jul 2022 - Jun 2023 (old).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/My Rules.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Smart Access/CSVData.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +54,7 @@
         <entry key="$PROJECT_DIR$/My Audit" value="main" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/My Audit" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
@@ -51,10 +69,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "another__branch__4",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Mastercard",
+    "settings.editor.selected.configurable": "preferences.keymap"
   },
   "keyToStringList": {
     "ChangesTree.GroupingKeys": [
@@ -68,18 +86,18 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\2022 Jul - 2023 Jun\Mastercard" />
+      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\2022 Jul - 2023 Jun" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\TestSQLScripts" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit\2022 Jul - 2023 Jun\Q4 Apr - Jun\Mastercard CSV" />
-      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit\2022 Jul - 2023 Jun\Q4 Apr - Jun\Everyday Offset CSV" />
-      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit\2022 Jul - 2023 Jun\Q4 Apr - Jun\Business Transaction Account CSV" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit\testgitignorefolder" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\test_directory" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit" />
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding" />
-      <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022\2022 Jul - 2023 Jun" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -93,34 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691061759356</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Struggling to push with git">
-      <created>1691497306271</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497306271</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Struggling to push with git">
-      <created>1691497595550</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497595550</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Struggling to push with git">
-      <created>1691497929744</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497929744</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Struggling to push with git">
-      <created>1691498151625</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1691498151625</updated>
     </task>
     <task id="LOCAL-00037" summary="Struggling to push with git">
       <created>1691498617226</created>
@@ -437,7 +427,35 @@
       <option name="project" value="LOCAL" />
       <updated>1691753092409</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Removing some files. Don't need them anymore and they can be stored in archives on pc for now">
+      <created>1692537824510</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1692537824510</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Forgot .gitignore">
+      <created>1692537842869</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1692537842869</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Forgot .gitignore">
+      <created>1692537961552</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1692537961552</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Forgot .gitignore">
+      <created>1692538031902</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1692538031902</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,8 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="This is my commit with all of the files." />
-    <MESSAGE value="Random comment cause pushing is hard" />
     <MESSAGE value="What, how does PyCharm get around the weird error" />
     <MESSAGE value="Successfully changed Nested List into Dataframe type. Now need to consider how I want the SQL query functions to work" />
     <MESSAGE value="Made the SQL functions work with all the connection details and stuff in the SQL python file. This means if for some reason I migrate the database, or the password gets changed, I would only need to change it in 1 place." />
@@ -489,7 +505,9 @@
     <MESSAGE value="Remaining stragglers" />
     <MESSAGE value="Testing pathspec" />
     <MESSAGE value="Some minor changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some minor changes" />
+    <MESSAGE value="Removing some files. Don't need them anymore and they can be stored in archives on pc for now" />
+    <MESSAGE value="Forgot .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Forgot .gitignore" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
