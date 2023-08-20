@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Some minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business Audit/create_excel_files_purely_from_code_with_libraries.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business Audit/create_excel_files_purely_from_code_with_libraries.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" afterDir="false" />
     </list>
@@ -46,24 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;directory&quot;,
-      &quot;repository&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "directory",
+      "repository"
     ],
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;GitIgnore&quot;
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "GitIgnore"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit" />

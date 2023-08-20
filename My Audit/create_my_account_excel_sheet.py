@@ -4,8 +4,8 @@ import sys
 import pandas as pd
 from openpyxl.styles import Alignment
 import xlwings as xw
-from datetime import datetime, timedelta
 
+from datetime import datetime, timedelta
 import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
@@ -18,31 +18,24 @@ financial_year = '2022 - 2023'
 
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
-# the number of rows the excel has. Can edit this in case for some reason, 1000 is not enough
+# the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
 months_list = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
 
-csv_column_names = ['Date', 'Amount', 'Description', 'Balance']
-
-root_excel_directory = 'C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022'
 
 # Creating the folders
+root_excel_directory = 'C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022'
 my_audit_folder = os.path.join(root_excel_directory, financial_year_folder)
 try:
     os.mkdir(my_audit_folder)
 except:
     print('Year folder already exists')
 
-# /////////////////////////
-# Want to get rid of the references to the XML files here
-# All this information should be available in the database
-
-
-bank_accounts = ['Mastercard', 'Smart Access']
-
+csv_column_names = ['Date', 'Amount', 'Description', 'Balance']
 csv_data = pd.DataFrame(columns=csv_column_names)
 
+bank_accounts = ['Mastercard', 'Smart Access']
 for account in bank_accounts:
     csv_data_folder_path = os.path.join(root_excel_directory, account, 'CSVData.csv')
     collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
@@ -152,7 +145,6 @@ temp_df_for_income = SQLFunctions.sql_excel_columns.select_excel_column(audit_id
 income_col_names = list(temp_df_for_income["ColumnName"])
 income_column_number = len(income_col_names)
 
-
 for income_column_index, col_name in enumerate(income_col_names, 1):
     summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name
     summary_sheet.cell(row=income_column_index + 7, column=5).value = sum_value_formula_excel(data_sheets[0], 4, number_of_cells, income_column_index + 2, income_column_index + 2)
@@ -165,13 +157,11 @@ summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_shee
 summary_sheet.cell(row=7 + income_column_number + 2, column=5).value = sum_value_formula_excel(False, 8, 8 + income_column_number - 1, 5, 5)
 
 
-# /////////////////////////////////////////////////
+# expense column names and sums
 temp_df_for_expense = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, False)
 expense_col_names = list(temp_df_for_expense["ColumnName"])
 expense_column_number = len(expense_col_names)
 
-
-# expense column names and sums
 for expense_column_index, col_name in enumerate(expense_col_names, 1):
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=1).value = col_name
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=5).value = sum_value_formula_excel(data_sheets[1], 4, number_of_cells, expense_column_index + 2, expense_column_index + 2)
@@ -263,7 +253,7 @@ for month_index, month in enumerate(months_list, 1):
 
 workbook.save(excel_file_location)
 
-# using xlwings to colour all the excel sheets white
+# using xlwings to colour all the Excel sheets white
 workbook = xw.Book(excel_file_location)
 work_sheets = workbook.sheets
 

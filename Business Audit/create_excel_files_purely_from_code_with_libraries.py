@@ -1,21 +1,17 @@
 import os
-import openpyxl as xl
-from openpyxl.styles import Alignment, Font
-from lxml import etree
+from openpyxl.styles import Alignment
 import xlwings as xw
 
+import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
 
-# exec("Python Coding/lib_jank")
-
-print("hello", os.getcwd())
 
 financial_year = '2022 - 2023'
 
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
-# the number of rows the excel has. Can edit this in case for some reason, 1000 is not enough
+# the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 quarters_list = [month_period(1), month_period(2), month_period(3), month_period(4)]
 
@@ -26,10 +22,11 @@ except:
     print('Year folder already exists')
 
 # Begin the for loop
-bank_account_list = ['Business Transaction Account', 'Everyday Offset', 'Mastercard']
+auditIDList = [2, 3, 4]
 
 # For counting purposes
 iteration_number = 0
+
 
 for index, quarter in enumerate(quarters_list, start=1):
     # Create the quarter folders
@@ -40,12 +37,20 @@ for index, quarter in enumerate(quarters_list, start=1):
         print('Quarter folder already exists')
 
     # Creating each Excel Spreadsheet
-    for spreadsheet_index, spreadsheet in enumerate(bank_account_list, start=1):
+    for audit_id in auditIDList:
+        # /////////////////////////////////////////
+        if audit_id == 2:
+            spreadsheet_name = "Business Transaction Account"
+        elif audit_id == 3:
+            spreadsheet_name = "Everyday Offset"
+        elif audit_id == 4:
+            spreadsheet_name = "Mastercard"
+        
         iteration_number = iteration_number + 1
         print('beginning iteration ' + str(iteration_number))
 
         # Create the directories to dump the CSV files for the Bank Account folders
-        csv_data_folder_path = os.path.join(quarter_folder, spreadsheet + ' CSV')
+        csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + ' CSV')
         try:
             os.mkdir(csv_data_folder_path)
         except:
@@ -58,30 +63,11 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         front_cover.row_dimensions[1].height = 46.00
 
-        front_cover['A1'] = spreadsheet
-        front_cover['A2'] = '  ' + beginning_date(1, financial_year) + ' - ' + ending_date(1, financial_year)
+        front_cover['A1'] = spreadsheet_name
+        front_cover['A2'] = '  ' + beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
 
         front_cover.merge_cells('A1:I1')
         front_cover['A1'].font = Font(size=36)
-
-        if spreadsheet == 'Business Transaction Account':
-            root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/business_transaction_account_col_rules.xml')
-        elif spreadsheet == 'Everyday Offset':
-            root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/everyday_offset_col_rules.xml')
-        elif spreadsheet == 'Mastercard':
-            root = etree.parse(
-                'C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/mastercard_col_rules.xml')
-        else:
-            print(spreadsheet)
-            print('Have the Column Rules file names been changed or moved?')
-
-        income_column_number = len(root.xpath('.//IncomeColumns//ColumnName'))
-        income_col_names = root.findall('.//IncomeColumns//Column//ColumnName')
-
-        expense_column_number = len(root.xpath('.//ExpenseColumns//ColumnName'))
-        expense_col_names = root.findall('.//ExpenseColumns//Column//ColumnName')
 
         # making the income and expense sheet creations generic
         data_sheets = ['Income', 'Expenditure']
@@ -106,11 +92,13 @@ for index, quarter in enumerate(quarters_list, start=1):
 
             # finding the number of columns in the income/expense section
             if sheet_title_index == 1:
-                column_number = income_column_number
-                col_names = income_col_names
+                is_income = True
             elif sheet_title_index == 2:
-                column_number = expense_column_number
-                col_names = expense_col_names
+                is_income = False
+
+            temp_df = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, is_income)
+            col_names = list(temp_df["ColumnName"])
+            column_number = len(col_names)
 
             # setting the header rows
             current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 2)
@@ -133,7 +121,7 @@ for index, quarter in enumerate(quarters_list, start=1):
             for column_index, col_name in enumerate(col_names, 1):
                 current_sheet.merge_cells(start_row=2, end_row=3, start_column=column_index + 2,
                                           end_column=column_index + 2)
-                current_sheet.cell(row=2, column=column_index + 2).value = col_name.text
+                current_sheet.cell(row=2, column=column_index + 2).value = col_name
                 current_sheet.column_dimensions[xl.utils.get_column_letter(column_index + 2)].width = 14
                 current_sheet.cell(row=2, column=column_index + 2).alignment = Alignment(horizontal='center',
                                                                                          vertical='center',
@@ -168,17 +156,21 @@ for index, quarter in enumerate(quarters_list, start=1):
         workbook.active = workbook['Summary']
         summary_sheet = workbook.active
         summary_sheet['A1'] = 'Summary'
-        summary_sheet['A2'] = spreadsheet
-        summary_sheet['A3'] = beginning_date(1, financial_year) + ' - ' + ending_date(1, financial_year)
+        summary_sheet['A2'] = spreadsheet_name
+        summary_sheet['A3'] = beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
         summary_sheet['A5'] = 'Bank Balance as at ' + beginning_date(1, financial_year)
         summary_sheet['A7'] = data_sheets[0]
 
         # income column names and sums
+        temp_df_for_income = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, True)
+        income_col_names = list(temp_df_for_income["ColumnName"])
+        income_column_number = len(income_col_names)
+
         for income_column_index, col_name in enumerate(income_col_names, 1):
-            if 'Transfer' in col_name.text:
+            if 'Transfer' in col_name:
                 transfer_index = income_column_index
                 continue
-            summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name.text
+            summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name
             summary_sheet.cell(row=income_column_index + 7, column=5).value = sum_value_formula_excel(data_sheets[0], 4,
                                                                                                       number_of_cells,
                                                                                                       income_column_index + 2,
@@ -186,7 +178,7 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
         summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
-        summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1].text
+        summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
         summary_sheet.cell(row=7 + income_column_number + 5, column=1).value = 'Total'
         summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_sheets[1]
 
@@ -209,8 +201,12 @@ for index, quarter in enumerate(quarters_list, start=1):
                                                            5, 5)
 
         # expense column names and sums
+        temp_df_for_expense = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, False)
+        expense_col_names = list(temp_df_for_expense["ColumnName"])
+        expense_column_number = len(expense_col_names)
+
         for expense_column_index, col_name in enumerate(expense_col_names, 1):
-            summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=1).value = col_name.text
+            summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=1).value = col_name
             summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index,
                                column=5).value = sum_value_formula_excel(data_sheets[1], 4, number_of_cells,
                                                                          expense_column_index + 2,
@@ -218,7 +214,7 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=1).value = 'Total'
         summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4,
-                           column=1).value = 'Bank Balance as at ' + ending_date(1, financial_year)
+                           column=1).value = 'Bank Balance as at ' + ending_date(4, financial_year)
 
         # expense total sum
         summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2,
@@ -251,12 +247,12 @@ for index, quarter in enumerate(quarters_list, start=1):
                           7 + income_column_number + 7 + expense_column_number + 4, 8, 8)
         set_number_format(summary_sheet, 8, 7 + income_column_number + 7 + expense_column_number + 2, 5, 5)
 
-        excel_file_name = spreadsheet + ' ' + quarter + ' ' + year(index, financial_year) + '.xlsx'
+        excel_file_name = spreadsheet_name + ' ' + quarter + ' ' + year(index, financial_year) + '.xlsx'
         excel_file_location = os.path.join(quarter_folder, excel_file_name)
 
         workbook.save(excel_file_location)
 
-        # using xlwings to colour all the excel sheets white
+        # using xlwings to colour all the Excel sheets white
         workbook = xw.Book(excel_file_location)
         work_sheets = workbook.sheets
 
