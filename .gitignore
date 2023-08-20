@@ -13,6 +13,7 @@ ArchivedPrograms
 My Audit/.idea
 My Audit/.vscode
 
+*.csv
 *.xml
 
 testgitignore
