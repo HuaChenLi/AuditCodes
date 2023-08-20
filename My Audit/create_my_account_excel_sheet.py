@@ -60,7 +60,7 @@ front_cover = workbook.active
 front_cover.row_dimensions[1].height = 46.00
 
 front_cover['A1'] = 'My Account'
-front_cover['A2'] = '  ' + beginning_date(1, financial_year) + ' - ' + ending_date(1, financial_year)
+front_cover['A2'] = '  ' + beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
 
 front_cover.merge_cells('A1:I1')
 front_cover['A1'].font = Font(size=36)
@@ -75,11 +75,6 @@ for sheet_title_index, sheet_title in enumerate(data_sheets, 1):
 
     temp_df = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, is_income)
     col_names = list(temp_df["ColumnName"])
-
-
-
-
-
 
     # Create the Income sheet and the inital setups that won't change
     workbook.create_sheet(index=sheet_title_index + 1, title=sheet_title)
@@ -148,38 +143,27 @@ workbook.active = workbook['Summary']
 summary_sheet = workbook.active
 summary_sheet['A1'] = 'Summary'
 summary_sheet['A2'] = 'Mastercard and Smart Access'
-summary_sheet['A3'] = beginning_date(1, financial_year) + ' - ' + ending_date(1, financial_year)
+summary_sheet['A3'] = beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
 summary_sheet['A5'] = 'Bank Balance as at ' + beginning_date(1, financial_year)
 summary_sheet['A7'] = data_sheets[0]
 
 # income column names and sums
-# /////////////////////////////////////////
 temp_df_for_income = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, True)
 income_col_names = list(temp_df_for_income["ColumnName"])
 income_column_number = len(income_col_names)
 
 
 for income_column_index, col_name in enumerate(income_col_names, 1):
-    if 'Transfer' in col_name:
-        transfer_index = income_column_index
-        continue
     summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name
     summary_sheet.cell(row=income_column_index + 7, column=5).value = sum_value_formula_excel(data_sheets[0], 4, number_of_cells, income_column_index + 2, income_column_index + 2)
 
 # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
-summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
-summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
-summary_sheet.cell(row=7 + income_column_number + 5, column=1).value = 'Total'
+summary_sheet.cell(row=7 + income_column_number + 2, column=1).value = 'Total'
 summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_sheets[1]
 
-# subtotal sum
-summary_sheet.cell(row=7 + income_column_number + 1, column=5).value = sum_value_formula_excel(False, 8, 7 + transfer_index - 1, 5, 5)
-
-# transfer sum
-summary_sheet.cell(row=7 + income_column_number + 3, column=5).value = sum_value_formula_excel(data_sheets[0], 4, number_of_cells, 2 + transfer_index, 2 + transfer_index)
-
 # income total sum
-summary_sheet.cell(row=7 + income_column_number + 5, column=5).value = '=' + convert_rows_and_columns_to_excel(7 + income_column_number + 1, 7 + income_column_number + 1, 5, 5) + ' + ' + convert_rows_and_columns_to_excel(7 + income_column_number + 3, 7 + income_column_number + 3, 5, 5)
+summary_sheet.cell(row=7 + income_column_number + 2, column=5).value = sum_value_formula_excel(False, 8, 8 + income_column_number - 1, 5, 5)
+
 
 # /////////////////////////////////////////////////
 temp_df_for_expense = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, False)
@@ -193,7 +177,7 @@ for expense_column_index, col_name in enumerate(expense_col_names, 1):
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=5).value = sum_value_formula_excel(data_sheets[1], 4, number_of_cells, expense_column_index + 2, expense_column_index + 2)
 
 summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=1).value = 'Total'
-summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4, column=1).value = 'Bank Balance as at ' + ending_date(1, financial_year)
+summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4, column=1).value = 'Bank Balance as at ' + ending_date(4, financial_year)
 
 # expense total sum
 summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=5).value = sum_value_formula_excel(False, 7 + income_column_number + 8, 7 + income_column_number + 7 + expense_column_number, 5, 5)
@@ -208,7 +192,7 @@ summary_sheet.column_dimensions['E'].height = 13.73
 summary_sheet.column_dimensions['F'].height = 2.55
 summary_sheet.column_dimensions['H'].height = 11.55
 
-set_borders_outer_cells(summary_sheet, 8, 7 + income_column_number + 5, 1, 5)
+set_borders_outer_cells(summary_sheet, 8, 7 + income_column_number + 2, 1, 5)
 set_borders_outer_cells(summary_sheet, 7 + income_column_number + 7 + 1, 7 + income_column_number + 7 + expense_column_number + 2, 1, 5)
 set_borders_all_cells(summary_sheet, 5, 5, 8, 8)
 set_borders_all_cells(summary_sheet, 7 + income_column_number + 7 + expense_column_number + 4, 7 + income_column_number + 7 + expense_column_number + 4, 8, 8)
