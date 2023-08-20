@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Forgot .gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/.idea/Python Coding.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
@@ -28,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/My Account Jul 2022 - Jun 2023 (old).xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/My Rules.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/Smart Access/CSVData.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +69,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "another__branch__4",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/Mastercard",
     "settings.editor.selected.configurable": "preferences.keymap"
@@ -111,13 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691061759356</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Struggling to push with git">
-      <created>1691498617226</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1691498617226</updated>
     </task>
     <task id="LOCAL-00038" summary="Struggling to push with git">
       <created>1691499150091</created>
@@ -455,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692538031902</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Forgot .gitignore">
+      <created>1692538173521</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1692538173521</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
