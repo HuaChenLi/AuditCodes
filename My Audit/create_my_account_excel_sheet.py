@@ -2,17 +2,17 @@
 import os
 import sys
 import pandas as pd
-from openpyxl.styles import Alignment, Font
-from lxml import etree
+from openpyxl.styles import Alignment
 import xlwings as xw
 from datetime import datetime, timedelta
-import openpyxl as xl
 
+import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
 
 sys.path.append(os.path.abspath("CommonLibrary"))
 
+audit_id = 1
 
 financial_year = '2022 - 2023'
 
@@ -30,22 +30,21 @@ root_excel_directory = 'C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Au
 # Creating the folders
 my_audit_folder = os.path.join(root_excel_directory, financial_year_folder)
 try:
-    year_folder = os.mkdir(my_audit_folder)
+    os.mkdir(my_audit_folder)
 except:
     print('Year folder already exists')
 
-root = etree.parse('C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/Column Rules/my_account_rules.xml')
-income_col_names = root.findall('.//IncomeColumns//Column//ColumnName')
-income_column_number = len(root.xpath('.//IncomeColumns//ColumnName'))
-expense_col_names = root.findall('.//ExpenseColumns//Column//ColumnName')
-expense_column_number = len(root.xpath('.//ExpenseColumns//ColumnName'))
+# /////////////////////////
+# Want to get rid of the references to the XML files here
+# All this information should be available in the database
+
 
 bank_accounts = ['Mastercard', 'Smart Access']
 
 csv_data = pd.DataFrame(columns=csv_column_names)
 
 for account in bank_accounts:
-    csv_data_folder_path = os.path.join(root_excel_directory, account, '../../../../Downloads/CSVData.csv')
+    csv_data_folder_path = os.path.join(root_excel_directory, account, 'CSVData.csv')
     collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     bank_accounts_folders = os.path.join(my_audit_folder, account)
     try:
@@ -69,6 +68,19 @@ front_cover['A1'].font = Font(size=36)
 data_sheets = ['Income', 'Expenditure']
 
 for sheet_title_index, sheet_title in enumerate(data_sheets, 1):
+    if sheet_title == "Income":
+        is_income = True
+    else:
+        is_income = False
+
+    temp_df = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, is_income)
+    col_names = list(temp_df["ColumnName"])
+
+
+
+
+
+
     # Create the Income sheet and the inital setups that won't change
     workbook.create_sheet(index=sheet_title_index + 1, title=sheet_title)
     workbook.active = workbook[sheet_title]
@@ -86,15 +98,8 @@ for sheet_title_index, sheet_title in enumerate(data_sheets, 1):
     set_borders_all_cells(current_sheet, 1, 3, 1, 1)
     set_borders_all_cells(current_sheet, 1, 3, 2, 2)
 
-    # finding the number of columns in the income/expense section
-    if sheet_title_index == 1:
-        column_number = income_column_number
-        col_names = income_col_names
-    elif sheet_title_index == 2:
-        column_number = expense_column_number
-        col_names = expense_col_names
-
     # setting the header rows
+    column_number = len(col_names)
     current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 2)
     current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 3, end_column=column_number + 3)
     current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 4, end_column=column_number + 4)
@@ -110,7 +115,7 @@ for sheet_title_index, sheet_title in enumerate(data_sheets, 1):
 
     for column_index, col_name in enumerate(col_names, 1):
         current_sheet.merge_cells(start_row=2, end_row=3, start_column=column_index + 2, end_column=column_index + 2)
-        current_sheet.cell(row=2, column=column_index + 2).value = col_name.text
+        current_sheet.cell(row=2, column=column_index + 2).value = col_name
         current_sheet.column_dimensions[xl.utils.get_column_letter(column_index + 2)].width = 14
         current_sheet.cell(row=2, column=column_index + 2).alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
 
@@ -137,7 +142,7 @@ for sheet_title_index, sheet_title in enumerate(data_sheets, 1):
         for cell in row:
             cell.value
 
-        # making the summary page
+# making the summary page
 workbook.create_sheet(index=4, title='Summary')
 workbook.active = workbook['Summary']
 summary_sheet = workbook.active
@@ -148,16 +153,22 @@ summary_sheet['A5'] = 'Bank Balance as at ' + beginning_date(1, financial_year)
 summary_sheet['A7'] = data_sheets[0]
 
 # income column names and sums
+# /////////////////////////////////////////
+temp_df_for_income = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, True)
+income_col_names = list(temp_df_for_income["ColumnName"])
+income_column_number = len(income_col_names)
+
+
 for income_column_index, col_name in enumerate(income_col_names, 1):
-    if 'Transfer' in col_name.text:
+    if 'Transfer' in col_name:
         transfer_index = income_column_index
         continue
-    summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name.text
+    summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name
     summary_sheet.cell(row=income_column_index + 7, column=5).value = sum_value_formula_excel(data_sheets[0], 4, number_of_cells, income_column_index + 2, income_column_index + 2)
 
 # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
 summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
-summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1].text
+summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
 summary_sheet.cell(row=7 + income_column_number + 5, column=1).value = 'Total'
 summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_sheets[1]
 
@@ -170,9 +181,15 @@ summary_sheet.cell(row=7 + income_column_number + 3, column=5).value = sum_value
 # income total sum
 summary_sheet.cell(row=7 + income_column_number + 5, column=5).value = '=' + convert_rows_and_columns_to_excel(7 + income_column_number + 1, 7 + income_column_number + 1, 5, 5) + ' + ' + convert_rows_and_columns_to_excel(7 + income_column_number + 3, 7 + income_column_number + 3, 5, 5)
 
+# /////////////////////////////////////////////////
+temp_df_for_expense = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, False)
+expense_col_names = list(temp_df_for_expense["ColumnName"])
+expense_column_number = len(expense_col_names)
+
+
 # expense column names and sums
 for expense_column_index, col_name in enumerate(expense_col_names, 1):
-    summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=1).value = col_name.text
+    summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=1).value = col_name
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=5).value = sum_value_formula_excel(data_sheets[1], 4, number_of_cells, expense_column_index + 2, expense_column_index + 2)
 
 summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=1).value = 'Total'
@@ -232,7 +249,7 @@ for month_index, month in enumerate(months_list, 1):
     month_sheet.cell(row=starting_row, column=1).value = data_sheets[0]
 
     for income_column_index, col_name in enumerate(income_col_names, 1):
-        month_sheet.cell(row=starting_row + income_column_index, column=1).value = col_name.text
+        month_sheet.cell(row=starting_row + income_column_index, column=1).value = col_name
         month_sheet.cell(row=starting_row + income_column_index, column=5).value = sum_value_formula_excel(data_sheets[0], 4, number_of_cells, starting_row + income_column_index + 2, starting_row + income_column_index + 2)
 
     # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
@@ -243,7 +260,7 @@ for month_index, month in enumerate(months_list, 1):
 
     # expense column names and sums
     for expense_column_index, col_name in enumerate(expense_col_names, 1):
-        month_sheet.cell(row=starting_row + income_column_number + 4 + expense_column_index, column=1).value = col_name.text
+        month_sheet.cell(row=starting_row + income_column_number + 4 + expense_column_index, column=1).value = col_name
         month_sheet.cell(row=starting_row + income_column_number + 4 + expense_column_index, column=5).value = '=SUMIFS(' + data_sheets[1] + '!' + convert_rows_and_columns_to_excel(4, number_of_cells, expense_column_index + 2, expense_column_index + 2) + ',' + data_sheets[1] + '!' + convert_rows_and_columns_to_excel(4, number_of_cells, 1, 1) + ',">="&$G$2,' + data_sheets[1] + '!' + convert_rows_and_columns_to_excel(4, number_of_cells, 1, 1) + ',"<="&$H$2)'
 
     # expense total sum

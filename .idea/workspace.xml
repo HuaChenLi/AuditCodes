@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Some minor changes">
-      <change beforePath="$PROJECT_DIR$/Column Rules/business_transaction_account_col_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Column Rules/column_rules.xsd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Column Rules/everyday_offset_col_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Column Rules/mastercard_col_rules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Column Rules/my_account_rules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_8_58_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_08_2023_8_58_pm__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +35,7 @@
         <entry key="$PROJECT_DIR$/My Audit" value="main" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/My Audit" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
   </component>
@@ -48,24 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "another__branch__1",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hua-c/Desktop/Coding Stuff/Python Coding/My Audit&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "directory",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;repository&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "GitIgnore"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;GitIgnore&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit" />
@@ -93,41 +92,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1691061759356</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Struggling to push with git">
-      <created>1691497074857</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497074857</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Struggling to push with git">
-      <created>1691497166894</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497166894</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Struggling to push with git">
-      <created>1691497203251</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497203251</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Struggling to push with git">
-      <created>1691497258889</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497258889</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Struggling to push with git">
-      <created>1691497278038</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1691497278038</updated>
     </task>
     <task id="LOCAL-00033" summary="Struggling to push with git">
       <created>1691497306271</created>
@@ -437,7 +401,42 @@
       <option name="project" value="LOCAL" />
       <updated>1691751485126</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Some minor changes">
+      <created>1691752538896</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1691752538896</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Some minor changes">
+      <created>1691752716661</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1691752716661</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Some minor changes">
+      <created>1691752817182</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1691752817182</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Some minor changes">
+      <created>1691752979908</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1691752979908</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Some minor changes">
+      <created>1691753092408</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1691753092409</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
