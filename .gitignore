@@ -8,9 +8,11 @@ My_Audit_2022/
 /My Audit/Column Rules/
 
 .idea/workspace.xml
-.idea
+.idea/
 ArchivedPrograms
 My Audit/.idea
 My Audit/.vscode
 
 *.xml
+
+testgitignore
