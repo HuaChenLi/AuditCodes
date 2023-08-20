@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40f1f97c-c611-474e-9211-cd784f4d99a9" name="Changes" comment="Some minor changes">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Business Audit/create_excel_files_purely_from_code_with_libraries.py" beforeDir="false" afterPath="$PROJECT_DIR$/Business Audit/create_excel_files_purely_from_code_with_libraries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/My Audit/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/My_Audit_2022/2022 Jul - 2023 Jun/My Account 2022 Jul - 2023 Jun.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/My Audit/create_my_account_excel_sheet.py" afterDir="false" />
     </list>
