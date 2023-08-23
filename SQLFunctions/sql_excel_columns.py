@@ -85,5 +85,3 @@ def select_last_column_id():
     """
     last_id = read_query(connection, query)
     return last_id[0][0]
-
-

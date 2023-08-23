@@ -12,7 +12,6 @@ database = get_database()
 connection = get_connection()
 
 
-
 def select_mapping_query(auditID, incomeExpenseChar):
     query = f"""
     SELECT id,map_from,map_to FROM mapping_table 

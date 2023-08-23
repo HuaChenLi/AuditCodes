@@ -3,10 +3,7 @@ from openpyxl.styles import Alignment
 import xlwings as xw
 import sys
 
-
 sys.path.append(os.path.abspath(""))
-
-print(sys.path)
 
 import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *

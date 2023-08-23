@@ -1,41 +1,70 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.nio.Buffer;
 
 
 public class Main {
     JFrame frame;
-    JPanel mainPanel;
-    JLabel mainLabel;
+    JPanel actionPanel, titlePanel, mainPanel, mappingPanel;
+    JLabel titleLabel, mappingFromLabel, mappingToLabel, blankLabel;
     JButton createExcelSheets, createIncomeExpenseCSVs, createMapping;
+    JTextField financialYear, mappingFrom, mappingTo;
 
-    Process process;
 
 
     public Main() {
-
-
-
-
-
-
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(100,100,100,100));
+
+
+
+
+        titlePanel = new JPanel();
+        titleLabel = new JLabel("One Stop Shop for Excel Shenanigans");
+        titlePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        titlePanel.add(titleLabel);
+
+
+
+
+        actionPanel = new JPanel();
+        actionPanel.setLayout(new GridLayout(0,2));
+        actionPanel.setBorder(BorderFactory.createEmptyBorder(10,10,100,10));
 
         frame = new JFrame();
 
-        mainLabel = new JLabel("One Stop Shop for Excel Shenanigans");
-
         createExcelSheets = new JButton("Create New Excel Sheets");
         createIncomeExpenseCSVs = new JButton("Create Income and Expense CSVs");
-        createMapping = new JButton("Create Mapping");
 
-        mainPanel.add(mainLabel);
-        mainPanel.add(createExcelSheets);
-        mainPanel.add(createIncomeExpenseCSVs);
-        mainPanel.add(createMapping);
+        actionPanel.add(createExcelSheets);
+        actionPanel.add(createIncomeExpenseCSVs);
+
+        mainPanel.add(titlePanel);
+        mainPanel.add(actionPanel);
+
+
+//        Mapping Panel
+        mappingPanel = new JPanel();
+        mappingPanel.setLayout(new GridLayout(0,3));
+        mappingPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+
+        mappingFromLabel = new JLabel("Map From");
+        mappingToLabel = new JLabel("Map To");
+        blankLabel = new JLabel();
+
+        createMapping = new JButton("Create Mapping");
+        mappingFrom = new JTextField();
+        mappingTo = new JTextField();
+
+        mappingPanel.add(mappingFromLabel);
+        mappingPanel.add(mappingToLabel);
+        mappingPanel.add(blankLabel);
+        mappingPanel.add(mappingFrom);
+        mappingPanel.add(mappingTo);
+        mappingPanel.add(createMapping);
+
+        mainPanel.add(mappingPanel);
+
 
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,10 +74,27 @@ public class Main {
 
         createExcelSheets.addActionListener(e1 -> {
             try {
-                givenPythonScript_whenPythonProcessInvoked_thenSuccess();
+                createExcelSheetsFunction();
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        });
+
+        createIncomeExpenseCSVs.addActionListener(e1 -> {
+            try {
+                createIncomeExpenseCSVsFunction();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        createMapping.addActionListener(e1 -> {
+            try{
+                createMappingFunction();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         });
 
     }
@@ -58,9 +104,25 @@ public class Main {
     }
 
 
-    public void givenPythonScript_whenPythonProcessInvoked_thenSuccess() throws IOException {
+    public void createExcelSheetsFunction() throws IOException {
+        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_excel_files_purely_from_code_with_libraries.py");
+        Process process = pb.start();
 
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_excel_files_purely_from_code_with_libraries.py", "1", "4");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+        String lines = null;
+        while ((lines=reader.readLine())!=null) {
+            System.out.println("lines " + lines);
+        }
+
+        while ((lines=readers.readLine())!=null) {
+            System.out.println("Error lines " + lines);
+        }
+    }
+
+    public void createIncomeExpenseCSVsFunction() throws IOException {
+        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\move_deets_from_bank_csv_to_excel_sheets.py");
         Process process = pb.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -77,9 +139,9 @@ public class Main {
     }
 
 
-    private String resolvePythonScriptPath(String path){
-        File file = new File(path);
-        return file.getAbsolutePath();
+    public void createMappingFunction() throws  IOException {
+
     }
+
 
 }
