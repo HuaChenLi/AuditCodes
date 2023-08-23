@@ -4,6 +4,8 @@ import sys
 
 sys.path.append(os.path.abspath(""))
 
+sys.path.append(os.path.abspath(""))
+
 from CommonLibrary.date_libraries import *
 import CommonLibrary.create_build_income_expense_data
 

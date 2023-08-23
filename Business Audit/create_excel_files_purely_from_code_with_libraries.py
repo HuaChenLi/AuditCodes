@@ -5,6 +5,8 @@ import sys
 
 sys.path.append(os.path.abspath(""))
 
+sys.path.append(os.path.abspath(""))
+
 import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
