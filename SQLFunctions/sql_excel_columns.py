@@ -1,5 +1,7 @@
 import pandas as pd
 
+sys.path.append(os.path.abspath(""))
+
 from SQLFunctions.sql_connection_functions import *
 
 password = get_password()

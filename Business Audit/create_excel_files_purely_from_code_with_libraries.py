@@ -2,6 +2,8 @@ import os
 from openpyxl.styles import Alignment
 import xlwings as xw
 
+sys.path.append(os.path.abspath(""))
+
 import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
