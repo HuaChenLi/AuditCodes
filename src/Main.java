@@ -1,3 +1,5 @@
+package src;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -9,6 +11,11 @@ public class Main {
     JLabel financialYearLabel, financialYearIndicator, titleLabel, mappingFromLabel, mappingToLabel, blankLabel, incomeExpenseLabel, incomeExpenseIndicator, accountSelectionLabel;
     JButton createExcelSheets, createIncomeExpenseCSVs, createMapping, setFinancialYear, incomeButton, expenseButton, accountSelectionButton;
     JTextField financialYearText, mappingFrom, mappingTo, accountSelectionText;
+    int financialYearValue, accountID;
+    boolean isIncome = false, isExpense = false;
+    char incomeExpenseChar;
+
+
 
 
 
@@ -28,8 +35,23 @@ public class Main {
 //        Financial Year Panel
         financialYearLabel = new JLabel("Financial Year");
         financialYearIndicator = new JLabel();
-        financialYearText = new JTextField();
         setFinancialYear = new JButton("Set Financial Year");
+
+        financialYearText = new JTextField();
+
+        setFinancialYear.addActionListener(e1 -> {
+            String tempString = financialYearText.getText();
+            try {
+                financialYearValue = Integer.parseInt(tempString);
+                financialYearIndicator.setText(String.valueOf(financialYearValue));
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            financialYearText.setText("");
+            mainPanel.revalidate();
+            mainPanel.validate();
+        });
+
         financialYearPanel = new JPanel();
         financialYearPanel.setLayout(new GridLayout(0,4));
         financialYearPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -40,6 +62,7 @@ public class Main {
 
         mainPanel.add(financialYearPanel);
 
+
 //        Account Selection
         accountSelectionPanel = new JPanel();
         accountSelectionPanel.setLayout(new GridLayout(0,3));
@@ -47,6 +70,20 @@ public class Main {
         accountSelectionLabel = new JLabel();
         accountSelectionText = new JTextField();
         accountSelectionButton = new JButton("Set Account");
+
+        accountSelectionButton.addActionListener(e1 -> {
+            String tempString = accountSelectionText.getText();
+            try {
+                accountID = Integer.parseInt(tempString);
+                accountSelectionLabel.setText(String.valueOf(accountID));
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+            accountSelectionText.setText("");
+            mainPanel.revalidate();
+            mainPanel.validate();
+        });
+
         accountSelectionPanel.add(accountSelectionLabel);
         accountSelectionPanel.add(accountSelectionText);
         accountSelectionPanel.add(accountSelectionButton);
@@ -92,6 +129,21 @@ public class Main {
         incomeExpenseIndicator = new JLabel();
         incomeButton = new JButton("Income");
         expenseButton = new JButton("Expense");
+
+        incomeButton.addActionListener(e1 -> {
+            isIncome = !isIncome;
+            incomeExpenseIndicator.setText(getIncomeExpenseChar());
+            mainPanel.revalidate();
+            mainPanel.validate();
+        });
+
+        expenseButton.addActionListener(e1 -> {
+            isExpense = !isExpense;
+            incomeExpenseIndicator.setText(getIncomeExpenseChar());
+            mainPanel.revalidate();
+            mainPanel.validate();
+        });
+
         incomeExpensePanel.add(incomeExpenseLabel);
         incomeExpensePanel.add(incomeExpenseIndicator);
         incomeExpensePanel.add(incomeButton);
@@ -182,9 +234,21 @@ public class Main {
     }
 
 
+    public String getIncomeExpenseChar() {
+        if (isIncome && !isExpense) {
+            return "I";
+        } else if (!isIncome && isExpense) {
+            return "E";
+        }
+        return "B";
+    }
+
+
     public void createMappingFunction() throws  IOException {
 
     }
+
+
 
 
 }
