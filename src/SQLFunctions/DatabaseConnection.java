@@ -1,11 +1,11 @@
-package src;
+package src.SQLFunctions;
 
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
-public class MySQLConnection implements Connection {
+public class DatabaseConnection implements Connection {
     public void executeSQL() {
         Connection connection = null;
         try {

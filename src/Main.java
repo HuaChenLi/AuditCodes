@@ -1,5 +1,8 @@
 package src;
 
+import src.Panels.*;
+import src.SQLFunctions.DatabaseConnection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
@@ -7,16 +10,7 @@ import java.io.*;
 
 public class Main {
     JFrame frame;
-    JPanel actionPanel, titlePanel, mainPanel, mappingPanel, financialYearPanel, incomeExpensePanel, accountSelectionPanel;
-    JLabel financialYearLabel, financialYearIndicator, titleLabel, mappingFromLabel, mappingToLabel, blankLabel, incomeExpenseLabel, incomeExpenseIndicator, accountSelectionLabel;
-    JButton createExcelSheets, createIncomeExpenseCSVs, createMapping, setFinancialYear, incomeButton, expenseButton, accountSelectionButton;
-    JTextField financialYearText, mappingFrom, mappingTo, accountSelectionText;
-    int financialYearValue, accountID;
-    boolean isIncome = false, isExpense = false;
-    char incomeExpenseChar;
-
-
-
+    JPanel mainPanel;
 
 
     public Main() {
@@ -25,160 +19,27 @@ public class Main {
 
 
 //        Title Panel
-        titlePanel = new JPanel();
-        titleLabel = new JLabel("One Stop Shop for Excel Shenanigans");
-        titlePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        titlePanel.add(titleLabel);
-
+        TitlePanel titlePanel = new TitlePanel();
         mainPanel.add(titlePanel);
 
 //        Financial Year Panel
-        financialYearLabel = new JLabel("Financial Year");
-        financialYearIndicator = new JLabel();
-        setFinancialYear = new JButton("Set Financial Year");
-
-        financialYearText = new JTextField();
-
-        setFinancialYear.addActionListener(e1 -> {
-            String tempString = financialYearText.getText();
-            try {
-                financialYearValue = Integer.parseInt(tempString);
-                financialYearIndicator.setText(String.valueOf(financialYearValue));
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-            financialYearText.setText("");
-            mainPanel.revalidate();
-            mainPanel.validate();
-        });
-
-        financialYearPanel = new JPanel();
-        financialYearPanel.setLayout(new GridLayout(0,4));
-        financialYearPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        financialYearPanel.add(financialYearLabel);
-        financialYearPanel.add(financialYearIndicator);
-        financialYearPanel.add(financialYearText);
-        financialYearPanel.add(setFinancialYear);
-
+        FinancialYearPanel financialYearPanel = new FinancialYearPanel();
         mainPanel.add(financialYearPanel);
 
-
 //        Account Selection
-        accountSelectionPanel = new JPanel();
-        accountSelectionPanel.setLayout(new GridLayout(0,3));
-        accountSelectionPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        accountSelectionLabel = new JLabel();
-        accountSelectionText = new JTextField();
-        accountSelectionButton = new JButton("Set Account");
-
-        accountSelectionButton.addActionListener(e1 -> {
-            String tempString = accountSelectionText.getText();
-            try {
-                accountID = Integer.parseInt(tempString);
-                accountSelectionLabel.setText(String.valueOf(accountID));
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-            accountSelectionText.setText("");
-            mainPanel.revalidate();
-            mainPanel.validate();
-        });
-
-        accountSelectionPanel.add(accountSelectionLabel);
-        accountSelectionPanel.add(accountSelectionText);
-        accountSelectionPanel.add(accountSelectionButton);
-
+        AccountSelectionPanel accountSelectionPanel = new AccountSelectionPanel();
         mainPanel.add(accountSelectionPanel);
 
-//        Action Panel
-        actionPanel = new JPanel();
-        actionPanel.setLayout(new GridLayout(0,2));
-        actionPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-
-        createExcelSheets = new JButton("Create New Excel Sheets");
-        createIncomeExpenseCSVs = new JButton("Create Income and Expense CSVs");
-
-        createExcelSheets.addActionListener(e1 -> {
-            try {
-                createExcelSheetsFunction();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-        createIncomeExpenseCSVs.addActionListener(e1 -> {
-            try {
-                createIncomeExpenseCSVsFunction();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-
-        actionPanel.add(createExcelSheets);
-        actionPanel.add(createIncomeExpenseCSVs);
-
-        mainPanel.add(actionPanel);
+//        Create Excel Spreadsheets Panel
+        CreateExcelSheetsPanel createExcelSpreadsheetsPanel = new CreateExcelSheetsPanel();
+        mainPanel.add(createExcelSpreadsheetsPanel);
 
 //        Income Expense Indicator Panel
-        incomeExpensePanel = new JPanel();
-        incomeExpensePanel.setLayout(new GridLayout(0,4));
-        incomeExpensePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-
-        incomeExpenseLabel = new JLabel("Income and/or Expense");
-        incomeExpenseIndicator = new JLabel();
-        incomeButton = new JButton("Income");
-        expenseButton = new JButton("Expense");
-
-        incomeButton.addActionListener(e1 -> {
-            isIncome = !isIncome;
-            incomeExpenseIndicator.setText(getIncomeExpenseChar());
-            mainPanel.revalidate();
-            mainPanel.validate();
-        });
-
-        expenseButton.addActionListener(e1 -> {
-            isExpense = !isExpense;
-            incomeExpenseIndicator.setText(getIncomeExpenseChar());
-            mainPanel.revalidate();
-            mainPanel.validate();
-        });
-
-        incomeExpensePanel.add(incomeExpenseLabel);
-        incomeExpensePanel.add(incomeExpenseIndicator);
-        incomeExpensePanel.add(incomeButton);
-        incomeExpensePanel.add(expenseButton);
-
-        mainPanel.add(incomeExpensePanel);
+        IncomeExpenseIndicatorPanel incomeExpenseIndicatorPanel = new IncomeExpenseIndicatorPanel();
+        mainPanel.add(incomeExpenseIndicatorPanel);
 
 //        Mapping Panel
-        mappingPanel = new JPanel();
-        mappingPanel.setLayout(new GridLayout(0,3));
-        mappingPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-
-        mappingFromLabel = new JLabel("Map From");
-        mappingToLabel = new JLabel("Map To");
-        blankLabel = new JLabel();
-
-        createMapping = new JButton("Create Mapping");
-        createMapping.addActionListener(e1 -> {
-            try{
-                createMappingFunction();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-        mappingFrom = new JTextField();
-        mappingTo = new JTextField();
-
-        mappingPanel.add(mappingFromLabel);
-        mappingPanel.add(mappingToLabel);
-        mappingPanel.add(blankLabel);
-        mappingPanel.add(mappingFrom);
-        mappingPanel.add(mappingTo);
-        mappingPanel.add(createMapping);
-
+        MappingPanel mappingPanel = new MappingPanel();
         mainPanel.add(mappingPanel);
 
 //        Setting the GUI Frame
@@ -188,67 +49,9 @@ public class Main {
         frame.setTitle("Bank Account Organisation");
         frame.pack();
         frame.setVisible(true);
-
-
-
-
     }
 
     public static void main(String[] args) {
         new Main();
     }
-
-
-    public void createExcelSheetsFunction() throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_excel_files_purely_from_code_with_libraries.py");
-        Process process = pb.start();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-        String lines = null;
-        while ((lines=reader.readLine())!=null) {
-            System.out.println("lines " + lines);
-        }
-
-        while ((lines=readers.readLine())!=null) {
-            System.out.println("Error lines " + lines);
-        }
-    }
-
-    public void createIncomeExpenseCSVsFunction() throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\move_deets_from_bank_csv_to_excel_sheets.py");
-        Process process = pb.start();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-        String lines = null;
-        while ((lines=reader.readLine())!=null) {
-            System.out.println("lines " + lines);
-        }
-
-        while ((lines=readers.readLine())!=null) {
-            System.out.println("Error lines " + lines);
-        }
-    }
-
-
-    public String getIncomeExpenseChar() {
-        if (isIncome && !isExpense) {
-            return "I";
-        } else if (!isIncome && isExpense) {
-            return "E";
-        }
-        return "B";
-    }
-
-
-    public void createMappingFunction() throws  IOException {
-
-    }
-
-
-
-
 }
