@@ -16,13 +16,19 @@ public class AccountSelectionPanel extends JPanel {
         accountSelectionButton = new JButton("Set Account");
 
         accountSelectionButton.addActionListener(e1 -> {
-            String tempString = accountSelectionText.getText();
+            String tempString;
             try {
+                tempString = accountSelectionText.getText();
+
                 accountID = Integer.parseInt(tempString);
                 accountSelectionLabel.setText(String.valueOf(accountID));
-            } catch (Exception e){
+
+                AuditAccountClass.setAuditIDEntered(true);
+                AuditAccountClass.setAuditID(accountID);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
+
             accountSelectionText.setText("");
             this.revalidate();
             this.validate();
@@ -32,4 +38,5 @@ public class AccountSelectionPanel extends JPanel {
         this.add(accountSelectionText);
         this.add(accountSelectionButton);
     }
+
 }

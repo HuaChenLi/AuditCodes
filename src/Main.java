@@ -11,12 +11,11 @@ import java.io.*;
 public class Main {
     JFrame frame;
     JPanel mainPanel;
-
+    AuditAccountClass auditAccountClass;
 
     public Main() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
-
 
 //        Title Panel
         TitlePanel titlePanel = new TitlePanel();

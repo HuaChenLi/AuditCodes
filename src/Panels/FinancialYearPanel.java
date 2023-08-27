@@ -24,6 +24,8 @@ public class FinancialYearPanel extends JPanel {
                 e.printStackTrace();
             }
             financialYearText.setText("");
+
+
             this.revalidate();
             this.validate();
         });

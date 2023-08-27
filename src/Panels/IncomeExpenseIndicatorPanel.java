@@ -37,15 +37,18 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
         this.add(expenseButton);
     }
     public String getIncomeExpenseChar() {
+        AuditAccountClass.setIncomeExpenseEntered(true);
+
         if (isIncome && !isExpense) {
             incomeExpenseChar = 'I';
-            return "I";
         } else if (!isIncome && isExpense) {
             incomeExpenseChar = 'E';
-            return "E";
+        } else {
+            incomeExpenseChar = 'B';
         }
-        incomeExpenseChar = 'B';
-        return "B";
+
+        AuditAccountClass.setIncomeExpenseChar(incomeExpenseChar);
+        return String.valueOf(incomeExpenseChar);
     }
 
 }

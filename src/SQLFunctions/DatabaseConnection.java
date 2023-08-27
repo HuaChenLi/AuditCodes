@@ -6,39 +6,24 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 public class DatabaseConnection implements Connection {
-    public void executeSQL() {
+    public Connection getConnection() {
         Connection connection = null;
         try {
             // below two lines are used for connectivity.
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/mydatabase",
+                    "jdbc:mysql://127.0.0.1:3306/mydatabase",
                     "root", "Bdvej746Js$2jd");
 
             // mydb is database
             // mydbuser is name of database
             // mydbuser is password of database
-
-            Statement statement;
-            statement = connection.createStatement();
-            ResultSet resultSet;
-            resultSet = statement.executeQuery(
-                    "select * from audit_id");
-            int id;
-            String audit_name;
-            while (resultSet.next()) {
-                id = resultSet.getInt("id");
-                audit_name = resultSet.getString("audit_name").trim();
-                System.out.println("ID : " + id
-                        + " Audit Name : " + audit_name);
-            }
-            resultSet.close();
-            statement.close();
-            connection.close();
         }
         catch (Exception exception) {
             System.out.println(exception);
         }
+
+        return connection;
     }
 
     @Override

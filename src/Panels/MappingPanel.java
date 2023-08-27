@@ -1,6 +1,6 @@
 package src.Panels;
 
-import src.SQLFunctions.DatabaseConnection;
+import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,12 +38,21 @@ public class MappingPanel extends JPanel {
         this.add(createMapping);
     }
     public void createMappingFunction() throws IOException {
-        String mapFromText = mappingFrom.getText();
-        String mapToText = mappingTo.getText();
-        mappingFrom.setText("");
-        mappingTo.setText("");
+        if (AuditAccountClass.isAuditIDEntered() && AuditAccountClass.isIncomeExpenseEntered()) {
+            String mapFromText = mappingFrom.getText();
+            String mapToText = mappingTo.getText();
+            mappingFrom.setText("");
+            mappingTo.setText("");
 
-        DatabaseConnection newConnection = new DatabaseConnection();
-        newConnection.executeSQL();
+            int auditID = AuditAccountClass.getAuditID();
+            char incomeExpenseChar = AuditAccountClass.getIncomeExpenseChar();
+            System.out.println(incomeExpenseChar);
+
+            MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
+            mappingTableSQLs.executeSQL(mapFromText, mapToText, auditID, incomeExpenseChar);
+        } else {
+            System.out.println("Please Enter Audit ID and Income/Expense");
+        }
+        System.out.println(AuditAccountClass.getIncomeExpenseChar());
     }
 }
