@@ -49,7 +49,7 @@ public class MappingPanel extends JPanel {
             System.out.println(incomeExpenseChar);
 
             MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
-            mappingTableSQLs.executeSQL(mapFromText, mapToText, auditID, incomeExpenseChar);
+            mappingTableSQLs.insertMapping(mapFromText, mapToText, auditID, incomeExpenseChar);
         } else {
             System.out.println("Please Enter Audit ID and Income/Expense");
         }

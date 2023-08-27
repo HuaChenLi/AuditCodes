@@ -1,5 +1,7 @@
 package src.Panels;
 
+import src.SQLFunctions.AuditIDSQLs;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,7 +23,9 @@ public class AccountSelectionPanel extends JPanel {
                 tempString = accountSelectionText.getText();
 
                 accountID = Integer.parseInt(tempString);
-                accountSelectionLabel.setText(String.valueOf(accountID));
+
+                AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
+                accountSelectionLabel.setText(String.valueOf(auditIDSQLs.getAuditName(accountID)));
 
                 AuditAccountClass.setAuditIDEntered(true);
                 AuditAccountClass.setAuditID(accountID);

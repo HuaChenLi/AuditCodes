@@ -7,17 +7,17 @@ import java.sql.Statement;
 
 public class MappingTableSQLs extends DatabaseConnection {
     Connection connection = getConnection();
-    public void executeSQL(String mapFrom, String mapTo, int auditID, char incomeExpenseChar) {
+    public void insertMapping(String mapFrom, String mapTo, int auditID, char incomeExpenseChar) {
         Statement statement;
         try {
             statement = connection.createStatement();
-            ResultSet existingMappingTableRecord;
 
             PreparedStatement queryStatement = connection.prepareStatement("""
                         SELECT id, map_from, map_to FROM mapping_table WHERE map_from = ? AND map_to = ?""");
             queryStatement.setString(1, mapFrom);
             queryStatement.setString(2, mapTo);
 
+            ResultSet existingMappingTableRecord;
             existingMappingTableRecord = queryStatement.executeQuery();
 
 //            This chunk is so hard to read
