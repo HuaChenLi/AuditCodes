@@ -14,28 +14,20 @@ public class DatabaseConnection implements Connection {
         Connection connection = null;
         try {
             String content = Files.readString(filepath);
-            String[] connectionDetails = content.split("\n", 4);
+            String[] connectionDetails = content.split("\n", 5);
 
-            System.out.println(connectionDetails[0]);
-
-            String host = connectionDetails[0];
-            String port = connectionDetails[1];
-            String username = connectionDetails[2];
-            String password = connectionDetails[3];
-            String database = connectionDetails[4];
-            System.out.println(connectionDetails);
+            String host = connectionDetails[0].trim();
+            String port = connectionDetails[1].trim();
+            String username = connectionDetails[2].trim();
+            String password = connectionDetails[3].trim();
+            String database = connectionDetails[4].trim();
 
             String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
-            System.out.println(url);
             // below two lines are used for connectivity.
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
                     url,
                     username, password);
-
-            // mydb is database
-            // mydbuser is name of database
-            // mydbuser is password of database
         }
         catch (Exception exception) {
             System.out.println(exception);
