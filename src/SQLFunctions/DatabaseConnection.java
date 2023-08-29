@@ -11,8 +11,8 @@ import java.util.concurrent.Executor;
 public class DatabaseConnection implements Connection {
     public Connection getConnection() {
         Path filepath = Path.of("C:\\Users\\hua-c\\IdeaProjects\\AuditCodes\\ServerLogin\\database");
+        Connection connection = null;
         try {
-            Connection connection = null;
             String content = Files.readString(filepath);
             String[] connectionDetails = content.split("\n", 4);
 
@@ -23,11 +23,14 @@ public class DatabaseConnection implements Connection {
             String username = connectionDetails[2];
             String password = connectionDetails[3];
             String database = connectionDetails[4];
+            System.out.println(connectionDetails);
 
+            String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
+            System.out.println(url);
             // below two lines are used for connectivity.
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://" + host + ":" + port + "/" + database,
+                    url,
                     username, password);
 
             // mydb is database
@@ -37,6 +40,7 @@ public class DatabaseConnection implements Connection {
         catch (Exception exception) {
             System.out.println(exception);
         }
+
 
         return connection;
     }
