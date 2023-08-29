@@ -46,7 +46,6 @@ public class MappingPanel extends JPanel {
 
             int auditID = AuditAccountClass.getAuditID();
             char incomeExpenseChar = AuditAccountClass.getIncomeExpenseChar();
-            System.out.println(incomeExpenseChar);
 
             MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
             mappingTableSQLs.insertMapping(mapFromText, mapToText, auditID, incomeExpenseChar);

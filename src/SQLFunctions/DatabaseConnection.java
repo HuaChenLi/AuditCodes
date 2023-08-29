@@ -1,5 +1,8 @@
 package src.SQLFunctions;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
@@ -7,13 +10,25 @@ import java.util.concurrent.Executor;
 
 public class DatabaseConnection implements Connection {
     public Connection getConnection() {
-        Connection connection = null;
+        Path filepath = Path.of("C:\\Users\\hua-c\\IdeaProjects\\AuditCodes\\ServerLogin\\database");
         try {
+            Connection connection = null;
+            String content = Files.readString(filepath);
+            String[] connectionDetails = content.split("\n", 4);
+
+            System.out.println(connectionDetails[0]);
+
+            String host = connectionDetails[0];
+            String port = connectionDetails[1];
+            String username = connectionDetails[2];
+            String password = connectionDetails[3];
+            String database = connectionDetails[4];
+
             // below two lines are used for connectivity.
             Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(
-                    "jdbc:mysql://127.0.0.1:3306/mydatabase",
-                    "root", "Bdvej746Js$2jd");
+                    "jdbc:mysql://" + host + ":" + port + "/" + database,
+                    username, password);
 
             // mydb is database
             // mydbuser is name of database

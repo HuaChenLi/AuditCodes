@@ -8,9 +8,9 @@ sys.path.append(os.path.abspath(""))
 with open("..\ServerLogin\database") as file:
     lines = file.readlines()
     host = lines[0]
-    username = lines[1]
-    password = lines[2]
-    database = lines[3]
+    username = lines[2]
+    password = lines[3]
+    database = lines[4]
 
 
 def create_server_connection(host_name, user_name, user_password):

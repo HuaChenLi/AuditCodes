@@ -37,6 +37,7 @@ public class MappingTableSQLs extends DatabaseConnection {
                         """);
                 ResultSet lastRowID;
                 lastRowID = grabLastRowID.executeQuery();
+                lastRowID.next();
                 int lastRowIDValue = lastRowID.getInt("MAX(id)");
                 createMappingSelection(auditID, lastRowIDValue, incomeExpenseChar);
 
