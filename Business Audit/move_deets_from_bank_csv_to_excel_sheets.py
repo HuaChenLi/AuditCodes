@@ -4,10 +4,8 @@ import sys
 
 sys.path.append(os.path.abspath(""))
 
-sys.path.append(os.path.abspath(""))
-
 from CommonLibrary.date_libraries import *
-import CommonLibrary.create_build_income_expense_data
+import CommonLibrary.build_income_expense_data
 
 # Set the quarter and financial year
 quarter = 4
@@ -22,7 +20,7 @@ number_of_cells = 1000
 auditIDList = [2, 3, 4]
 
 # Month Directory
-quarter_folder = os.path.join("C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\Business Audit", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
+quarter_folder = os.path.join("Business Audit", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
