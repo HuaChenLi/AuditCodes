@@ -6,7 +6,7 @@ import time
 
 from SQLFunctions.select_mappings import *
 from CommonLibrary.date_libraries import month_period
-import CommonLibrary.create_build_income_expense_data
+import CommonLibrary.build_income_expense_data
 
 sys.path.append(os.path.abspath("CommonLibrary"))
 

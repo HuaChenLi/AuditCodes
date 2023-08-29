@@ -25,7 +25,7 @@ months_list = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'A
 
 
 # Creating the folders
-root_excel_directory = 'C:\\Users\hua-c\Desktop\Coding Stuff\Python Coding\My Audit\My_Audit_2022'
+root_excel_directory = 'My Audit\My_Audit_2022'
 my_audit_folder = os.path.join(root_excel_directory, financial_year_folder)
 try:
     os.mkdir(my_audit_folder)

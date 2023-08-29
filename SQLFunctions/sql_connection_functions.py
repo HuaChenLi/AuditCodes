@@ -1,9 +1,16 @@
 import mysql.connector
 from mysql.connector import Error
+import sys
+import os
 
+sys.path.append(os.path.abspath(""))
 
-password = "Bdvej746Js$2jd"
-database = "MyDataBase"
+with open("..\ServerLogin\database") as file:
+    lines = file.readlines()
+    host = lines[0]
+    username = lines[1]
+    password = lines[2]
+    database = lines[3]
 
 
 def create_server_connection(host_name, user_name, user_password):
@@ -67,7 +74,7 @@ def read_query(connection_1, query):
         print(f"Error: '{err}'")
 
 
-connection = create_db_connection("localhost", "root", password, database)
+connection = create_db_connection(host, username, password, database)
 
 
 def get_password():
