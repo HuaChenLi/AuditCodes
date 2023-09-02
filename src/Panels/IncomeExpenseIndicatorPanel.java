@@ -6,7 +6,16 @@ import java.awt.*;
 public class IncomeExpenseIndicatorPanel extends JPanel {
     JLabel incomeExpenseLabel, incomeExpenseIndicator;
     JButton incomeButton, expenseButton;
-    boolean isIncome, isExpense;
+    static boolean isIncome;
+    static boolean isExpense;
+     public static boolean isIncome() {
+        return isIncome;
+    }
+
+    public static boolean isExpense() {
+        return isExpense;
+    }
+
     char incomeExpenseChar;
     public IncomeExpenseIndicatorPanel() {
         this.setLayout(new GridLayout(0,4));

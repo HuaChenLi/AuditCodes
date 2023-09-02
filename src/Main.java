@@ -41,6 +41,14 @@ public class Main {
         MappingPanel mappingPanel = new MappingPanel();
         mainPanel.add(mappingPanel);
 
+//        Column Creation Panel
+        ColumnCreationPanel columnCreationPanel = new ColumnCreationPanel();
+        mainPanel.add(columnCreationPanel);
+
+//        Categorise Panel
+        CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();
+        mainPanel.add(categoriseValuesPanel);
+
 //        Setting the GUI Frame
         frame = new JFrame();
         frame.add(mainPanel, BorderLayout.CENTER);

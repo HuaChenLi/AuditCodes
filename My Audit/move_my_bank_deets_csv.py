@@ -14,9 +14,7 @@ financial_year = "2022 - 2023"
 
 financial_year_folder = financial_year[:4] + " Jul - " + financial_year[7:] + " Jun"
 
-# feels like a mess whenever I open up the scripts. I usually have no idea what to actually do to run the reports, and I"m scrambling all the time. I want to add an archive feature. Basically, it will save and store the files in an archive folder.
-# My bank account being gone from Commbank is a little annoying. I'm questioning why an extra 3.8K was deducted from my bank account. Even if they closed my Credit Card account, they should have still kept the bank account visible with my past statements.
-# Also I want to make the process easier for me. It"s pretty annoying not knowing which library to run
+# Also I want to make the process easier for me. It's pretty annoying not knowing which library to run
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
