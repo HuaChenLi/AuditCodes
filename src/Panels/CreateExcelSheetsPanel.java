@@ -38,7 +38,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     }
 
     public void createIncomeExpenseCSVsFunction() throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\move_deets_from_bank_csv_to_excel_sheets.py");
+        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_income_expense_csv.py");
         Process process = pb.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -55,7 +55,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     }
 
     public void createExcelSheetsFunction() throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_excel_files_purely_from_code_with_libraries.py");
+        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_folder_structure.py");
         Process process = pb.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
