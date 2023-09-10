@@ -5,7 +5,7 @@ import os
 
 sys.path.append(os.path.abspath(""))
 
-with open("..\ServerLogin\database") as file:
+with open("ServerLogin\database") as file:
     lines = file.readlines()
     host = lines[0].strip()
     username = lines[2].strip()

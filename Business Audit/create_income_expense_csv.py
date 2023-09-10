@@ -20,7 +20,7 @@ number_of_cells = 1000
 auditIDList = [2, 3, 4]
 
 # Month Directory
-quarter_folder = os.path.join("Business Audit", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
+quarter_folder = os.path.join(financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
@@ -45,7 +45,7 @@ for auditID in auditIDList:
         else:
             is_income = False
 
-        excel_sheet = CommonLibrary.create_build_income_expense_data.build(auditID, is_income, csv_data)
+        excel_sheet = CommonLibrary.build_income_expense_data.build(auditID, is_income, csv_data)
 
         output_filepath = os.path.join("./", financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter), spreadsheet_name + " CSV", sheet_title + ".csv")
         excel_sheet.to_csv(output_filepath, index=False)
