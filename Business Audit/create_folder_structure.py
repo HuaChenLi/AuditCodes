@@ -10,7 +10,10 @@ import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
 
-financial_year = '2022 - 2023'
+year_end = int(sys.argv[1])
+year_start = year_end - 1
+
+financial_year = str(year_start) + " - " + str(year_end)
 
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
