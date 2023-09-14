@@ -15,8 +15,6 @@ year_start = year_end - 1
 
 financial_year = str(year_start) + " - " + str(year_end)
 
-# something else
-
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
