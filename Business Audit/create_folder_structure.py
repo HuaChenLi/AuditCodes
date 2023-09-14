@@ -15,7 +15,7 @@ year_start = year_end - 1
 
 financial_year = str(year_start) + " - " + str(year_end)
 
-financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
+financial_year_folder = str(year_start) + ' Jul - ' + str(year_end) + ' Jun'
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
@@ -23,7 +23,7 @@ quarters_list = [month_period(1), month_period(2), month_period(3), month_period
 
 # Creating the folders
 try:
-    year_folder = os.mkdir(financial_year_folder)
+    os.mkdir(financial_year_folder)
 except:
     print('Year folder already exists')
 

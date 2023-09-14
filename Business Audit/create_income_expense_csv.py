@@ -8,11 +8,14 @@ from CommonLibrary.date_libraries import *
 import CommonLibrary.build_income_expense_data
 
 # Set the quarter and financial year
-quarter = 4
+quarter = int(sys.argv[2])
 
-financial_year = "2022 - 2023"
+year_end = int(sys.argv[1])
+year_start = year_end - 1
 
-financial_year_folder = financial_year[:4] + " Jul - " + financial_year[7:] + " Jun"
+financial_year = str(year_start) + " - " + str(year_end)
+
+financial_year_folder = str(year_start) + ' Jul - ' + str(year_end) + ' Jun'
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
