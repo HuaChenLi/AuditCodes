@@ -1,3 +1,8 @@
+import os
+import sys
+
+sys.path.append(os.path.abspath(""))
+
 def month_period(index):
     if index == 1:
         return 'Jul - Sep'

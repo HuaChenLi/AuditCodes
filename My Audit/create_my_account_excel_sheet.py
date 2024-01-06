@@ -5,29 +5,33 @@ import pandas as pd
 from openpyxl.styles import Alignment
 import xlwings as xw
 import glob
-
 from datetime import datetime, timedelta
-import SQLFunctions.sql_excel_columns
+
+sys.path.append(os.path.abspath("")) # This allows the root libraries to come to be imported below
+
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
+import SQLFunctions.sql_excel_columns
 
-sys.path.append(os.path.abspath("CommonLibrary"))
 
 audit_id = 1
+actual_year = '2023'
 
-financial_year = '2023 - 2024'
 
-financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
+year_start_date = '01 Jan '
+year_end_date = '31 Dec '
+
+actual_year_folder = actual_year
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
-months_list = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+months_list = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 
 # Creating the folders
 root_excel_directory = 'My Audit'
-my_audit_folder = os.path.join(root_excel_directory, financial_year_folder)
+my_audit_folder = os.path.join(root_excel_directory, actual_year_folder)
 
 try:
     os.mkdir(my_audit_folder)
@@ -48,12 +52,6 @@ for account in bank_accounts:
         print('Bank Account folders already exist')
 
 
-for account in bank_accounts:
-    temp_directory_path = os.path.join(root_excel_directory, financial_year_folder, account)
-    print(temp_directory_path)
-    csv_data_folder_path = glob.glob(temp_directory_path + '\*.csv')[0]
-    collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
-
 workbook = xl.Workbook()
 workbook.create_sheet(index=0, title='Front Cover')
 workbook.remove(workbook['Sheet'])
@@ -62,7 +60,7 @@ front_cover = workbook.active
 front_cover.row_dimensions[1].height = 46.00
 
 front_cover['A1'] = 'My Account'
-front_cover['A2'] = '  ' + beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
+front_cover['A2'] = '  ' + year_start_date + actual_year + ' - ' + year_end_date + actual_year
 
 front_cover.merge_cells('A1:I1')
 front_cover['A1'].font = Font(size=36)
@@ -145,8 +143,8 @@ workbook.active = workbook['Summary']
 summary_sheet = workbook.active
 summary_sheet['A1'] = 'Summary'
 summary_sheet['A2'] = 'Mastercard and Smart Access'
-summary_sheet['A3'] = beginning_date(1, financial_year) + ' - ' + ending_date(4, financial_year)
-summary_sheet['A5'] = 'Bank Balance as at ' + beginning_date(1, financial_year)
+summary_sheet['A3'] = year_start_date + actual_year + ' - ' + year_end_date + actual_year
+summary_sheet['A5'] = 'Bank Balance as at ' + year_start_date + actual_year
 summary_sheet['A7'] = data_sheets[0]
 
 # income column names and sums
@@ -176,7 +174,7 @@ for expense_column_index, col_name in enumerate(expense_col_names, 1):
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_index, column=5).value = sum_value_formula_excel(data_sheets[1], 4, number_of_cells, expense_column_index + 2, expense_column_index + 2)
 
 summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=1).value = 'Total'
-summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4, column=1).value = 'Bank Balance as at ' + ending_date(4, financial_year)
+summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4, column=1).value = 'Bank Balance as at ' + year_end_date + actual_year
 
 # expense total sum
 summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=5).value = sum_value_formula_excel(False, 7 + income_column_number + 8, 7 + income_column_number + 7 + expense_column_number, 5, 5)
@@ -202,7 +200,7 @@ set_number_format(summary_sheet, 5, 5, 8, 8)
 set_number_format(summary_sheet, 7 + income_column_number + 7 + expense_column_number + 4, 7 + income_column_number + 7 + expense_column_number + 4, 8, 8)
 set_number_format(summary_sheet, 8, 7 + income_column_number + 7 + expense_column_number + 2, 5, 5)
 
-excel_file_name = 'My Account ' + financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun.xlsx'
+excel_file_name = 'My Account ' + actual_year
 excel_file_location = os.path.join(my_audit_folder, excel_file_name)
 workbook.save(excel_file_location)
 
@@ -211,14 +209,9 @@ for month_index, month in enumerate(months_list, 1):
     workbook.active = workbook[month]
     month_sheet = workbook.active
 
-    if month_index <= 6:
-        displayed_year = financial_year[:4]
-    else:
-        displayed_year = financial_year[7:]
-
     month_sheet.cell(row=1, column=7).value = 'Date Range'
 
-    input_date = datetime(int(displayed_year), (((month_index + 5) % 12) + 1), 1)
+    input_date = datetime(int(actual_year), (month_index), 1)
     next_month = input_date.replace(day=28) + timedelta(days=4)
     res = next_month - timedelta(days=next_month.day)
     month_sheet.cell(row=2, column=7).value = input_date.strftime('%d/%m/%Y')
