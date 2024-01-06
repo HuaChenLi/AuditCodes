@@ -4,6 +4,7 @@ import sys
 import pandas as pd
 from openpyxl.styles import Alignment
 import xlwings as xw
+import glob
 
 from datetime import datetime, timedelta
 import SQLFunctions.sql_excel_columns
@@ -14,7 +15,7 @@ sys.path.append(os.path.abspath("CommonLibrary"))
 
 audit_id = 1
 
-financial_year = '2022 - 2023'
+financial_year = '2023 - 2024'
 
 financial_year_folder = financial_year[:4] + ' Jul - ' + financial_year[7:] + ' Jun'
 
@@ -25,8 +26,9 @@ months_list = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'A
 
 
 # Creating the folders
-root_excel_directory = 'My Audit\My_Audit_2022'
+root_excel_directory = 'My Audit'
 my_audit_folder = os.path.join(root_excel_directory, financial_year_folder)
+
 try:
     os.mkdir(my_audit_folder)
 except:
@@ -36,14 +38,21 @@ csv_column_names = ['Date', 'Amount', 'Description', 'Balance']
 csv_data = pd.DataFrame(columns=csv_column_names)
 
 bank_accounts = ['Mastercard', 'Smart Access']
+
+# Creating the bank acount folders
 for account in bank_accounts:
-    csv_data_folder_path = os.path.join(root_excel_directory, financial_year_folder, account, 'CSVData.csv')
-    collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     bank_accounts_folders = os.path.join(my_audit_folder, account)
     try:
         os.mkdir(bank_accounts_folders)
     except:
         print('Bank Account folders already exist')
+
+
+for account in bank_accounts:
+    temp_directory_path = os.path.join(root_excel_directory, financial_year_folder, account)
+    print(temp_directory_path)
+    csv_data_folder_path = glob.glob(temp_directory_path + '\*.csv')[0]
+    collected_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
 
 workbook = xl.Workbook()
 workbook.create_sheet(index=0, title='Front Cover')
