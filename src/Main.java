@@ -1,17 +1,14 @@
 package src;
 
 import src.Panels.*;
-import src.SQLFunctions.DatabaseConnection;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
 
 
 public class Main {
     JFrame frame;
     JPanel mainPanel;
-    AuditAccountClass auditAccountClass;
 
     public Main() {
         mainPanel = new JPanel();
@@ -48,6 +45,9 @@ public class Main {
 //        Categorise Panel
         CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();
         mainPanel.add(categoriseValuesPanel);
+
+        ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
+        mainPanel.add(excelColumnViewPanel);
 
 //        Setting the GUI Frame
         frame = new JFrame();

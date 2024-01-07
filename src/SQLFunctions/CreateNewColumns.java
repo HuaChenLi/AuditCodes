@@ -1,10 +1,8 @@
 package src.SQLFunctions;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 
-public class CreateNewColumns extends DatabaseConnection{
+public class CreateNewColumns extends DatabaseConnection {
     Connection connection = getConnection();
     public void insertColumn(int auditID, String columnName, boolean gSTIncluded, boolean isIncome, boolean isExpense) {
         Statement statement;
@@ -56,4 +54,47 @@ public class CreateNewColumns extends DatabaseConnection{
             e.printStackTrace();
         }
     }
+
+    public ResultSet getExcelColumns(int auditID, boolean isIncome) {
+        try {
+            PreparedStatement selectExcelColumns = connection.prepareStatement("""
+                    SELECT ColumnName, ExcelColumnID FROM ExcelColumns
+                    WHERE AuditID = ?
+                    AND IsIncome = ?
+                    """);
+            selectExcelColumns.setInt(1, auditID);
+            selectExcelColumns.setBoolean(2, isIncome);
+
+            ResultSet excelColumns;
+            excelColumns = selectExcelColumns.executeQuery();
+            System.out.println(excelColumns);
+
+            return excelColumns;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public ResultSet getCategories() {
+        try {
+            PreparedStatement selectExcelColumns = connection.prepareStatement("""
+                    SELECT CategoryValues, ID FROM ExcelCategoryMapping
+                    """);
+
+            ResultSet excelColumns;
+            excelColumns = selectExcelColumns.executeQuery();
+            System.out.println(excelColumns);
+
+            return excelColumns;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
 }
