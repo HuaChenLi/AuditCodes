@@ -1,6 +1,9 @@
 package src;
 
 import src.Panels.*;
+import src.SQLFunctions.AuditIDSQLs;
+import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +17,22 @@ public class Main {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
+//        Load Database
+        AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
+        auditIDSQLs.createAuditTable();
+
+        CreateNewColumns createNewColumns = new CreateNewColumns();
+        createNewColumns.createExcelColumnTables();
+        createNewColumns.createExcelColumnSelectionTable();
+
+        MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
+        mappingTableSQLs.createMappingTable();
+        mappingTableSQLs.createMappingSelectionTable();
+
+//        Account Creation Panel
+        CreateAccount createAccount = new CreateAccount();
+        mainPanel.add(createAccount);
+
 //        Title Panel
         TitlePanel titlePanel = new TitlePanel();
         mainPanel.add(titlePanel);
@@ -21,10 +40,6 @@ public class Main {
 //        Financial Year Panel
         FinancialYearPanel financialYearPanel = new FinancialYearPanel();
         mainPanel.add(financialYearPanel);
-
-//        Account Selection
-        AccountSelectionPanel accountSelectionPanel = new AccountSelectionPanel();
-        mainPanel.add(accountSelectionPanel);
 
 //        Create Excel Spreadsheets Panel
         CreateExcelSheetsPanel createExcelSpreadsheetsPanel = new CreateExcelSheetsPanel();
