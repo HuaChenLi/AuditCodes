@@ -20,7 +20,12 @@ public class Main {
 
 //        Load Database
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
+//        auditIDSQLs.dropAuditID();
         auditIDSQLs.createAuditTable();
+
+//        Account Creation Panel
+        CreateAccount createAccount = new CreateAccount();
+        mainPanel.add(createAccount);
 
 //        Title Panel
         TitlePanel titlePanel = new TitlePanel();
