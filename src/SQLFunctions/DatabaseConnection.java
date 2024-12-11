@@ -9,31 +9,14 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 public class DatabaseConnection implements Connection {
-    public Connection getConnection() {
-        Path filepath = Path.of("C:\\Users\\hua-c\\IdeaProjects\\AuditCodes\\ServerLogin\\database");
+    public Connection getConnection() throws ClassNotFoundException {
+        Class.forName("org.sqlite.JDBC");
         Connection connection = null;
         try {
-            String content = Files.readString(filepath);
-            String[] connectionDetails = content.split("\n", 5);
-
-            String host = connectionDetails[0].trim();
-            String port = connectionDetails[1].trim();
-            String username = connectionDetails[2].trim();
-            String password = connectionDetails[3].trim();
-            String database = connectionDetails[4].trim();
-
-            String url = "jdbc:mysql://" + host + ":" + port + "/" + database;
-            // below two lines are used for connectivity.
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(
-                    url,
-                    username, password);
+            connection = DriverManager.getConnection("jdbc:sqlite:audit.db");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        catch (Exception exception) {
-            System.out.println(exception);
-        }
-
-
         return connection;
     }
 

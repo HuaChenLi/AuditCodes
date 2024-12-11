@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MappingTableSQLs extends DatabaseConnection {
-    Connection connection = getConnection();
     public void insertMapping(String mapFrom, String mapTo, int auditID, char incomeExpenseChar) {
         Statement statement;
         try {
+            Connection connection = getConnection();
             statement = connection.createStatement();
 
             PreparedStatement queryStatement = connection.prepareStatement("""
@@ -82,6 +82,7 @@ public class MappingTableSQLs extends DatabaseConnection {
 
     public void createMappingSelection(int auditID1, int mappingTableID1, char incomeExpense1) {
         try{
+            Connection connection = getConnection();
             PreparedStatement createMappingSelection = connection.prepareStatement("""
                     INSERT INTO mapping_selection (AuditID, MappingTableID, IncomeExpense)
                     VALUES (?, ?, ?)

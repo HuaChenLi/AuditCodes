@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 public class CreateNewColumns extends DatabaseConnection{
-    Connection connection = getConnection();
     public void insertColumn(int auditID, String columnName, boolean gSTIncluded, boolean isIncome, boolean isExpense) {
         Statement statement;
         if (isIncome) {
             try {
+                Connection connection = getConnection();
                 PreparedStatement insertColumnDetails = connection.prepareStatement("""
                     INSERT INTO ExcelColumns (AuditID, ColumnName, IsDefault, GSTIncluded, IsIncome)
                     VALUES (?, ?, ?, ?, ?)
@@ -27,6 +27,7 @@ public class CreateNewColumns extends DatabaseConnection{
 
         if (isExpense) {
             try {
+                Connection connection = getConnection();
                 PreparedStatement insertColumnDetails = connection.prepareStatement("""
                     INSERT INTO ExcelColumns (AuditID, ColumnName, IsDefault, GSTIncluded, IsIncome)
                     VALUES (?, ?, ?, ?, ?)
@@ -45,6 +46,7 @@ public class CreateNewColumns extends DatabaseConnection{
 
     public void insertExcelColumnSelection(int excelColumnID, int excelCategoryMappingID) {
         try {
+            Connection connection = getConnection();
             PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
                     INSERT INTO ExcelColumnSelection (ExcelColumnID, ExcelCategoryMappingID)
                     VALUES (?, ?)

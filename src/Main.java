@@ -1,6 +1,7 @@
 package src;
 
 import src.Panels.*;
+import src.SQLFunctions.AuditIDSQLs;
 import src.SQLFunctions.DatabaseConnection;
 
 import javax.swing.*;
@@ -16,6 +17,10 @@ public class Main {
     public Main() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
+
+//        Load Database
+        AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
+        auditIDSQLs.createAuditTable();
 
 //        Title Panel
         TitlePanel titlePanel = new TitlePanel();

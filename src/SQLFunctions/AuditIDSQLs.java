@@ -6,10 +6,31 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class AuditIDSQLs extends DatabaseConnection {
-    Connection connection = getConnection();
+    public void createAuditTable() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS audit_id " +
+                    "(id PRIMARY KEY NOT NULL UNIQUE," +
+                    "audit_name STRING NOT NULL)";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Created Audit ID Table successfully");
+    }
+
     public String getAuditName(int auditID) {
         Statement statement;
         try {
+            Connection connection = getConnection();
             PreparedStatement getAuditNames = connection.prepareStatement("""
                     SELECT audit_name FROM audit_id WHERE id = ?
                     """);

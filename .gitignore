@@ -18,3 +18,6 @@ out
 *.txt
 
 database
+audit.db
+
+AuditCodes.iml
