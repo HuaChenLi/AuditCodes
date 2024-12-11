@@ -3,12 +3,10 @@ package src;
 import src.Panels.*;
 import src.SQLFunctions.AuditIDSQLs;
 import src.SQLFunctions.CreateNewColumns;
-import src.SQLFunctions.DatabaseConnection;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
 
 
 public class Main {
@@ -42,10 +40,6 @@ public class Main {
 //        Financial Year Panel
         FinancialYearPanel financialYearPanel = new FinancialYearPanel();
         mainPanel.add(financialYearPanel);
-
-//        Account Selection
-        AccountSelectionPanel accountSelectionPanel = new AccountSelectionPanel();
-        mainPanel.add(accountSelectionPanel);
 
 //        Create Excel Spreadsheets Panel
         CreateExcelSheetsPanel createExcelSpreadsheetsPanel = new CreateExcelSheetsPanel();

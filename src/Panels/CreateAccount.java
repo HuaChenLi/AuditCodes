@@ -8,6 +8,7 @@ public class CreateAccount extends JPanel {
     JLabel accountNameLabel;
     JTextField accountNameText;
     JButton createAccountButton;
+    AccountSelectionComboBox accountSelectionComboBox = new AccountSelectionComboBox();
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
     public CreateAccount() {
         accountNameLabel = new JLabel("Account Name");
@@ -17,11 +18,13 @@ public class CreateAccount extends JPanel {
         createAccountButton.addActionListener(e -> {
             auditIDSQLs.createAccount(accountNameText.getText());
             accountNameText.setText("");
+            accountSelectionComboBox.refreshAccountComboBox();
             this.revalidate();
         });
 
         this.add(accountNameLabel);
         this.add(accountNameText);
         this.add(createAccountButton);
+        this.add(accountSelectionComboBox);
     }
 }
