@@ -6,6 +6,51 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class MappingTableSQLs extends DatabaseConnection {
+
+    public void createMappingTable() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS mapping_table " +
+                    "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "map_to STRING," +
+                    "map_from STRING)";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Created Mapping Table successfully");
+    }
+
+    public void createMappingSelectionTable() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS mapping_selection " +
+                    "(mapping_table_id INTEGER," +
+                    "audit_id INTEGER," +
+                    "income_expense STRING)";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Created Mapping Selection Table successfully");
+    }
+
     public void insertMapping(String mapFrom, String mapTo, int auditID, char incomeExpenseChar) {
         Statement statement;
         try {
@@ -39,13 +84,14 @@ public class MappingTableSQLs extends DatabaseConnection {
                 lastRowID = grabLastRowID.executeQuery();
                 lastRowID.next();
                 int lastRowIDValue = lastRowID.getInt("MAX(id)");
+                connection.close();
                 createMappingSelection(auditID, lastRowIDValue, incomeExpenseChar);
 
                 System.out.println("New Mapping created");
             } else {
 //                There is an existing mapping table record
                 PreparedStatement grabExistingMappingSelectionRow = connection.prepareStatement("""
-                        SELECT MappingTableID, AuditID, IncomeExpense FROM mapping_selection WHERE MappingTableID = ? AND AuditID = ?
+                        SELECT mapping_table_id, audit_id, income_expense FROM mapping_selection WHERE mapping_table_id = ? AND audit_id = ?
                         """);
 
                 int existingMappingTableID = existingMappingTableRecord.getInt("id");
@@ -63,8 +109,8 @@ public class MappingTableSQLs extends DatabaseConnection {
                 } else {
                     PreparedStatement updateMappingSelection = connection.prepareStatement("""
                             UPDATE mapping_selection
-                            SET IncomeExpense = ?
-                            WHERE AuditID = ? AND MappingTableID = ?
+                            SET income_expense = ?
+                            WHERE audit_id = ? AND mapping_table_id = ?
                             """);
                     updateMappingSelection.setString(1, String.valueOf(incomeExpenseChar));
                     updateMappingSelection.setInt(2, auditID);
@@ -84,13 +130,14 @@ public class MappingTableSQLs extends DatabaseConnection {
         try{
             Connection connection = getConnection();
             PreparedStatement createMappingSelection = connection.prepareStatement("""
-                    INSERT INTO mapping_selection (AuditID, MappingTableID, IncomeExpense)
+                    INSERT INTO mapping_selection (audit_id, mapping_table_id, income_expense)
                     VALUES (?, ?, ?)
                     """);
             createMappingSelection.setInt(1, auditID1);
             createMappingSelection.setInt(2, mappingTableID1);
             createMappingSelection.setString(3, String.valueOf(incomeExpense1));
             createMappingSelection.executeUpdate();
+            connection.close();
 
         } catch (Exception e ) {
             e.printStackTrace();

@@ -22,7 +22,7 @@ public class AuditAccountClass {
     }
 
     public static boolean isAuditIDEntered() {
-        return auditIDEntered;
+        return (auditID > 0);
     }
 
     public static boolean isIncomeExpenseEntered() {

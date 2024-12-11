@@ -2,7 +2,9 @@ package src;
 
 import src.Panels.*;
 import src.SQLFunctions.AuditIDSQLs;
+import src.SQLFunctions.CreateNewColumns;
 import src.SQLFunctions.DatabaseConnection;
+import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +23,13 @@ public class Main {
 //        Load Database
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
         auditIDSQLs.createAuditTable();
+
+        CreateNewColumns createNewColumns = new CreateNewColumns();
+        createNewColumns.createExcelColumnTables();
+
+        MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
+        mappingTableSQLs.createMappingTable();
+        mappingTableSQLs.createMappingSelectionTable();
 
 //        Account Creation Panel
         CreateAccount createAccount = new CreateAccount();
