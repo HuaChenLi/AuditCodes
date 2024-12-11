@@ -2,7 +2,7 @@ package src.Panels;
 
 public class AuditAccountClass {
     static int auditID;
-    static boolean auditIDEntered, incomeExpenseEntered;
+    static boolean incomeExpenseEntered;
     static char incomeExpenseChar;
 
     public static int getAuditID() {
@@ -27,10 +27,6 @@ public class AuditAccountClass {
 
     public static boolean isIncomeExpenseEntered() {
         return incomeExpenseEntered;
-    }
-
-    public static void setAuditIDEntered(boolean auditIDEntered) {
-        AuditAccountClass.auditIDEntered = auditIDEntered;
     }
 
     public static void setIncomeExpenseEntered(boolean incomeExpenseEntered) {

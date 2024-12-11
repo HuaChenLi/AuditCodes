@@ -70,11 +70,32 @@ public class CreateNewColumns extends DatabaseConnection{
         }
     }
 
+    public void createExcelColumnSelectionTable() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS excel_column_selection " +
+                    "(excel_column_id INTEGER NOT NULL," +
+                    "excel_category_mapping_id INTEGER NOT NULL)";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Created Excel Column Table successfully");
+    }
+
     public void insertExcelColumnSelection(int excelColumnID, int excelCategoryMappingID) {
         try {
             Connection connection = getConnection();
             PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
-                    INSERT INTO ExcelColumnSelection (ExcelColumnID, ExcelCategoryMappingID)
+                    INSERT INTO excel_column_selection (excel_column_id, excel_category_mapping_id)
                     VALUES (?, ?)
                     """);
             insertColumnSelectionDetails.setInt(1, excelColumnID);
