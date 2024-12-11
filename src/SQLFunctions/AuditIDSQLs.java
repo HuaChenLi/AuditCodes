@@ -1,5 +1,7 @@
 package src.SQLFunctions;
 
+import src.Panels.AuditAccountID;
+
 import javax.swing.table.DefaultTableModel;
 import javax.xml.crypto.Data;
 import java.sql.*;
@@ -64,7 +66,7 @@ public class AuditIDSQLs extends DatabaseConnection {
 
     }
 
-    public Vector getAllAccounts() {
+    public Vector<AuditAccountID> getAllAccounts() {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
             Connection connection = Connection.getConnection();
@@ -75,24 +77,11 @@ public class AuditIDSQLs extends DatabaseConnection {
 
             ResultSet rs = getAuditID.executeQuery();
 
-            ResultSetMetaData metaData = rs.getMetaData();
-
-            // names of columns
-            Vector<String> columnNames = new Vector<String>();
-            int columnCount = metaData.getColumnCount();
-            for (int column = 1; column <= columnCount; column++) {
-                columnNames.add(metaData.getColumnName(column));
-            }
-
-
             // data of the table
-            Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+            Vector<AuditAccountID> data = new Vector<AuditAccountID>();
             while (rs.next()) {
-                Vector<Object> vector = new Vector<Object>();
-                for (int columnIndex = 1; columnIndex <= columnCount; columnIndex++) {
-                    vector.add(rs.getObject(columnIndex));
-                }
-                data.add(vector);
+                AuditAccountID auditAccountID = new AuditAccountID(rs.getInt("id"), rs.getString("audit_name"));
+                data.add(auditAccountID);
             }
 
             connection.close();
@@ -107,6 +96,7 @@ public class AuditIDSQLs extends DatabaseConnection {
     public String getAuditName(int auditID) {
         Statement statement;
         try {
+            DatabaseConnection Connection = new DatabaseConnection();
             Connection connection = getConnection();
             PreparedStatement getAuditNames = connection.prepareStatement("""
                     SELECT audit_name FROM audit_id WHERE id = ?
@@ -124,5 +114,23 @@ public class AuditIDSQLs extends DatabaseConnection {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int getStartingAuditNumber() {
+        Statement statement;
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            Connection connection = getConnection();
+            PreparedStatement getAuditNames = connection.prepareStatement("""
+                    SELECT id FROM audit_id LIMIT 1
+                    """);
+
+            ResultSet rs;
+            rs = getAuditNames.executeQuery();
+            return rs.getInt(1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 }
