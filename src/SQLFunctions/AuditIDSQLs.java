@@ -16,7 +16,7 @@ public class AuditIDSQLs extends DatabaseConnection {
             stmt = connection.createStatement();
 
             String sql = "CREATE TABLE IF NOT EXISTS audit_id " +
-                    "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "audit_name STRING NOT NULL)";
             stmt.executeUpdate(sql);
 

@@ -11,10 +11,11 @@ public class CreateNewColumns extends DatabaseConnection{
             stmt = connection.createStatement();
 
             String sql = "CREATE TABLE IF NOT EXISTS excel_columns " +
-                    "(audit_id INTEGER NOT NULL," +
-                    "column_name STRING NOT NULL," +
-                    "is_default BOOLEAN," +
-                    "gst_included BOOLEAN," +
+                    "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "audit_id INTEGER NOT NULL, " +
+                    "column_name STRING NOT NULL, " +
+                    "is_default BOOLEAN, " +
+                    "gst_included BOOLEAN, " +
                     "is_income BOOLEAN)";
             stmt.executeUpdate(sql);
 
@@ -25,6 +26,26 @@ public class CreateNewColumns extends DatabaseConnection{
             System.exit(0);
         }
         System.out.println("Created Excel Column Table successfully");
+    }
+
+    public void dropExcelColumnTables() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "DROP TABLE IF EXISTS excel_columns";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Dropped excel_columns Table successfully");
     }
 
     public void insertColumn(int auditID, String columnName, boolean gSTIncluded, boolean isIncome, boolean isExpense) {
@@ -91,7 +112,8 @@ public class CreateNewColumns extends DatabaseConnection{
 
     public void insertExcelColumnSelection(int excelColumnID, int excelCategoryMappingID) {
         try {
-            Connection connection = getConnection();
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
             PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
                     INSERT INTO excel_column_selection (excel_column_id, excel_category_mapping_id)
                     VALUES (?, ?)
@@ -106,11 +128,12 @@ public class CreateNewColumns extends DatabaseConnection{
 
     public ResultSet getExcelColumns(int auditID, boolean isIncome) {
         try {
-            Connection connection = getConnection();
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
             PreparedStatement selectExcelColumns = connection.prepareStatement("""
-                    SELECT ColumnName, ExcelColumnID FROM ExcelColumns
-                    WHERE AuditID = ?
-                    AND IsIncome = ?
+                    SELECT column_name, id FROM excel_columns
+                    WHERE audit_id = ?
+                    AND is_income = ?
                     """);
             selectExcelColumns.setInt(1, auditID);
             selectExcelColumns.setBoolean(2, isIncome);
@@ -129,9 +152,10 @@ public class CreateNewColumns extends DatabaseConnection{
 
     public ResultSet getCategories() {
         try {
-            Connection connection = getConnection();
+            DatabaseConnection Connection = new DatabaseConnection();
+            Connection connection = Connection.getConnection();
             PreparedStatement selectExcelColumns = connection.prepareStatement("""
-                    SELECT CategoryValues, ID FROM ExcelCategoryMapping
+                    SELECT category_values, id FROM excel_category_mapping
                     """);
 
             ResultSet excelColumns;

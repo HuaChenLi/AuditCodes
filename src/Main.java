@@ -22,6 +22,7 @@ public class Main {
         auditIDSQLs.createAuditTable();
 
         CreateNewColumns createNewColumns = new CreateNewColumns();
+        createNewColumns.dropExcelColumnTables();
         createNewColumns.createExcelColumnTables();
         createNewColumns.createExcelColumnSelectionTable();
 
