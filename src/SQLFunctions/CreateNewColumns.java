@@ -145,7 +145,4 @@ public class CreateNewColumns extends DatabaseConnection{
         }
         return null;
     }
-
-
-
 }
