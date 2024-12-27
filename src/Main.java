@@ -24,6 +24,7 @@ public class Main {
         CreateNewColumns createNewColumns = new CreateNewColumns();
         createNewColumns.createExcelColumnTables();
         createNewColumns.createExcelColumnSelectionTable();
+        createNewColumns.createCategoryMappings();
 
         MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
         mappingTableSQLs.createMappingTable();

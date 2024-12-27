@@ -2,60 +2,36 @@ package src.Panels;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.Year;
 
 public class FinancialYearPanel extends JPanel {
-    JLabel financialYearLabel, financialQuarterLabel;
-    JButton financialYearButton, financialQuarterButton;
-    JTextField financialYearText, financialQuarterText;
+    JLabel financialYearLabel;
+    YearComboBox yearComboBox;
+
     static int financialYearValue, financialQuarterValue;
     public FinancialYearPanel() {
-        this.setLayout(new GridLayout(0,3));
+        this.setLayout(new GridLayout(0,2));
 
-        financialYearLabel = new JLabel("Financial Year");
-        financialYearText = new JTextField();
-        financialYearButton = new JButton("Set Financial Year");
-
-        financialYearButton.addActionListener(e1 -> {
-            String tempString = financialYearText.getText();
-            try {
-                financialYearValue = Integer.parseInt(tempString);
-                financialYearLabel.setText("Financial Year " + financialYearValue);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-            financialYearText.setText("");
-
-            this.revalidate();
-            this.validate();
-        });
-
-
-        financialQuarterLabel = new JLabel("Quarter");
-        financialQuarterText = new JTextField();
-        financialQuarterButton = new JButton("Set Quarter");
-
-        financialQuarterButton.addActionListener(e1 -> {
-            String tempString = financialQuarterText.getText();
-            try {
-                financialQuarterValue = Integer.parseInt(tempString);
-                financialQuarterLabel.setText("Quarter " + financialQuarterValue);
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-            financialQuarterText.setText("");
-
-            this.revalidate();
-            this.validate();
-        });
+        financialYearLabel = new JLabel("Year");
+        yearComboBox = new YearComboBox();
 
         this.add(financialYearLabel);
-        this.add(financialYearText);
-        this.add(financialYearButton);
-
-        this.add(financialQuarterLabel);
-        this.add(financialQuarterText);
-        this.add(financialQuarterButton);
-
+        this.add(yearComboBox);
     }
 
+    public class YearComboBox extends JComboBox {
+        public YearComboBox() {
+//            this.addItem(2023);
+            this.addItem(2024);
+            this.addItem(2025);
+
+            this.addActionListener(e -> {
+                financialYearValue = (int) this.getSelectedItem();
+            });
+        }
+
+        public void setValue(int year) {
+//            this.;
+        }
+    }
 }

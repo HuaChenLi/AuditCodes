@@ -48,6 +48,27 @@ public class CreateNewColumns extends DatabaseConnection{
         System.out.println("Dropped excel_columns Table successfully");
     }
 
+    public void createCategoryMappings() {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            Statement stmt = null;
+            stmt = connection.createStatement();
+
+            String sql = "CREATE TABLE IF NOT EXISTS excel_category_mapping " +
+                    "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "category_values STRING)";
+            stmt.executeUpdate(sql);
+
+            stmt.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            System.exit(0);
+        }
+        System.out.println("Created Excel Column Table successfully");
+    }
+
     public void insertColumn(int auditID, String columnName, boolean gSTIncluded, boolean isIncome, boolean isExpense) {
         Statement statement;
         if (isIncome) {
