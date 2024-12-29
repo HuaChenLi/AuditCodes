@@ -2,10 +2,11 @@ package src.Panels;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Vector;
 
 public class IncomeExpenseIndicatorPanel extends JPanel {
-    JLabel incomeExpenseLabel, incomeExpenseIndicator;
-    JButton incomeButton, expenseButton;
+    JLabel incomeExpenseLabel;
+    IncomeExpenseCombobox incomeExpenseCombobox;
     static boolean isIncome;
     static boolean isExpense;
      public static boolean isIncome() {
@@ -18,46 +19,58 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
 
     char incomeExpenseChar;
     public IncomeExpenseIndicatorPanel() {
-        this.setLayout(new GridLayout(0,4));
+        this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         incomeExpenseLabel = new JLabel("Income and/or Expense");
-        incomeExpenseIndicator = new JLabel("", SwingConstants.CENTER);
-        incomeButton = new JButton("Income");
-        expenseButton = new JButton("Expense");
-
-        incomeButton.addActionListener(e1 -> {
-            isIncome = !isIncome;
-            incomeExpenseIndicator.setText(getIncomeExpenseChar());
-            this.revalidate();
-            this.validate();
-        });
-
-        expenseButton.addActionListener(e1 -> {
-            isExpense = !isExpense;
-            incomeExpenseIndicator.setText(getIncomeExpenseChar());
-            this.revalidate();
-            this.validate();
-        });
+        incomeExpenseCombobox = new IncomeExpenseCombobox();
 
         this.add(incomeExpenseLabel);
-        this.add(incomeExpenseIndicator);
-        this.add(incomeButton);
-        this.add(expenseButton);
+        this.add(incomeExpenseCombobox);
     }
-    public String getIncomeExpenseChar() {
-        AuditAccountClass.setIncomeExpenseEntered(true);
 
-        if (isIncome && !isExpense) {
-            incomeExpenseChar = 'I';
-        } else if (!isIncome && isExpense) {
-            incomeExpenseChar = 'E';
-        } else {
-            incomeExpenseChar = 'B';
+    public class IncomeExpenseCombobox extends JComboBox {
+        public IncomeExpenseCombobox() {
+            this.addItem(new IncomeExpenseCodeDescription('I', "Income"));
+            this.addItem(new IncomeExpenseCodeDescription('E', "Expense"));
+            this.addItem(new IncomeExpenseCodeDescription('B', "Both"));
+
+            this.addActionListener(e -> {
+                IncomeExpenseCodeDescription temp = (IncomeExpenseCodeDescription) this.getSelectedItem();
+                if (temp.getId() == 'E') {
+                    isIncome = false;
+                    isExpense = true;
+                } else if (temp.getId() == 'I') {
+                    isIncome = true;
+                    isExpense = false;
+                } else if (temp.getId() == 'B') {
+                    isIncome = true;
+                    isExpense = true;
+                }
+            });
+        }
+    }
+
+    public class IncomeExpenseCodeDescription {
+        char id;
+        String description;
+
+        public IncomeExpenseCodeDescription(char id, String description) {
+            this.id = id;
+            this.description = description;
         }
 
-        AuditAccountClass.setIncomeExpenseChar(incomeExpenseChar);
-        return String.valueOf(incomeExpenseChar);
-    }
+        public String getDescription() {
+            return description;
+        }
 
+        public char getId() {
+            return id;
+        }
+
+        @Override
+        public String toString() {
+            return description;
+        }
+    }
 }
