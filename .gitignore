@@ -25,3 +25,5 @@ AuditCodes.iml
 *.pyc
 .classpath
 .project
+
+*code-workspace
