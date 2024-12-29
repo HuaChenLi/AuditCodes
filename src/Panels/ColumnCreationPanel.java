@@ -49,8 +49,8 @@ public class ColumnCreationPanel extends JPanel {
 
 
         this.add(columnNameLabel);
-        this.add(defaultLabel);
         this.add(gSTLabel);
+        this.add(defaultLabel);
         this.add(blankLabel);
         this.add(columnNameText);
         this.add(addColumnButton);
