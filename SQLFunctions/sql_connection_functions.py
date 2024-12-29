@@ -1,11 +1,10 @@
-import mysql.connector
-from mysql.connector import Error
+import sqlite3
 import sys
 import os
 
 sys.path.append(os.path.abspath(""))
 
-with open("ServerLogin\database") as file:
+with open("ServerLogin\\database") as file:
     lines = file.readlines()
     host = lines[0].strip()
     username = lines[2].strip()
@@ -16,7 +15,7 @@ with open("ServerLogin\database") as file:
 def create_server_connection(host_name, user_name, user_password):
     connection_1 = None
     try:
-        connection_1 = mysql.connector.connect(
+        connection_1 = sqlite3.connect(
             host=host_name,
             user=user_name,
             passwd=user_password
@@ -37,15 +36,10 @@ def create_database(connection_1, query):
         print(f"Error: '{err}'")
 
 
-def create_db_connection(host_name, user_name, user_password, db_name):
+def create_db_connection():
     connection_1 = None
     try:
-        connection_1 = mysql.connector.connect(
-            host=host_name,
-            user=user_name,
-            passwd=user_password,
-            database=db_name
-        )
+        connection_1 = sqlite3.connect("audit.db")
         print("MySQL Database connection successful")
     except Error as err:
         print(f"Error: '{err}'")
@@ -74,7 +68,7 @@ def read_query(connection_1, query):
         print(f"Error: '{err}'")
 
 
-connection = create_db_connection(host, username, password, database)
+connection = create_db_connection()
 
 
 def get_password():

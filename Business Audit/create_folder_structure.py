@@ -103,11 +103,11 @@ for index, quarter in enumerate(quarters_list, start=1):
                 is_income = False
 
             temp_df = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, is_income)
-            col_names = list(temp_df["ColumnName"])
+            col_names = list(temp_df["column_name"])
             column_number = len(col_names)
 
             # setting the header rows
-            current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 2)
+            current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 3)
             current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 3,
                                       end_column=column_number + 3)
             current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 4,
@@ -169,9 +169,10 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         # income column names and sums
         temp_df_for_income = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, True)
-        income_col_names = list(temp_df_for_income["ColumnName"])
+        income_col_names = list(temp_df_for_income["column_name"])
         income_column_number = len(income_col_names)
 
+        transfer_index = None
         for income_column_index, col_name in enumerate(income_col_names, 1):
             if 'Transfer' in col_name:
                 transfer_index = income_column_index
@@ -181,6 +182,8 @@ for index, quarter in enumerate(quarters_list, start=1):
                                                                                                       number_of_cells,
                                                                                                       income_column_index + 2,
                                                                                                       income_column_index + 2)
+        if transfer_index is None:
+            transfer_index = 2
 
         # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
         summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
