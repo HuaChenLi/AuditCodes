@@ -21,3 +21,7 @@ database
 audit.db
 
 AuditCodes.iml
+
+*.pyc
+.classpath
+.project
