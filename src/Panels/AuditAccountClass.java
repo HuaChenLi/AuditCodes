@@ -26,10 +26,14 @@ public class AuditAccountClass {
     }
 
     public static boolean isIncomeExpenseEntered() {
-        return incomeExpenseEntered;
+        return (incomeExpenseChar > 0);
     }
 
-    public static void setIncomeExpenseEntered(boolean incomeExpenseEntered) {
-        AuditAccountClass.incomeExpenseEntered = incomeExpenseEntered;
+    public static boolean isIncome() {
+        return incomeExpenseChar == 'I' || incomeExpenseChar == 'B';
+    }
+
+    public static boolean isExpense() {
+        return incomeExpenseChar == 'E' || incomeExpenseChar == 'B';
     }
 }

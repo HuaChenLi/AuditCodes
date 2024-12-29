@@ -2,22 +2,11 @@ package src.Panels;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Vector;
 
 public class IncomeExpenseIndicatorPanel extends JPanel {
     JLabel incomeExpenseLabel;
     IncomeExpenseCombobox incomeExpenseCombobox;
-    static boolean isIncome;
-    static boolean isExpense;
-     public static boolean isIncome() {
-        return isIncome;
-    }
 
-    public static boolean isExpense() {
-        return isExpense;
-    }
-
-    char incomeExpenseChar;
     public IncomeExpenseIndicatorPanel() {
         this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -31,6 +20,8 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
 
     public class IncomeExpenseCombobox extends JComboBox {
         public IncomeExpenseCombobox() {
+            AuditAccountClass.incomeExpenseChar = 'I';
+
             this.addItem(new IncomeExpenseCodeDescription('I', "Income"));
             this.addItem(new IncomeExpenseCodeDescription('E', "Expense"));
             this.addItem(new IncomeExpenseCodeDescription('B', "Both"));
@@ -38,14 +29,11 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
             this.addActionListener(e -> {
                 IncomeExpenseCodeDescription temp = (IncomeExpenseCodeDescription) this.getSelectedItem();
                 if (temp.getId() == 'E') {
-                    isIncome = false;
-                    isExpense = true;
+                    AuditAccountClass.setIncomeExpenseChar('E');
                 } else if (temp.getId() == 'I') {
-                    isIncome = true;
-                    isExpense = false;
+                    AuditAccountClass.setIncomeExpenseChar('I');
                 } else if (temp.getId() == 'B') {
-                    isIncome = true;
-                    isExpense = true;
+                    AuditAccountClass.setIncomeExpenseChar('B');
                 }
             });
         }
