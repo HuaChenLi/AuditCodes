@@ -127,7 +127,11 @@ public class AuditIDSQLs extends DatabaseConnection {
 
             ResultSet rs;
             rs = getAuditNames.executeQuery();
-            int id = rs.getInt(1);
+
+            int id = -1;
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
             connection.close();
             return id;
         } catch (Exception e) {
