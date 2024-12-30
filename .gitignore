@@ -13,6 +13,7 @@ My Audit/.vscode
 
 *.csv
 *.xml
+*.xlsx
 
 out
 *.txt
