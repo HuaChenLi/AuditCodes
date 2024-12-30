@@ -43,8 +43,10 @@ public class ColumnCreationPanel extends JPanel {
             int auditID = AuditAccountClass.getAuditID();
             boolean isIncome = AuditAccountClass.isIncome();
             boolean isExpense = AuditAccountClass.isExpense();
-            createNewColumns.insertColumn(auditID, columnNameText.getText(), gSTIncluded, isIncome, isExpense);
-            columnNameText.setText("");
+            if (columnNameText.getText().length() >= 1) {
+                createNewColumns.insertColumn(auditID, columnNameText.getText(), gSTIncluded, isIncome, isExpense);
+                columnNameText.setText("");
+            }
 
             excelColumnViewPanel.refreshAll();
         });
