@@ -10,7 +10,7 @@ public class ColumnCreationPanel extends JPanel {
     JTextField columnNameText;
     JButton defaultButton, gSTButton, addColumnButton;
     boolean isDefault = false, gSTIncluded = false;
-    public ColumnCreationPanel() {
+    public ColumnCreationPanel(ExcelColumnViewPanel excelColumnViewPanel) {
         this.setLayout(new GridLayout(0,4));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         columnNameLabel = new JLabel("Column Name");
@@ -45,6 +45,8 @@ public class ColumnCreationPanel extends JPanel {
             boolean isExpense = AuditAccountClass.isExpense();
             createNewColumns.insertColumn(auditID, columnNameText.getText(), gSTIncluded, isIncome, isExpense);
             columnNameText.setText("");
+
+            excelColumnViewPanel.refreshAll();
         });
 
 

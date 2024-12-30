@@ -57,7 +57,7 @@ public class Main {
         mainPanel.add(mappingPanel);
 
 //        Column Creation Panel
-        ColumnCreationPanel columnCreationPanel = new ColumnCreationPanel();
+        ColumnCreationPanel columnCreationPanel = new ColumnCreationPanel(excelColumnViewPanel);
         mainPanel.add(columnCreationPanel);
 
 //        Categorise Panel
