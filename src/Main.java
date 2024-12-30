@@ -30,8 +30,10 @@ public class Main {
         mappingTableSQLs.createMappingTable();
         mappingTableSQLs.createMappingSelectionTable();
 
+        ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
+
 //        Account Creation Panel
-        CreateAccount createAccount = new CreateAccount();
+        CreateAccount createAccount = new CreateAccount(excelColumnViewPanel);
         mainPanel.add(createAccount);
 
 //        Title Panel
@@ -62,7 +64,7 @@ public class Main {
         CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();
         mainPanel.add(categoriseValuesPanel);
 
-        ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
+        excelColumnViewPanel.refreshAll();
         mainPanel.add(excelColumnViewPanel);
 
 //        Setting the GUI Frame

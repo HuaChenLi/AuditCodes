@@ -47,31 +47,13 @@ public class ExcelColumnViewPanel extends JPanel{
 
         showExcelColumnsButton = new JButton("Show Excel Columns");
         showExcelColumnsButton.addActionListener(e1 -> {
-            try {
-                excelColumnsDataModel = getExcelColumnsDataModel(excelColumnsDataModel);
-                excelColumnTable.setDefaultEditor(Object.class, null);
-                excelColumnTable.setModel(excelColumnsDataModel);
-                excelColumnTable.getColumnModel().getColumn(0).setPreferredWidth(150);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.revalidate();
-            this.validate();
+            refreshExcelColumnsTable();
         });
 
 
         showCategoriesButton = new JButton("Show Categories");
         showCategoriesButton.addActionListener(e1 -> {
-            try {
-                categoriesDataModel = getCategoriesDataModel(categoriesDataModel);
-                categoriesTable.setDefaultEditor(Object.class, null);
-                categoriesTable.setModel(categoriesDataModel);
-                categoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            this.revalidate();
-            this.validate();
+            refreshCategoriesTable();
         });
 
         this.revalidate();
@@ -130,8 +112,6 @@ public class ExcelColumnViewPanel extends JPanel{
         return dataModel;
     }
 
-
-
     public static DefaultTableModel buildTableModel(ResultSet rs)
             throws SQLException {
 
@@ -157,4 +137,34 @@ public class ExcelColumnViewPanel extends JPanel{
         return new DefaultTableModel(data, columnNames);
     }
 
+    public void refreshExcelColumnsTable() {
+        try {
+            excelColumnsDataModel = getExcelColumnsDataModel(excelColumnsDataModel);
+            excelColumnTable.setDefaultEditor(Object.class, null);
+            excelColumnTable.setModel(excelColumnsDataModel);
+            excelColumnTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.revalidate();
+        this.validate();
+    }
+
+    public void refreshCategoriesTable() {
+        try {
+            categoriesDataModel = getCategoriesDataModel(categoriesDataModel);
+            categoriesTable.setDefaultEditor(Object.class, null);
+            categoriesTable.setModel(categoriesDataModel);
+            categoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.revalidate();
+        this.validate();
+    }
+
+    public void refreshAll() {
+        refreshExcelColumnsTable();
+        refreshCategoriesTable();
+    }
 }

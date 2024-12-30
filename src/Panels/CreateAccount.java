@@ -8,9 +8,10 @@ public class CreateAccount extends JPanel {
     JLabel accountNameLabel;
     JTextField accountNameText;
     JButton createAccountButton;
-    AccountSelectionComboBox accountSelectionComboBox = new AccountSelectionComboBox();
+    ExcelColumnViewPanel excelColumnViewPanel;
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
-    public CreateAccount() {
+    public CreateAccount(ExcelColumnViewPanel excelColumnViewPanel) {
+        AccountSelectionComboBox accountSelectionComboBox = new AccountSelectionComboBox(excelColumnViewPanel);
         accountNameLabel = new JLabel("Account Name");
         accountNameText = new JTextField();
         accountNameText.setColumns(20);
