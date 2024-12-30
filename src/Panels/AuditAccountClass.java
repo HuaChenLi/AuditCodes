@@ -1,8 +1,9 @@
 package src.Panels;
 
+import src.SQLFunctions.AuditIDSQLs;
+
 public class AuditAccountClass {
     static int auditID;
-    static boolean incomeExpenseEntered;
     static char incomeExpenseChar;
 
     public static int getAuditID() {
@@ -13,6 +14,10 @@ public class AuditAccountClass {
         auditID = auditID_2;
     }
 
+    public static String getAccountName(int accountID) {
+        AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
+        return auditIDSQLs.getAuditName(accountID);
+    }
     public static char getIncomeExpenseChar() {
         return incomeExpenseChar;
     }

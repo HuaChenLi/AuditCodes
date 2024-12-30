@@ -1,7 +1,5 @@
 package src.Panels;
 
-import src.SQLFunctions.DatabaseConnection;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -13,7 +11,7 @@ import static src.Panels.FinancialYearPanel.financialYearValue;
 
 public class CreateExcelSheetsPanel extends JPanel {
     JButton createExcelSheets, createIncomeExpenseCSVs;
-    public CreateExcelSheetsPanel() {
+    public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -22,7 +20,7 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         createExcelSheets.addActionListener(e1 -> {
             try {
-                createExcelSheetsFunction();
+                createExcelSheetsFunction(accountID, accountName);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -41,8 +39,8 @@ public class CreateExcelSheetsPanel extends JPanel {
     }
 
 
-    public void createExcelSheetsFunction() throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_folder_structure.py", String.valueOf(financialYearValue));
+    public void createExcelSheetsFunction(int accountID, String accountName) throws IOException {
+        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_folder_structure.py", String.valueOf(financialYearValue), String.valueOf(accountID), accountName);
         Process process = pb.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

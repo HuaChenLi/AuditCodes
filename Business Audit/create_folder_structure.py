@@ -11,11 +11,14 @@ from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
 
 year_end = int(sys.argv[1])
-year_start = year_end - 1
+auditIDList = [int(sys.argv[2])]
+spreadsheet_name = str(sys.argv[3])
 
-financial_year = str(year_start) + " - " + str(year_end)
+print("yoooooooooooooooo " + str(year_end))
 
-financial_year_folder = str(year_start) + ' Jul - ' + str(year_end) + ' Jun'
+financial_year = str(year_end)
+
+financial_year_folder = financial_year
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
@@ -27,16 +30,12 @@ try:
 except:
     print('Year folder already exists')
 
-# Begin the for loop
-auditIDList = [2, 3, 4]
-
 # For counting purposes
 iteration_number = 0
 
-
 for index, quarter in enumerate(quarters_list, start=1):
     # Create the quarter folders
-    quarter_folder = os.path.join('./', financial_year_folder, 'Q' + str(index) + ' ' + quarter)
+    quarter_folder = os.path.join('./', financial_year_folder)
     try:
         os.mkdir(quarter_folder)
     except:
@@ -44,13 +43,6 @@ for index, quarter in enumerate(quarters_list, start=1):
 
     # Creating each Excel Spreadsheet
     for audit_id in auditIDList:
-        # /////////////////////////////////////////
-        if audit_id == 2:
-            spreadsheet_name = "Business Transaction Account"
-        elif audit_id == 3:
-            spreadsheet_name = "Everyday Offset"
-        elif audit_id == 4:
-            spreadsheet_name = "Mastercard"
 
         iteration_number = iteration_number + 1
         print('beginning iteration ' + str(iteration_number))
@@ -114,7 +106,7 @@ for index, quarter in enumerate(quarters_list, start=1):
                                       end_column=column_number + 4)
             current_sheet.column_dimensions[xl.utils.get_column_letter(column_number + 3)].width = 12.73
             current_sheet.column_dimensions[xl.utils.get_column_letter(column_number + 4)].width = 12.73
-            current_sheet.cell(row=1, column=column_number + 3).value = 'Total'
+            # current_sheet.cell(row=1, column=column_number + 3).value = 'Total'
             current_sheet.cell(row=1, column=column_number + 4).value = 'Acc. Total'
             current_sheet.cell(row=1, column=column_number + 3).alignment = Alignment(horizontal='center',
                                                                                       vertical='center', wrap_text=True)
@@ -187,7 +179,7 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
         summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
-        summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
+        # summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
         summary_sheet.cell(row=7 + income_column_number + 5, column=1).value = 'Total'
         summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_sheets[1]
 
@@ -211,7 +203,7 @@ for index, quarter in enumerate(quarters_list, start=1):
 
         # expense column names and sums
         temp_df_for_expense = SQLFunctions.sql_excel_columns.select_excel_column(audit_id, False)
-        expense_col_names = list(temp_df_for_expense["ColumnName"])
+        expense_col_names = list(temp_df_for_expense["column_name"])
         expense_column_number = len(expense_col_names)
 
         for expense_column_index, col_name in enumerate(expense_col_names, 1):

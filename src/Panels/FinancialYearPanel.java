@@ -15,6 +15,8 @@ public class FinancialYearPanel extends JPanel {
         financialYearLabel = new JLabel("Year");
         yearComboBox = new YearComboBox();
 
+        financialYearValue = 2024;
+
         this.add(financialYearLabel);
         this.add(yearComboBox);
     }
