@@ -142,6 +142,7 @@ public class CreateNewColumns extends DatabaseConnection{
             insertColumnSelectionDetails.setInt(1, excelColumnID);
             insertColumnSelectionDetails.setInt(2, excelCategoryMappingID);
             insertColumnSelectionDetails.executeUpdate();
+            insertColumnSelectionDetails.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -161,7 +162,6 @@ public class CreateNewColumns extends DatabaseConnection{
 
             ResultSet excelColumns;
             excelColumns = selectExcelColumns.executeQuery();
-            System.out.println(excelColumns);
 
             return excelColumns;
 
