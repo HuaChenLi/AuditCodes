@@ -69,6 +69,21 @@ public class CreateNewColumns extends DatabaseConnection{
         System.out.println("Created Excel Column Table successfully");
     }
 
+    public void createCategory(String s) {
+        try {
+            DatabaseConnection Connection = new DatabaseConnection();
+            java.sql.Connection connection = Connection.getConnection();
+            PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
+                    INSERT INTO excel_category_mapping (category_values)
+                    VALUES (?)
+                    """);
+            insertColumnSelectionDetails.setString(1, s);
+            insertColumnSelectionDetails.executeUpdate();
+            insertColumnSelectionDetails.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void insertColumn(int auditID, String columnName, boolean gSTIncluded, boolean isIncome, boolean isExpense) {
         Statement statement;
         if (isIncome) {

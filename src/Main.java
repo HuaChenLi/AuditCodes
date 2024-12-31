@@ -60,6 +60,10 @@ public class Main {
         ColumnCreationPanel columnCreationPanel = new ColumnCreationPanel(excelColumnViewPanel);
         mainPanel.add(columnCreationPanel);
 
+//        Category Creation Panel
+        CreateCategoryPanel createCategoryPanel = new CreateCategoryPanel(excelColumnViewPanel);
+        mainPanel.add(createCategoryPanel);
+
 //        Categorise Panel
         CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();
         mainPanel.add(categoriseValuesPanel);
