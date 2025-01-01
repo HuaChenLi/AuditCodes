@@ -26,13 +26,6 @@ except:
 # For counting purposes
 iteration_number = 0
 
-# Create the quarter folders
-quarter_folder = os.path.join('./', currentYear)
-try:
-    os.mkdir(quarter_folder)
-except:
-    print('Quarter folder already exists')
-
 # Creating each Excel Spreadsheet
 for audit_id in auditIDList:
 
@@ -40,7 +33,7 @@ for audit_id in auditIDList:
     print('beginning iteration ' + str(iteration_number))
 
     # Create the directories to dump the CSV files for the Bank Account folders
-    csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + ' CSV')
+    csv_data_folder_path = os.path.join(currentYear, spreadsheet_name + ' CSV')
     try:
         os.mkdir(csv_data_folder_path)
     except:
@@ -229,7 +222,7 @@ for audit_id in auditIDList:
     set_number_format(summary_sheet, 8, 7 + income_column_number + 7 + expense_column_number + 2, 5, 5)
 
     excel_file_name = spreadsheet_name + '.xlsx'
-    excel_file_location = os.path.join(quarter_folder, excel_file_name)
+    excel_file_location = os.path.join(currentYear, excel_file_name)
 
     workbook.save(excel_file_location)
 
