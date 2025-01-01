@@ -14,9 +14,9 @@ connection = get_connection()
 
 def select_mapping_query(auditID, incomeExpenseChar):
     query = f"""
-    SELECT id,map_from,map_to FROM mapping_table 
-    INNER JOIN mapping_selection ON id = MappingTableID 
-    WHERE AuditID = {auditID} AND (IncomeExpense = '{incomeExpenseChar}' OR IncomeExpense = 'B')
+    SELECT id, map_from, map_to FROM mapping_table 
+    INNER JOIN mapping_selection ON id = mapping_table_id 
+    WHERE audit_id = {auditID} AND (income_expense = '{incomeExpenseChar}' OR income_expense = 'B')
     """
 
     return pd.DataFrame.from_records(read_query(connection, query), columns=["id", "map_from", "map_to"])
@@ -24,7 +24,7 @@ def select_mapping_query(auditID, incomeExpenseChar):
 
 def insert_mapping_selection(audit_id, mapping_table_id, income_expense_char):
     query = f"""
-    INSERT INTO mapping_selection (AuditID, MappingTableID, IncomeExpense)
+    INSERT INTO mapping_selection (audit_id, mapping_table_id, income_expense)
     VALUES ({audit_id}, {mapping_table_id}, '{income_expense_char}')    
     """
     execute_query(connection, query)

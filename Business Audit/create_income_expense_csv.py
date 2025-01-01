@@ -27,7 +27,7 @@ csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
 
 
-csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + " CSV\\CSVData.csv")
+csv_data_folder_path = csvSheets[0]
 csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
 csv_data = csv_data[::-1]
 
@@ -41,7 +41,8 @@ for sheet_title in ["Income", "Expenditure"]:
 
     excel_sheet = CommonLibrary.build_income_expense_data.build(auditID, is_income, csv_data)
 
-    output_filepath = os.path.join("./", financial_year_folder, spreadsheet_name + " CSV", sheet_title + ".csv")
+    output_filepath = os.path.join("./", str(financial_year_folder), spreadsheet_name + " CSV", sheet_title + ".csv")
+    print(output_filepath)
     excel_sheet.to_csv(output_filepath, index=False)
     print(output_filepath)
 

@@ -13,14 +13,14 @@ def build(audit_id, is_income, data_frame):
     associated_values_dictionary = dict()
 
     column_dataframe = SQLFunctions.sql_excel_columns.select_excel_column(audit_id=audit_id, is_income=is_income)
-    column_name_list = ["Date", "Description"] + list(column_dataframe["ColumnName"])
+    column_name_list = ["Date", "Description"] + list(column_dataframe["column_name"])
 
     for index, row in column_dataframe.iterrows():
-        column_name = row["ColumnName"]
-        excel_column_id = row["ExcelColumnID"]
+        column_name = row["column_name"]
+        excel_column_id = row["id"]
         temp_df = SQLFunctions.sql_excel_columns.select_excel_category_mapping_values(excel_column_id)
 
-        values_list = list(temp_df["CategoryValues"])
+        values_list = list(temp_df["category_values"])
 
         associated_values_dictionary.setdefault(column_name, values_list)
 
