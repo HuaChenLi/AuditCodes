@@ -7,37 +7,28 @@ sys.path.append(os.path.abspath(""))
 from CommonLibrary.date_libraries import *
 import CommonLibrary.build_income_expense_data
 
-# Set the quarter and financial year
-# quarter = int(sys.argv[2])
+# Get the arguments
 auditID = int(sys.argv[1])
 spreadsheet_name = sys.argv[2]
-year_end = int(sys.argv[3])
+currentYear = int(sys.argv[3])
 csvSheets = sys.argv[4].split("/")
-
-financial_year = year_end
-financial_year_folder = year_end
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
 # Month Directory
-quarter_folder = os.path.join('./', str(financial_year_folder))
+quarter_folder = os.path.join('./', str(currentYear))
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 csv_data = pd.DataFrame(columns=csv_column_names)
 
 # merge given sheets
 for csv in csvSheets:
-    print(csv)
     collected_data = pd.read_csv(csv, names=csv_column_names, header=None)
     csv_data = csv_data.merge(collected_data, how="outer")
 
 csv_data["Date"] = pd.to_datetime(csv_data["Date"], format="%d/%m/%Y")
 csv_data.sort_values(by="Date", inplace=True)
-
-# csv_data_folder_path = csvSheets[0]
-# csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
-csv_data = csv_data[::-1]
 
 excel_directory = os.path.join(quarter_folder, spreadsheet_name + ".xlsx")
 
@@ -49,7 +40,7 @@ for sheet_title in ["Income", "Expenditure"]:
 
     excel_sheet = CommonLibrary.build_income_expense_data.build(auditID, is_income, csv_data)
 
-    output_filepath = os.path.join("./", str(financial_year_folder), spreadsheet_name + " CSV", sheet_title + ".csv")
+    output_filepath = os.path.join("./", str(currentYear), spreadsheet_name + " CSV", sheet_title + ".csv")
     excel_sheet.to_csv(output_filepath, index=False)
 
     # Inserting the Data into the Income and Expense sheets
