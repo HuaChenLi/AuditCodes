@@ -14,9 +14,9 @@ public class AuditAccountClass {
         auditID = auditID_2;
     }
 
-    public static String getAccountName(int accountID) {
+    public static String getAccountName() {
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
-        return auditIDSQLs.getAuditName(accountID);
+        return auditIDSQLs.getAuditName(auditID);
     }
     public static char getIncomeExpenseChar() {
         return incomeExpenseChar;

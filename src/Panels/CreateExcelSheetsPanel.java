@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import static src.Panels.FinancialYearPanel.financialQuarterValue;
 import static src.Panels.FinancialYearPanel.financialYearValue;
 
 public class CreateExcelSheetsPanel extends JPanel {
     JButton createExcelSheets;
     JButton createIncomeExpenseCSVs;
     JPanel createCSVPanel;
+    ArrayList<String> csvFiles = new ArrayList<>();
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -34,10 +34,14 @@ public class CreateExcelSheetsPanel extends JPanel {
         });
 
         createIncomeExpenseCSVs.addActionListener(e1 -> {
-            try {
-                createIncomeExpenseCSVsFunction();
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (csvFiles.size() > 0) {
+                try {
+                    createIncomeExpenseCSVsFunction(csvFiles);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("No CSVs selected");
             }
         });
 
@@ -71,9 +75,13 @@ public class CreateExcelSheetsPanel extends JPanel {
     }
 
 
-    public void createIncomeExpenseCSVsFunction() throws IOException {
-        System.out.println(financialYearValue);
-        ProcessBuilder pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py", String.valueOf(financialYearValue), String.valueOf(financialQuarterValue));
+    public void createIncomeExpenseCSVsFunction(ArrayList<String> files) throws IOException {
+        String arg = String.join("/", files);
+        ProcessBuilder pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py",
+                String.valueOf(AuditAccountClass.getAuditID()),
+                String.valueOf(AuditAccountClass.getAccountName()),
+                String.valueOf(financialYearValue),
+                arg);
         Process process = pb.start();
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -101,7 +109,6 @@ public class CreateExcelSheetsPanel extends JPanel {
         };
         JTable csvTable = new JTable(csvTableModel);
         JButton openButton = new JButton("Select CSV file");
-        ArrayList<File> csvFiles = new ArrayList<>();
 
         public void createPanel() {
             EventQueue.invokeLater(new Runnable() {
@@ -119,11 +126,11 @@ public class CreateExcelSheetsPanel extends JPanel {
                             chooser.setFileFilter(filter);
 
                             if (chooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-                                File file = chooser.getSelectedFile();
+                                String file = chooser.getSelectedFile().getAbsolutePath();
 
                                 if (!isDuplicateFile(file)) {
                                     csvFiles.add(file);
-                                    csvTableModel.addRow(new Object[]{file.getAbsolutePath()});
+                                    csvTableModel.addRow(new Object[]{file});
                                     csvTable.setModel(csvTableModel);
                                 } else {
                                     System.out.println("Duplicate File");
@@ -139,9 +146,9 @@ public class CreateExcelSheetsPanel extends JPanel {
             this.add(openButton);
         }
 
-        private boolean isDuplicateFile(File file) {
-            for (File f : csvFiles) {
-                if (file.getAbsolutePath().equals(f.getAbsolutePath())) {
+        private boolean isDuplicateFile(String file) {
+            for (String f : csvFiles) {
+                if (file.equals(f)) {
                     return true;
                 }
             }
