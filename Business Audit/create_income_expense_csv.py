@@ -16,8 +16,8 @@ csvSheets = sys.argv[4].split("/")
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
-# Month Directory
-quarter_folder = os.path.join('./', str(currentYear))
+# Directory
+folder = str(currentYear)
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 csv_data = pd.DataFrame(columns=csv_column_names)
@@ -30,7 +30,7 @@ for csv in csvSheets:
 csv_data["Date"] = pd.to_datetime(csv_data["Date"], format="%d/%m/%Y")
 csv_data.sort_values(by="Date", inplace=True)
 
-excel_directory = os.path.join(quarter_folder, spreadsheet_name + ".xlsx")
+excel_directory = os.path.join(folder, spreadsheet_name + ".xlsx")
 
 for sheet_title in ["Income", "Expenditure"]:
     if sheet_title == "Income":
