@@ -1,14 +1,12 @@
 package src.Panels;
 
 import javax.swing.*;
-import java.awt.*;
-import java.time.Year;
 
 public class FinancialYearPanel extends JPanel {
     JLabel financialYearLabel;
     YearComboBox yearComboBox;
 
-    static int financialYearValue, financialQuarterValue;
+    static int financialYearValue;
     public FinancialYearPanel() {
         financialYearLabel = new JLabel("Year");
         yearComboBox = new YearComboBox();

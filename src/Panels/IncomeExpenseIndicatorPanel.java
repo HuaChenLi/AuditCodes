@@ -1,7 +1,6 @@
 package src.Panels;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class IncomeExpenseIndicatorPanel extends JPanel {
     JLabel incomeExpenseLabel;

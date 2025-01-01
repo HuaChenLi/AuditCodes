@@ -2,8 +2,6 @@ package src.SQLFunctions;
 
 import src.Panels.AuditAccountID;
 
-import javax.swing.table.DefaultTableModel;
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.util.Vector;
 
