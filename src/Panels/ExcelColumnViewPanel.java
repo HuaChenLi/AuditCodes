@@ -15,8 +15,6 @@ public class ExcelColumnViewPanel extends JPanel{
     JTable excelExpenseColumnTable;
     JTable categoriesTable;
     JPanel tablePanel;
-
-
     DefaultTableModel excelIncomeColumnsDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
         public int getRowCount() { return 40; }
