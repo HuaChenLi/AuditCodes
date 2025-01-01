@@ -86,8 +86,12 @@ public class ExcelColumnViewPanel extends JPanel{
 
     public DefaultTableModel getExcelColumnsDataModel(DefaultTableModel dataModel, boolean isIncome) throws SQLException {
         // guard clause
-        if (!AuditAccountClass.isAuditIDEntered() || !AuditAccountClass.isIncomeExpenseEntered()) {
-            System.out.println("Please Enter Audit ID and Income/Expense");
+        if (!AuditAccountClass.isAuditIDEntered()) {
+            System.out.println("Please Enter Audit ID");
+            return dataModel;
+        }
+        if (!AuditAccountClass.isIncomeExpenseEntered()) {
+            System.out.println("Please Enter Income or Expense");
             return dataModel;
         }
         if (AuditAccountClass.getIncomeExpenseChar() == 'B') {
