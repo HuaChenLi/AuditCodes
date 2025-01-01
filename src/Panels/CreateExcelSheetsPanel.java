@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Vector;
 
 import static src.Panels.FinancialYearPanel.financialQuarterValue;
 import static src.Panels.FinancialYearPanel.financialYearValue;
@@ -19,8 +18,8 @@ import static src.Panels.FinancialYearPanel.financialYearValue;
 public class CreateExcelSheetsPanel extends JPanel {
     JButton createExcelSheets;
     JButton createIncomeExpenseCSVs;
+    JPanel createCSVPanel;
     public CreateExcelSheetsPanel(int accountID, String accountName) {
-        this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         createExcelSheets = new JButton("Create New Excel Sheets");
@@ -45,9 +44,12 @@ public class CreateExcelSheetsPanel extends JPanel {
         FileSelector fileSelector = new FileSelector();
         fileSelector.createPanel();
 
+        createCSVPanel = new JPanel();
+        createCSVPanel.add(fileSelector);
+        createCSVPanel.add(createIncomeExpenseCSVs);
+
         this.add(createExcelSheets);
-        this.add(createIncomeExpenseCSVs);
-        this.add(fileSelector);
+        this.add(createCSVPanel);
     }
 
 
@@ -131,7 +133,7 @@ public class CreateExcelSheetsPanel extends JPanel {
                     });
                 }
             });
-            csvTable.getColumnModel().getColumn(0).setPreferredWidth(200);
+            csvTable.getColumnModel().getColumn(0).setPreferredWidth(400);
 
             this.add(csvTable);
             this.add(openButton);
