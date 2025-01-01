@@ -95,14 +95,14 @@ for audit_id in auditIDList:
         column_number = len(col_names)
 
         # setting the header rows
-        current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 3)
+        current_sheet.merge_cells(start_row=1, end_row=1, start_column=3, end_column=column_number + 2)
         current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 3,
                                     end_column=column_number + 3)
         current_sheet.merge_cells(start_row=1, end_row=3, start_column=column_number + 4,
                                     end_column=column_number + 4)
         current_sheet.column_dimensions[xl.utils.get_column_letter(column_number + 3)].width = 12.73
         current_sheet.column_dimensions[xl.utils.get_column_letter(column_number + 4)].width = 12.73
-        # current_sheet.cell(row=1, column=column_number + 3).value = 'Total'
+        current_sheet.cell(row=1, column=column_number + 3).value = 'Total'
         current_sheet.cell(row=1, column=column_number + 4).value = 'Acc. Total'
         current_sheet.cell(row=1, column=column_number + 3).alignment = Alignment(horizontal='center',
                                                                                     vertical='center', wrap_text=True)
@@ -160,6 +160,7 @@ for audit_id in auditIDList:
     income_col_names = list(temp_df_for_income["column_name"])
     income_column_number = len(income_col_names)
 
+    transfer_index = 1
     # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
     summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
     # summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
