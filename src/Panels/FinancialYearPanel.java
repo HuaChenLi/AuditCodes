@@ -10,8 +10,6 @@ public class FinancialYearPanel extends JPanel {
 
     static int financialYearValue, financialQuarterValue;
     public FinancialYearPanel() {
-        this.setLayout(new GridLayout(0,2));
-
         financialYearLabel = new JLabel("Year");
         yearComboBox = new YearComboBox();
 

@@ -8,7 +8,6 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
     IncomeExpenseCombobox incomeExpenseCombobox;
 
     public IncomeExpenseIndicatorPanel() {
-        this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
         incomeExpenseLabel = new JLabel("Income and/or Expense");
