@@ -8,7 +8,6 @@ public class CreateAccount extends JPanel {
     JLabel accountNameLabel;
     JTextField accountNameText;
     JButton createAccountButton;
-    ExcelColumnViewPanel excelColumnViewPanel;
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
     public CreateAccount(ExcelColumnViewPanel excelColumnViewPanel) {
         AccountSelectionComboBox accountSelectionComboBox = new AccountSelectionComboBox(excelColumnViewPanel);
@@ -17,7 +16,9 @@ public class CreateAccount extends JPanel {
         accountNameText.setColumns(20);
         createAccountButton = new JButton("Create Account");
         createAccountButton.addActionListener(e -> {
-            auditIDSQLs.createAccount(accountNameText.getText());
+            if (!accountNameText.getText().trim().equals("")) {
+                auditIDSQLs.createAccount(accountNameText.getText());
+            }
             accountNameText.setText("");
             accountSelectionComboBox.refreshAccountComboBox();
             this.revalidate();
