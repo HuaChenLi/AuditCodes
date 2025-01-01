@@ -24,11 +24,19 @@ number_of_cells = 1000
 quarter_folder = os.path.join('./', str(financial_year_folder))
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
+csv_data = pd.DataFrame(columns=csv_column_names)
 
+# merge given sheets
+for csv in csvSheets:
+    print(csv)
+    collected_data = pd.read_csv(csv, names=csv_column_names, header=None)
+    csv_data = csv_data.merge(collected_data, how="outer")
 
+csv_data["Date"] = pd.to_datetime(csv_data["Date"], format="%d/%m/%Y")
+csv_data.sort_values(by="Date", inplace=True)
 
-csv_data_folder_path = csvSheets[0]
-csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
+# csv_data_folder_path = csvSheets[0]
+# csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
 csv_data = csv_data[::-1]
 
 excel_directory = os.path.join(quarter_folder, spreadsheet_name + ".xlsx")
@@ -42,9 +50,7 @@ for sheet_title in ["Income", "Expenditure"]:
     excel_sheet = CommonLibrary.build_income_expense_data.build(auditID, is_income, csv_data)
 
     output_filepath = os.path.join("./", str(financial_year_folder), spreadsheet_name + " CSV", sheet_title + ".csv")
-    print(output_filepath)
     excel_sheet.to_csv(output_filepath, index=False)
-    print(output_filepath)
 
     # Inserting the Data into the Income and Expense sheets
     with pd.ExcelWriter(excel_directory, mode="a", engine="openpyxl", if_sheet_exists="overlay") as excel_writer:
