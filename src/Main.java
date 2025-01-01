@@ -7,6 +7,8 @@ import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class Main {
@@ -78,6 +80,13 @@ public class Main {
         frame.setTitle("Bank Account Organisation");
         frame.pack();
         frame.setVisible(true);
+
+//        Setting the UI to look more like Windows 11
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
