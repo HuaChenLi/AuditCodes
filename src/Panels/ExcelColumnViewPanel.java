@@ -14,7 +14,6 @@ public class ExcelColumnViewPanel extends JPanel{
     JTable excelIncomeColumnTable;
     JTable excelExpenseColumnTable;
     JTable categoriesTable;
-    JButton showCategoriesButton;
     JPanel buttonPanel;
     JPanel tablePanel;
 
@@ -61,16 +60,10 @@ public class ExcelColumnViewPanel extends JPanel{
         categoriesTable = new JTable(categoriesDataModel);
         categoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
 
-        showCategoriesButton = new JButton("Show Categories");
-        showCategoriesButton.addActionListener(e1 -> {
-            refreshCategoriesTable();
-        });
-
         this.revalidate();
         this.validate();
 
         buttonPanel = new JPanel();
-        buttonPanel.add(showCategoriesButton);
 
         tablePanel = new JPanel();
         tablePanel.add(excelIncomeColumnTable);
