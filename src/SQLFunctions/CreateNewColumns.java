@@ -58,7 +58,8 @@ public class CreateNewColumns extends DatabaseConnection{
             String sql = "CREATE TABLE IF NOT EXISTS excel_category_mapping " +
                     "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "account_id INTEGER NOT NULL, " +
-                    "category_values STRING NOT NULL)";
+                    "category_values STRING NOT NULL, " +
+                    "is_income BOOLEAN)";
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -70,16 +71,17 @@ public class CreateNewColumns extends DatabaseConnection{
         System.out.println("Created Excel Column Table successfully");
     }
 
-    public void createCategory(String s, int accountID) {
+    public void createCategory(String s, int accountID, boolean isIncome) {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
             java.sql.Connection connection = Connection.getConnection();
             PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
-                    INSERT INTO excel_category_mapping (category_values, account_id)
-                    VALUES (?, ?)
+                    INSERT INTO excel_category_mapping (category_values, account_id, is_income)
+                    VALUES (?, ?, ?)
                     """);
             insertColumnSelectionDetails.setString(1, s);
             insertColumnSelectionDetails.setInt(2, accountID);
+            insertColumnSelectionDetails.setBoolean(3, isIncome);
             insertColumnSelectionDetails.executeUpdate();
             insertColumnSelectionDetails.close();
         } catch (Exception e) {
@@ -188,15 +190,17 @@ public class CreateNewColumns extends DatabaseConnection{
         return null;
     }
 
-    public ResultSet getCategories(int accountID) {
+    public ResultSet getCategories(int accountID, boolean isIncome) {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
             Connection connection = Connection.getConnection();
             PreparedStatement selectExcelColumns = connection.prepareStatement("""
                     SELECT category_values, id FROM excel_category_mapping
                     WHERE account_id = ?
+                    AND is_income = ?
                     """);
             selectExcelColumns.setInt(1, accountID);
+            selectExcelColumns.setBoolean(2, isIncome);
 
             ResultSet excelColumns;
             excelColumns = selectExcelColumns.executeQuery();

@@ -13,7 +13,8 @@ import java.util.Vector;
 public class ExcelColumnViewPanel extends JPanel{
     JTable excelIncomeColumnTable;
     JTable excelExpenseColumnTable;
-    JTable categoriesTable;
+    JTable incomeCategoriesTable;
+    JTable expenseCategoriesTable;
     JPanel tablePanel;
     DefaultTableModel excelIncomeColumnsDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
@@ -35,7 +36,17 @@ public class ExcelColumnViewPanel extends JPanel{
             return false;
         }
     };
-    DefaultTableModel categoriesDataModel = new DefaultTableModel() {
+    DefaultTableModel incomeCategoriesDataModel = new DefaultTableModel() {
+        public int getColumnCount() { return 2; }
+        public int getRowCount() { return 40;}
+        public Object getValueAt(int row, int col) { return null; }
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false;
+        }
+    };
+
+    DefaultTableModel expenseCategoriesDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
         public int getRowCount() { return 40;}
         public Object getValueAt(int row, int col) { return null; }
@@ -54,8 +65,11 @@ public class ExcelColumnViewPanel extends JPanel{
         excelExpenseColumnTable = new JTable(excelExpenseColumnsDataModel);
         excelExpenseColumnTable.getColumnModel().getColumn(0).setPreferredWidth(150);
 
-        categoriesTable = new JTable(categoriesDataModel);
-        categoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        incomeCategoriesTable = new JTable(incomeCategoriesDataModel);
+        incomeCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+
+        expenseCategoriesTable = new JTable(expenseCategoriesDataModel);
+        expenseCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
 
         this.revalidate();
         this.validate();
@@ -63,7 +77,8 @@ public class ExcelColumnViewPanel extends JPanel{
         tablePanel = new JPanel();
         tablePanel.add(excelIncomeColumnTable);
         tablePanel.add(excelExpenseColumnTable);
-        tablePanel.add(categoriesTable);
+        tablePanel.add(incomeCategoriesTable);
+        tablePanel.add(expenseCategoriesTable);
 
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
@@ -99,10 +114,10 @@ public class ExcelColumnViewPanel extends JPanel{
         return dataModel;
     }
 
-    public DefaultTableModel getCategoriesDataModel(DefaultTableModel dataModel) throws SQLException {
+    public DefaultTableModel getCategoriesDataModel(DefaultTableModel dataModel, boolean isIncome) throws SQLException {
         CreateNewColumns createNewColumns = new CreateNewColumns();
         ResultSet excelColumns;
-        excelColumns = createNewColumns.getCategories(AuditAccountClass.getAuditID());
+        excelColumns = createNewColumns.getCategories(AuditAccountClass.getAuditID(), isIncome);
 
         this.validate();
         this.revalidate();
@@ -161,13 +176,23 @@ public class ExcelColumnViewPanel extends JPanel{
 
     public void refreshCategoriesTable() {
         try {
-            categoriesDataModel = getCategoriesDataModel(categoriesDataModel);
-            categoriesTable.setDefaultEditor(Object.class, null);
-            categoriesTable.setModel(categoriesDataModel);
-            categoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+            incomeCategoriesDataModel = getCategoriesDataModel(incomeCategoriesDataModel, true);
+            incomeCategoriesTable.setDefaultEditor(Object.class, null);
+            incomeCategoriesTable.setModel(incomeCategoriesDataModel);
+            incomeCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        try {
+            expenseCategoriesDataModel = getCategoriesDataModel(expenseCategoriesDataModel, false);
+            expenseCategoriesTable.setDefaultEditor(Object.class, null);
+            expenseCategoriesTable.setModel(expenseCategoriesDataModel);
+            expenseCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         this.revalidate();
         this.validate();
     }
