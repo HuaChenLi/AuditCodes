@@ -23,7 +23,7 @@ number_of_cells = 1000
 auditIDList = [2, 3, 4]
 
 # Month Directory
-quarter_folder = os.path.join(financial_year_folder, "Q" + str(quarter) + " " + month_period(quarter))
+quarter_folder = os.path.join('./', financial_year_folder)
 
 csv_column_names = ["Date", "Amount", "Description", "Balance"]
 
@@ -36,7 +36,7 @@ for auditID in auditIDList:
     elif auditID == 4:
         spreadsheet_name = "Mastercard"
 
-    csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + " CSV\CSVData.csv")
+    csv_data_folder_path = os.path.join(quarter_folder, spreadsheet_name + " CSV\\CSVData.csv")
     csv_data = pd.read_csv(csv_data_folder_path, names=csv_column_names, header=None)
     csv_data = csv_data[::-1]
 
