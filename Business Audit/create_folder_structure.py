@@ -10,20 +10,16 @@ import SQLFunctions.sql_excel_columns
 from CommonLibrary.csv_excel_conversions import *
 from CommonLibrary.date_libraries import *
 
-year_end = int(sys.argv[1])
+currentYear = str(sys.argv[1])
 auditIDList = [int(sys.argv[2])]
 spreadsheet_name = str(sys.argv[3])
-
-financial_year = str(year_end)
-
-financial_year_folder = financial_year
 
 # the number of rows the Excel has. Can edit this in case for some reason, 1000 is not enough
 number_of_cells = 1000
 
 # Creating the folders
 try:
-    os.mkdir(financial_year_folder)
+    os.mkdir(currentYear)
 except:
     print('Year folder already exists')
 
@@ -31,7 +27,7 @@ except:
 iteration_number = 0
 
 # Create the quarter folders
-quarter_folder = os.path.join('./', financial_year_folder)
+quarter_folder = os.path.join('./', currentYear)
 try:
     os.mkdir(quarter_folder)
 except:
@@ -58,7 +54,7 @@ for audit_id in auditIDList:
     front_cover.row_dimensions[1].height = 46.00
 
     front_cover['A1'] = spreadsheet_name
-    front_cover['A2'] = 'Year ' + financial_year
+    front_cover['A2'] = 'Year ' + currentYear
 
     front_cover.merge_cells('A1:I1')
     front_cover['A1'].font = Font(size=36)
@@ -151,8 +147,8 @@ for audit_id in auditIDList:
     summary_sheet = workbook.active
     summary_sheet['A1'] = 'Summary'
     summary_sheet['A2'] = spreadsheet_name
-    summary_sheet['A3'] = 'Year ' + financial_year
-    summary_sheet['A5'] = 'Bank Balance as at beginning of ' + financial_year
+    summary_sheet['A3'] = 'Year ' + currentYear
+    summary_sheet['A5'] = 'Bank Balance as at beginning of ' + currentYear
     summary_sheet['A7'] = data_sheets[0]
 
     # income column names and sums
@@ -199,7 +195,7 @@ for audit_id in auditIDList:
 
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2, column=1).value = 'Total'
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 4,
-                        column=1).value = 'Bank Balance as at end of ' + financial_year
+                        column=1).value = 'Bank Balance as at end of ' + currentYear
 
     # expense total sum
     summary_sheet.cell(row=7 + income_column_number + 7 + expense_column_number + 2,
