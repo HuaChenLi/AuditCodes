@@ -2,6 +2,8 @@ package src.Panels;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,8 +36,12 @@ public class CreateExcelSheetsPanel extends JPanel {
             }
         });
 
+        FileSelector fileSelector = new FileSelector();
+        fileSelector.createButton();
+
         this.add(createExcelSheets);
         this.add(createIncomeExpenseCSVs);
+        this.add(fileSelector);
     }
 
 
@@ -75,4 +81,31 @@ public class CreateExcelSheetsPanel extends JPanel {
         }
     }
 
+
+    public class FileSelector extends JPanel {
+        JButton openButton = new JButton("Open");
+
+        public void createButton() {
+            EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    final JFrame frame = new JFrame("Open File Example");
+                    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    frame.setLayout(new BorderLayout());
+                    openButton.addActionListener(new ActionListener() {
+
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            JFileChooser chooser = new JFileChooser();
+                            if (chooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
+                                // do something
+                            }
+                        }
+                    });
+                }
+            });
+
+            this.add(openButton);
+        }
+    }
 }
