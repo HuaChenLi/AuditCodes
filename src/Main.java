@@ -16,6 +16,13 @@ public class Main {
     JPanel mainPanel;
 
     public Main() {
+//        Setting the UI to look more like Windows 11
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        }
+
         mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
@@ -80,13 +87,6 @@ public class Main {
         frame.setTitle("Bank Account Organisation");
         frame.pack();
         frame.setVisible(true);
-
-//        Setting the UI to look more like Windows 11
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            ex.printStackTrace();
-        }
     }
 
     public static void main(String[] args) {
