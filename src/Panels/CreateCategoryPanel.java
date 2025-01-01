@@ -15,7 +15,7 @@ public class CreateCategoryPanel extends JPanel {
             String tempCategory = newCategory.getText();
             if (tempCategory.trim().length() != 0) {
                 CreateNewColumns createNewColumns = new CreateNewColumns();
-                createNewColumns.createCategory(tempCategory);
+                createNewColumns.createCategory(tempCategory, AuditAccountClass.getAuditID());
                 excelColumnViewPanel.refreshAll();
                 newCategory.setText("");
             }

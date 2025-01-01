@@ -57,7 +57,8 @@ public class CreateNewColumns extends DatabaseConnection{
 
             String sql = "CREATE TABLE IF NOT EXISTS excel_category_mapping " +
                     "(id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "category_values STRING)";
+                    "account_id INTEGER NOT NULL, " +
+                    "category_values STRING NOT NULL)";
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -69,15 +70,16 @@ public class CreateNewColumns extends DatabaseConnection{
         System.out.println("Created Excel Column Table successfully");
     }
 
-    public void createCategory(String s) {
+    public void createCategory(String s, int accountID) {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
             java.sql.Connection connection = Connection.getConnection();
             PreparedStatement insertColumnSelectionDetails = connection.prepareStatement("""
-                    INSERT INTO excel_category_mapping (category_values)
-                    VALUES (?)
+                    INSERT INTO excel_category_mapping (category_values, account_id)
+                    VALUES (?, ?)
                     """);
             insertColumnSelectionDetails.setString(1, s);
+            insertColumnSelectionDetails.setInt(2, accountID);
             insertColumnSelectionDetails.executeUpdate();
             insertColumnSelectionDetails.close();
         } catch (Exception e) {
@@ -186,13 +188,15 @@ public class CreateNewColumns extends DatabaseConnection{
         return null;
     }
 
-    public ResultSet getCategories() {
+    public ResultSet getCategories(int accountID) {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
             Connection connection = Connection.getConnection();
             PreparedStatement selectExcelColumns = connection.prepareStatement("""
                     SELECT category_values, id FROM excel_category_mapping
+                    WHERE account_id = ?
                     """);
+            selectExcelColumns.setInt(1, accountID);
 
             ResultSet excelColumns;
             excelColumns = selectExcelColumns.executeQuery();

@@ -102,7 +102,7 @@ public class ExcelColumnViewPanel extends JPanel{
     public DefaultTableModel getCategoriesDataModel(DefaultTableModel dataModel) throws SQLException {
         CreateNewColumns createNewColumns = new CreateNewColumns();
         ResultSet excelColumns;
-        excelColumns = createNewColumns.getCategories();
+        excelColumns = createNewColumns.getCategories(AuditAccountClass.getAuditID());
 
         this.validate();
         this.revalidate();
