@@ -1,18 +1,24 @@
 package src.Panels;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import static src.Panels.FinancialYearPanel.financialQuarterValue;
 import static src.Panels.FinancialYearPanel.financialYearValue;
 
 public class CreateExcelSheetsPanel extends JPanel {
-    JButton createExcelSheets, createIncomeExpenseCSVs;
+    JButton createExcelSheets;
+    JButton createIncomeExpenseCSVs;
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setLayout(new GridLayout(0,2));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -37,7 +43,7 @@ public class CreateExcelSheetsPanel extends JPanel {
         });
 
         FileSelector fileSelector = new FileSelector();
-        fileSelector.createButton();
+        fileSelector.createPanel();
 
         this.add(createExcelSheets);
         this.add(createIncomeExpenseCSVs);
@@ -83,9 +89,19 @@ public class CreateExcelSheetsPanel extends JPanel {
 
 
     public class FileSelector extends JPanel {
-        JButton openButton = new JButton("Open");
+        DefaultTableModel csvTableModel = new DefaultTableModel() {
+            public int getColumnCount() { return 1; }
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
+        JTable csvTable = new JTable(csvTableModel);
+        JButton openButton = new JButton("Select CSV file");
+        ArrayList<File> csvFiles = new ArrayList<>();
 
-        public void createButton() {
+        public void createPanel() {
             EventQueue.invokeLater(new Runnable() {
                 @Override
                 public void run() {
@@ -97,15 +113,37 @@ public class CreateExcelSheetsPanel extends JPanel {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             JFileChooser chooser = new JFileChooser();
+                            FileNameExtensionFilter filter = new FileNameExtensionFilter("CSV Files (*.csv)", "csv");
+                            chooser.setFileFilter(filter);
+
                             if (chooser.showOpenDialog(frame) == JFileChooser.APPROVE_OPTION) {
-                                // do something
+                                File file = chooser.getSelectedFile();
+
+                                if (!isDuplicateFile(file)) {
+                                    csvFiles.add(file);
+                                    csvTableModel.addRow(new Object[]{file.getAbsolutePath()});
+                                    csvTable.setModel(csvTableModel);
+                                } else {
+                                    System.out.println("Duplicate File");
+                                }
                             }
                         }
                     });
                 }
             });
+            csvTable.getColumnModel().getColumn(0).setPreferredWidth(200);
 
+            this.add(csvTable);
             this.add(openButton);
+        }
+
+        private boolean isDuplicateFile(File file) {
+            for (File f : csvFiles) {
+                if (file.getAbsolutePath().equals(f.getAbsolutePath())) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
