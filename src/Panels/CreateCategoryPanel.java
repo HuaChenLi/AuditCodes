@@ -1,6 +1,5 @@
 package src.Panels;
 
-import src.SQLFunctions.AuditIDSQLs;
 import src.SQLFunctions.CreateNewColumns;
 
 import javax.swing.*;
