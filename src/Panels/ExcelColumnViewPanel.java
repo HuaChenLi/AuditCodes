@@ -14,7 +14,6 @@ public class ExcelColumnViewPanel extends JPanel{
     JTable excelIncomeColumnTable;
     JTable excelExpenseColumnTable;
     JTable categoriesTable;
-    JPanel buttonPanel;
     JPanel tablePanel;
 
 
@@ -63,14 +62,11 @@ public class ExcelColumnViewPanel extends JPanel{
         this.revalidate();
         this.validate();
 
-        buttonPanel = new JPanel();
-
         tablePanel = new JPanel();
         tablePanel.add(excelIncomeColumnTable);
         tablePanel.add(excelExpenseColumnTable);
         tablePanel.add(categoriesTable);
 
-        this.add(buttonPanel);
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
         this.add(BorderLayout.CENTER, scroller);
