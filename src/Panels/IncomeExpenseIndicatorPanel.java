@@ -22,7 +22,7 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
 
             this.addItem(new IncomeExpenseCodeDescription('I', "Income"));
             this.addItem(new IncomeExpenseCodeDescription('E', "Expense"));
-            this.addItem(new IncomeExpenseCodeDescription('B', "Both"));
+//            this.addItem(new IncomeExpenseCodeDescription('B', "Both"));
 
             this.addActionListener(e -> {
                 IncomeExpenseCodeDescription temp = (IncomeExpenseCodeDescription) this.getSelectedItem();
