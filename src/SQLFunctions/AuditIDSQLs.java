@@ -107,8 +107,9 @@ public class AuditIDSQLs extends DatabaseConnection {
             auditName = getAuditNames.executeQuery();
 
             if(auditName.next()) {
+                String name = auditName.getString("audit_name");
                 connection.close();
-                return auditName.getString("audit_name");
+                return name;
             }
 
         } catch (Exception e) {
