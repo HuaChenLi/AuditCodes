@@ -200,7 +200,6 @@ public class CreateNewColumns extends DatabaseConnection{
 
             ResultSet excelColumns;
             excelColumns = selectExcelColumns.executeQuery();
-            System.out.println(excelColumns);
 
             return excelColumns;
 

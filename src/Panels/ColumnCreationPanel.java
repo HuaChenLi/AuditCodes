@@ -40,13 +40,10 @@ public class ColumnCreationPanel extends JPanel {
 
         addColumnButton.addActionListener(e1 -> {
             CreateNewColumns createNewColumns = new CreateNewColumns();
-            int auditID = AuditAccountClass.getAuditID();
-            boolean isIncome = AuditAccountClass.isIncome();
-            boolean isExpense = AuditAccountClass.isExpense();
-            if (columnNameText.getText().length() >= 1) {
-                createNewColumns.insertColumn(auditID, columnNameText.getText(), gSTIncluded, isIncome, isExpense);
-                columnNameText.setText("");
+            if (columnNameText.getText().trim().length() >= 1) {
+                createNewColumns.insertColumn(AuditAccountClass.getAuditID(), columnNameText.getText(), gSTIncluded, AuditAccountClass.isIncome(), AuditAccountClass.isExpense());
             }
+            columnNameText.setText("");
 
             excelColumnViewPanel.refreshAll();
         });
