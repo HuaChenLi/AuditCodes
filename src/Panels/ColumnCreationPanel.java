@@ -26,7 +26,7 @@ public class ColumnCreationPanel extends JPanel {
             if (isDefault) {
                 defaultButton.setText("Is Default");
             } else {
-                defaultButton.setText("Is Default");
+                defaultButton.setText("Not Default");
             }
         });
         gSTButton.addActionListener(e1 -> {
