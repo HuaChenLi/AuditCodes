@@ -41,6 +41,17 @@ public class MappingPanel extends JPanel {
         if (AuditAccountClass.isAuditIDEntered() && AuditAccountClass.isIncomeExpenseEntered()) {
             String mapFromText = mappingFrom.getText();
             String mapToText = mappingTo.getText();
+
+            if (mapFromText.trim().length() == 0) {
+                System.out.println("Map from must have a value");
+                return;
+            }
+
+            if (mapToText.trim().length() == 0) {
+                System.out.println("Map to must have a value");
+                return;
+            }
+
             mappingFrom.setText("");
             mappingTo.setText("");
 
