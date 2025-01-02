@@ -31,8 +31,8 @@ public class CategoriseValuesPanel extends JPanel {
             createNewColumns.insertExcelColumnSelection(columnID, categoryValueID);
         });
 
-        this.add(columnIDLabel);
         this.add(categoryValueLabel);
+        this.add(columnIDLabel);
         this.add(blankLabel);
         this.add(valueToCategorise);
         this.add(columnIDText);
