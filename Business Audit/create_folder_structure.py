@@ -149,10 +149,19 @@ for audit_id in auditIDList:
     income_col_names = list(temp_df_for_income["column_name"])
     income_column_number = len(income_col_names)
 
-    transfer_index = 1
+    transfer_index = None
+    for income_column_index, col_name in enumerate(income_col_names, 1):
+        summary_sheet.cell(row=income_column_index + 7, column=1).value = col_name
+        summary_sheet.cell(row=income_column_index + 7, column=5).value = sum_value_formula_excel(data_sheets[0], 4,
+                                                                                                    number_of_cells,
+                                                                                                    income_column_index + 2,
+                                                                                                    income_column_index + 2)
+    if transfer_index is None:
+        transfer_index = 2
+
     # it's laid out this way since 7 is the number of columns before everything begins being indexed. Can change later if it feels too jank/hard to read
     summary_sheet.cell(row=7 + income_column_number + 1, column=1).value = 'Subtotal'
-    # summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
+    summary_sheet.cell(row=7 + income_column_number + 3, column=1).value = income_col_names[transfer_index - 1]
     summary_sheet.cell(row=7 + income_column_number + 5, column=1).value = 'Total'
     summary_sheet.cell(row=7 + income_column_number + 7, column=1).value = data_sheets[1]
 
