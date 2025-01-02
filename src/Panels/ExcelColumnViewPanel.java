@@ -19,40 +19,22 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         public int getColumnCount() { return 2; }
         public int getRowCount() { return 40; }
         public Object getValueAt(int row, int col) { return null; }
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
-        }
     };
     DefaultTableModel excelExpenseColumnsDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
         public int getRowCount() { return 40; }
         public Object getValueAt(int row, int col) { return null; }
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            //all cells false
-            return false;
-        }
     };
     DefaultTableModel incomeCategoriesDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
-        public int getRowCount() { return 40;}
+        public int getRowCount() { return 40; }
         public Object getValueAt(int row, int col) { return null; }
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
     };
 
     DefaultTableModel expenseCategoriesDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
-        public int getRowCount() { return 40;}
+        public int getRowCount() { return 40; }
         public Object getValueAt(int row, int col) { return null; }
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
-        }
     };
 
     public ExcelColumnViewPanel() {

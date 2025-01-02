@@ -155,7 +155,7 @@ public class MappingTableSQLs extends DatabaseConnection {
         try {
             Connection connection = getConnection();
             PreparedStatement selectMappings = connection.prepareStatement("""
-                    SELECT category_values, id FROM mapping_table
+                    SELECT map_from, map_to FROM mapping_table
                     INNER JOIN mapping_selection ON mapping_table.id = mapping_selection.mapping_table_id
                     WHERE audit_id = ?
                     AND (income_expense = ? OR income_expense  = 'B')
