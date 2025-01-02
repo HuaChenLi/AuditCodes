@@ -1,15 +1,25 @@
 package src.Panels;
 
+import src.Interfaces.Model;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class MappingPanel extends JPanel {
+public class MappingPanel extends JPanel implements Model {
     JLabel mappingFromLabel, mappingToLabel, blankLabel;
     JButton createMapping;
     JTextField mappingFrom, mappingTo;
+    JPanel tablePanel;
+    JTable incomeMappingsTable;
+    JTable expenseMappingsTable;
+    DefaultTableModel incomeMappingsModel = new DefaultTableModel();
+    DefaultTableModel expenseMappingsModel = new DefaultTableModel();
+    MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
     public MappingPanel() {
         this.setLayout(new GridLayout(0,3));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -30,12 +40,18 @@ public class MappingPanel extends JPanel {
         mappingFrom = new JTextField();
         mappingTo = new JTextField();
 
+        incomeMappingsTable = new JTable(incomeMappingsModel);
+        expenseMappingsTable = new JTable(expenseMappingsModel);
+
         this.add(mappingFromLabel);
         this.add(mappingToLabel);
         this.add(blankLabel);
         this.add(mappingFrom);
         this.add(mappingTo);
         this.add(createMapping);
+
+        this.add(incomeMappingsTable);
+        this.add(expenseMappingsTable);
     }
     public void createMappingFunction() throws IOException {
         if (AuditAccountClass.isAuditIDEntered() && AuditAccountClass.isIncomeExpenseEntered()) {
@@ -58,11 +74,16 @@ public class MappingPanel extends JPanel {
             int auditID = AuditAccountClass.getAuditID();
             char incomeExpenseChar = AuditAccountClass.getIncomeExpenseChar();
 
-            MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
             mappingTableSQLs.insertMapping(mapFromText, mapToText, auditID, incomeExpenseChar);
         } else {
             System.out.println("Please Enter Audit ID and Income/Expense");
         }
         System.out.println(AuditAccountClass.getIncomeExpenseChar());
+    }
+
+    public void refreshMappingTable() throws SQLException {
+        ResultSet temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), true);
+        incomeMappingsModel = buildTableModel(temp);
+
     }
 }

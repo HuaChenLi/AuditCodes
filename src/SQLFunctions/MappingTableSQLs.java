@@ -58,7 +58,7 @@ public class MappingTableSQLs extends DatabaseConnection {
             statement = connection.createStatement();
 
             PreparedStatement queryStatement = connection.prepareStatement("""
-                        SELECT id, map_from, map_to FROM mapping_table WHERE map_from = ? AND map_to = ?""");
+                        SELECT id, map_from, map_to FROM mapping_table WHERE map_from = ? AND map_to = ? """);
             queryStatement.setString(1, mapFrom);
             queryStatement.setString(2, mapTo);
 
@@ -142,6 +142,34 @@ public class MappingTableSQLs extends DatabaseConnection {
         } catch (Exception e ) {
             e.printStackTrace();
         }
+    }
 
+    public ResultSet getMappings(int accountID, boolean isIncome) {
+        char incomeExpenseChar;
+        if (isIncome) {
+            incomeExpenseChar ='I';
+        } else {
+            incomeExpenseChar = 'E';
+        }
+
+        try {
+            Connection connection = getConnection();
+            PreparedStatement selectMappings = connection.prepareStatement("""
+                    SELECT category_values, id FROM mapping_table
+                    INNER JOIN mapping_selection ON mapping_table.id = mapping_selection.mapping_table_id
+                    WHERE audit_id = ?
+                    AND (income_expense = ? OR income_expense  = 'B')
+                    """);
+            selectMappings.setInt(1, accountID);
+            selectMappings.setString(2, String.valueOf(incomeExpenseChar));
+
+            ResultSet mappings;
+            mappings = selectMappings.executeQuery();
+            return mappings;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
