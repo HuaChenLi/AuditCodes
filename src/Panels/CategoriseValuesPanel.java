@@ -14,8 +14,8 @@ public class CategoriseValuesPanel extends JPanel {
     public CategoriseValuesPanel() {
         this.setLayout(new GridLayout(0,3));
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        columnIDLabel = new JLabel("Excel Column ID");
-        categoryValueLabel = new JLabel("Category Value ID");
+        columnIDLabel = new JLabel("Category ID");
+        categoryValueLabel = new JLabel("Known Description ID");
         blankLabel = new JLabel();
         valueToCategorise = new JTextField();
         columnIDText = new JTextField();
