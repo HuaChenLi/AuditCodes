@@ -20,7 +20,7 @@ public class CategoriseValuesPanel extends JPanel {
         valueToCategorise = new JTextField();
         columnIDText = new JTextField();
 
-        categoriseButton = new JButton("Categorise Column");
+        categoriseButton = new JButton("Assign Description to Category");
         categoriseButton.addActionListener(e1 -> {
             categoryValueID = Integer.parseInt(valueToCategorise.getText());
             valueToCategorise.setText("");

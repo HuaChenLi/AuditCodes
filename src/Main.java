@@ -63,11 +63,11 @@ public class Main {
         mainPanel.add(mappingPanel);
 
 //        Column Creation Panel
-        ColumnCreationPanel columnCreationPanel = new ColumnCreationPanel(excelColumnViewPanel);
+        CreateCategoryPanel columnCreationPanel = new CreateCategoryPanel(excelColumnViewPanel);
         mainPanel.add(columnCreationPanel);
 
 //        Category Creation Panel
-        CreateCategoryPanel createCategoryPanel = new CreateCategoryPanel(excelColumnViewPanel);
+        KnownDescriptionPanel createCategoryPanel = new KnownDescriptionPanel(excelColumnViewPanel);
         mainPanel.add(createCategoryPanel);
 
 //        Categorise Panel
