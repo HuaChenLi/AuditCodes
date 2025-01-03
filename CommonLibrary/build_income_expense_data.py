@@ -48,7 +48,7 @@ def build(audit_id, is_income, data_frame):
 
             is_categorised = False
             for category_name, category_values in columnAndCategory:
-                if any(value.casefold() == row["Description"].casefold() for value in category_values):
+                if any(value.casefold().strip() == row["Description"].casefold().strip() for value in category_values):
                     excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                     is_categorised = True
                     break
