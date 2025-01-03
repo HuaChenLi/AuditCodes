@@ -34,6 +34,9 @@ def build(audit_id, is_income, data_frame):
 
     excel_sheet = pd.DataFrame(columns=column_name_list)
 
+    rv = CommonLibrary.getting_replacement_values.replacement_values(audit_id, income_expense_char)
+    csv_data = csv_data.replace(rv, regex=True)
+
     for index, row in csv_data.iterrows():
         if is_income and csv_data.at[index, "Amount"] > 0 or not is_income and csv_data.at[index, "Amount"] < 0:
             excel_sheet.at[index, "Date"] = csv_data.at[index, "Date"]
@@ -45,15 +48,12 @@ def build(audit_id, is_income, data_frame):
 
             is_categorised = False
             for category_name, category_values in columnAndCategory:
-                if any(value.casefold() in row["Description"].casefold() for value in category_values):
+                if any(value.casefold() == row["Description"].casefold() for value in category_values):
                     excel_sheet.at[index, category_name] = csv_data.at[index, "Amount"]
                     is_categorised = True
                     break
 
             if not is_categorised:
                 excel_sheet.at[index, default_column_name] = csv_data.at[index, "Amount"]
-
-    rv = CommonLibrary.getting_replacement_values.replacement_values(audit_id, income_expense_char)
-    excel_sheet = excel_sheet.replace(rv, regex=True)
 
     return excel_sheet
