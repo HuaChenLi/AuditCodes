@@ -4,13 +4,8 @@ from SQLFunctions.select_mappings import select_mapping_query
 def replacement_values(audit_id, income_expense_char):
     rep_values = {
         "Description": {
-            r"\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b": "",  # dates
+            r"Value Date:\s\b[0-9]+\b\/\b[0-9]+\b\/\b[0-9]+\b$": "",  # dates
             r"\*": "",  # remove asterisks
-            "Value Date:": "",
-            "xx3002": "",
-            "xx0453": "",
-            r"(AU|VI)*(\s)*AUS CARD": "",
-            "PAYPAL": "",
             r"(\s){2,}": "",  # multiple white spaces
             r"^\s": ""}  # white space at start of description
     }
