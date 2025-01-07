@@ -112,17 +112,17 @@ public class MappingPanel extends JPanel implements Model {
     }
 
     private class TablePanel extends JPanel {
+        JLabel incomeMappingLabel = new JLabel("Income Mappings");
+        JLabel expenseMappingLabel = new JLabel("Expense Mappings");
+        GridBagConstraints gbc = new GridBagConstraints();
+        Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         public TablePanel() {
-            Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
             this.setLayout(new GridBagLayout());
-            GridBagConstraints gbc = new GridBagConstraints();
             gbc.gridx = 0;
             gbc.gridy = 0;
-            JLabel incomeMappingLabel = new JLabel("Income Mappings");
             incomeMappingLabel.setBorder(smallBorder);
             this.add(incomeMappingLabel, gbc);
             gbc.gridx = 1;
-            JLabel expenseMappingLabel = new JLabel("Expense Mappings");
             expenseMappingLabel.setBorder(smallBorder);
             this.add(expenseMappingLabel, gbc);
             gbc.gridx = 0;
