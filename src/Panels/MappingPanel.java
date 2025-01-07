@@ -97,12 +97,14 @@ public class MappingPanel extends JPanel implements Model {
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), true);
             incomeMappingsModel = buildTableModel(temp);
             incomeMappingsTable.setModel(incomeMappingsModel);
+            incomeMappingsTable.removeColumn(incomeMappingsTable.getColumn("id"));
             incomeMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(200);
             incomeMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
 
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), false);
             expenseMappingsModel = buildTableModel(temp);
             expenseMappingsTable.setModel(expenseMappingsModel);
+            expenseMappingsTable.removeColumn(expenseMappingsTable.getColumn("id"));
             expenseMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(200);
             expenseMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
 
@@ -114,6 +116,8 @@ public class MappingPanel extends JPanel implements Model {
     private class TablePanel extends JPanel {
         JLabel incomeMappingLabel = new JLabel("Income Mappings");
         JLabel expenseMappingLabel = new JLabel("Expense Mappings");
+        JButton deleteIncomeMapping = new JButton("Delete Selected Income Mapping");
+        JButton deleteExpenseMapping = new JButton("Delete Selected Expense Mapping");
         GridBagConstraints gbc = new GridBagConstraints();
         Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         public TablePanel() {
@@ -130,6 +134,33 @@ public class MappingPanel extends JPanel implements Model {
             this.add(incomeMappingsTable, gbc);
             gbc.gridx = 1;
             this.add(expenseMappingsTable, gbc);
+
+            deleteIncomeMapping.addActionListener(e -> {
+                int row = incomeMappingsTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 0;
+                    String id = incomeMappingsTable.getModel().getValueAt(row, column).toString();
+                    System.out.println(id);
+                    mappingTableSQLs.deleteMapping(Integer.parseInt(id));
+                    refreshMappingTable();
+                }
+            });
+            gbc.gridx = 0;
+            gbc.gridy = 2;
+            this.add(deleteIncomeMapping, gbc);
+
+            deleteExpenseMapping.addActionListener(e -> {
+                int row = expenseMappingsTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 0;
+                    String id = expenseMappingsTable.getModel().getValueAt(row, column).toString();
+                    System.out.println(id);
+                    mappingTableSQLs.deleteMapping(Integer.parseInt(id));
+                    refreshMappingTable();
+                }
+            });
+            gbc.gridx = 1;
+            this.add(deleteExpenseMapping, gbc);
         }
     }
 }

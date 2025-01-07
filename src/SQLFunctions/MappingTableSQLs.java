@@ -126,6 +126,21 @@ public class MappingTableSQLs extends DatabaseConnection {
         }
     }
 
+    public void deleteMapping(int id) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement deleteMapping = connection.prepareStatement(
+                        "DELETE FROM mapping_table " +
+                            "WHERE id = ?"
+            );
+            deleteMapping.setInt(1, id);
+            deleteMapping.executeUpdate();
+            connection.close();
+        } catch (Exception e ) {
+            e.printStackTrace();
+        }
+    }
+
     public void createMappingSelection(int auditID1, int mappingTableID1, char incomeExpense1) {
         try{
             Connection connection = getConnection();
@@ -155,7 +170,7 @@ public class MappingTableSQLs extends DatabaseConnection {
         try {
             Connection connection = getConnection();
             PreparedStatement selectMappings = connection.prepareStatement("""
-                    SELECT map_from, map_to FROM mapping_table
+                    SELECT id, map_from, map_to FROM mapping_table
                     INNER JOIN mapping_selection ON mapping_table.id = mapping_selection.mapping_table_id
                     WHERE audit_id = ?
                     AND (income_expense = ? OR income_expense  = 'B')
