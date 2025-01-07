@@ -14,7 +14,6 @@ public class MappingPanel extends JPanel implements Model {
     JButton createMapping;
     JTextField mappingFrom, mappingTo;
     JPanel createMapPanel;
-    JPanel tablePanel;
     JTable incomeMappingsTable;
     JTable expenseMappingsTable;
     DefaultTableModel incomeMappingsModel = new DefaultTableModel();
@@ -48,24 +47,7 @@ public class MappingPanel extends JPanel implements Model {
         expenseMappingsTable = new JTable(expenseMappingsModel);
         expenseMappingsTable.setDefaultEditor(Object.class, null);
 
-        tablePanel = new JPanel();
-        Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
-        tablePanel.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        JLabel incomeMappingLabel = new JLabel("Income Mappings");
-        incomeMappingLabel.setBorder(smallBorder);
-        tablePanel.add(incomeMappingLabel, gbc);
-        gbc.gridx = 1;
-        JLabel expenseMappingLabel = new JLabel("Expense Mappings");
-        expenseMappingLabel.setBorder(smallBorder);
-        tablePanel.add(expenseMappingLabel, gbc);
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        tablePanel.add(incomeMappingsTable, gbc);
-        gbc.gridx = 1;
-        tablePanel.add(expenseMappingsTable, gbc);
+        TablePanel tablePanel = new TablePanel();
 
         createMapPanel.add(mappingFromLabel);
         createMapPanel.add(mappingToLabel);
@@ -127,6 +109,27 @@ public class MappingPanel extends JPanel implements Model {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
+    private class TablePanel extends JPanel {
+        public TablePanel() {
+            Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
+            this.setLayout(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            JLabel incomeMappingLabel = new JLabel("Income Mappings");
+            incomeMappingLabel.setBorder(smallBorder);
+            this.add(incomeMappingLabel, gbc);
+            gbc.gridx = 1;
+            JLabel expenseMappingLabel = new JLabel("Expense Mappings");
+            expenseMappingLabel.setBorder(smallBorder);
+            this.add(expenseMappingLabel, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 1;
+            this.add(incomeMappingsTable, gbc);
+            gbc.gridx = 1;
+            this.add(expenseMappingsTable, gbc);
+        }
     }
 }
