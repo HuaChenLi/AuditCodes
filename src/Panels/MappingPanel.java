@@ -4,6 +4,7 @@ import src.Interfaces.Model;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.ResultSet;
@@ -48,8 +49,23 @@ public class MappingPanel extends JPanel implements Model {
         expenseMappingsTable.setDefaultEditor(Object.class, null);
 
         tablePanel = new JPanel();
-        tablePanel.add(incomeMappingsTable);
-        tablePanel.add(expenseMappingsTable);
+        Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
+        tablePanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        JLabel incomeMappingLabel = new JLabel("Income Mappings");
+        incomeMappingLabel.setBorder(smallBorder);
+        tablePanel.add(incomeMappingLabel, gbc);
+        gbc.gridx = 1;
+        JLabel expenseMappingLabel = new JLabel("Expense Mappings");
+        expenseMappingLabel.setBorder(smallBorder);
+        tablePanel.add(expenseMappingLabel, gbc);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        tablePanel.add(incomeMappingsTable, gbc);
+        gbc.gridx = 1;
+        tablePanel.add(expenseMappingsTable, gbc);
 
         createMapPanel.add(mappingFromLabel);
         createMapPanel.add(mappingToLabel);
