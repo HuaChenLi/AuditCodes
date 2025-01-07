@@ -4,6 +4,7 @@ import src.Interfaces.Model;
 import src.SQLFunctions.CreateNewColumns;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.sql.ResultSet;
@@ -56,10 +57,41 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.validate();
 
         tablePanel = new JPanel();
-        tablePanel.add(excelIncomeColumnTable);
-        tablePanel.add(excelExpenseColumnTable);
-        tablePanel.add(incomeCategoriesTable);
-        tablePanel.add(expenseCategoriesTable);
+        Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
+        tablePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        tablePanel.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        JLabel incomeCategoryLabel = new JLabel("Income Categories");
+        incomeCategoryLabel.setBorder(smallBorder);
+        tablePanel.add(incomeCategoryLabel, gbc);
+        gbc.gridx = 1;
+        JLabel expenseCategoryLabel = new JLabel("Expense Categories");
+        expenseCategoryLabel.setBorder(smallBorder);
+        tablePanel.add(expenseCategoryLabel, gbc);
+        gbc.gridx = 2;
+        JLabel incomeDescriptionLabel = new JLabel("Income Descriptions");
+        incomeDescriptionLabel.setBorder(smallBorder);
+        tablePanel.add(incomeDescriptionLabel, gbc);
+        gbc.gridx = 3;
+        JLabel expenseDescriptionLabel = new JLabel("Expense Descriptions");
+        expenseDescriptionLabel.setBorder(smallBorder);
+        tablePanel.add(expenseDescriptionLabel, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        tablePanel.add(excelIncomeColumnTable, gbc);
+        excelIncomeColumnTable.setBorder(smallBorder);
+        gbc.gridx = 1;
+        tablePanel.add(excelExpenseColumnTable, gbc);
+        excelExpenseColumnTable.setBorder(smallBorder);
+        gbc.gridx = 2;
+        tablePanel.add(incomeCategoriesTable, gbc);
+        incomeCategoriesTable.setBorder(smallBorder);
+        gbc.gridx = 3;
+        tablePanel.add(expenseCategoriesTable, gbc);
+        expenseCategoriesTable.setBorder(smallBorder);
 
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
