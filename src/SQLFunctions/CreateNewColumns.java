@@ -64,7 +64,6 @@ public class CreateNewColumns extends DatabaseConnection{
 
     }
 
-
     public void createCategoryMappings() {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
@@ -101,6 +100,20 @@ public class CreateNewColumns extends DatabaseConnection{
             insertColumnSelectionDetails.setBoolean(3, isIncome);
             insertColumnSelectionDetails.executeUpdate();
             insertColumnSelectionDetails.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteDescription(int id) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement deleteDescription = connection.prepareStatement(
+                        "DELETE FROM excel_category_mapping " +
+                            "WHERE id = ? "
+            );
+            deleteDescription.setInt(1, id);
+            deleteDescription.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -91,6 +91,26 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 refreshAll();
             }
         });
+        JButton deleteIncomeDescriptionButton = new JButton("Delete Selected Known Description");
+        deleteIncomeDescriptionButton.addActionListener(e -> {
+            int row = incomeCategoriesTable.getSelectedRow();
+            if (row != -1) {
+                int column = 1;
+                String id = incomeCategoriesTable.getModel().getValueAt(row, column).toString();
+                createNewColumns.deleteDescription(Integer.parseInt(id));
+                refreshAll();
+            }
+        });
+        JButton deleteExpenseDescriptionButton = new JButton("Delete Selected Known Description");
+        deleteExpenseDescriptionButton.addActionListener(e -> {
+            int row = expenseCategoriesTable.getSelectedRow();
+            if (row != -1) {
+                int column = 1;
+                String id = expenseCategoriesTable.getModel().getValueAt(row, column).toString();
+                createNewColumns.deleteDescription(Integer.parseInt(id));
+                refreshAll();
+            }
+        });
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -121,6 +141,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         tablePanel.add(deleteCategoryIncomeButton, gbc);
         gbc.gridx = 1;
         tablePanel.add(deleteCategoryExpenseButton, gbc);
+        gbc.gridx = 2;
+        tablePanel.add(deleteIncomeDescriptionButton, gbc);
+        gbc.gridx = 3;
+        tablePanel.add(deleteExpenseDescriptionButton, gbc);
 
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
