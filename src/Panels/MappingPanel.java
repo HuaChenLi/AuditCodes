@@ -64,8 +64,8 @@ public class MappingPanel extends JPanel implements Model {
     }
     public void createMappingFunction() {
         if (AuditAccountClass.isAuditIDEntered() && AuditAccountClass.isIncomeExpenseEntered()) {
-            String mapFromText = mappingFrom.getText();
-            String mapToText = mappingTo.getText();
+            String mapFromText = mappingFrom.getText().trim();
+            String mapToText = mappingTo.getText().trim();
 
             if (mapFromText.trim().length() == 0) {
                 System.out.println("Map from must have a value");
@@ -98,14 +98,14 @@ public class MappingPanel extends JPanel implements Model {
             incomeMappingsModel = buildTableModel(temp);
             incomeMappingsTable.setModel(incomeMappingsModel);
             incomeMappingsTable.removeColumn(incomeMappingsTable.getColumn("id"));
-            incomeMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(200);
+            incomeMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(250);
             incomeMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
 
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), false);
             expenseMappingsModel = buildTableModel(temp);
             expenseMappingsTable.setModel(expenseMappingsModel);
             expenseMappingsTable.removeColumn(expenseMappingsTable.getColumn("id"));
-            expenseMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(200);
+            expenseMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(250);
             expenseMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
 
         } catch (Exception e) {

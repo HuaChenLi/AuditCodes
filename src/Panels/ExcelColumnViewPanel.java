@@ -76,10 +76,30 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         incomeCategoriesTable = new JTable(incomeCategoriesDataModel);
         incomeCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         incomeCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        incomeCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = incomeCategoriesTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 1;
+                    String id = incomeCategoriesTable.getModel().getValueAt(row, column).toString();
+                    categoriseValuesPanel.setValueToCategorise(id);
+                }
+            }
+        });
 
         expenseCategoriesTable = new JTable(expenseCategoriesDataModel);
         expenseCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         expenseCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
+        expenseCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = expenseCategoriesTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 1;
+                    String id = expenseCategoriesTable.getModel().getValueAt(row, column).toString();
+                    categoriseValuesPanel.setValueToCategorise(id);
+                }
+            }
+        });
 
         this.revalidate();
         this.validate();

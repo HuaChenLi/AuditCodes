@@ -40,6 +40,10 @@ public class CategoriseValuesPanel extends JPanel {
     }
 
     public void setColumnIDText(String s) {
+        columnIDText.setText(s);
+    }
+
+    public void setValueToCategorise(String s) {
         valueToCategorise.setText(s);
     }
 }
