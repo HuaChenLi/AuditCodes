@@ -140,7 +140,6 @@ public class MappingPanel extends JPanel implements Model {
                 if (row != -1) {
                     int column = 0;
                     String id = incomeMappingsTable.getModel().getValueAt(row, column).toString();
-                    System.out.println(id);
                     mappingTableSQLs.deleteMapping(Integer.parseInt(id));
                     refreshMappingTable();
                 }
@@ -154,7 +153,6 @@ public class MappingPanel extends JPanel implements Model {
                 if (row != -1) {
                     int column = 0;
                     String id = expenseMappingsTable.getModel().getValueAt(row, column).toString();
-                    System.out.println(id);
                     mappingTableSQLs.deleteMapping(Integer.parseInt(id));
                     refreshMappingTable();
                 }

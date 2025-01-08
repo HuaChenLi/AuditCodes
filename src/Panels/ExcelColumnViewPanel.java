@@ -16,6 +16,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     JTable incomeCategoriesTable;
     JTable expenseCategoriesTable;
     JPanel tablePanel;
+    CreateNewColumns createNewColumns = new CreateNewColumns();
     DefaultTableModel excelIncomeColumnsDataModel = new DefaultTableModel() {
         public int getColumnCount() { return 2; }
         public int getRowCount() { return 40; }
@@ -80,6 +81,32 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         tablePanel.add(expenseDescriptionLabel, gbc);
 
         gbc.gridx = 0;
+        gbc.gridy = 2;
+        JButton deleteCategoryIncomeButton = new JButton("Delete Selected Category");
+        deleteCategoryIncomeButton.addActionListener(e -> {
+            int row = excelIncomeColumnTable.getSelectedRow();
+            if (row != -1) {
+                int column = 1;
+                String id = excelIncomeColumnTable.getModel().getValueAt(row, column).toString();
+                createNewColumns.deleteCategory(Integer.parseInt(id));
+                refreshAll();
+            }
+        });
+        tablePanel.add(deleteCategoryIncomeButton, gbc);
+        gbc.gridx = 1;
+        JButton deleteCategoryExpenseButton = new JButton("Delete Selected Category");
+        deleteCategoryExpenseButton.addActionListener(e -> {
+            int row = excelExpenseColumnTable.getSelectedRow();
+            if (row != -1) {
+                int column = 1;
+                String id = excelExpenseColumnTable.getModel().getValueAt(row, column).toString();
+                createNewColumns.deleteCategory(Integer.parseInt(id));
+                refreshAll();
+            }
+        });
+        tablePanel.add(deleteCategoryExpenseButton, gbc);
+
+        gbc.gridx = 0;
         gbc.gridy = 1;
         tablePanel.add(excelIncomeColumnTable, gbc);
         excelIncomeColumnTable.setBorder(smallBorder);
@@ -127,15 +154,14 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         return dataModel;
     }
 
-    public DefaultTableModel getCategoriesDataModel(DefaultTableModel dataModel, boolean isIncome) throws SQLException {
-        CreateNewColumns createNewColumns = new CreateNewColumns();
+    public DefaultTableModel getCategoriesDataModel(boolean isIncome) throws SQLException {
         ResultSet excelColumns;
         excelColumns = createNewColumns.getCategories(AuditAccountClass.getAuditID(), isIncome);
 
         this.validate();
         this.revalidate();
 
-        dataModel = buildTableModel(excelColumns);
+        DefaultTableModel dataModel = buildTableModel(excelColumns);
         return dataModel;
     }
 
@@ -164,7 +190,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
     public void refreshCategoriesTable() {
         try {
-            incomeCategoriesDataModel = getCategoriesDataModel(incomeCategoriesDataModel, true);
+            incomeCategoriesDataModel = getCategoriesDataModel(true);
             incomeCategoriesTable.setDefaultEditor(Object.class, null);
             incomeCategoriesTable.setModel(incomeCategoriesDataModel);
             incomeCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);
@@ -173,7 +199,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         }
 
         try {
-            expenseCategoriesDataModel = getCategoriesDataModel(expenseCategoriesDataModel, false);
+            expenseCategoriesDataModel = getCategoriesDataModel(false);
             expenseCategoriesTable.setDefaultEditor(Object.class, null);
             expenseCategoriesTable.setModel(expenseCategoriesDataModel);
             expenseCategoriesTable.getColumnModel().getColumn(0).setPreferredWidth(150);

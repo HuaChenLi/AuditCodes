@@ -48,6 +48,23 @@ public class CreateNewColumns extends DatabaseConnection{
         System.out.println("Dropped excel_columns Table successfully");
     }
 
+    public void deleteCategory(int id) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement deleteCategory = connection.prepareStatement(
+                        "DELETE FROM excel_columns " +
+                            "WHERE id = ?"
+            );
+            deleteCategory.setInt(1,id);
+            deleteCategory.executeUpdate();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
     public void createCategoryMappings() {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
