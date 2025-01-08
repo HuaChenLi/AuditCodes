@@ -62,26 +62,15 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         tablePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         tablePanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 0;
         JLabel incomeCategoryLabel = new JLabel("Income Categories");
         incomeCategoryLabel.setBorder(smallBorder);
-        tablePanel.add(incomeCategoryLabel, gbc);
-        gbc.gridx = 1;
         JLabel expenseCategoryLabel = new JLabel("Expense Categories");
         expenseCategoryLabel.setBorder(smallBorder);
-        tablePanel.add(expenseCategoryLabel, gbc);
-        gbc.gridx = 2;
         JLabel incomeDescriptionLabel = new JLabel("Income Descriptions");
         incomeDescriptionLabel.setBorder(smallBorder);
-        tablePanel.add(incomeDescriptionLabel, gbc);
-        gbc.gridx = 3;
         JLabel expenseDescriptionLabel = new JLabel("Expense Descriptions");
         expenseDescriptionLabel.setBorder(smallBorder);
-        tablePanel.add(expenseDescriptionLabel, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 2;
         JButton deleteCategoryIncomeButton = new JButton("Delete Selected Category");
         deleteCategoryIncomeButton.addActionListener(e -> {
             int row = excelIncomeColumnTable.getSelectedRow();
@@ -92,8 +81,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 refreshAll();
             }
         });
-        tablePanel.add(deleteCategoryIncomeButton, gbc);
-        gbc.gridx = 1;
         JButton deleteCategoryExpenseButton = new JButton("Delete Selected Category");
         deleteCategoryExpenseButton.addActionListener(e -> {
             int row = excelExpenseColumnTable.getSelectedRow();
@@ -104,7 +91,16 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 refreshAll();
             }
         });
-        tablePanel.add(deleteCategoryExpenseButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        tablePanel.add(incomeCategoryLabel, gbc);
+        gbc.gridx = 1;
+        tablePanel.add(expenseCategoryLabel, gbc);
+        gbc.gridx = 2;
+        tablePanel.add(incomeDescriptionLabel, gbc);
+        gbc.gridx = 3;
+        tablePanel.add(expenseDescriptionLabel, gbc);
 
         gbc.gridx = 0;
         gbc.gridy = 1;
@@ -119,6 +115,12 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         gbc.gridx = 3;
         tablePanel.add(expenseCategoriesTable, gbc);
         expenseCategoriesTable.setBorder(smallBorder);
+
+        gbc.gridx = 0;
+        gbc.gridy = 2;
+        tablePanel.add(deleteCategoryIncomeButton, gbc);
+        gbc.gridx = 1;
+        tablePanel.add(deleteCategoryExpenseButton, gbc);
 
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
