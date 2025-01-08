@@ -39,4 +39,7 @@ public class CategoriseValuesPanel extends JPanel {
         this.add(categoriseButton);
     }
 
+    public void setColumnIDText(String s) {
+        valueToCategorise.setText(s);
+    }
 }

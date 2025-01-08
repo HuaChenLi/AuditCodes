@@ -72,6 +72,7 @@ public class Main {
 
 //        Categorise Panel
         CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();
+        excelColumnViewPanel.setCategoriseValuesPanel(categoriseValuesPanel);
         mainPanel.add(categoriseValuesPanel);
 
         excelColumnViewPanel.refreshAll();
