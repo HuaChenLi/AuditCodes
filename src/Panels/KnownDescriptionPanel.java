@@ -56,6 +56,10 @@ public class KnownDescriptionPanel extends JPanel {
 
         }
     }
+
+    public void setNewCategory(String s) {
+        newCategory.setText(s);
+    }
 }
 
 

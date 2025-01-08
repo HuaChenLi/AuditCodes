@@ -67,8 +67,9 @@ public class Main {
         mainPanel.add(columnCreationPanel);
 
 //        Category Creation Panel
-        KnownDescriptionPanel createCategoryPanel = new KnownDescriptionPanel(excelColumnViewPanel);
-        mainPanel.add(createCategoryPanel);
+        KnownDescriptionPanel knownDescriptionPanel = new KnownDescriptionPanel(excelColumnViewPanel);
+        mainPanel.add(knownDescriptionPanel);
+        mappingPanel.setKnownDescriptionPanel(knownDescriptionPanel);
 
 //        Categorise Panel
         CategoriseValuesPanel categoriseValuesPanel = new CategoriseValuesPanel();

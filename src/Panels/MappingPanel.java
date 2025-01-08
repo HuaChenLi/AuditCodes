@@ -19,6 +19,7 @@ public class MappingPanel extends JPanel implements Model {
     DefaultTableModel incomeMappingsModel = new DefaultTableModel();
     DefaultTableModel expenseMappingsModel = new DefaultTableModel();
     MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
+    KnownDescriptionPanel knownDescriptionPanel;
     public MappingPanel() {
         createMapPanel = new JPanel();
         createMapPanel.setLayout(new GridLayout(0,3));
@@ -44,8 +45,28 @@ public class MappingPanel extends JPanel implements Model {
 
         incomeMappingsTable = new JTable(incomeMappingsModel);
         incomeMappingsTable.setDefaultEditor(Object.class, null);
+        incomeMappingsTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = incomeMappingsTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 2;
+                    String id = incomeMappingsTable.getModel().getValueAt(row, column).toString();
+                    knownDescriptionPanel.setNewCategory(id);
+                }
+            }
+        });
         expenseMappingsTable = new JTable(expenseMappingsModel);
         expenseMappingsTable.setDefaultEditor(Object.class, null);
+        expenseMappingsTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = expenseMappingsTable.getSelectedRow();
+                if (row != -1) {
+                    int column = 2;
+                    String id = expenseMappingsTable.getModel().getValueAt(row, column).toString();
+                    knownDescriptionPanel.setNewCategory(id);
+                }
+            }
+        });
 
         TablePanel tablePanel = new TablePanel();
 
@@ -160,5 +181,9 @@ public class MappingPanel extends JPanel implements Model {
             gbc.gridx = 1;
             this.add(deleteExpenseMapping, gbc);
         }
+    }
+
+    public void setKnownDescriptionPanel(KnownDescriptionPanel knownDescriptionPanel) {
+        this.knownDescriptionPanel = knownDescriptionPanel;
     }
 }
