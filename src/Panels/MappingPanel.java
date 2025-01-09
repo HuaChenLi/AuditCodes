@@ -6,8 +6,11 @@ import src.SQLFunctions.MappingTableSQLs;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class MappingPanel extends JPanel implements Model {
     JLabel mappingFromLabel, mappingToLabel, blankLabel;
@@ -20,6 +23,7 @@ public class MappingPanel extends JPanel implements Model {
     DefaultTableModel expenseMappingsModel = new DefaultTableModel();
     MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
     KnownDescriptionPanel knownDescriptionPanel;
+    private final int MAPPING_TABLE_WIDTH = 300;
     public MappingPanel() {
         createMapPanel = new JPanel();
         createMapPanel.setLayout(new GridLayout(0,3));
@@ -117,17 +121,10 @@ public class MappingPanel extends JPanel implements Model {
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), true);
             incomeMappingsModel = buildTableModel(temp);
             incomeMappingsTable.setModel(incomeMappingsModel);
-            incomeMappingsTable.removeColumn(incomeMappingsTable.getColumn("id"));
-            incomeMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(250);
-            incomeMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
 
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), false);
             expenseMappingsModel = buildTableModel(temp);
             expenseMappingsTable.setModel(expenseMappingsModel);
-            expenseMappingsTable.removeColumn(expenseMappingsTable.getColumn("id"));
-            expenseMappingsTable.getColumnModel().getColumn(0).setPreferredWidth(250);
-            expenseMappingsTable.getColumnModel().getColumn(1).setPreferredWidth(200);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -141,7 +138,8 @@ public class MappingPanel extends JPanel implements Model {
         JPanel justLabelPanel = new JPanel();
         JPanel justTablePanel = new JPanel();
         JPanel justButtonPanel = new JPanel();
-        JScrollPane scrollPane;
+        JScrollPane incomeScroll;
+        JScrollPane expenseScroll;
         GridBagConstraints gbc = new GridBagConstraints();
         Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         public TablePanel() {
@@ -150,12 +148,13 @@ public class MappingPanel extends JPanel implements Model {
             justLabelPanel.add(incomeMappingLabel);
             justLabelPanel.add(expenseMappingLabel);
 
-            scrollPane = new JScrollPane(justTablePanel);
-            scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-            scrollPane.setPreferredSize(new Dimension(1000,500));
+            initMappingPanelTables();
 
-            justTablePanel.add(incomeMappingsTable);
-            justTablePanel.add(expenseMappingsTable);
+            incomeScroll = new JScrollPane(incomeMappingsTable);
+            expenseScroll = new JScrollPane(expenseMappingsTable);
+
+            justTablePanel.add(incomeScroll);
+            justTablePanel.add(expenseScroll);
 
             deleteIncomeMapping.addActionListener(e -> {
                 int row = incomeMappingsTable.getSelectedRow();
@@ -188,7 +187,7 @@ public class MappingPanel extends JPanel implements Model {
             this.add(justLabelPanel);
             gbc.gridx = 0;
             gbc.gridy = 1;
-            this.add(scrollPane, gbc);
+            this.add(justTablePanel, gbc);
             gbc.gridx = 0;
             gbc.gridy = 2;
             this.add(justButtonPanel, gbc);
@@ -197,5 +196,36 @@ public class MappingPanel extends JPanel implements Model {
 
     public void setKnownDescriptionPanel(KnownDescriptionPanel knownDescriptionPanel) {
         this.knownDescriptionPanel = knownDescriptionPanel;
+    }
+
+    private void initMappingPanelTables() {
+        try {
+            ResultSet temp;
+            temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), true);
+            incomeMappingsModel = buildTableModel(temp);
+            incomeMappingsTable.setModel(incomeMappingsModel);
+            incomeMappingsTable.removeColumn(incomeMappingsTable.getColumn("id"));
+            incomeMappingsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            incomeMappingsTable.setAutoCreateColumnsFromModel(false);
+            incomeMappingsTable.getColumn("map_from").setPreferredWidth(MAPPING_TABLE_WIDTH);
+            incomeMappingsTable.getColumn("map_to").setPreferredWidth(MAPPING_TABLE_WIDTH);
+            incomeMappingsTable.getColumn("map_from").setHeaderValue("Income Raw Data");
+            incomeMappingsTable.getColumn("map_to").setHeaderValue("Income Mapped Description");
+            incomeMappingsTable.setAutoCreateRowSorter(true);
+
+            temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), false);
+            expenseMappingsModel = buildTableModel(temp);
+            expenseMappingsTable.setModel(expenseMappingsModel);
+            expenseMappingsTable.removeColumn(expenseMappingsTable.getColumn("id"));
+            expenseMappingsTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            expenseMappingsTable.setAutoCreateColumnsFromModel(false);
+            expenseMappingsTable.getColumn("map_from").setPreferredWidth(MAPPING_TABLE_WIDTH);
+            expenseMappingsTable.getColumn("map_to").setPreferredWidth(MAPPING_TABLE_WIDTH);
+            expenseMappingsTable.getColumn("map_from").setHeaderValue("Expense Raw Data");
+            expenseMappingsTable.getColumn("map_to").setHeaderValue("Expense Mapped Description");
+            expenseMappingsTable.setAutoCreateRowSorter(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
