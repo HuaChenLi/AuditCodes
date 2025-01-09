@@ -52,9 +52,10 @@ public class MappingPanel extends JPanel implements Model {
         incomeMappingsTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = incomeMappingsTable.getSelectedRow();
-                if (row != -1) {
+                if (row >= 0) {
+                    int modelRow = incomeMappingsTable.convertRowIndexToModel(row);
                     int column = 2;
-                    String id = incomeMappingsTable.getModel().getValueAt(row, column).toString();
+                    String id = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
                     knownDescriptionPanel.setNewCategory(id);
                 }
             }
@@ -64,10 +65,11 @@ public class MappingPanel extends JPanel implements Model {
         expenseMappingsTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = expenseMappingsTable.getSelectedRow();
-                if (row != -1) {
-                    int column = 2;
-                    String id = expenseMappingsTable.getModel().getValueAt(row, column).toString();
-                    knownDescriptionPanel.setNewCategory(id);
+                if (row >= 0) {
+                    int modelRow = expenseMappingsTable.convertRowIndexToModel(row);
+                        int column = 2;
+                        String id = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
+                        knownDescriptionPanel.setNewCategory(id);
                 }
             }
         });
