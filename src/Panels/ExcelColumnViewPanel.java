@@ -27,7 +27,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     DefaultTableModel incomeCategoriesDataModel;
     DefaultTableModel expenseCategoriesDataModel;
     CategoriseValuesPanel categoriseValuesPanel;
-    private final int tableWidth = 450;
+    private final int TABLE_WIDTH = 450;
 
     public ExcelColumnViewPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -217,7 +217,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelIncomeColumnsDataModel = getExcelColumnsDataModel(excelIncomeColumnsDataModel, true);
             excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
-            tcmIncomeColumn.getColumn(0).setPreferredWidth(tableWidth);
+            tcmIncomeColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
             excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
         } catch (Exception e) {
@@ -243,7 +243,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
-            tcmExpenseColumn.getColumn(0).setPreferredWidth(tableWidth);
+            tcmExpenseColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("id"));
             excelExpenseColumnTable.getColumn("column_name").setHeaderValue("Expense Categories");
         } catch (Exception e) {
@@ -274,7 +274,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             incomeCategoriesDataModel = getCategoriesDataModel(true);
             incomeCategoriesTable.setModel(incomeCategoriesDataModel);
             TableColumnModel tcmIncomeCategory = incomeCategoriesTable.getColumnModel();
-            tcmIncomeCategory.getColumn(0).setPreferredWidth(tableWidth);
+            tcmIncomeCategory.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             incomeCategoriesTable.removeColumn(incomeCategoriesTable.getColumn("id"));
             incomeCategoriesTable.getColumn("category_values").setHeaderValue("Income Descriptions");
         } catch (Exception e) {
@@ -298,7 +298,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             expenseCategoriesDataModel = getCategoriesDataModel(false);
             expenseCategoriesTable.setModel(expenseCategoriesDataModel);
             TableColumnModel tcmExpenseCategories = expenseCategoriesTable.getColumnModel();
-            tcmExpenseCategories.getColumn(0).setPreferredWidth(tableWidth);
+            tcmExpenseCategories.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             expenseCategoriesTable.removeColumn(expenseCategoriesTable.getColumn("id"));
             expenseCategoriesTable.getColumn("category_values").setHeaderValue("Expense Descriptions");
         } catch (Exception e) {
