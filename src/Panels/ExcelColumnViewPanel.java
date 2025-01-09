@@ -1,6 +1,5 @@
 package src.Panels;
 
-import com.mysql.cj.Constants;
 import src.Interfaces.Model;
 import src.SQLFunctions.CreateNewColumns;
 
@@ -17,6 +16,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     JTable excelExpenseColumnTable;
     JTable incomeCategoriesTable;
     JTable expenseCategoriesTable;
+    JScrollPane incomeColumnScroll;
+    JScrollPane expenseColumnScroll;
+    JScrollPane incomeCategoryScroll;
+    JScrollPane expenseCategoryScroll;
     JPanel tablePanel;
     CreateNewColumns createNewColumns = new CreateNewColumns();
     DefaultTableModel excelIncomeColumnsDataModel;
@@ -35,22 +38,13 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         expenseCategoriesTable = new JTable(expenseCategoriesDataModel);
 
         setCategoryTables();
-        setDescriptionTables();
-
+        initDescriptionTables();
 
         tablePanel = new JPanel();
         Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         tablePanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         tablePanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
-        JLabel incomeCategoryLabel = new JLabel("Income Categories");
-        incomeCategoryLabel.setBorder(smallBorder);
-        JLabel expenseCategoryLabel = new JLabel("Expense Categories");
-        expenseCategoryLabel.setBorder(smallBorder);
-        JLabel incomeDescriptionLabel = new JLabel("Income Descriptions");
-        incomeDescriptionLabel.setBorder(smallBorder);
-        JLabel expenseDescriptionLabel = new JLabel("Expense Descriptions");
-        expenseDescriptionLabel.setBorder(smallBorder);
 
         JButton deleteCategoryIncomeButton = new JButton("Delete Selected Category");
         deleteCategoryIncomeButton.addActionListener(e -> {
@@ -94,27 +88,21 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         });
 
         gbc.gridx = 0;
-        gbc.gridy = 0;
-        tablePanel.add(incomeCategoryLabel, gbc);
-        gbc.gridx = 1;
-        tablePanel.add(expenseCategoryLabel, gbc);
-        gbc.gridx = 2;
-        tablePanel.add(incomeDescriptionLabel, gbc);
-        gbc.gridx = 3;
-        tablePanel.add(expenseDescriptionLabel, gbc);
-
-        gbc.gridx = 0;
         gbc.gridy = 1;
-        tablePanel.add(excelIncomeColumnTable, gbc);
+        incomeColumnScroll = new JScrollPane(excelIncomeColumnTable);
+        tablePanel.add(incomeColumnScroll, gbc);
         excelIncomeColumnTable.setBorder(smallBorder);
         gbc.gridx = 1;
-        tablePanel.add(excelExpenseColumnTable, gbc);
+        expenseColumnScroll = new JScrollPane(excelExpenseColumnTable);
+        tablePanel.add(expenseColumnScroll, gbc);
         excelExpenseColumnTable.setBorder(smallBorder);
         gbc.gridx = 2;
-        tablePanel.add(incomeCategoriesTable, gbc);
+        incomeCategoryScroll = new JScrollPane(incomeCategoriesTable);
+        tablePanel.add(incomeCategoryScroll, gbc);
         incomeCategoriesTable.setBorder(smallBorder);
         gbc.gridx = 3;
-        tablePanel.add(expenseCategoriesTable, gbc);
+        expenseCategoryScroll = new JScrollPane(expenseCategoriesTable);
+        tablePanel.add(expenseCategoryScroll, gbc);
         expenseCategoriesTable.setBorder(smallBorder);
 
         gbc.gridx = 0;
@@ -230,7 +218,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
             tcmIncomeColumn.getColumn(0).setPreferredWidth(tableWidth);
-            tcmIncomeColumn.removeColumn(tcmIncomeColumn.getColumn(1));
+            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
+            excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -255,7 +244,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
             tcmExpenseColumn.getColumn(0).setPreferredWidth(tableWidth);
-            tcmExpenseColumn.removeColumn(tcmExpenseColumn.getColumn(1));
+            excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("id"));
+            excelExpenseColumnTable.getColumn("column_name").setHeaderValue("Expense Categories");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -276,7 +266,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         });
     }
 
-    private void setDescriptionTables() {
+    private void initDescriptionTables() {
         incomeCategoriesTable.setDefaultEditor(Object.class, null);
         expenseCategoriesTable.setDefaultEditor(Object.class, null);
 
@@ -285,7 +275,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             incomeCategoriesTable.setModel(incomeCategoriesDataModel);
             TableColumnModel tcmIncomeCategory = incomeCategoriesTable.getColumnModel();
             tcmIncomeCategory.getColumn(0).setPreferredWidth(tableWidth);
-            tcmIncomeCategory.removeColumn(tcmIncomeCategory.getColumn(1));
+            incomeCategoriesTable.removeColumn(incomeCategoriesTable.getColumn("id"));
+            incomeCategoriesTable.getColumn("category_values").setHeaderValue("Income Descriptions");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -308,7 +299,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             expenseCategoriesTable.setModel(expenseCategoriesDataModel);
             TableColumnModel tcmExpenseCategories = expenseCategoriesTable.getColumnModel();
             tcmExpenseCategories.getColumn(0).setPreferredWidth(tableWidth);
-            tcmExpenseCategories.removeColumn(tcmExpenseCategories.getColumn(1));
+            expenseCategoriesTable.removeColumn(expenseCategoriesTable.getColumn("id"));
+            expenseCategoriesTable.getColumn("category_values").setHeaderValue("Expense Descriptions");
         } catch (Exception e) {
             e.printStackTrace();
         }
