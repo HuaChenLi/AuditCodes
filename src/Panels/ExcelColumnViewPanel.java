@@ -1,5 +1,6 @@
 package src.Panels;
 
+import com.mysql.cj.Constants;
 import src.Interfaces.Model;
 import src.SQLFunctions.CreateNewColumns;
 
@@ -20,18 +21,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     CreateNewColumns createNewColumns = new CreateNewColumns();
     DefaultTableModel excelIncomeColumnsDataModel;
     DefaultTableModel excelExpenseColumnsDataModel;
-    DefaultTableModel incomeCategoriesDataModel = new DefaultTableModel() {
-        public int getColumnCount() { return 2; }
-        public int getRowCount() { return 40; }
-        public Object getValueAt(int row, int col) { return null; }
-    };
-
-    DefaultTableModel expenseCategoriesDataModel = new DefaultTableModel() {
-        public int getColumnCount() { return 2; }
-        public int getRowCount() { return 40; }
-        public Object getValueAt(int row, int col) { return null; }
-    };
+    DefaultTableModel incomeCategoriesDataModel;
+    DefaultTableModel expenseCategoriesDataModel;
     CategoriseValuesPanel categoriseValuesPanel;
+    private final int tableWidth = 450;
 
     public ExcelColumnViewPanel() {
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -42,41 +35,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         expenseCategoriesTable = new JTable(expenseCategoriesDataModel);
 
         setCategoryTables();
+        setDescriptionTables();
 
-        incomeCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        TableColumnModel tcmIncomeCategories = incomeCategoriesTable.getColumnModel();
-        tcmIncomeCategories.getColumn(0).setPreferredWidth(150);
-        tcmIncomeCategories.removeColumn(tcmIncomeCategories.getColumn(1));
-        incomeCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
-                int row = incomeCategoriesTable.getSelectedRow();
-                if (row != -1) {
-                    String description = incomeCategoriesTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(incomeCategoriesTable.getModel().getValueAt(row, 1).toString());
-                    categoriseValuesPanel.setValueToCategorise(description);
-                    categoriseValuesPanel.setDescriptionID(id);
-                }
-            }
-        });
-
-        expenseCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        TableColumnModel tcmExpenseCategories = expenseCategoriesTable.getColumnModel();
-        tcmExpenseCategories.getColumn(0).setPreferredWidth(150);
-        tcmExpenseCategories.removeColumn(tcmExpenseCategories.getColumn(1));
-        expenseCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
-                int row = expenseCategoriesTable.getSelectedRow();
-                if (row != -1) {
-                    String description = expenseCategoriesTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(expenseCategoriesTable.getModel().getValueAt(row, 1).toString());
-                    categoriseValuesPanel.setValueToCategorise(description);
-                    categoriseValuesPanel.setDescriptionID(id);
-                }
-            }
-        });
-
-        this.revalidate();
-        this.validate();
 
         tablePanel = new JPanel();
         Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
@@ -170,6 +130,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         JScrollPane scroller = new JScrollPane(tablePanel);
         scroller.getVerticalScrollBar().setUnitIncrement(16);
         this.add(BorderLayout.CENTER, scroller);
+        this.revalidate();
+        this.validate();
 
     }
 
@@ -222,7 +184,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
         try {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
-            excelExpenseColumnTable.setDefaultEditor(Object.class, null);
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -260,15 +221,15 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.categoriseValuesPanel = categoriseValuesPanel;
     }
 
-    public void setCategoryTables() {
-        incomeCategoriesTable.setDefaultEditor(Object.class, null);
-        expenseCategoriesTable.setDefaultEditor(Object.class, null);
+    private void setCategoryTables() {
+        excelIncomeColumnTable.setDefaultEditor(Object.class, null);
+        excelExpenseColumnTable.setDefaultEditor(Object.class, null);
 
         try {
             excelIncomeColumnsDataModel = getExcelColumnsDataModel(excelIncomeColumnsDataModel, true);
             excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
-            tcmIncomeColumn.getColumn(0).setPreferredWidth(150);
+            tcmIncomeColumn.getColumn(0).setPreferredWidth(tableWidth);
             tcmIncomeColumn.removeColumn(tcmIncomeColumn.getColumn(1));
         } catch (Exception e) {
             e.printStackTrace();
@@ -293,7 +254,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
-            tcmExpenseColumn.getColumn(0).setPreferredWidth(150);
+            tcmExpenseColumn.getColumn(0).setPreferredWidth(tableWidth);
             tcmExpenseColumn.removeColumn(tcmExpenseColumn.getColumn(1));
         } catch (Exception e) {
             e.printStackTrace();
@@ -310,6 +271,57 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                     int id = Integer.parseInt(excelExpenseColumnTable.getModel().getValueAt(row, 1).toString());
                     categoriseValuesPanel.setColumnIDText(description);
                     categoriseValuesPanel.setCategoryID(id);
+                }
+            }
+        });
+    }
+
+    private void setDescriptionTables() {
+        incomeCategoriesTable.setDefaultEditor(Object.class, null);
+        expenseCategoriesTable.setDefaultEditor(Object.class, null);
+
+        try {
+            incomeCategoriesDataModel = getCategoriesDataModel(true);
+            incomeCategoriesTable.setModel(incomeCategoriesDataModel);
+            TableColumnModel tcmIncomeCategory = incomeCategoriesTable.getColumnModel();
+            tcmIncomeCategory.getColumn(0).setPreferredWidth(tableWidth);
+            tcmIncomeCategory.removeColumn(tcmIncomeCategory.getColumn(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        incomeCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        incomeCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = incomeCategoriesTable.getSelectedRow();
+                if (row != -1) {
+                    String description = incomeCategoriesTable.getModel().getValueAt(row, 0).toString();
+                    int id = Integer.parseInt(incomeCategoriesTable.getModel().getValueAt(row, 1).toString());
+                    categoriseValuesPanel.setValueToCategorise(description);
+                    categoriseValuesPanel.setDescriptionID(id);
+                }
+            }
+        });
+
+        try {
+            expenseCategoriesDataModel = getCategoriesDataModel(false);
+            expenseCategoriesTable.setModel(expenseCategoriesDataModel);
+            TableColumnModel tcmExpenseCategories = expenseCategoriesTable.getColumnModel();
+            tcmExpenseCategories.getColumn(0).setPreferredWidth(tableWidth);
+            tcmExpenseCategories.removeColumn(tcmExpenseCategories.getColumn(1));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        expenseCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        expenseCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
+            if (e.getValueIsAdjusting()) {
+                int row = expenseCategoriesTable.getSelectedRow();
+                if (row != -1) {
+                    String description = expenseCategoriesTable.getModel().getValueAt(row, 0).toString();
+                    int id = Integer.parseInt(expenseCategoriesTable.getModel().getValueAt(row, 1).toString());
+                    categoriseValuesPanel.setValueToCategorise(description);
+                    categoriseValuesPanel.setDescriptionID(id);
                 }
             }
         });
