@@ -4,7 +4,7 @@ import src.SQLFunctions.AuditIDSQLs;
 
 public class AuditAccountClass {
     static int auditID;
-    static char incomeExpenseChar;
+    static char incomeExpenseChar = 'I';
 
     public static int getAuditID() {
         return auditID;

@@ -27,6 +27,9 @@ public class Main {
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
         auditIDSQLs.createAuditTable();
 
+//        Account Creation Panel
+        CreateAccount createAccount = new CreateAccount();
+
         CreateNewColumns createNewColumns = new CreateNewColumns();
         createNewColumns.createExcelColumnTables();
         createNewColumns.createExcelColumnSelectionTable();
@@ -37,9 +40,8 @@ public class Main {
         mappingTableSQLs.createMappingSelectionTable();
 
         ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
+        createAccount.setExcelColumnViewPanel(excelColumnViewPanel);
 
-//        Account Creation Panel
-        CreateAccount createAccount = new CreateAccount(excelColumnViewPanel);
         mainPanel.add(createAccount);
 
 //        Title Panel
@@ -76,7 +78,7 @@ public class Main {
         excelColumnViewPanel.setCategoriseValuesPanel(categoriseValuesPanel);
         mainPanel.add(categoriseValuesPanel);
 
-        excelColumnViewPanel.refreshAll();
+//        excelColumnViewPanel.refreshAll();
         mainPanel.add(excelColumnViewPanel);
 
 //        Setting the GUI Frame

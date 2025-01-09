@@ -18,8 +18,6 @@ public class IncomeExpenseIndicatorPanel extends JPanel {
 
     public class IncomeExpenseCombobox extends JComboBox {
         public IncomeExpenseCombobox() {
-            AuditAccountClass.incomeExpenseChar = 'I';
-
             this.addItem(new IncomeExpenseCodeDescription('I', "Income"));
             this.addItem(new IncomeExpenseCodeDescription('E', "Expense"));
 //            this.addItem(new IncomeExpenseCodeDescription('B', "Both"));

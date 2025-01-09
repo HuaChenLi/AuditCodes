@@ -9,7 +9,8 @@ public class CategoriseValuesPanel extends JPanel {
     JButton categoriseButton;
     JLabel columnIDLabel, categoryValueLabel, blankLabel;
     JTextField valueToCategorise, columnIDText;
-    int columnID, categoryValueID;
+    int categoryID;
+    int descriptionID;
 
     public CategoriseValuesPanel() {
         this.setLayout(new GridLayout(0,3));
@@ -22,13 +23,11 @@ public class CategoriseValuesPanel extends JPanel {
 
         categoriseButton = new JButton("Assign Description to Category");
         categoriseButton.addActionListener(e1 -> {
-            categoryValueID = Integer.parseInt(valueToCategorise.getText());
             valueToCategorise.setText("");
-            columnID = Integer.parseInt(columnIDText.getText());
             columnIDText.setText("");
 
             CreateNewColumns createNewColumns = new CreateNewColumns();
-            createNewColumns.insertExcelColumnSelection(columnID, categoryValueID);
+            createNewColumns.insertExcelColumnSelection(categoryID, descriptionID);
         });
 
         this.add(categoryValueLabel);
@@ -43,7 +42,15 @@ public class CategoriseValuesPanel extends JPanel {
         columnIDText.setText(s);
     }
 
+    public void setCategoryID(int id) {
+        this.categoryID = id;
+    }
+
     public void setValueToCategorise(String s) {
         valueToCategorise.setText(s);
+    }
+
+    public void setDescriptionID(int id) {
+        this.descriptionID = id;
     }
 }
