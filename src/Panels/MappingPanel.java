@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import java.util.List;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.ResultSet;
@@ -119,14 +120,25 @@ public class MappingPanel extends JPanel implements Model {
 
     public void refreshMappingTable() {
         try {
+            TableRowSorter sorter;
+            List<? extends RowSorter.SortKey> sortKeys;
             ResultSet temp;
+
+            sorter = (TableRowSorter) incomeMappingsTable.getRowSorter();
+            sortKeys = sorter.getSortKeys();
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), true);
             incomeMappingsModel = buildTableModel(temp);
             incomeMappingsTable.setModel(incomeMappingsModel);
+            sorter = (TableRowSorter) incomeMappingsTable.getRowSorter();
+            sorter.setSortKeys(sortKeys);
 
+            sorter = (TableRowSorter) expenseMappingsTable.getRowSorter();
+            sortKeys = sorter.getSortKeys();
             temp = mappingTableSQLs.getMappings(AuditAccountClass.getAuditID(), false);
             expenseMappingsModel = buildTableModel(temp);
             expenseMappingsTable.setModel(expenseMappingsModel);
+            sorter = (TableRowSorter) expenseMappingsTable.getRowSorter();
+            sorter.setSortKeys(sortKeys);
         } catch (Exception e) {
             e.printStackTrace();
         }
