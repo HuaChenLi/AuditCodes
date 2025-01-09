@@ -281,6 +281,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         }
 
         incomeCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        incomeCategoriesTable.setAutoCreateColumnsFromModel(false);
         incomeCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = incomeCategoriesTable.getSelectedRow();
@@ -305,6 +306,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         }
 
         expenseCategoriesTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        expenseCategoriesTable.setAutoCreateColumnsFromModel(false);
         expenseCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = expenseCategoriesTable.getSelectedRow();
