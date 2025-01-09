@@ -158,8 +158,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.validate();
         this.revalidate();
 
-        DefaultTableModel dataModel = buildTableModel(excelColumns);
-        return dataModel;
+        return buildTableModel(excelColumns);
     }
 
     public void refreshExcelColumnsTable() {
