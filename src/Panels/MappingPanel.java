@@ -135,9 +135,8 @@ public class MappingPanel extends JPanel implements Model {
         JLabel expenseMappingLabel = new JLabel("Expense Mappings");
         JButton deleteIncomeMapping = new JButton("Delete Selected Income Mapping");
         JButton deleteExpenseMapping = new JButton("Delete Selected Expense Mapping");
-        JPanel justLabelPanel = new JPanel();
-        JPanel justTablePanel = new JPanel();
-        JPanel justButtonPanel = new JPanel();
+        JPanel incomePanel = new JPanel();
+        JPanel expensePanel = new JPanel();
         JScrollPane incomeScroll;
         JScrollPane expenseScroll;
         GridBagConstraints gbc = new GridBagConstraints();
@@ -145,16 +144,11 @@ public class MappingPanel extends JPanel implements Model {
         public TablePanel() {
             incomeMappingLabel.setBorder(smallBorder);
             expenseMappingLabel.setBorder(smallBorder);
-            justLabelPanel.add(incomeMappingLabel);
-            justLabelPanel.add(expenseMappingLabel);
 
             initMappingPanelTables();
 
             incomeScroll = new JScrollPane(incomeMappingsTable);
             expenseScroll = new JScrollPane(expenseMappingsTable);
-
-            justTablePanel.add(incomeScroll);
-            justTablePanel.add(expenseScroll);
 
             deleteIncomeMapping.addActionListener(e -> {
                 int row = incomeMappingsTable.getSelectedRow();
@@ -167,7 +161,6 @@ public class MappingPanel extends JPanel implements Model {
             });
             gbc.gridx = 0;
             gbc.gridy = 2;
-            justButtonPanel.add(deleteIncomeMapping, gbc);
 
             deleteExpenseMapping.addActionListener(e -> {
                 int row = expenseMappingsTable.getSelectedRow();
@@ -179,18 +172,31 @@ public class MappingPanel extends JPanel implements Model {
                 }
             });
             gbc.gridx = 1;
-            justButtonPanel.add(deleteExpenseMapping, gbc);
 
-            this.setLayout(new GridBagLayout());
+            incomePanel.setLayout(new GridBagLayout());
             gbc.gridx = 0;
             gbc.gridy = 0;
-            this.add(justLabelPanel);
+            incomePanel.add(incomeMappingLabel, gbc);
             gbc.gridx = 0;
             gbc.gridy = 1;
-            this.add(justTablePanel, gbc);
+            incomePanel.add(incomeScroll, gbc);
             gbc.gridx = 0;
             gbc.gridy = 2;
-            this.add(justButtonPanel, gbc);
+            incomePanel.add(deleteIncomeMapping, gbc);
+
+            expensePanel.setLayout(new GridBagLayout());
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            expensePanel.add(expenseMappingLabel, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 1;
+            expensePanel.add(expenseScroll, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 2;
+            expensePanel.add(deleteExpenseMapping, gbc);
+
+            this.add(incomePanel);
+            this.add(expensePanel);
         }
     }
 
