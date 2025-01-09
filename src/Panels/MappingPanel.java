@@ -76,7 +76,6 @@ public class MappingPanel extends JPanel implements Model {
         createMapPanel.add(mappingFrom);
         createMapPanel.add(mappingTo);
         createMapPanel.add(createMapping);
-        createMapPanel.add(tablePanel);
 
         this.add(createMapPanel);
         this.add(tablePanel);
@@ -139,22 +138,24 @@ public class MappingPanel extends JPanel implements Model {
         JLabel expenseMappingLabel = new JLabel("Expense Mappings");
         JButton deleteIncomeMapping = new JButton("Delete Selected Income Mapping");
         JButton deleteExpenseMapping = new JButton("Delete Selected Expense Mapping");
+        JPanel justLabelPanel = new JPanel();
+        JPanel justTablePanel = new JPanel();
+        JPanel justButtonPanel = new JPanel();
+        JScrollPane scrollPane;
         GridBagConstraints gbc = new GridBagConstraints();
         Border smallBorder = BorderFactory.createEmptyBorder(5,5,5,5);
         public TablePanel() {
-            this.setLayout(new GridBagLayout());
-            gbc.gridx = 0;
-            gbc.gridy = 0;
             incomeMappingLabel.setBorder(smallBorder);
-            this.add(incomeMappingLabel, gbc);
-            gbc.gridx = 1;
             expenseMappingLabel.setBorder(smallBorder);
-            this.add(expenseMappingLabel, gbc);
-            gbc.gridx = 0;
-            gbc.gridy = 1;
-            this.add(incomeMappingsTable, gbc);
-            gbc.gridx = 1;
-            this.add(expenseMappingsTable, gbc);
+            justLabelPanel.add(incomeMappingLabel);
+            justLabelPanel.add(expenseMappingLabel);
+
+            scrollPane = new JScrollPane(justTablePanel);
+            scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+            scrollPane.setPreferredSize(new Dimension(1000,500));
+
+            justTablePanel.add(incomeMappingsTable);
+            justTablePanel.add(expenseMappingsTable);
 
             deleteIncomeMapping.addActionListener(e -> {
                 int row = incomeMappingsTable.getSelectedRow();
@@ -167,7 +168,7 @@ public class MappingPanel extends JPanel implements Model {
             });
             gbc.gridx = 0;
             gbc.gridy = 2;
-            this.add(deleteIncomeMapping, gbc);
+            justButtonPanel.add(deleteIncomeMapping, gbc);
 
             deleteExpenseMapping.addActionListener(e -> {
                 int row = expenseMappingsTable.getSelectedRow();
@@ -179,7 +180,18 @@ public class MappingPanel extends JPanel implements Model {
                 }
             });
             gbc.gridx = 1;
-            this.add(deleteExpenseMapping, gbc);
+            justButtonPanel.add(deleteExpenseMapping, gbc);
+
+            this.setLayout(new GridBagLayout());
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            this.add(justLabelPanel);
+            gbc.gridx = 0;
+            gbc.gridy = 1;
+            this.add(scrollPane, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 2;
+            this.add(justButtonPanel, gbc);
         }
     }
 
