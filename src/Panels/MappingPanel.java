@@ -68,10 +68,10 @@ public class MappingPanel extends JPanel implements Model {
                 int row = expenseMappingsTable.getSelectedRow();
                 if (row >= 0) {
                     int modelRow = expenseMappingsTable.convertRowIndexToModel(row);
-                        int column = 2;
-                        String s = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
-                        knownDescriptionPanel.setNewCategory(s);
-                        mappingTo.setText(s);
+                    int column = 2;
+                    String s = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
+                    knownDescriptionPanel.setNewCategory(s);
+                    mappingTo.setText(s);
                 }
             }
         });
