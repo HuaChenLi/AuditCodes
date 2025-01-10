@@ -7,9 +7,11 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 public class ExcelColumnViewPanel extends JPanel implements Model {
     JTable excelIncomeColumnTable;
@@ -184,15 +186,27 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
     public void refreshCategoriesTable() {
         try {
+            TableRowSorter sorter;
+            List<? extends RowSorter.SortKey> sortKeys;
+            sorter = (TableRowSorter) incomeCategoriesTable.getRowSorter();
+            sortKeys = sorter.getSortKeys();
             incomeCategoriesDataModel = getCategoriesDataModel(true);
             incomeCategoriesTable.setModel(incomeCategoriesDataModel);
+            sorter = (TableRowSorter) incomeCategoriesTable.getRowSorter();
+            sorter.setSortKeys(sortKeys);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
+            TableRowSorter sorter;
+            List<? extends RowSorter.SortKey> sortKeys;
+            sorter = (TableRowSorter) expenseCategoriesTable.getRowSorter();
+            sortKeys = sorter.getSortKeys();
             expenseCategoriesDataModel = getCategoriesDataModel(false);
             expenseCategoriesTable.setModel(expenseCategoriesDataModel);
+            sorter = (TableRowSorter) expenseCategoriesTable.getRowSorter();
+            sorter.setSortKeys(sortKeys);
         } catch (Exception e) {
             e.printStackTrace();
         }
