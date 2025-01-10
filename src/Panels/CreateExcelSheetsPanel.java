@@ -138,6 +138,15 @@ public class CreateExcelSheetsPanel extends JPanel {
 
 
     public class FileSelector extends JPanel {
+        DefaultTableModel dummyTable = new DefaultTableModel() {
+            public int getColumnCount() { return 1; }
+            public int getRowCount() { return 1;}
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         DefaultTableModel csvTableModel = new DefaultTableModel() {
             public int getColumnCount() { return 1; }
             @Override
@@ -146,7 +155,7 @@ public class CreateExcelSheetsPanel extends JPanel {
                 return false;
             }
         };
-        JTable csvTable = new JTable(csvTableModel);
+        JTable csvTable = new JTable(dummyTable);
         JButton openButton = new JButton("Select CSV file");
 
         public void createPanel() {
@@ -184,6 +193,7 @@ public class CreateExcelSheetsPanel extends JPanel {
                 }
             });
             csvTable.getColumnModel().getColumn(0).setPreferredWidth(400);
+            csvTable.setAutoCreateColumnsFromModel(false);
 
             this.add(csvTable);
             this.add(openButton);
