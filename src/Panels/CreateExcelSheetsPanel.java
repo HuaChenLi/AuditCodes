@@ -77,32 +77,63 @@ public class CreateExcelSheetsPanel extends JPanel {
 
     public void createIncomeExpenseCSVsFunction(ArrayList<String> files) throws IOException {
         String arg = String.join("/", files);
-        ProcessBuilder pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py",
-                String.valueOf(AuditAccountClass.getAuditID()),
-                String.valueOf(AuditAccountClass.getAccountName()),
-                String.valueOf(financialYearValue),
-                arg);
-        Process process = pb.start();
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        JOptionPane jop = new JOptionPane();
+        jop.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        jop.setMessage("Creating Excel Sheets");
+        JDialog dialog = jop.createDialog(null, "Message");
 
-        String lines = null;
-        while ((lines=reader.readLine())!=null) {
-            System.out.println("lines " + lines);
-        }
+        SwingWorker<Void, Void> swingWorker = new SwingWorker<Void, Void>() {
+            boolean isErrorLinesExists;
+            ProcessBuilder pb;
+            Process process;
+            BufferedReader reader;
+            BufferedReader readers;
 
-        boolean isErrorLineExists = false;
-        while ((lines=readers.readLine())!=null) {
-            System.out.println("Error lines " + lines);
-            isErrorLineExists = true;
-        }
+            @Override
+            protected Void doInBackground() throws Exception {
+                isErrorLinesExists = false;
+                try {
+                    pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py",
+                            String.valueOf(AuditAccountClass.getAuditID()),
+                            String.valueOf(AuditAccountClass.getAccountName()),
+                            String.valueOf(financialYearValue),
+                            arg);
+                    process = pb.start();
+                    reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    String lines = null;
+                    while ((lines = reader.readLine()) != null) {
+                        System.out.println("lines " + lines);
+                    }
 
-        if (isErrorLineExists) {
-            AlertMessage.errorBox("Excel Sheets Not Created", "Finished Process");
-        } else {
-            AlertMessage.infoBox("Excel Sheets Created", "Finished Process");
-        }
+                    isErrorLinesExists = false;
+                    while ((lines = readers.readLine()) != null) {
+                        System.out.println("Error lines " + lines);
+                        isErrorLinesExists = true;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    isErrorLinesExists = true;
+                }
+
+                return null;
+            }
+
+            // this is called when background thread above has completed.
+            protected void done() {
+                dialog.dispose();
+                if (isErrorLinesExists) {
+                    AlertMessage.errorBox("Excel Sheets Not Created", "Finished Process");
+                } else {
+                    AlertMessage.infoBox("Excel Sheets Created", "Finished Process");
+                }
+
+            }
+        };
+
+        swingWorker.execute();
+        dialog.setVisible(true);
     }
 
 
