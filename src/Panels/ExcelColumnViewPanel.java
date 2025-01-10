@@ -69,9 +69,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         JButton deleteIncomeDescriptionButton = new JButton("Delete Selected Known Description");
         deleteIncomeDescriptionButton.addActionListener(e -> {
             int row = incomeCategoriesTable.getSelectedRow();
-            if (row != -1) {
+            if (row >= 0) {
                 int column = 1;
-                String id = incomeCategoriesTable.getModel().getValueAt(row, column).toString();
+                int modelRow = incomeCategoriesTable.convertRowIndexToModel(row);
+                String id = incomeCategoriesTable.getModel().getValueAt(modelRow, column).toString();
                 createNewColumns.deleteDescription(Integer.parseInt(id));
                 refreshAll();
             }
@@ -79,9 +80,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         JButton deleteExpenseDescriptionButton = new JButton("Delete Selected Known Description");
         deleteExpenseDescriptionButton.addActionListener(e -> {
             int row = expenseCategoriesTable.getSelectedRow();
-            if (row != -1) {
+            if (row >= 0) {
                 int column = 1;
-                String id = expenseCategoriesTable.getModel().getValueAt(row, column).toString();
+                int modelRow = expenseCategoriesTable.convertRowIndexToModel(row);
+                String id = expenseCategoriesTable.getModel().getValueAt(modelRow, column).toString();
                 createNewColumns.deleteDescription(Integer.parseInt(id));
                 refreshAll();
             }
@@ -276,6 +278,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             tcmIncomeCategory.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             incomeCategoriesTable.removeColumn(incomeCategoriesTable.getColumn("id"));
             incomeCategoriesTable.getColumn("category_values").setHeaderValue("Income Descriptions");
+            incomeCategoriesTable.setAutoCreateRowSorter(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -285,9 +288,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         incomeCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = incomeCategoriesTable.getSelectedRow();
-                if (row != -1) {
-                    String description = incomeCategoriesTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(incomeCategoriesTable.getModel().getValueAt(row, 1).toString());
+                if (row >= 0) {
+                    int modelRow = incomeCategoriesTable.convertRowIndexToModel(row);
+                    String description = incomeCategoriesTable.getModel().getValueAt(modelRow, 0).toString();
+                    int id = Integer.parseInt(incomeCategoriesTable.getModel().getValueAt(modelRow, 1).toString());
                     categoriseValuesPanel.setValueToCategorise(description);
                     categoriseValuesPanel.setDescriptionID(id);
                 }
@@ -301,6 +305,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             tcmExpenseCategories.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             expenseCategoriesTable.removeColumn(expenseCategoriesTable.getColumn("id"));
             expenseCategoriesTable.getColumn("category_values").setHeaderValue("Expense Descriptions");
+            expenseCategoriesTable.setAutoCreateRowSorter(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -310,9 +315,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         expenseCategoriesTable.getSelectionModel().addListSelectionListener(e -> {
             if (e.getValueIsAdjusting()) {
                 int row = expenseCategoriesTable.getSelectedRow();
-                if (row != -1) {
-                    String description = expenseCategoriesTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(expenseCategoriesTable.getModel().getValueAt(row, 1).toString());
+                if (row >= 0) {
+                    int modelRow = expenseCategoriesTable.convertRowIndexToModel(row);
+                    String description = expenseCategoriesTable.getModel().getValueAt(modelRow, 0).toString();
+                    int id = Integer.parseInt(expenseCategoriesTable.getModel().getValueAt(modelRow, 1).toString());
                     categoriseValuesPanel.setValueToCategorise(description);
                     categoriseValuesPanel.setDescriptionID(id);
                 }
