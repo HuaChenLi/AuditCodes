@@ -56,8 +56,8 @@ public class MappingPanel extends JPanel implements Model {
                 if (row >= 0) {
                     int modelRow = incomeMappingsTable.convertRowIndexToModel(row);
                     int column = 2;
-                    String id = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
-                    knownDescriptionPanel.setNewCategory(id);
+                    String s = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
+                    knownDescriptionPanel.setNewCategory(s);
                 }
             }
         });
@@ -69,8 +69,9 @@ public class MappingPanel extends JPanel implements Model {
                 if (row >= 0) {
                     int modelRow = expenseMappingsTable.convertRowIndexToModel(row);
                         int column = 2;
-                        String id = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
-                        knownDescriptionPanel.setNewCategory(id);
+                        String s = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
+                        knownDescriptionPanel.setNewCategory(s);
+                        mappingTo.setText(s);
                 }
             }
         });
