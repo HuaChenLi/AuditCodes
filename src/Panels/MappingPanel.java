@@ -166,21 +166,24 @@ public class MappingPanel extends JPanel implements Model {
 
             deleteIncomeMapping.addActionListener(e -> {
                 int row = incomeMappingsTable.getSelectedRow();
-                if (row != -1) {
+                if (row >= 0) {
+                    int modelRow = incomeMappingsTable.convertRowIndexToModel(row);
                     int column = 0;
-                    String id = incomeMappingsTable.getModel().getValueAt(row, column).toString();
+                    String id = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
                     mappingTableSQLs.deleteMapping(Integer.parseInt(id));
                     refreshMappingTable();
                 }
+
             });
             gbc.gridx = 0;
             gbc.gridy = 2;
 
             deleteExpenseMapping.addActionListener(e -> {
                 int row = expenseMappingsTable.getSelectedRow();
-                if (row != -1) {
+                if (row >= 0) {
+                    int modelRow = expenseMappingsTable.convertRowIndexToModel(row);
                     int column = 0;
-                    String id = expenseMappingsTable.getModel().getValueAt(row, column).toString();
+                    String id = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
                     mappingTableSQLs.deleteMapping(Integer.parseInt(id));
                     refreshMappingTable();
                 }
