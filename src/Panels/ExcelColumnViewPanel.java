@@ -10,14 +10,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.dnd.DnDConstants;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -256,38 +250,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
         excelIncomeColumnTable.setAutoCreateColumnsFromModel(false);
         excelIncomeColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        excelIncomeColumnTable.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int row = excelIncomeColumnTable.getSelectedRow();
-                if (row != -1) {
-                    String description = excelIncomeColumnTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(excelIncomeColumnTable.getModel().getValueAt(row, 1).toString());
-                    categoriseValuesPanel.setColumnIDText(description);
-                    categoriseValuesPanel.setCategoryID(id);
-                }
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        excelIncomeColumnTable.addMouseListener(new IncomeColumnMouseListener());
 
         try {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
@@ -307,40 +270,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
         excelExpenseColumnTable.setAutoCreateColumnsFromModel(false);
         excelExpenseColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        excelExpenseColumnTable.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                int row = excelExpenseColumnTable.getSelectedRow();
-                if (row != -1) {
-                    String description = excelExpenseColumnTable.getModel().getValueAt(row, 0).toString();
-                    int id = Integer.parseInt(excelExpenseColumnTable.getModel().getValueAt(row, 1).toString());
-                    categoriseValuesPanel.setColumnIDText(description);
-                    categoriseValuesPanel.setCategoryID(id);
-                }
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
+        excelExpenseColumnTable.addMouseListener(new ExpenseColumnMouseListener());
     }
 
     private void initDescriptionTables() {
@@ -400,5 +330,72 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 }
             }
         });
+    }
+
+    private class IncomeColumnMouseListener implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            int row = excelIncomeColumnTable.getSelectedRow();
+            if (row != -1) {
+                String description = excelIncomeColumnTable.getModel().getValueAt(row, 0).toString();
+                int id = Integer.parseInt(excelIncomeColumnTable.getModel().getValueAt(row, 1).toString());
+                categoriseValuesPanel.setColumnIDText(description);
+                categoriseValuesPanel.setCategoryID(id);
+            }
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
+    private class ExpenseColumnMouseListener implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            int row = excelExpenseColumnTable.getSelectedRow();
+            if (row != -1) {
+                String description = excelExpenseColumnTable.getModel().getValueAt(row, 0).toString();
+                int id = Integer.parseInt(excelExpenseColumnTable.getModel().getValueAt(row, 1).toString());
+                categoriseValuesPanel.setColumnIDText(description);
+                categoriseValuesPanel.setCategoryID(id);
+            }
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
     }
 }
