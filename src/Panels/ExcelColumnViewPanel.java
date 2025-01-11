@@ -243,6 +243,10 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
             excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("sheet_order"));
             excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
+
+            excelIncomeColumnTable.setDragEnabled(true);
+            excelIncomeColumnTable.setDropMode(DropMode.INSERT_ROWS);
+            excelIncomeColumnTable.setTransferHandler(new TableReorderer());
         } catch (Exception e) {
             e.printStackTrace();
         }
