@@ -262,7 +262,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelExpenseColumnTable.getColumn("column_name").setHeaderValue("Expense Categories");
             excelExpenseColumnTable.setDragEnabled(true);
             excelExpenseColumnTable.setDropMode(DropMode.INSERT_ROWS);
-            excelExpenseColumnTable.setTransferHandler(new TableReorderer());
+            excelExpenseColumnTable.setTransferHandler(new ExpenseColumnReorderer());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -416,6 +416,24 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             }
             return returnValue;
         }
+    }
 
+    private class ExpenseColumnReorderer extends TableReorderer {
+        @Override
+        public boolean importData(TransferSupport support) {
+            boolean returnValue;
+            returnValue = super.importData(support);
+
+            DefaultTableModel model = (DefaultTableModel) excelExpenseColumnTable.getModel();
+
+            if (returnValue) {
+                for (int i = 0; i < excelExpenseColumnTable.getRowCount(); i++) {
+                    int id = (int) model.getValueAt(i, 1);
+                    int order = (int) model.getValueAt(i, 2);
+                    createNewColumns.updateColumnOrder(id, order);
+                }
+            }
+            return returnValue;
+        }
     }
 }
