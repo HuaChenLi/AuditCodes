@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Interfaces.Model;
+import src.Lib.TableReorderer;
 import src.SQLFunctions.CreateNewColumns;
 
 import javax.swing.*;
@@ -9,6 +10,12 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.dnd.DnDConstants;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -234,6 +241,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
             tcmIncomeColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
+            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("sheet_order"));
             excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
         } catch (Exception e) {
             e.printStackTrace();
@@ -260,6 +268,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
             tcmExpenseColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("id"));
+            excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("sheet_order"));
             excelExpenseColumnTable.getColumn("column_name").setHeaderValue("Expense Categories");
         } catch (Exception e) {
             e.printStackTrace();

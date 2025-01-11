@@ -16,7 +16,8 @@ public class CreateNewColumns extends DatabaseConnection {
                     "column_name STRING NOT NULL, " +
                     "is_default BOOLEAN, " +
                     "gst_included BOOLEAN, " +
-                    "is_income BOOLEAN)";
+                    "is_income BOOLEAN, " +
+                    "sheet_order)";
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -202,7 +203,7 @@ public class CreateNewColumns extends DatabaseConnection {
             DatabaseConnection Connection = new DatabaseConnection();
             java.sql.Connection connection = Connection.getConnection();
             PreparedStatement selectExcelColumns = connection.prepareStatement("""
-                    SELECT column_name, id FROM excel_columns
+                    SELECT column_name, id, sheet_order FROM excel_columns
                     WHERE audit_id = ?
                     AND is_income = ?
                     """);
