@@ -260,4 +260,24 @@ public class CreateNewColumns extends DatabaseConnection {
         }
         return null;
     }
+
+    public int getLastDescriptionID() {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement selectLastDescription = connection.prepareStatement(
+                    "SELECT id FROM excel_category_mapping ORDER BY id DESC LIMIT 1"
+            );
+            ResultSet rs = selectLastDescription.executeQuery();
+
+            int id = -1;
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+            connection.close();
+            return id;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
 }

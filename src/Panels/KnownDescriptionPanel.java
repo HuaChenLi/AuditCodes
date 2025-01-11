@@ -8,33 +8,35 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KnownDescriptionPanel extends JPanel {
-    JTextField newCategory;
-    JButton createCategoryButton;
+    JTextField newDescription;
+    JButton createDescriptionButton;
     ExcelColumnViewPanel excelColumnViewPanel;
+    CategoriseValuesPanel categoriseValuesPanel;
+    CreateNewColumns createNewColumns = new CreateNewColumns();
     public KnownDescriptionPanel(ExcelColumnViewPanel excelColumnViewPanel) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        newCategory = new JTextField();
-        newCategory.addKeyListener(new CreateCategoryKeyListener());
-        createCategoryButton = new JButton("Create Known Description");
-        createCategoryButton.addActionListener(e -> createCategory());
+        newDescription = new JTextField();
+        newDescription.addKeyListener(new CreateCategoryKeyListener());
+        createDescriptionButton = new JButton("Create Known Description");
+        createDescriptionButton.addActionListener(e -> {
+            descriptionButtonActions();
+        });
 
         this.excelColumnViewPanel = excelColumnViewPanel;
 
-        this.add(newCategory);
-        this.add(createCategoryButton);
+        this.add(newDescription);
+        this.add(createDescriptionButton);
 
         this.setLayout(new GridLayout());
     }
 
-    private void createCategory() {
-        String tempCategory = newCategory.getText();
-        if (tempCategory.trim().length() != 0) {
+    private void createDescription(String category) {
+        if (category.trim().length() != 0) {
             CreateNewColumns createNewColumns = new CreateNewColumns();
-            createNewColumns.createCategory(tempCategory, AuditAccountClass.getAuditID(), AuditAccountClass.isIncome());
+            createNewColumns.createCategory(category, AuditAccountClass.getAuditID(), AuditAccountClass.isIncome());
             excelColumnViewPanel.refreshAll();
-            newCategory.setText("");
+            newDescription.setText("");
         }
-
     }
     private class CreateCategoryKeyListener implements KeyListener {
 
@@ -46,7 +48,7 @@ public class KnownDescriptionPanel extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                createCategory();
+                descriptionButtonActions();
             }
 
         }
@@ -58,7 +60,20 @@ public class KnownDescriptionPanel extends JPanel {
     }
 
     public void setNewDescription(String s) {
-        newCategory.setText(s);
+        newDescription.setText(s);
+    }
+
+    private void descriptionButtonActions() {
+        String tempDescription = newDescription.getText();
+        createDescription(tempDescription);
+        categoriseValuesPanel.setValueToCategorise(tempDescription);
+
+        int id = createNewColumns.getLastDescriptionID();
+        categoriseValuesPanel.setDescriptionID(id);
+    }
+
+    public void setCategoriseValuesPanel(CategoriseValuesPanel categoriseValuesPanel) {
+        this.categoriseValuesPanel = categoriseValuesPanel;
     }
 }
 
