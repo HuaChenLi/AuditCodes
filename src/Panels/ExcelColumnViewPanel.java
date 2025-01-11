@@ -274,6 +274,9 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("id"));
             excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("sheet_order"));
             excelExpenseColumnTable.getColumn("column_name").setHeaderValue("Expense Categories");
+            excelExpenseColumnTable.setDragEnabled(true);
+            excelExpenseColumnTable.setDropMode(DropMode.INSERT_ROWS);
+            excelExpenseColumnTable.setTransferHandler(new TableReorderer());
         } catch (Exception e) {
             e.printStackTrace();
         }

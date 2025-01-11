@@ -27,10 +27,7 @@ public class TableReorderer extends TransferHandler {
 
     @Override
     public boolean canImport(TransferHandler.TransferSupport info){
-        if (!info.isDataFlavorSupported(DataFlavor.stringFlavor)){
-            return false;
-        }
-        return true;
+        return info.isDataFlavorSupported(DataFlavor.stringFlavor);
     }
 
     @Override
@@ -109,7 +106,6 @@ public class TableReorderer extends TransferHandler {
         }
         copiedModel.setValueAt(initialString, droppedRow, 0);
         copiedModel.setValueAt(initialColumnID, droppedRow, 1);
-
 
         table.setModel(copiedModel);
 
