@@ -65,7 +65,7 @@ public class TableReorderer extends TransferHandler {
 
         try {
             String tmp = (String) support.getTransferable().getTransferData(DataFlavor.stringFlavor);
-            initialRow =  Integer.valueOf(tmp);
+            initialRow =  Integer.parseInt(tmp);
         } catch (UnsupportedFlavorException | IOException e) {
             return false;
         }

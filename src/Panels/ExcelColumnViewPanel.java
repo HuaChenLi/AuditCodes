@@ -242,7 +242,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
             excelIncomeColumnTable.setDragEnabled(true);
             excelIncomeColumnTable.setDropMode(DropMode.INSERT_ROWS);
-            excelIncomeColumnTable.setTransferHandler(new TableReorderer());
+            excelIncomeColumnTable.setTransferHandler(new IncomeColumnReorderer());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -397,5 +397,25 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         public void mouseExited(MouseEvent e) {
 
         }
+    }
+
+    private class IncomeColumnReorderer extends TableReorderer {
+        @Override
+        public boolean importData(TransferSupport support) {
+            boolean returnValue;
+            returnValue = super.importData(support);
+
+            DefaultTableModel model = (DefaultTableModel) excelIncomeColumnTable.getModel();
+
+            if (returnValue) {
+                for (int i = 0; i < excelIncomeColumnTable.getRowCount(); i++) {
+                    int id = (int) model.getValueAt(i, 1);
+                    int order = (int) model.getValueAt(i, 2);
+                    createNewColumns.updateColumnOrder(id, order);
+                }
+            }
+            return returnValue;
+        }
+
     }
 }

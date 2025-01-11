@@ -206,6 +206,7 @@ public class CreateNewColumns extends DatabaseConnection {
                     SELECT column_name, id, sheet_order FROM excel_columns
                     WHERE audit_id = ?
                     AND is_income = ?
+                    ORDER BY sheet_order
                     """);
             selectExcelColumns.setInt(1, auditID);
             selectExcelColumns.setBoolean(2, isIncome);
@@ -219,6 +220,22 @@ public class CreateNewColumns extends DatabaseConnection {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void updateColumnOrder(int id, int order) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement updateColumnOrder = connection.prepareStatement(
+                    "UPDATE excel_columns " +
+                        "SET sheet_order = ? " +
+                        "WHERE id = ?"
+            );
+            updateColumnOrder.setInt(1, order);
+            updateColumnOrder.setInt(2, id);
+            updateColumnOrder.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public ResultSet getCategories(int accountID, boolean isIncome) {
