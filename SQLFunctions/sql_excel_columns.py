@@ -24,6 +24,7 @@ def select_excel_column(audit_id, is_income):
     query = f"""
     SELECT id, column_name FROM excel_columns
     WHERE audit_id = {audit_id} AND is_income = {is_income}
+    ORDER BY sheet_order
     """
     return pd.DataFrame.from_records(read_query(connection, query),
                                      columns=["id", "column_name"])

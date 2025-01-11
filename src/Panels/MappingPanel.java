@@ -6,12 +6,10 @@ import src.SQLFunctions.MappingTableSQLs;
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.util.List;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 public class MappingPanel extends JPanel implements Model {
     JLabel mappingFromLabel, mappingToLabel, blankLabel;
@@ -37,7 +35,10 @@ public class MappingPanel extends JPanel implements Model {
         createMapping = new JButton("Create Mapping");
         createMapping.addActionListener(e1 -> {
             try{
-                createMappingFunction();
+                String mapFromText = mappingFrom.getText().trim();
+                String mapToText = mappingTo.getText().trim();
+                createMappingFunction(mapFromText, mapToText);
+                knownDescriptionPanel.setNewDescription(mapToText);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -57,7 +58,7 @@ public class MappingPanel extends JPanel implements Model {
                     int modelRow = incomeMappingsTable.convertRowIndexToModel(row);
                     int column = 2;
                     String s = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
-                    knownDescriptionPanel.setNewCategory(s);
+                    knownDescriptionPanel.setNewDescription(s);
                 }
             }
         });
@@ -70,7 +71,7 @@ public class MappingPanel extends JPanel implements Model {
                     int modelRow = expenseMappingsTable.convertRowIndexToModel(row);
                     int column = 2;
                     String s = expenseMappingsTable.getModel().getValueAt(modelRow, column).toString();
-                    knownDescriptionPanel.setNewCategory(s);
+                    knownDescriptionPanel.setNewDescription(s);
                     mappingTo.setText(s);
                 }
             }
@@ -90,10 +91,8 @@ public class MappingPanel extends JPanel implements Model {
 
         refreshMappingTable();
     }
-    public void createMappingFunction() {
+    public void createMappingFunction(String mapFromText, String mapToText) {
         if (AuditAccountClass.isAuditIDEntered() && AuditAccountClass.isIncomeExpenseEntered()) {
-            String mapFromText = mappingFrom.getText().trim();
-            String mapToText = mappingTo.getText().trim();
 
             if (mapFromText.trim().length() == 0) {
                 System.out.println("Map from must have a value");

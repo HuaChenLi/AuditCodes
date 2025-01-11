@@ -66,7 +66,7 @@ for audit_id in auditIDList:
         current_sheet['B1'] = 'Item Details/Description'
         current_sheet['C1'] = sheet_title + ' Categories'
         current_sheet.column_dimensions['A'].width = 10.55
-        current_sheet.column_dimensions['B'].width = 37.09
+        current_sheet.column_dimensions['B'].width = 80
         current_sheet['A1'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
         current_sheet['B1'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
         current_sheet['C1'].alignment = Alignment(horizontal='center', vertical='center', wrap_text=True)
