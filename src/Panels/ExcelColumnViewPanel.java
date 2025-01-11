@@ -15,6 +15,8 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.dnd.DnDConstants;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -254,8 +256,14 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
         excelIncomeColumnTable.setAutoCreateColumnsFromModel(false);
         excelIncomeColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        excelIncomeColumnTable.getSelectionModel().addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
+        excelIncomeColumnTable.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
                 int row = excelIncomeColumnTable.getSelectedRow();
                 if (row != -1) {
                     String description = excelIncomeColumnTable.getModel().getValueAt(row, 0).toString();
@@ -263,6 +271,21 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                     categoriseValuesPanel.setColumnIDText(description);
                     categoriseValuesPanel.setCategoryID(id);
                 }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
 
@@ -284,8 +307,15 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
         excelExpenseColumnTable.setAutoCreateColumnsFromModel(false);
         excelExpenseColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        excelExpenseColumnTable.getSelectionModel().addListSelectionListener(e -> {
-            if (e.getValueIsAdjusting()) {
+        excelExpenseColumnTable.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
                 int row = excelExpenseColumnTable.getSelectedRow();
                 if (row != -1) {
                     String description = excelExpenseColumnTable.getModel().getValueAt(row, 0).toString();
@@ -293,6 +323,22 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                     categoriseValuesPanel.setColumnIDText(description);
                     categoriseValuesPanel.setCategoryID(id);
                 }
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
     }
