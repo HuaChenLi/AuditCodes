@@ -59,6 +59,7 @@ public class MappingPanel extends JPanel implements Model {
                     int column = 2;
                     String s = incomeMappingsTable.getModel().getValueAt(modelRow, column).toString();
                     knownDescriptionPanel.setNewDescription(s);
+                    mappingTo.setText(s);
                 }
             }
         });
