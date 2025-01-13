@@ -1,4 +1,4 @@
-package src.Panels;
+package src.Lib;
 
 import javax.swing.*;
 
