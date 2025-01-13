@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Interfaces.Model;
+import src.Lib.TableCellListener;
 import src.Lib.TableReorderer;
 import src.SQLFunctions.CreateNewColumns;
 
@@ -8,10 +9,13 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.beans.PropertyChangeListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -228,16 +232,14 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     }
 
     private void setCategoryTables() {
-        excelIncomeColumnTable.setDefaultEditor(Object.class, null);
-        excelExpenseColumnTable.setDefaultEditor(Object.class, null);
 
         try {
             excelIncomeColumnsDataModel = getExcelColumnsDataModel(excelIncomeColumnsDataModel, true);
             excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
+            TableCellListener tcl = new TableCellListener(excelIncomeColumnTable, new CategoryCellListener());
+
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
             tcmIncomeColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
-            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
-            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("sheet_order"));
             excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
 
             excelIncomeColumnTable.setDragEnabled(true);
@@ -247,7 +249,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             e.printStackTrace();
         }
 
-        excelIncomeColumnTable.setModel(excelIncomeColumnsDataModel);
         excelIncomeColumnTable.setAutoCreateColumnsFromModel(false);
         excelIncomeColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         excelIncomeColumnTable.addMouseListener(new IncomeColumnMouseListener());
@@ -255,6 +256,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         try {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
+            TableCellListener tcl = new TableCellListener(excelIncomeColumnTable, new CategoryCellListener());
+
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
             tcmExpenseColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
             excelExpenseColumnTable.removeColumn(excelExpenseColumnTable.getColumn("id"));
@@ -267,7 +270,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             e.printStackTrace();
         }
 
-        excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
         excelExpenseColumnTable.setAutoCreateColumnsFromModel(false);
         excelExpenseColumnTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         excelExpenseColumnTable.addMouseListener(new ExpenseColumnMouseListener());
@@ -436,4 +438,48 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             return returnValue;
         }
     }
+
+    private class CategoryCellListener implements Action {
+
+        @Override
+        public Object getValue(String key) {
+            return null;
+        }
+
+        @Override
+        public void putValue(String key, Object value) {
+
+        }
+
+        @Override
+        public void setEnabled(boolean b) {
+
+        }
+
+        @Override
+        public boolean isEnabled() {
+            return false;
+        }
+
+        @Override
+        public void addPropertyChangeListener(PropertyChangeListener listener) {
+
+        }
+
+        @Override
+        public void removePropertyChangeListener(PropertyChangeListener listener) {
+
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            TableCellListener tcl = (TableCellListener) e.getSource();
+            TableModel model = tcl.getTable().getModel();
+            String name = (String) model.getValueAt(tcl.getRow(), 0);
+            name = name.trim();
+            int id = (int) model.getValueAt(tcl.getRow(), 1);
+            createNewColumns.updateColumnName(id, name);
+        }
+    }
+
 }

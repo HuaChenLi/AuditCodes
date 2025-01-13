@@ -82,10 +82,8 @@ public class TableReorderer extends TransferHandler {
             initialRow++;
         }
 
-
-        int offset = 0;
-
 //        logic to handle the shuffling
+        int offset = 0;
         try {
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 if (i == droppedRow) {
