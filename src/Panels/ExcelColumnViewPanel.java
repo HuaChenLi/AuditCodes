@@ -256,7 +256,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         try {
             excelExpenseColumnsDataModel = getExcelColumnsDataModel(excelExpenseColumnsDataModel, false);
             excelExpenseColumnTable.setModel(excelExpenseColumnsDataModel);
-            TableCellListener tcl = new TableCellListener(excelIncomeColumnTable, new CategoryCellListener());
+            TableCellListener tcl = new TableCellListener(excelExpenseColumnTable, new CategoryCellListener());
 
             TableColumnModel tcmExpenseColumn = excelExpenseColumnTable.getColumnModel();
             tcmExpenseColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
