@@ -131,7 +131,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.add(BorderLayout.CENTER, scroller);
         this.revalidate();
         this.validate();
-
     }
 
     public DefaultTableModel getExcelColumnsDataModel(DefaultTableModel dataModel, boolean isIncome) throws SQLException {
@@ -240,6 +239,8 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
             TableColumnModel tcmIncomeColumn = excelIncomeColumnTable.getColumnModel();
             tcmIncomeColumn.getColumn(0).setPreferredWidth(TABLE_WIDTH);
+            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("id"));
+            excelIncomeColumnTable.removeColumn(excelIncomeColumnTable.getColumn("sheet_order"));
             excelIncomeColumnTable.getColumn("column_name").setHeaderValue("Income Categories");
 
             excelIncomeColumnTable.setDragEnabled(true);
