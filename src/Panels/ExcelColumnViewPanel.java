@@ -3,7 +3,7 @@ package src.Panels;
 import src.Interfaces.Model;
 import src.Lib.TableCellListener;
 import src.Lib.TableReorderer;
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -30,7 +30,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     JScrollPane incomeCategoryScroll;
     JScrollPane expenseCategoryScroll;
     JPanel tablePanel;
-    CreateNewColumns createNewColumns = new CreateNewColumns();
+    CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
     DefaultTableModel excelIncomeColumnsDataModel;
     DefaultTableModel excelExpenseColumnsDataModel;
     DefaultTableModel incomeCategoriesDataModel;
@@ -61,7 +61,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             if (row != -1) {
                 int column = 1;
                 String id = excelIncomeColumnTable.getModel().getValueAt(row, column).toString();
-                createNewColumns.deleteCategory(Integer.parseInt(id));
+                categoryColumnSQLs.deleteCategory(Integer.parseInt(id));
                 refreshAll();
             }
         });
@@ -71,7 +71,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             if (row != -1) {
                 int column = 1;
                 String id = excelExpenseColumnTable.getModel().getValueAt(row, column).toString();
-                createNewColumns.deleteCategory(Integer.parseInt(id));
+                categoryColumnSQLs.deleteCategory(Integer.parseInt(id));
                 refreshAll();
             }
         });
@@ -82,7 +82,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 int column = 1;
                 int modelRow = incomeCategoriesTable.convertRowIndexToModel(row);
                 String id = incomeCategoriesTable.getModel().getValueAt(modelRow, column).toString();
-                createNewColumns.deleteDescription(Integer.parseInt(id));
+                categoryColumnSQLs.deleteDescription(Integer.parseInt(id));
                 refreshAll();
             }
         });
@@ -93,7 +93,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 int column = 1;
                 int modelRow = expenseCategoriesTable.convertRowIndexToModel(row);
                 String id = expenseCategoriesTable.getModel().getValueAt(modelRow, column).toString();
-                createNewColumns.deleteDescription(Integer.parseInt(id));
+                categoryColumnSQLs.deleteDescription(Integer.parseInt(id));
                 refreshAll();
             }
         });
@@ -151,9 +151,9 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
         int auditID = AuditAccountClass.getAuditID();
 
-        CreateNewColumns createNewColumns = new CreateNewColumns();
+        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
         ResultSet excelColumns;
-        excelColumns = createNewColumns.getExcelColumns(auditID, isIncome);
+        excelColumns = categoryColumnSQLs.getExcelColumns(auditID, isIncome);
 
         this.validate();
         this.revalidate();
@@ -164,7 +164,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
 
     public DefaultTableModel getCategoriesDataModel(boolean isIncome) throws SQLException {
         ResultSet excelColumns;
-        excelColumns = createNewColumns.getCategories(AuditAccountClass.getAuditID(), isIncome);
+        excelColumns = categoryColumnSQLs.getCategories(AuditAccountClass.getAuditID(), isIncome);
 
         this.validate();
         this.revalidate();
@@ -413,7 +413,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 for (int i = 0; i < excelIncomeColumnTable.getRowCount(); i++) {
                     int id = (int) model.getValueAt(i, 1);
                     int order = (int) model.getValueAt(i, 2);
-                    createNewColumns.updateColumnOrder(id, order);
+                    categoryColumnSQLs.updateColumnOrder(id, order);
                 }
             }
             return returnValue;
@@ -432,7 +432,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
                 for (int i = 0; i < excelExpenseColumnTable.getRowCount(); i++) {
                     int id = (int) model.getValueAt(i, 1);
                     int order = (int) model.getValueAt(i, 2);
-                    createNewColumns.updateColumnOrder(id, order);
+                    categoryColumnSQLs.updateColumnOrder(id, order);
                 }
             }
             return returnValue;
@@ -478,7 +478,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             String name = (String) model.getValueAt(tcl.getRow(), 0);
             name = name.trim();
             int id = (int) model.getValueAt(tcl.getRow(), 1);
-            createNewColumns.updateColumnName(id, name);
+            categoryColumnSQLs.updateColumnName(id, name);
         }
     }
 

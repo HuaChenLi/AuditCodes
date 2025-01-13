@@ -1,6 +1,6 @@
 package src.Panels;
 
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,8 +26,8 @@ public class CategoriseValuesPanel extends JPanel {
             valueToCategorise.setText("");
             columnIDText.setText("");
 
-            CreateNewColumns createNewColumns = new CreateNewColumns();
-            createNewColumns.insertExcelColumnSelection(categoryID, descriptionID);
+            CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+            categoryColumnSQLs.insertExcelColumnSelection(categoryID, descriptionID);
         });
 
         this.add(categoryValueLabel);

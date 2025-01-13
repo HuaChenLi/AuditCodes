@@ -1,6 +1,6 @@
 package src.Panels;
 
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,9 +59,9 @@ public class CreateCategoryPanel extends JPanel {
     }
 
     private void createExcelColumn() {
-        CreateNewColumns createNewColumns = new CreateNewColumns();
+        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
         if (columnNameText.getText().trim().length() >= 1) {
-            createNewColumns.insertColumn(AuditAccountClass.getAuditID(), columnNameText.getText(), gSTIncluded, AuditAccountClass.isIncome(), AuditAccountClass.isExpense());
+            categoryColumnSQLs.insertColumn(AuditAccountClass.getAuditID(), columnNameText.getText(), gSTIncluded, AuditAccountClass.isIncome(), AuditAccountClass.isExpense());
         }
         columnNameText.setText("");
 

@@ -2,7 +2,7 @@ package src;
 
 import src.Panels.*;
 import src.SQLFunctions.AuditIDSQLs;
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
@@ -31,10 +31,10 @@ public class Main {
 //        Account Creation Panel
         CreateAccount createAccount = new CreateAccount();
 
-        CreateNewColumns createNewColumns = new CreateNewColumns();
-        createNewColumns.createExcelColumnTables();
-        createNewColumns.createExcelColumnSelectionTable();
-        createNewColumns.createCategoryMappings();
+        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+        categoryColumnSQLs.createExcelColumnTables();
+        categoryColumnSQLs.createExcelColumnSelectionTable();
+        categoryColumnSQLs.createCategoryMappings();
 
         MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
         mappingTableSQLs.createMappingTable();

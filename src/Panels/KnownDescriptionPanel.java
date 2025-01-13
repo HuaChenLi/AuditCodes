@@ -1,6 +1,6 @@
 package src.Panels;
 
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +12,7 @@ public class KnownDescriptionPanel extends JPanel {
     JButton createDescriptionButton;
     ExcelColumnViewPanel excelColumnViewPanel;
     CategoriseValuesPanel categoriseValuesPanel;
-    CreateNewColumns createNewColumns = new CreateNewColumns();
+    CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
     public KnownDescriptionPanel(ExcelColumnViewPanel excelColumnViewPanel) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         newDescription = new JTextField();
@@ -32,8 +32,8 @@ public class KnownDescriptionPanel extends JPanel {
 
     private void createDescription(String category) {
         if (category.trim().length() != 0) {
-            CreateNewColumns createNewColumns = new CreateNewColumns();
-            createNewColumns.createCategory(category, AuditAccountClass.getAuditID(), AuditAccountClass.isIncome());
+            CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+            categoryColumnSQLs.createCategory(category, AuditAccountClass.getAuditID(), AuditAccountClass.isIncome());
             excelColumnViewPanel.refreshAll();
             newDescription.setText("");
         }
@@ -68,7 +68,7 @@ public class KnownDescriptionPanel extends JPanel {
         createDescription(tempDescription);
         categoriseValuesPanel.setValueToCategorise(tempDescription);
 
-        int id = createNewColumns.getLastDescriptionID();
+        int id = categoryColumnSQLs.getLastDescriptionID();
         categoriseValuesPanel.setDescriptionID(id);
     }
 

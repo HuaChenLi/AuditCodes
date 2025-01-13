@@ -2,7 +2,7 @@ package src.SQLFunctions;
 
 import java.sql.*;
 
-public class CreateNewColumns extends DatabaseConnection {
+public class CategoryColumnSQLs extends DatabaseConnection {
     public void createExcelColumnTables() {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
