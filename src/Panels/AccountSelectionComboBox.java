@@ -7,8 +7,21 @@ import java.util.Vector;
 
 public class AccountSelectionComboBox extends JComboBox {
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
-    public AccountSelectionComboBox(ExcelColumnViewPanel excelColumnViewPanel) {
+    ExcelColumnViewPanel excelColumnViewPanel;
+    public AccountSelectionComboBox() {
         refreshAccountComboBox();
+    }
+
+    public void refreshAccountComboBox() {
+        this.removeAllItems();
+        Vector<AuditAccountID> allAccounts = auditIDSQLs.getAllAccounts();
+        for (AuditAccountID a : allAccounts) {
+            this.addItem(a);
+        }
+    }
+
+    public void setExcelColumnViewPanel(ExcelColumnViewPanel excelColumnViewPanel) {
+        this.excelColumnViewPanel = excelColumnViewPanel;
 
         this.addActionListener(e -> {
             AuditAccountID auditAccountID = (AuditAccountID) this.getSelectedItem();
@@ -20,14 +33,5 @@ public class AccountSelectionComboBox extends JComboBox {
                 excelColumnViewPanel.refreshAll();
             }
         });
-    }
-
-    public void refreshAccountComboBox() {
-        this.removeAllItems();
-        Vector<AuditAccountID> allAccounts = auditIDSQLs.getAllAccounts();
-        for (AuditAccountID a : allAccounts) {
-            this.addItem(a);
-        }
-        AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
     }
 }

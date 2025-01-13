@@ -26,6 +26,7 @@ public class Main {
 //        Load Database
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
         auditIDSQLs.createAuditTable();
+        AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
 
 //        Account Creation Panel
         CreateAccount createAccount = new CreateAccount();
