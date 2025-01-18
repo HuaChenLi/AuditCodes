@@ -4,13 +4,13 @@ import src.SQLFunctions.AuditIDSQLs;
 
 import javax.swing.*;
 
-public class CreateAccount extends JPanel {
+public class CreateAccountPanel extends JPanel {
     JLabel accountNameLabel;
     JTextField accountNameText;
     JButton createAccountButton;
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
     AccountSelectionComboBox accountSelectionComboBox;
-    public CreateAccount() {
+    public CreateAccountPanel() {
         accountSelectionComboBox = new AccountSelectionComboBox();
         accountNameLabel = new JLabel("Account Name");
         accountNameText = new JTextField();

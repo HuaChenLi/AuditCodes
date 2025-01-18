@@ -33,7 +33,7 @@ public class Main {
         AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
 
 //        Account Creation Panel
-        CreateAccount createAccount = new CreateAccount();
+        CreateAccountPanel createAccountPanel = new CreateAccountPanel();
 
         CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
         categoryColumnSQLs.createExcelColumnTables();
@@ -46,7 +46,7 @@ public class Main {
 
         ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
 
-        mainPanel.add(createAccount);
+        mainPanel.add(createAccountPanel);
 
 //        Title Panel
         TitlePanel titlePanel = new TitlePanel();
@@ -67,7 +67,7 @@ public class Main {
 //        Mapping Panel
         MappingPanel mappingPanel = new MappingPanel();
         mainPanel.add(mappingPanel);
-        createAccount.setPanelsToRefresh(excelColumnViewPanel, mappingPanel);
+        createAccountPanel.setPanelsToRefresh(excelColumnViewPanel, mappingPanel);
 
 //        Column Creation Panel
         CreateCategoryPanel columnCreationPanel = new CreateCategoryPanel(excelColumnViewPanel);
