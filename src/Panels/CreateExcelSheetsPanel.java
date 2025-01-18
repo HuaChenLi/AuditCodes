@@ -1,5 +1,7 @@
 package src.Panels;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVRecord;
 import src.Lib.AlertMessage;
 import src.Lib.Logging;
 
@@ -9,10 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 
 import static src.Panels.FinancialYearPanel.financialYearValue;
@@ -21,7 +20,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     JButton createExcelSheets;
     JButton createIncomeExpenseCSVs;
     JPanel createCSVPanel;
-    ArrayList<String> csvFiles = new ArrayList<>();
+    ArrayList<File> csvFiles = new ArrayList<>();
     Logging logging = new Logging("create_sheets.log");
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
@@ -39,9 +38,8 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         createIncomeExpenseCSVs.addActionListener(e1 -> {
             if (csvFiles.size() > 0) {
-                logging.writeLog(csvFiles);
+                logging.writeFilesToLog(csvFiles);
                 try {
-
                     createIncomeExpenseCSVsFunction(csvFiles);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -103,7 +101,7 @@ public class CreateExcelSheetsPanel extends JPanel {
         dialog.setVisible(true);
     }
 
-    public void createIncomeExpenseCSVsFunction(ArrayList<String> files) throws IOException {
+    public void createIncomeExpenseCSVsFunction(ArrayList<File> files) throws IOException {
         JOptionPane jop = new JOptionPane();
         jop.setMessageType(JOptionPane.INFORMATION_MESSAGE);
         jop.setMessage("Creating Income and Expense Sheets");
@@ -120,7 +118,12 @@ public class CreateExcelSheetsPanel extends JPanel {
             protected Void doInBackground() throws Exception {
                 isErrorLinesExists = false;
                 try {
-                    String arg = String.join("/", files);
+                    ArrayList<String> temp = new ArrayList<>();
+                    for (File f: files) {
+                        temp.add(f.getAbsolutePath());
+                    }
+                    String arg = String.join("/", temp);
+
                     pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py",
                             String.valueOf(AuditAccountClass.getAuditID()),
                             String.valueOf(AuditAccountClass.getAccountName()),
@@ -203,8 +206,8 @@ public class CreateExcelSheetsPanel extends JPanel {
                                 File[] files = chooser.getSelectedFiles();
                                 for (File f : files) {
                                     String file = f.getAbsolutePath();
-                                    if (!isDuplicateFile(file)) {
-                                        csvFiles.add(file);
+                                    if (!isDuplicateFile(f)) {
+                                        csvFiles.add(f);
                                         csvTableModel.addRow(new Object[]{file});
                                         csvTable.setModel(csvTableModel);
                                     } else {
@@ -224,9 +227,9 @@ public class CreateExcelSheetsPanel extends JPanel {
             this.add(openButton);
         }
 
-        private boolean isDuplicateFile(String file) {
-            for (String f : csvFiles) {
-                if (file.equals(f)) {
+        private boolean isDuplicateFile(File file) {
+            for (File f : csvFiles) {
+                if (file.getAbsolutePath().equals(f.getAbsolutePath())) {
                     return true;
                 }
             }

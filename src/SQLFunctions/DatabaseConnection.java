@@ -1,15 +1,11 @@
 package src.SQLFunctions;
 
 import javax.swing.table.DefaultTableModel;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.sql.*;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Vector;
 import java.util.concurrent.Executor;
-
 public class DatabaseConnection implements Connection {
     public Connection getConnection() throws ClassNotFoundException {
         Class.forName("org.sqlite.JDBC");

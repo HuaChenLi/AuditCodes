@@ -1,9 +1,6 @@
 package src.Lib;
 
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -49,6 +46,25 @@ public class Logging {
                 Date now = new Date();
                 currentTimeStamp = sdf.format(now);
                 myWriter.write(currentTimeStamp + ": " + s + "\n");
+            }
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
+    public void writeFilesToLog(ArrayList<File> arrayList) {
+        try {
+            this.myWriter = new FileWriter(filename, true);
+            String currentTimeStamp;
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+            for (File s : arrayList) {
+                Date now = new Date();
+                currentTimeStamp = sdf.format(now);
+                myWriter.write(currentTimeStamp + ": " + s.getAbsolutePath() + "\n");
             }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
