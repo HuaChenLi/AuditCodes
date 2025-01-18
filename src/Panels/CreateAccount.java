@@ -9,7 +9,6 @@ public class CreateAccount extends JPanel {
     JTextField accountNameText;
     JButton createAccountButton;
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
-    ExcelColumnViewPanel excelColumnViewPanel;
     AccountSelectionComboBox accountSelectionComboBox;
     public CreateAccount() {
         accountSelectionComboBox = new AccountSelectionComboBox();
@@ -31,9 +30,8 @@ public class CreateAccount extends JPanel {
         this.add(createAccountButton);
     }
 
-    public void setExcelColumnViewPanel(ExcelColumnViewPanel excelColumnViewPanel) {
-        this.excelColumnViewPanel = excelColumnViewPanel;
+    public void setPanelsToRefresh(ExcelColumnViewPanel excelColumnViewPanel, MappingPanel mappingPanel) {
         this.add(accountSelectionComboBox);
-        accountSelectionComboBox.setExcelColumnViewPanel(excelColumnViewPanel);
+        accountSelectionComboBox.setPanelsToRefresh(excelColumnViewPanel, mappingPanel);
     }
 }

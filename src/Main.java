@@ -45,7 +45,6 @@ public class Main {
         mappingTableSQLs.createMappingSelectionTable();
 
         ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
-        createAccount.setExcelColumnViewPanel(excelColumnViewPanel);
 
         mainPanel.add(createAccount);
 
@@ -68,6 +67,7 @@ public class Main {
 //        Mapping Panel
         MappingPanel mappingPanel = new MappingPanel();
         mainPanel.add(mappingPanel);
+        createAccount.setPanelsToRefresh(excelColumnViewPanel, mappingPanel);
 
 //        Column Creation Panel
         CreateCategoryPanel columnCreationPanel = new CreateCategoryPanel(excelColumnViewPanel);
