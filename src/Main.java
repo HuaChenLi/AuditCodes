@@ -1,5 +1,6 @@
 package src;
 
+import src.Lib.Logging;
 import src.Panels.*;
 import src.SQLFunctions.AuditIDSQLs;
 import src.SQLFunctions.CategoryColumnSQLs;
@@ -11,8 +12,11 @@ import java.awt.*;
 public class Main {
     JFrame frame;
     JPanel mainPanel;
+    Logging logging = new Logging("audit_codes.log");
 
     public Main() {
+        logging.writeLog("=================================================");
+        logging.writeLog("starting audit_codes");
 //        Setting the UI to look more like Windows 11
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

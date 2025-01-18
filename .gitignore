@@ -28,3 +28,6 @@ AuditCodes.iml
 .project
 
 *code-workspace
+
+# Log files
+*.log

@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Lib.AlertMessage;
+import src.Lib.Logging;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -21,6 +22,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     JButton createIncomeExpenseCSVs;
     JPanel createCSVPanel;
     ArrayList<String> csvFiles = new ArrayList<>();
+    Logging logging = new Logging("create_sheets.log");
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -37,7 +39,9 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         createIncomeExpenseCSVs.addActionListener(e1 -> {
             if (csvFiles.size() > 0) {
+                logging.writeLog(csvFiles);
                 try {
+
                     createIncomeExpenseCSVsFunction(csvFiles);
                 } catch (Exception e) {
                     e.printStackTrace();
