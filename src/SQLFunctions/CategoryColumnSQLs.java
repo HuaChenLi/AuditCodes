@@ -2,7 +2,7 @@ package src.SQLFunctions;
 
 import java.sql.*;
 
-public class CreateNewColumns extends DatabaseConnection {
+public class CategoryColumnSQLs extends DatabaseConnection {
     public void createExcelColumnTables() {
         try {
             DatabaseConnection Connection = new DatabaseConnection();
@@ -220,6 +220,22 @@ public class CreateNewColumns extends DatabaseConnection {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public void updateColumnName(int id, String name) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement updateColumnName = connection.prepareStatement(
+                    "UPDATE excel_columns " +
+                        "SET column_name = ? " +
+                        "WHERE id = ?"
+            );
+            updateColumnName.setString(1, name);
+            updateColumnName.setInt(2, id);
+            updateColumnName.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateColumnOrder(int id, int order) {

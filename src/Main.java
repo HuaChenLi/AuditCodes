@@ -1,8 +1,9 @@
 package src;
 
+import src.Lib.Logging;
 import src.Panels.*;
 import src.SQLFunctions.AuditIDSQLs;
-import src.SQLFunctions.CreateNewColumns;
+import src.SQLFunctions.CategoryColumnSQLs;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
@@ -11,8 +12,11 @@ import java.awt.*;
 public class Main {
     JFrame frame;
     JPanel mainPanel;
+    Logging logging = new Logging("audit_codes.log");
 
     public Main() {
+        logging.writeLog("=================================================");
+        logging.writeLog("starting audit_codes");
 //        Setting the UI to look more like Windows 11
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -26,21 +30,21 @@ public class Main {
 //        Load Database
         AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
         auditIDSQLs.createAuditTable();
+        AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
 
 //        Account Creation Panel
         CreateAccount createAccount = new CreateAccount();
 
-        CreateNewColumns createNewColumns = new CreateNewColumns();
-        createNewColumns.createExcelColumnTables();
-        createNewColumns.createExcelColumnSelectionTable();
-        createNewColumns.createCategoryMappings();
+        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+        categoryColumnSQLs.createExcelColumnTables();
+        categoryColumnSQLs.createExcelColumnSelectionTable();
+        categoryColumnSQLs.createCategoryMappings();
 
         MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
         mappingTableSQLs.createMappingTable();
         mappingTableSQLs.createMappingSelectionTable();
 
         ExcelColumnViewPanel excelColumnViewPanel = new ExcelColumnViewPanel();
-        createAccount.setExcelColumnViewPanel(excelColumnViewPanel);
 
         mainPanel.add(createAccount);
 
@@ -63,6 +67,7 @@ public class Main {
 //        Mapping Panel
         MappingPanel mappingPanel = new MappingPanel();
         mainPanel.add(mappingPanel);
+        createAccount.setPanelsToRefresh(excelColumnViewPanel, mappingPanel);
 
 //        Column Creation Panel
         CreateCategoryPanel columnCreationPanel = new CreateCategoryPanel(excelColumnViewPanel);

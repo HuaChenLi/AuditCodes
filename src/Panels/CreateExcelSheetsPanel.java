@@ -1,5 +1,8 @@
 package src.Panels;
 
+import src.Lib.AlertMessage;
+import src.Lib.Logging;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -19,6 +22,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     JButton createIncomeExpenseCSVs;
     JPanel createCSVPanel;
     ArrayList<String> csvFiles = new ArrayList<>();
+    Logging logging = new Logging("create_sheets.log");
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -35,7 +39,9 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         createIncomeExpenseCSVs.addActionListener(e1 -> {
             if (csvFiles.size() > 0) {
+                logging.writeLog(csvFiles);
                 try {
+
                     createIncomeExpenseCSVsFunction(csvFiles);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -56,31 +62,51 @@ public class CreateExcelSheetsPanel extends JPanel {
         this.add(createCSVPanel);
     }
 
-
     public void createExcelSheetsFunction(int accountID, String accountName) throws IOException {
-        ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_folder_structure.py", String.valueOf(financialYearValue), String.valueOf(accountID), accountName);
-        Process process = pb.start();
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-        BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-        String lines = null;
-        while ((lines=reader.readLine())!=null) {
-            System.out.println("lines " + lines);
-        }
-
-        while ((lines=readers.readLine())!=null) {
-            System.out.println("Error lines " + lines);
-        }
-    }
-
-
-    public void createIncomeExpenseCSVsFunction(ArrayList<String> files) throws IOException {
-        String arg = String.join("/", files);
-
         JOptionPane jop = new JOptionPane();
         jop.setMessageType(JOptionPane.INFORMATION_MESSAGE);
-        jop.setMessage("Creating Excel Sheets");
+        jop.setMessage("Creating Excel File");
+        JDialog dialog = jop.createDialog(null, "Message");
+
+        SwingWorker<Void, Void> swingWorker = new SwingWorker<Void, Void>() {
+            boolean isErrorLinesExists;
+            @Override
+            protected Void doInBackground() throws Exception {
+                isErrorLinesExists = false;
+                ProcessBuilder pb = new ProcessBuilder("python","Business Audit\\create_folder_structure.py", String.valueOf(financialYearValue), String.valueOf(accountID), accountName);
+                Process process = pb.start();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                String lines = null;
+                while ((lines=reader.readLine())!=null) {
+                    System.out.println("lines " + lines);
+                }
+
+                while ((lines=errorReader.readLine())!=null) {
+                    isErrorLinesExists = true;
+                    System.out.println("Error lines " + lines);
+                }
+
+                return null;
+            }
+            protected void done() {
+                dialog.dispose();
+                if (isErrorLinesExists) {
+                    AlertMessage.errorBox("Excel File Not Created", "Finished Process");
+                } else {
+                    AlertMessage.infoBox("Excel File Created", "Finished Process");
+                }
+            }
+        };
+
+        swingWorker.execute();
+        dialog.setVisible(true);
+    }
+
+    public void createIncomeExpenseCSVsFunction(ArrayList<String> files) throws IOException {
+        JOptionPane jop = new JOptionPane();
+        jop.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        jop.setMessage("Creating Income and Expense Sheets");
         JDialog dialog = jop.createDialog(null, "Message");
 
         SwingWorker<Void, Void> swingWorker = new SwingWorker<Void, Void>() {
@@ -88,12 +114,13 @@ public class CreateExcelSheetsPanel extends JPanel {
             ProcessBuilder pb;
             Process process;
             BufferedReader reader;
-            BufferedReader readers;
+            BufferedReader errorReader;
 
             @Override
             protected Void doInBackground() throws Exception {
                 isErrorLinesExists = false;
                 try {
+                    String arg = String.join("/", files);
                     pb = new ProcessBuilder("python", "Business Audit\\create_income_expense_csv.py",
                             String.valueOf(AuditAccountClass.getAuditID()),
                             String.valueOf(AuditAccountClass.getAccountName()),
@@ -101,14 +128,14 @@ public class CreateExcelSheetsPanel extends JPanel {
                             arg);
                     process = pb.start();
                     reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-                    readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                    errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
                     String lines = null;
                     while ((lines = reader.readLine()) != null) {
                         System.out.println("lines " + lines);
                     }
 
                     isErrorLinesExists = false;
-                    while ((lines = readers.readLine()) != null) {
+                    while ((lines = errorReader.readLine()) != null) {
                         System.out.println("Error lines " + lines);
                         isErrorLinesExists = true;
                     }
@@ -124,18 +151,16 @@ public class CreateExcelSheetsPanel extends JPanel {
             protected void done() {
                 dialog.dispose();
                 if (isErrorLinesExists) {
-                    AlertMessage.errorBox("Excel Sheets Not Created", "Finished Process");
+                    AlertMessage.errorBox("Income and Expense Sheets Not Created", "Finished Process");
                 } else {
-                    AlertMessage.infoBox("Excel Sheets Created", "Finished Process");
+                    AlertMessage.infoBox("Income and Expense Sheets Created", "Finished Process");
                 }
-
             }
         };
 
         swingWorker.execute();
         dialog.setVisible(true);
     }
-
 
     public class FileSelector extends JPanel {
         DefaultTableModel dummyTable = new DefaultTableModel() {

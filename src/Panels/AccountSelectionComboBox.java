@@ -7,19 +7,10 @@ import java.util.Vector;
 
 public class AccountSelectionComboBox extends JComboBox {
     AuditIDSQLs auditIDSQLs = new AuditIDSQLs();
-    public AccountSelectionComboBox(ExcelColumnViewPanel excelColumnViewPanel) {
+    ExcelColumnViewPanel excelColumnViewPanel;
+    MappingPanel mappingPanel;
+    public AccountSelectionComboBox() {
         refreshAccountComboBox();
-
-        this.addActionListener(e -> {
-            AuditAccountID auditAccountID = (AuditAccountID) this.getSelectedItem();
-            if (auditAccountID == null) {
-                AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
-                excelColumnViewPanel.refreshAll();
-            } else {
-                AuditAccountClass.setAuditID(auditAccountID.id);
-                excelColumnViewPanel.refreshAll();
-            }
-        });
     }
 
     public void refreshAccountComboBox() {
@@ -28,6 +19,21 @@ public class AccountSelectionComboBox extends JComboBox {
         for (AuditAccountID a : allAccounts) {
             this.addItem(a);
         }
-        AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
+    }
+
+    public void setPanelsToRefresh(ExcelColumnViewPanel excelColumnViewPanel, MappingPanel mappingPanel) {
+        this.excelColumnViewPanel = excelColumnViewPanel;
+        this.mappingPanel = mappingPanel;
+
+        this.addActionListener(e -> {
+            AuditAccountID auditAccountID = (AuditAccountID) this.getSelectedItem();
+            if (auditAccountID == null) {
+                AuditAccountClass.setAuditID(auditIDSQLs.getStartingAuditNumber());
+            } else {
+                AuditAccountClass.setAuditID(auditAccountID.id);
+            }
+            excelColumnViewPanel.refreshAll();
+            mappingPanel.refreshMappingTable();
+        });
     }
 }
