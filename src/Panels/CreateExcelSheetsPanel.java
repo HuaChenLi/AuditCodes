@@ -1,9 +1,8 @@
 package src.Panels;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVRecord;
 import src.Lib.AlertMessage;
 import src.Lib.Logging;
+import src.Lib.Transaction;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -12,7 +11,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import static src.Panels.FinancialYearPanel.financialYearValue;
 
@@ -22,6 +24,7 @@ public class CreateExcelSheetsPanel extends JPanel {
     JPanel createCSVPanel;
     ArrayList<File> csvFiles = new ArrayList<>();
     Logging logging = new Logging("create_sheets.log");
+    ArrayList<Transaction> transactions = new ArrayList<>();
     public CreateExcelSheetsPanel(int accountID, String accountName) {
         this.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -163,6 +166,31 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         swingWorker.execute();
         dialog.setVisible(true);
+    }
+
+    private void mappingPopup() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH);
+
+        for (File f : csvFiles) {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(f));
+                String line = reader.readLine();
+                while (line != null) {
+                    String[] splitted = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+                    line = reader.readLine();
+
+                    Transaction t = new Transaction();
+                    t.setDate(LocalDate.parse(splitted[0], formatter));
+                    t.setAmount(Double.parseDouble(splitted[1].replace("\"", "")));
+                    t.setDescription(splitted[2].replace("\"", ""));
+
+                    transactions.add(t);
+                }
+                reader.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public class FileSelector extends JPanel {
