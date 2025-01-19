@@ -1,16 +1,18 @@
 package src.Panels;
 
+import src.Lib.AlertMessage;
 import src.Lib.Transaction;
+import src.SQLFunctions.AuditIDSQLs;
+import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
     JPanel innerPanel = new JPanel();
+    MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
     public void addPanels(ArrayList<Transaction> transactions) {
         scrollPane = new JScrollPane(innerPanel);
 
@@ -30,9 +32,23 @@ public class ClassifyDescriptionsPanel extends JPanel {
         JLabel dateLabel = new JLabel(t.getDate().toString());
         JLabel descLabel = new JLabel(t.getDescription());
         JLabel amtLabel = new JLabel(String.valueOf(t.getAmount()));
+        JTextField mapFrom = new JTextField();
         JTextField mapTo = new JTextField();
         JButton createMapping = new JButton("Create Mapping");
         JButton findExistingMapping = new JButton("Find Existing Mapping");
+
+        createMapping.addActionListener(e -> {
+            if (mapTo.getText().trim().length() == 0 || mapFrom.getText().trim().length() == 0) {
+                AlertMessage.errorBox("No Value in Text Field", "Alert");
+            } else {
+                String mapFromValue = mapFrom.getText();
+                String mapToValue = mapTo.getText();
+                char incomeExpenseChar = t.getAmount() >= 0 ? 'I' : 'E';
+                mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
+                mapFrom.setText("");
+                mapTo.setText("");
+            }
+        });
 
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
@@ -63,6 +79,7 @@ public class ClassifyDescriptionsPanel extends JPanel {
         panel.add(p1);
         panel.add(p2);
         panel.add(p3);
+        panel.add(mapFrom);
         panel.add(mapTo);
         panel.add(createMapping);
         panel.add(findExistingMapping);
