@@ -16,12 +16,11 @@ public class ClassifyDescriptionsPanel extends JPanel {
     MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
     Border border = BorderFactory.createLineBorder(Color.decode("#3037ff"));
     public void addPanels(ArrayList<Transaction> transactions) {
-        scrollPane = new JScrollPane(innerPanel);
+        innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
 
+        scrollPane = new JScrollPane(innerPanel);
         scrollPane.setPreferredSize(new Dimension(2000,1000));
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
-
-        innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
         scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
         this.add(BorderLayout.CENTER, scrollPane);
 

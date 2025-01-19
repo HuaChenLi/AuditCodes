@@ -181,6 +181,8 @@ public class CreateExcelSheetsPanel extends JPanel {
     private void mappingPopup() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH);
 
+        transactions.clear();
+
         for (File f : csvFiles) {
             try {
                 BufferedReader reader = new BufferedReader(new FileReader(f));
