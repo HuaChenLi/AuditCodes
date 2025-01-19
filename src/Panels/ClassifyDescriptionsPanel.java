@@ -11,9 +11,6 @@ import java.util.ArrayList;
 public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
     JPanel innerPanel = new JPanel();
-    Border smallBorder = BorderFactory.createEmptyBorder(0,5,0,5);
-    Border blueBorder = BorderFactory.createLineBorder(Color.decode("#27b1ff"));
-    CompoundBorder inner = new CompoundBorder(blueBorder, smallBorder);
     public void addPanels(ArrayList<Transaction> transactions) {
         scrollPane = new JScrollPane(innerPanel);
 
