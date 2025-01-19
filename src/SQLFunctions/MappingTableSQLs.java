@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MappingTableSQLs extends DatabaseConnection {
 
@@ -186,5 +187,39 @@ public class MappingTableSQLs extends DatabaseConnection {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<String> getMapFrom(int accountID, boolean isIncome) {
+        ArrayList<String> mapFromValues = new ArrayList<>();
+        char incomeExpenseChar;
+        if (isIncome) {
+            incomeExpenseChar ='I';
+        } else {
+            incomeExpenseChar = 'E';
+        }
+        try {
+            Connection connection = getConnection();
+            PreparedStatement selectMappings = connection.prepareStatement("""
+                    SELECT id, map_from FROM mapping_table
+                    INNER JOIN mapping_selection ON mapping_table.id = mapping_selection.mapping_table_id
+                    WHERE audit_id = ?
+                    AND (income_expense = ? OR income_expense  = 'B')
+                    """);
+            selectMappings.setInt(1, accountID);
+            selectMappings.setString(2, String.valueOf(incomeExpenseChar));
+
+            ResultSet mappings;
+            mappings = selectMappings.executeQuery();
+
+            while (mappings.next()) {
+                System.out.println(mappings.getString("map_from"));
+                mapFromValues.add(mappings.getString("map_from"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return mapFromValues;
     }
 }

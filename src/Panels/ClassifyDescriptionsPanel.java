@@ -9,6 +9,8 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
@@ -26,8 +28,35 @@ public class ClassifyDescriptionsPanel extends JPanel {
 
         Collections.sort(transactions);
 
+        ArrayList<String> incomeMapFromValues;
+        ArrayList<String> expenseMapFromValues;
+        incomeMapFromValues = mappingTableSQLs.getMapFrom(AuditAccountClass.getAuditID(), true);
+        expenseMapFromValues = mappingTableSQLs.getMapFrom(AuditAccountClass.getAuditID(), false);
+
         for (Transaction t: transactions) {
-            addPanel(t);
+            boolean isMatched = false;
+            if (t.isIncome()){
+                for (String s: incomeMapFromValues) {
+                    Pattern pattern = Pattern.compile(s, Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = pattern.matcher(t.getDescription());
+                    if (matcher.find()) {
+                        isMatched = true;
+                        break;
+                    }
+                }
+            } else {
+                for (String s: expenseMapFromValues) {
+                    Pattern pattern = Pattern.compile(s, Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = pattern.matcher(t.getDescription());
+                    if (matcher.find()) {
+                        isMatched = true;
+                        break;
+                    }
+                }
+            }
+            if (!isMatched) {
+                addPanel(t);
+            }
         }
     }
 
@@ -37,7 +66,6 @@ public class ClassifyDescriptionsPanel extends JPanel {
         Font defaultFont = new JLabel().getFont();
         descLabel.setFont(defaultFont);
 
-        descLabel.setContentType("text/html");
         descLabel.setText(t.getDescription());
         descLabel.setEditable(false);
         descLabel.setBackground(null);
