@@ -52,6 +52,9 @@ public class CreateExcelSheetsPanel extends JPanel {
             }
         });
 
+        JButton mappingPopupButton = new JButton("Mapping Popup");
+        mappingPopupButton.addActionListener(e -> mappingPopup());
+
         FileSelector fileSelector = new FileSelector();
         fileSelector.createPanel();
 
@@ -61,6 +64,7 @@ public class CreateExcelSheetsPanel extends JPanel {
 
         this.add(createExcelSheets);
         this.add(createCSVPanel);
+        this.add(mappingPopupButton);
     }
 
     public void createExcelSheetsFunction(int accountID, String accountName) throws IOException {
@@ -185,12 +189,24 @@ public class CreateExcelSheetsPanel extends JPanel {
                     t.setDescription(splitted[2].replace("\"", ""));
 
                     transactions.add(t);
+
                 }
                 reader.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+
+        ClassifyDescriptionsPanel classifyDescriptionsPanel = new ClassifyDescriptionsPanel();
+        classifyDescriptionsPanel.addPanels(transactions);
+
+        JFrame newFrame;
+        newFrame = new JFrame();
+        newFrame.add(classifyDescriptionsPanel, BorderLayout.CENTER);
+        newFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        newFrame.setTitle("Mapping Organisation");
+        newFrame.pack();
+        newFrame.setVisible(true);
     }
 
     public class FileSelector extends JPanel {
