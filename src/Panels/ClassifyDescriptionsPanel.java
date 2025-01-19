@@ -2,10 +2,10 @@ package src.Panels;
 
 import src.Lib.AlertMessage;
 import src.Lib.Transaction;
-import src.SQLFunctions.AuditIDSQLs;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -13,6 +13,7 @@ public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
     JPanel innerPanel = new JPanel();
     MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
+    Border border = BorderFactory.createLineBorder(Color.decode("#3037ff"));
     public void addPanels(ArrayList<Transaction> transactions) {
         scrollPane = new JScrollPane(innerPanel);
 
@@ -30,7 +31,17 @@ public class ClassifyDescriptionsPanel extends JPanel {
 
     public void addPanel(Transaction t) {
         JLabel dateLabel = new JLabel(t.getDate().toString());
-        JLabel descLabel = new JLabel(t.getDescription());
+        JTextPane descLabel = new JTextPane();
+        Font defaultFont = new JLabel().getFont();
+        descLabel.setFont(defaultFont);
+
+        descLabel.setContentType("text/html");
+        descLabel.setText(t.getDescription());
+        descLabel.setEditable(false);
+        descLabel.setBackground(null);
+        descLabel.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
+        descLabel.setMaximumSize(new Dimension(500, 30));
+
         JLabel amtLabel = new JLabel(String.valueOf(t.getAmount()));
         JTextField mapFrom = new JTextField();
         JTextField mapTo = new JTextField();
@@ -60,8 +71,8 @@ public class ClassifyDescriptionsPanel extends JPanel {
         p1.setLayout(new BoxLayout(p1, BoxLayout.X_AXIS));
         p1.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        p2.setMinimumSize(new Dimension(600,10));
-        p2.setPreferredSize(new Dimension(600,10));
+        p2.setMinimumSize(new Dimension(500,10));
+        p2.setPreferredSize(new Dimension(500,10));
         p2.add(descLabel);
         p2.setLayout(new BoxLayout(p2, BoxLayout.X_AXIS));
         p2.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -75,6 +86,7 @@ public class ClassifyDescriptionsPanel extends JPanel {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
         panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        panel.setBorder(border);
 
         panel.add(p1);
         panel.add(p2);
