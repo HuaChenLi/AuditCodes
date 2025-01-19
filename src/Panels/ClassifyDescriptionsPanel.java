@@ -57,7 +57,7 @@ public class ClassifyDescriptionsPanel extends JPanel {
             } else {
                 String mapFromValue = mapFrom.getText();
                 String mapToValue = mapTo.getText();
-                char incomeExpenseChar = t.getAmount() >= 0 ? 'I' : 'E';
+                char incomeExpenseChar = t.isIncome() ? 'I' : 'E';
                 mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
                 mapFrom.setText("");
                 mapTo.setText("");

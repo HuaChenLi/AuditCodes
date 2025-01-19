@@ -31,6 +31,10 @@ public class Transaction implements Comparable<Transaction>{
         this.description = description;
     }
 
+    public boolean isIncome() {
+        return getAmount() >= 0;
+    }
+
     @Override
     public int compareTo(Transaction t) {
         return getDate().compareTo(t.getDate());
