@@ -53,7 +53,13 @@ public class CreateExcelSheetsPanel extends JPanel {
         });
 
         JButton mappingPopupButton = new JButton("Mapping Popup");
-        mappingPopupButton.addActionListener(e -> mappingPopup());
+        mappingPopupButton.addActionListener(e -> {
+            if (csvFiles.size() > 0) {
+                mappingPopup();
+            } else {
+                AlertMessage.errorBox("No CSVs selected", "Alert");
+            }
+        });
 
         FileSelector fileSelector = new FileSelector();
         fileSelector.createPanel();
