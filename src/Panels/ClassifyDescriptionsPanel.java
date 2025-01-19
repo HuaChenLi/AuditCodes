@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
@@ -23,6 +24,8 @@ public class ClassifyDescriptionsPanel extends JPanel {
         innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
         scrollPane.setAlignmentX(Component.LEFT_ALIGNMENT);
         this.add(BorderLayout.CENTER, scrollPane);
+
+        Collections.sort(transactions);
 
         for (Transaction t: transactions) {
             addPanel(t);

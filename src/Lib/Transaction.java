@@ -2,7 +2,7 @@ package src.Lib;
 
 import java.time.LocalDate;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction>{
     LocalDate date;
     double Amount;
     String description;
@@ -29,5 +29,10 @@ public class Transaction {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public int compareTo(Transaction t) {
+        return getDate().compareTo(t.getDate());
     }
 }
