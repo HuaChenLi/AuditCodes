@@ -16,6 +16,7 @@ public class FindExistingMappingPanel extends JPanel {
         DefaultTableModel knownDescDataModel;
 
         knownDescTable = new JTable();
+        knownDescTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         try {
             knownDescDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), isIncome);
@@ -64,6 +65,13 @@ public class FindExistingMappingPanel extends JPanel {
 
                 Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
                 activeWindow.dispose();
+            }
+
+            if (mouseEvent.getClickCount() == 1 && table.getSelectedRow() != -1 && row != -1) {
+                int modelRow = table.convertRowIndexToModel(row);
+                String id = table.getModel().getValueAt(modelRow, 1).toString();
+                selectedID = Integer.parseInt(id);
+                selectedDescription = table.getModel().getValueAt(modelRow, 0).toString();
             }
         }
 

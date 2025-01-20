@@ -16,6 +16,7 @@ public class FindExistingCategoryPanel extends JPanel {
         DefaultTableModel categoryModel;
 
         categoryTable = new JTable();
+        categoryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         try {
             categoryModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), isIncome);
