@@ -74,6 +74,13 @@ public class FindExistingCategoryPanel extends JPanel {
                 Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
                 activeWindow.dispose();
             }
+
+            if (mouseEvent.getClickCount() == 1 && table.getSelectedRow() != -1 && row != -1) {
+                int modelRow = table.convertRowIndexToModel(row);
+                String id = table.getModel().getValueAt(modelRow, 1).toString();
+                categoryID = Integer.parseInt(id);
+                selectedCategory = table.getModel().getValueAt(modelRow, 0).toString();
+            }
         }
 
         @Override

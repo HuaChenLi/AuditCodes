@@ -218,24 +218,25 @@ public class ClassifyDescriptionsPanel extends JPanel {
                 if (reply == JOptionPane.YES_NO_OPTION) {
                     FindExistingCategoryPanel panel = new FindExistingCategoryPanel(t.isIncome());
                     String title = t.isIncome() ? "Income Categories" : "Expense Categories";
-                    JOptionPane.showOptionDialog(null, panel, title, JOptionPane.CANCEL_OPTION,
-                            JOptionPane.PLAIN_MESSAGE, null, new String[]{"Cancel"},"Cancel");
+                    int selection = JOptionPane.showOptionDialog(null, panel, title, JOptionPane.OK_CANCEL_OPTION,
+                            JOptionPane.PLAIN_MESSAGE, null, new String[]{"OK", "Cancel"},"OK");
 
+                    if ((selection == -1 || selection == 0) && panel.getSelectedCategory() != null) {
 //                    This parts a bit messy and repeats itself
-                    int descriptionID = categoryColumnSQLs.getDescriptionID(mapFromValue, AuditAccountClass.getAuditID(), t.isIncome());
-                    if (descriptionID < 0) {
-                        categoryColumnSQLs.createCategory(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
-                        descriptionID = categoryColumnSQLs.getDescriptionID(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
-                    }
+                        int descriptionID = categoryColumnSQLs.getDescriptionID(mapFromValue, AuditAccountClass.getAuditID(), t.isIncome());
+                        if (descriptionID < 0) {
+                            categoryColumnSQLs.createCategory(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
+                            descriptionID = categoryColumnSQLs.getDescriptionID(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
+                        }
 
-                    if (descriptionID >= 0) {
-                        categoryColumnSQLs.insertExcelColumnSelection(panel.getCategoryID(), descriptionID);
-                    } else {
+                        if (descriptionID >= 0) {
+                            categoryColumnSQLs.insertExcelColumnSelection(panel.getCategoryID(), descriptionID);
+                        } else {
 //                            Shouldn't hit here, but you never know
-                        AlertMessage.errorBox("Could not create categorise description", "Warning");
+                            AlertMessage.errorBox("Could not categorise description", "Warning");
+                        }
                     }
                 }
-
 
                 AlertMessage.infoBox("Mapping Created", "Mapping Information");
             }
