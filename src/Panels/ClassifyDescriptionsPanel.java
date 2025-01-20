@@ -92,7 +92,11 @@ public class ClassifyDescriptionsPanel extends JPanel {
         });
 
         findExistingMapping.addActionListener(e -> {
-            FindExistingMappingFrame frame = new FindExistingMappingFrame(t.isIncome());
+            FindExistingMappingPanel panel = new FindExistingMappingPanel(t.isIncome());
+            String title = t.isIncome() ? "Income Categories" : "Expense Categories";
+            JOptionPane.showOptionDialog(null, panel, title, JOptionPane.CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE, null, new String[]{"Cancel"},"Cancel");
+            mapTo.setText(panel.getSelectedCategory());
         });
 
         JPanel p1 = new JPanel();
