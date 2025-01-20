@@ -134,44 +134,26 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.validate();
     }
 
-    public DefaultTableModel getCategoryDataModel(DefaultTableModel dataModel, boolean isIncome) throws SQLException {
-        // guard clause
-        if (!AuditAccountClass.isAuditIDEntered()) {
-            System.out.println("Please Enter Audit ID");
-            return dataModel;
-        }
-        if (!AuditAccountClass.isIncomeExpenseEntered()) {
-            System.out.println("Please Enter Income or Expense");
-            return dataModel;
-        }
-        if (AuditAccountClass.getIncomeExpenseChar() == 'B') {
-            System.out.println("Please specify Income or Expense Individually");
-            return dataModel;
-        }
-
-        int auditID = AuditAccountClass.getAuditID();
-
-        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+    public DefaultTableModel getCategoryDataModel(int accountID, boolean isIncome) throws SQLException {CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
         ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getExcelColumns(auditID, isIncome);
+        excelColumns = categoryColumnSQLs.getExcelColumns(accountID, isIncome);
 
         this.validate();
         this.revalidate();
 
-        dataModel = buildTableModel(excelColumns);
-        return dataModel;
+        return buildTableModel(excelColumns);
     }
 
     public void refreshExcelColumnsTable() {
         try {
-            incomeCategoryDataModel = getCategoryDataModel(incomeCategoryDataModel, true);
+            incomeCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), true);
             incomeCategoryTable.setModel(incomeCategoryDataModel);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            expenseCategoryDataModel = getCategoryDataModel(expenseCategoryDataModel, false);
+            expenseCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), false);
             expenseCategoryTable.setModel(expenseCategoryDataModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -187,7 +169,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             List<? extends RowSorter.SortKey> sortKeys;
             sorter = (TableRowSorter) incomeDescriptionTable.getRowSorter();
             sortKeys = sorter.getSortKeys();
-            incomeDescriptionDataModel = DescData.getDescriptionDataModel(true);
+            incomeDescriptionDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), true);
             incomeDescriptionTable.setModel(incomeDescriptionDataModel);
             sorter = (TableRowSorter) incomeDescriptionTable.getRowSorter();
             sorter.setSortKeys(sortKeys);
@@ -200,7 +182,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             List<? extends RowSorter.SortKey> sortKeys;
             sorter = (TableRowSorter) expenseDescriptionTable.getRowSorter();
             sortKeys = sorter.getSortKeys();
-            expenseDescriptionDataModel = DescData.getDescriptionDataModel(false);
+            expenseDescriptionDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), false);
             expenseDescriptionTable.setModel(expenseDescriptionDataModel);
             sorter = (TableRowSorter) expenseDescriptionTable.getRowSorter();
             sorter.setSortKeys(sortKeys);
@@ -224,7 +206,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     private void setCategoryTables() {
 
         try {
-            incomeCategoryDataModel = getCategoryDataModel(incomeCategoryDataModel, true);
+            incomeCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), true);
             incomeCategoryTable.setModel(incomeCategoryDataModel);
             TableCellListener tcl = new TableCellListener(incomeCategoryTable, new CategoryCellListener());
 
@@ -246,7 +228,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         incomeCategoryTable.addMouseListener(new IncomeColumnMouseListener());
 
         try {
-            expenseCategoryDataModel = getCategoryDataModel(expenseCategoryDataModel, false);
+            expenseCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), false);
             expenseCategoryTable.setModel(expenseCategoryDataModel);
             TableCellListener tcl = new TableCellListener(expenseCategoryTable, new CategoryCellListener());
 
@@ -272,7 +254,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         expenseDescriptionTable.setDefaultEditor(Object.class, null);
 
         try {
-            incomeDescriptionDataModel = DescData.getDescriptionDataModel(true);
+            incomeDescriptionDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), true);
             incomeDescriptionTable.setModel(incomeDescriptionDataModel);
             TableColumnModel tcmIncomeCategory = incomeDescriptionTable.getColumnModel();
             tcmIncomeCategory.getColumn(0).setPreferredWidth(TABLE_WIDTH);
@@ -299,7 +281,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         });
 
         try {
-            expenseDescriptionDataModel = DescData.getDescriptionDataModel(false);
+            expenseDescriptionDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), false);
             expenseDescriptionTable.setModel(expenseDescriptionDataModel);
             TableColumnModel tcmExpenseCategories = expenseDescriptionTable.getColumnModel();
             tcmExpenseCategories.getColumn(0).setPreferredWidth(TABLE_WIDTH);

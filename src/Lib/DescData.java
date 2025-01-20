@@ -11,9 +11,9 @@ import static src.SQLFunctions.DatabaseConnection.buildTableModel;
 
 public class DescData {
     private static final CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
-    public static DefaultTableModel getDescriptionDataModel(boolean isIncome) throws SQLException {
+    public static DefaultTableModel getDescriptionDataModel(int accountID, boolean isIncome) throws SQLException {
         ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getCategories(AuditAccountClass.getAuditID(), isIncome);
+        excelColumns = categoryColumnSQLs.getCategories(accountID, isIncome);
 
         return buildTableModel(excelColumns);
     }

@@ -18,7 +18,7 @@ public class FindExistingMappingPanel extends JPanel {
         knownDescTable = new JTable();
 
         try {
-            knownDescDataModel = DescData.getDescriptionDataModel(isIncome);
+            knownDescDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), isIncome);
             knownDescTable.setModel(knownDescDataModel);
             knownDescTable.removeColumn(knownDescTable.getColumn("id"));
             String header = isIncome ? "Income Categories" : "Expense Categories";
