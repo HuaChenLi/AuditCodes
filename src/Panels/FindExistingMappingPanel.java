@@ -21,7 +21,7 @@ public class FindExistingMappingPanel extends JPanel {
         try {
             knownDescDataModel = DescData.getDescriptionDataModel(isIncome);
             knownDescTable.setModel(knownDescDataModel);
-//            knownDescTable.removeColumn(knownDescTable.getColumn("id"));
+            knownDescTable.removeColumn(knownDescTable.getColumn("id"));
             String header = isIncome ? "Income Categories" : "Expense Categories";
             knownDescTable.getColumn("category_values").setHeaderValue(header);
             knownDescTable.setAutoCreateRowSorter(true);
