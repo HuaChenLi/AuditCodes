@@ -9,7 +9,7 @@ import java.awt.event.MouseEvent;
 
 public class FindExistingMappingPanel extends JPanel {
     private int selectedID;
-    private String selectedCategory;
+    private String selectedDescription;
     public FindExistingMappingPanel(boolean isIncome) {
         JTable knownDescTable;
         JScrollPane knownDescScroll;
@@ -40,8 +40,8 @@ public class FindExistingMappingPanel extends JPanel {
     public int getSelectedID() {
         return selectedID;
     }
-    public String getSelectedCategory() {
-        return selectedCategory;
+    public String getSelectedDescription() {
+        return selectedDescription;
     }
 
     public class MouseListener implements java.awt.event.MouseListener {
@@ -60,7 +60,7 @@ public class FindExistingMappingPanel extends JPanel {
                 int modelRow = table.convertRowIndexToModel(row);
                 String id = table.getModel().getValueAt(modelRow, 1).toString();
                 selectedID = Integer.parseInt(id);
-                selectedCategory = table.getModel().getValueAt(modelRow, 0).toString();
+                selectedDescription = table.getModel().getValueAt(modelRow, 0).toString();
 
                 Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
                 activeWindow.dispose();

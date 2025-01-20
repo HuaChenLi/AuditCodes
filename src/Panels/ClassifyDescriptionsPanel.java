@@ -102,7 +102,7 @@ public class ClassifyDescriptionsPanel extends JPanel {
             String title = t.isIncome() ? "Income Categories" : "Expense Categories";
             JOptionPane.showOptionDialog(null, panel, title, JOptionPane.CANCEL_OPTION,
                     JOptionPane.PLAIN_MESSAGE, null, new String[]{"Cancel"},"Cancel");
-            mapTo.setText(panel.getSelectedCategory());
+            mapTo.setText(panel.getSelectedDescription());
         });
 
         JPanel p1 = new JPanel();
