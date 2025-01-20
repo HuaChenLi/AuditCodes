@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Interfaces.Model;
+import src.Lib.CategoryModel;
 import src.Lib.DescData;
 import src.Lib.TableCellListener;
 import src.Lib.TableReorderer;
@@ -134,26 +135,16 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         this.validate();
     }
 
-    public DefaultTableModel getCategoryDataModel(int accountID, boolean isIncome) throws SQLException {CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
-        ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getExcelColumns(accountID, isIncome);
-
-        this.validate();
-        this.revalidate();
-
-        return buildTableModel(excelColumns);
-    }
-
     public void refreshExcelColumnsTable() {
         try {
-            incomeCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), true);
+            incomeCategoryDataModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), true);
             incomeCategoryTable.setModel(incomeCategoryDataModel);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         try {
-            expenseCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), false);
+            expenseCategoryDataModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), false);
             expenseCategoryTable.setModel(expenseCategoryDataModel);
         } catch (Exception e) {
             e.printStackTrace();
@@ -206,7 +197,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
     private void setCategoryTables() {
 
         try {
-            incomeCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), true);
+            incomeCategoryDataModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), true);
             incomeCategoryTable.setModel(incomeCategoryDataModel);
             TableCellListener tcl = new TableCellListener(incomeCategoryTable, new CategoryCellListener());
 
@@ -228,7 +219,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         incomeCategoryTable.addMouseListener(new IncomeColumnMouseListener());
 
         try {
-            expenseCategoryDataModel = getCategoryDataModel(AuditAccountClass.getAuditID(), false);
+            expenseCategoryDataModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), false);
             expenseCategoryTable.setModel(expenseCategoryDataModel);
             TableCellListener tcl = new TableCellListener(expenseCategoryTable, new CategoryCellListener());
 

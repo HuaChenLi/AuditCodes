@@ -8,12 +8,13 @@ import java.sql.SQLException;
 
 import static src.SQLFunctions.DatabaseConnection.buildTableModel;
 
-public class DescData {
-    private static final CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
-    public static DefaultTableModel getDescriptionDataModel(int accountID, boolean isIncome) throws SQLException {
+public class CategoryModel {
+    public static DefaultTableModel getCategoryDataModel(int accountID, boolean isIncome) throws SQLException {
+        CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
         ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getCategories(accountID, isIncome);
+        excelColumns = categoryColumnSQLs.getExcelColumns(accountID, isIncome);
 
         return buildTableModel(excelColumns);
     }
+
 }
