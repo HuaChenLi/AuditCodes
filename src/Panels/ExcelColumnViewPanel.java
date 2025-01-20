@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Interfaces.Model;
+import src.Lib.DescData;
 import src.Lib.TableCellListener;
 import src.Lib.TableReorderer;
 import src.SQLFunctions.CategoryColumnSQLs;
@@ -161,16 +162,6 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         return dataModel;
     }
 
-    public DefaultTableModel getDescriptionDataModel(boolean isIncome) throws SQLException {
-        ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getCategories(AuditAccountClass.getAuditID(), isIncome);
-
-        this.validate();
-        this.revalidate();
-
-        return buildTableModel(excelColumns);
-    }
-
     public void refreshExcelColumnsTable() {
         try {
             incomeCategoryDataModel = getCategoryDataModel(incomeCategoryDataModel, true);
@@ -196,7 +187,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             List<? extends RowSorter.SortKey> sortKeys;
             sorter = (TableRowSorter) incomeDescriptionTable.getRowSorter();
             sortKeys = sorter.getSortKeys();
-            incomeDescriptionDataModel = getDescriptionDataModel(true);
+            incomeDescriptionDataModel = DescData.getDescriptionDataModel(true);
             incomeDescriptionTable.setModel(incomeDescriptionDataModel);
             sorter = (TableRowSorter) incomeDescriptionTable.getRowSorter();
             sorter.setSortKeys(sortKeys);
@@ -209,7 +200,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
             List<? extends RowSorter.SortKey> sortKeys;
             sorter = (TableRowSorter) expenseDescriptionTable.getRowSorter();
             sortKeys = sorter.getSortKeys();
-            expenseDescriptionDataModel = getDescriptionDataModel(false);
+            expenseDescriptionDataModel = DescData.getDescriptionDataModel(false);
             expenseDescriptionTable.setModel(expenseDescriptionDataModel);
             sorter = (TableRowSorter) expenseDescriptionTable.getRowSorter();
             sorter.setSortKeys(sortKeys);
@@ -281,7 +272,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         expenseDescriptionTable.setDefaultEditor(Object.class, null);
 
         try {
-            incomeDescriptionDataModel = getDescriptionDataModel(true);
+            incomeDescriptionDataModel = DescData.getDescriptionDataModel(true);
             incomeDescriptionTable.setModel(incomeDescriptionDataModel);
             TableColumnModel tcmIncomeCategory = incomeDescriptionTable.getColumnModel();
             tcmIncomeCategory.getColumn(0).setPreferredWidth(TABLE_WIDTH);
@@ -308,7 +299,7 @@ public class ExcelColumnViewPanel extends JPanel implements Model {
         });
 
         try {
-            expenseDescriptionDataModel = getDescriptionDataModel(false);
+            expenseDescriptionDataModel = DescData.getDescriptionDataModel(false);
             expenseDescriptionTable.setModel(expenseDescriptionDataModel);
             TableColumnModel tcmExpenseCategories = expenseDescriptionTable.getColumnModel();
             tcmExpenseCategories.getColumn(0).setPreferredWidth(TABLE_WIDTH);

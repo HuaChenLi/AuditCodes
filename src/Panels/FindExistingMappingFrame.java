@@ -1,26 +1,21 @@
 package src.Panels;
 
-import src.SQLFunctions.CategoryColumnSQLs;
+import src.Lib.DescData;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import static src.SQLFunctions.DatabaseConnection.buildTableModel;
 
 public class FindExistingMappingFrame extends JFrame {
     JTable knownDescTable;
     JScrollPane knownDescScroll;
     DefaultTableModel knownDescDataModel;
-    CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
 
     public FindExistingMappingFrame(boolean isIncome) {
         knownDescTable = new JTable();
 
         try {
-            knownDescDataModel = getDescriptionDataModel(isIncome);
+            knownDescDataModel = DescData.getDescriptionDataModel(isIncome);
             knownDescTable.setModel(knownDescDataModel);
             knownDescTable.removeColumn(knownDescTable.getColumn("id"));
             String header = isIncome ? "Income Categories" : "Expense Categories";
@@ -39,15 +34,4 @@ public class FindExistingMappingFrame extends JFrame {
         this.pack();
         this.setVisible(true);
     }
-
-    public DefaultTableModel getDescriptionDataModel(boolean isIncome) throws SQLException {
-        ResultSet excelColumns;
-        excelColumns = categoryColumnSQLs.getCategories(AuditAccountClass.getAuditID(), isIncome);
-
-        this.validate();
-        this.revalidate();
-
-        return buildTableModel(excelColumns);
-    }
-
 }
