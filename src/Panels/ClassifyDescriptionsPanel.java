@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Lib.AlertMessage;
+import src.Lib.GhostText;
 import src.Lib.Transaction;
 import src.SQLFunctions.CategoryColumnSQLs;
 import src.SQLFunctions.MappingTableSQLs;
@@ -83,6 +84,9 @@ public class ClassifyDescriptionsPanel extends JPanel {
         JTextField mapTo = new JTextField();
         JButton createMapping = new JButton("Create Mapping");
         JButton findExistingMapping = new JButton("Find Existing Mapping");
+
+        GhostText ghostText0 = new GhostText(mapFrom, "Please Enter Map From Value");
+        GhostText ghostText1 = new GhostText(mapTo, "Please Enter Map To Value");
 
         createMapping.addActionListener(new CreateMappingActionListener(t, mapFrom, mapTo));
 
