@@ -10,7 +10,6 @@ import java.awt.event.MouseEvent;
 public class FindExistingMappingPanel extends JPanel {
     private int selectedID;
     private String selectedCategory;
-
     public FindExistingMappingPanel(boolean isIncome) {
         JTable knownDescTable;
         JScrollPane knownDescScroll;
@@ -26,7 +25,6 @@ public class FindExistingMappingPanel extends JPanel {
             knownDescTable.getColumn("category_values").setHeaderValue(header);
             knownDescTable.setAutoCreateRowSorter(true);
             knownDescTable.getRowSorter().toggleSortOrder(0);
-
             knownDescTable.addMouseListener(new MouseListener());
 
         } catch (Exception e1) {
