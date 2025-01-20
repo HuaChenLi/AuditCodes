@@ -14,10 +14,13 @@ import java.util.regex.Pattern;
 
 public class ClassifyDescriptionsPanel extends JPanel {
     JScrollPane scrollPane;
-    JPanel innerPanel = new JPanel();
+    JPanel innerPanel;
     MappingTableSQLs mappingTableSQLs = new MappingTableSQLs();
     Border border = BorderFactory.createLineBorder(Color.decode("#3037ff"));
+    ArrayList<Transaction> transactions;
     public void addPanels(ArrayList<Transaction> transactions) {
+        this.transactions = transactions;
+        innerPanel = new JPanel();
         innerPanel.setLayout(new BoxLayout(innerPanel, BoxLayout.Y_AXIS));
 
         scrollPane = new JScrollPane(innerPanel);
@@ -88,6 +91,9 @@ public class ClassifyDescriptionsPanel extends JPanel {
                 mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
                 mapFrom.setText("");
                 mapTo.setText("");
+
+                refresh();
+                AlertMessage.infoBox("Mapping Created", "Mapping Information");
             }
         });
 
@@ -136,5 +142,42 @@ public class ClassifyDescriptionsPanel extends JPanel {
 
         innerPanel.add(panel);
         innerPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+    }
+
+    public void refresh() {
+        innerPanel.removeAll();
+        innerPanel.repaint();
+        innerPanel.revalidate();
+
+        ArrayList<String> incomeMapFromValues;
+        ArrayList<String> expenseMapFromValues;
+        incomeMapFromValues = mappingTableSQLs.getMapFrom(AuditAccountClass.getAuditID(), true);
+        expenseMapFromValues = mappingTableSQLs.getMapFrom(AuditAccountClass.getAuditID(), false);
+
+        for (Transaction t: transactions) {
+            boolean isMatched = false;
+            if (t.isIncome()){
+                for (String s: incomeMapFromValues) {
+                    Pattern pattern = Pattern.compile(s, Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = pattern.matcher(t.getDescription());
+                    if (matcher.find()) {
+                        isMatched = true;
+                        break;
+                    }
+                }
+            } else {
+                for (String s: expenseMapFromValues) {
+                    Pattern pattern = Pattern.compile(s, Pattern.CASE_INSENSITIVE);
+                    Matcher matcher = pattern.matcher(t.getDescription());
+                    if (matcher.find()) {
+                        isMatched = true;
+                        break;
+                    }
+                }
+            }
+            if (!isMatched) {
+                addPanel(t);
+            }
+        }
     }
 }
