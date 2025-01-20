@@ -296,4 +296,63 @@ public class CategoryColumnSQLs extends DatabaseConnection {
         }
         return -1;
     }
+
+    public int getDescriptionID(String description, int accountID, boolean isIncome) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement selectDescriptionID = connection.prepareStatement(
+                    "SELECT id FROM excel_category_mapping " +
+                            "WHERE account_id = ? " +
+                            "AND is_income = ?" +
+                            "AND category_values = ? " +
+                            "ORDER BY id DESC LIMIT 1 "
+            );
+            selectDescriptionID.setInt(1, accountID);
+            selectDescriptionID.setBoolean(2, isIncome);
+            selectDescriptionID.setString(3, description);
+
+            ResultSet rs = selectDescriptionID.executeQuery();
+
+            int id = -1;
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+            connection.close();
+            return id;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public boolean isDescriptionAlreadyMapped(String description, int accountID, boolean isIncome) {
+        try {
+            Connection connection = getConnection();
+            PreparedStatement selectDescriptionID = connection.prepareStatement(
+                    "SELECT 1 FROM excel_category_mapping " +
+                            "INNER JOIN excel_column_selection ON excel_category_mapping.id = excel_column_selection.excel_category_mapping_id " +
+                            "INNER JOIN excel_columns ON excel_columns.id = excel_column_selection.excel_column_id " +
+                            "WHERE excel_category_mapping.account_id = ? " +
+                            "AND excel_category_mapping.is_income = ?" +
+                            "AND excel_category_mapping.category_values = ? " +
+                            "LIMIT 1 "
+            );
+            selectDescriptionID.setInt(1, accountID);
+            selectDescriptionID.setBoolean(2, isIncome);
+            selectDescriptionID.setString(3, description);
+
+            ResultSet rs = selectDescriptionID.executeQuery();
+
+            int id = -1;
+            if (rs.next()) {
+                id = rs.getInt(1);
+            }
+            connection.close();
+            return id >= 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+
+    }
 }

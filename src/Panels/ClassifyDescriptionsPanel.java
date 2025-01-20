@@ -2,11 +2,14 @@ package src.Panels;
 
 import src.Lib.AlertMessage;
 import src.Lib.Transaction;
+import src.SQLFunctions.CategoryColumnSQLs;
 import src.SQLFunctions.MappingTableSQLs;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Matcher;
@@ -81,25 +84,11 @@ public class ClassifyDescriptionsPanel extends JPanel {
         JButton createMapping = new JButton("Create Mapping");
         JButton findExistingMapping = new JButton("Find Existing Mapping");
 
-        createMapping.addActionListener(e -> {
-            if (mapTo.getText().trim().length() == 0 || mapFrom.getText().trim().length() == 0) {
-                AlertMessage.errorBox("No Value in Text Field", "Alert");
-            } else {
-                String mapFromValue = mapFrom.getText();
-                String mapToValue = mapTo.getText();
-                char incomeExpenseChar = t.isIncome() ? 'I' : 'E';
-                mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
-                mapFrom.setText("");
-                mapTo.setText("");
-
-                refresh();
-                AlertMessage.infoBox("Mapping Created", "Mapping Information");
-            }
-        });
+        createMapping.addActionListener(new CreateMappingActionListener(t, mapFrom, mapTo));
 
         findExistingMapping.addActionListener(e -> {
             FindExistingMappingPanel panel = new FindExistingMappingPanel(t.isIncome());
-            String title = t.isIncome() ? "Income Categories" : "Expense Categories";
+            String title = t.isIncome() ? "Income Descriptions" : "Expense Descriptions";
             JOptionPane.showOptionDialog(null, panel, title, JOptionPane.CANCEL_OPTION,
                     JOptionPane.PLAIN_MESSAGE, null, new String[]{"Cancel"},"Cancel");
             mapTo.setText(panel.getSelectedDescription());
@@ -177,6 +166,58 @@ public class ClassifyDescriptionsPanel extends JPanel {
             }
             if (!isMatched) {
                 addPanel(t);
+            }
+        }
+    }
+
+    public class CreateMappingActionListener implements ActionListener {
+        Transaction t;
+        JTextField mapFrom;
+        JTextField mapTo;
+        public CreateMappingActionListener(Transaction t, JTextField mapFrom, JTextField mapTo) {
+            this.t = t;
+            this.mapFrom = mapFrom;
+            this.mapTo = mapTo;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (mapTo.getText().trim().length() == 0 || mapFrom.getText().trim().length() == 0) {
+                AlertMessage.errorBox("No Value in Text Field", "Alert");
+            } else {
+                String mapFromValue = mapFrom.getText();
+                String mapToValue = mapTo.getText();
+                char incomeExpenseChar = t.isIncome() ? 'I' : 'E';
+                mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
+                mapFrom.setText("");
+                mapTo.setText("");
+
+                refresh();
+
+                CategoryColumnSQLs categoryColumnSQLs = new CategoryColumnSQLs();
+
+                if (!categoryColumnSQLs.isDescriptionAlreadyMapped(mapToValue, AuditAccountClass.getAuditID(), t.isIncome())) {
+
+                    int reply = JOptionPane.showConfirmDialog(null, "Would you like to categorise Description", null, JOptionPane.YES_NO_OPTION);
+
+                    if (reply == JOptionPane.YES_NO_OPTION) {
+                        FindExistingCategoryPanel panel = new FindExistingCategoryPanel(t.isIncome());
+                        String title = t.isIncome() ? "Income Categories" : "Expense Categories";
+                        JOptionPane.showOptionDialog(null, panel, title, JOptionPane.CANCEL_OPTION,
+                                JOptionPane.PLAIN_MESSAGE, null, new String[]{"Cancel"},"Cancel");
+
+//                    This parts a bit messy and repeats itself
+                        int descriptionID = categoryColumnSQLs.getDescriptionID(mapFromValue, AuditAccountClass.getAuditID(), t.isIncome());
+                        if (descriptionID >= 0) {
+                            categoryColumnSQLs.insertExcelColumnSelection(panel.getCategoryID(), descriptionID);
+                        } else {
+                            categoryColumnSQLs.createCategory(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
+                            descriptionID = categoryColumnSQLs.getDescriptionID(mapToValue, AuditAccountClass.getAuditID(), t.isIncome());
+                            categoryColumnSQLs.insertExcelColumnSelection(panel.getCategoryID(), descriptionID);
+                        }
+                    }
+                }
+                AlertMessage.infoBox("Mapping Created", "Mapping Information");
             }
         }
     }

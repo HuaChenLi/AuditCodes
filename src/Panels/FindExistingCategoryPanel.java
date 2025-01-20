@@ -1,6 +1,6 @@
 package src.Panels;
 
-import src.Lib.DescData;
+import src.Lib.CategoryModel;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -8,36 +8,42 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class FindExistingCategoryPanel extends JPanel {
-    private int selectedID;
+    private int categoryID;
     private String selectedCategory;
     public FindExistingCategoryPanel(boolean isIncome) {
-        JTable knownDescTable;
-        JScrollPane knownDescScroll;
-        DefaultTableModel knownDescDataModel;
+        JTable categoryTable;
+        JScrollPane categoryScroll;
+        DefaultTableModel categoryModel;
 
-        knownDescTable = new JTable();
+        categoryTable = new JTable();
 
         try {
-            knownDescDataModel = DescData.getDescriptionDataModel(AuditAccountClass.getAuditID(), isIncome);
-            knownDescTable.setModel(knownDescDataModel);
-            knownDescTable.removeColumn(knownDescTable.getColumn("id"));
+            categoryModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), isIncome);
+            categoryTable.setModel(categoryModel);
+            categoryTable.removeColumn(categoryTable.getColumn("id"));
+            categoryTable.removeColumn(categoryTable.getColumn("sheet_order"));
             String header = isIncome ? "Income Categories" : "Expense Categories";
-            knownDescTable.getColumn("category_values").setHeaderValue(header);
-            knownDescTable.setAutoCreateRowSorter(true);
-            knownDescTable.getRowSorter().toggleSortOrder(0);
-            knownDescTable.addMouseListener(new MouseListener());
+            categoryTable.getColumn("column_name").setHeaderValue(header);
+            categoryTable.setAutoCreateRowSorter(true);
+            categoryTable.addMouseListener(new MouseListener());
 
         } catch (Exception e1) {
             e1.printStackTrace();
         }
 
-        knownDescScroll = new JScrollPane(knownDescTable);
+        categoryScroll = new JScrollPane(categoryTable);
 
-        this.add(knownDescScroll, BorderLayout.CENTER);
+        this.add(categoryScroll, BorderLayout.CENTER);
         this.setVisible(true);
-
     }
 
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
+    }
     public String getSelectedCategory() {
         return selectedCategory;
     }
@@ -61,7 +67,7 @@ public class FindExistingCategoryPanel extends JPanel {
             if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1 && row != -1) {
                 int modelRow = table.convertRowIndexToModel(row);
                 String id = table.getModel().getValueAt(modelRow, 1).toString();
-                selectedID = Integer.parseInt(id);
+                categoryID = Integer.parseInt(id);
                 selectedCategory = table.getModel().getValueAt(modelRow, 0).toString();
 
                 Window activeWindow = javax.swing.FocusManager.getCurrentManager().getActiveWindow();
