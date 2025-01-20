@@ -212,7 +212,6 @@ public class MappingTableSQLs extends DatabaseConnection {
             mappings = selectMappings.executeQuery();
 
             while (mappings.next()) {
-                System.out.println(mappings.getString("map_from"));
                 mapFromValues.add(mappings.getString("map_from"));
             }
 

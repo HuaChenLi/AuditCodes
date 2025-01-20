@@ -91,6 +91,10 @@ public class ClassifyDescriptionsPanel extends JPanel {
             }
         });
 
+        findExistingMapping.addActionListener(e -> {
+            FindExistingMappingFrame frame = new FindExistingMappingFrame(t.isIncome());
+        });
+
         JPanel p1 = new JPanel();
         JPanel p2 = new JPanel();
         JPanel p3 = new JPanel();
