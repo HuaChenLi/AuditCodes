@@ -65,6 +65,13 @@ public class ClassifyDescriptionsPanel extends JPanel {
                 addPanel(t);
             }
         }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                scrollPane.getViewport().setViewPosition( new Point(0, 0) );
+            }
+        });
     }
 
     public void addPanel(Transaction t) {
@@ -175,6 +182,13 @@ public class ClassifyDescriptionsPanel extends JPanel {
                 addPanel(t);
             }
         }
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                scrollPane.getViewport().setViewPosition( new Point(0, 0) );
+            }
+        });
     }
 
     public class CreateMappingActionListener implements ActionListener {
