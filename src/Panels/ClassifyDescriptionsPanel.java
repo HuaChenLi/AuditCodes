@@ -194,15 +194,15 @@ public class ClassifyDescriptionsPanel extends JPanel {
                 return;
             }
 
-            Pattern pattern = Pattern.compile(mapFrom.getText(), Pattern.CASE_INSENSITIVE);
+            Pattern pattern = Pattern.compile(mapFrom.getText().trim(), Pattern.CASE_INSENSITIVE);
             Matcher matcher = pattern.matcher(t.getDescription());
             if (!matcher.find()) {
                 AlertMessage.errorBox("Raw data doesn't get mapped", "Alert");
                 return;
             }
 
-            String mapFromValue = mapFrom.getText();
-            String mapToValue = mapTo.getText();
+            String mapFromValue = mapFrom.getText().trim();
+            String mapToValue = mapTo.getText().trim();
             char incomeExpenseChar = t.isIncome() ? 'I' : 'E';
             mappingTableSQLs.insertMapping(mapFromValue, mapToValue, AuditAccountClass.getAuditID(), incomeExpenseChar);
             mapFrom.setText("");
