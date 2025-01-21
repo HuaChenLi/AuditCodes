@@ -1,6 +1,7 @@
 package src.Panels;
 
 import src.Lib.CategoryModel;
+import src.Lib.Transaction;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,20 +11,23 @@ import java.awt.event.MouseEvent;
 public class FindExistingCategoryPanel extends JPanel {
     private int categoryID;
     private String selectedCategory;
-    public FindExistingCategoryPanel(boolean isIncome) {
+    public FindExistingCategoryPanel(Transaction t, String mapTo) {
         JTable categoryTable;
         JScrollPane categoryScroll;
         DefaultTableModel categoryModel;
+
+        JLabel dateLabel = new JLabel(t.getDate() + "      ");
+        JLabel mapToLabel = new JLabel(mapTo);
 
         categoryTable = new JTable();
         categoryTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         try {
-            categoryModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), isIncome);
+            categoryModel = CategoryModel.getCategoryDataModel(AuditAccountClass.getAuditID(), t.isIncome());
             categoryTable.setModel(categoryModel);
             categoryTable.removeColumn(categoryTable.getColumn("id"));
             categoryTable.removeColumn(categoryTable.getColumn("sheet_order"));
-            String header = isIncome ? "Income Categories" : "Expense Categories";
+            String header = t.isIncome() ? "Income Categories" : "Expense Categories";
             categoryTable.getColumn("column_name").setHeaderValue(header);
             categoryTable.setAutoCreateRowSorter(true);
             categoryTable.addMouseListener(new MouseListener());
@@ -34,6 +38,12 @@ public class FindExistingCategoryPanel extends JPanel {
 
         categoryScroll = new JScrollPane(categoryTable);
 
+        JPanel transactionPanel = new JPanel();
+        transactionPanel.add(dateLabel);
+        transactionPanel.add(mapToLabel);
+
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.add(transactionPanel);
         this.add(categoryScroll, BorderLayout.CENTER);
         this.setVisible(true);
     }
